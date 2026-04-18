@@ -13,7 +13,10 @@
                 <div class="p-8 flex items-center justify-between bg-gradient-to-r from-emerald-800 to-emerald-600 text-white">
                     <div>
                         <h1 class="text-3xl font-extrabold mb-2">Assalamu'alaikum, {{ Auth::user()->name }}!</h1>
-                        <p class="text-emerald-100 opacity-90">Selamat datang di sistem manajemen konten TV9 Nusantara.</p>
+                        <p class="text-emerald-100 opacity-90 mb-4">Selamat datang di sistem manajemen konten TV9 Nusantara.</p>
+                        <a href="{{ route('profile.edit') }}" class="inline-flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-lg border border-white/20 transition-all">
+                            ⚙️ Pengaturan Profil
+                        </a>
                     </div>
                     <div class="hidden md:block">
                         <div class="w-16 h-16 rounded-full bg-yellow-500/20 flex items-center justify-center border border-yellow-500/30">
