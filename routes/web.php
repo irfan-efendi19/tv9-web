@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Program;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\NewsController;
 
 // Halaman Utama - Digital Minaret
 Route::get('/', function () {
@@ -43,6 +44,9 @@ Route::get('/jadwal', function () {
 
 // Katalog Program (Public)
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
+
+// Berita Terkini (Jurnal9 API)
+Route::get('/berita', [NewsController::class, 'index'])->name('berita.index');
 
 // CRUD Management (Admin Only)
 Route::middleware(['auth'])->group(function () {

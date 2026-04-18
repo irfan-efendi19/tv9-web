@@ -7,27 +7,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0a0a0a; }
-        .hero-gradient { background: linear-gradient(135deg, #006747 0%, #004d35 100%); }
-    </style>
+<link rel="canonical" href="https://tv9.id/live">
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<style>
+    body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background: #0a0a0a;
+    }
+
+    .hero-gradient {
+        background: linear-gradient(135deg, #006747 0%, #004d35 100%);
+    }
+</style>
 </head>
+
 <body class="antialiased text-white min-h-screen">
 
     <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 px-4 sm:px-8" style="background: rgba(0,40,25,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <nav class="fixed top-0 w-full z-50 px-4 sm:px-8"
+        style="background: rgba(0,40,25,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08);">
         <div class="max-w-7xl mx-auto flex justify-between items-center h-16">
             <div class="flex items-center gap-10">
                 <a href="{{ route('beranda') }}" class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg" style="background:#775a19;">9</div>
-                    <span class="text-white font-bold text-xl tracking-tight hidden sm:block">TV9 Nusantara</span>
+                    <div class="flex items-center justify-center">
+                        <img src="{{ asset('img/logotv9.png') }}" alt="Logo TV9 Nusantara" class="h-9 w-auto object-contain">
+                    </div>
+                    <span class="text-white font-bold text-xl tracking-tight hidden sm:block">Nusantara</span>
                 </a>
-                <div class="flex gap-7">
-                    <a href="{{ route('beranda') }}" class="text-sm font-semibold text-white/70 hover:text-white transition-colors">Beranda</a>
-                    <a href="{{ route('live') }}" class="text-sm font-semibold text-yellow-400 border-b-2 border-yellow-400 pb-0.5">Live</a>
-                    <a href="{{ route('jadwal') }}" class="text-sm font-semibold text-white/70 hover:text-white transition-colors">Jadwal</a>
-                    <a href="{{ route('catalog.index') }}" class="text-sm font-semibold text-white/70 hover:text-white transition-colors">Program</a>
+                <div class="flex flex-row items-center gap-7">
+                    <a href="{{ route('beranda') }}"
+                        class="text-sm font-semibold text-white/70 hover:text-white transition-colors">Beranda</a>
+                    <a href="{{ route('live') }}"
+                        class="text-sm font-semibold text-yellow-400 border-b-2 border-yellow-400 pb-0.5">LIVE</a>
+                    <a href="{{ route('jadwal') }}"
+                        class="text-sm font-semibold text-white/70 hover:text-white transition-colors">Jadwal</a>
+                    <a href="{{ route('catalog.index') }}"
+                        class="text-sm font-semibold text-white/70 hover:text-white transition-colors">Program</a>
+                    <a href="{{ route('berita.index') }}"
+                        class="text-sm font-semibold text-white/70 hover:text-white transition-colors">Berita</a>
                 </div>
             </div>
             <div class="opacity-0 hover:opacity-100 transition-opacity">
@@ -41,16 +59,16 @@
     <div class="h-16"></div>
 
     <!-- Player Section -->
-<div class="hero-gradient py-16">
-    <div class="max-w-5xl mx-auto px-4">
-        <div class="text-center mb-8">
-            <span
-                class="inline-flex items-center gap-2 bg-red-600/20 text-red-400 text-sm font-bold px-4 py-1.5 rounded-full border border-red-500/30 mb-4">
-                <span class="animate-ping inline-flex h-2 w-2 rounded-full bg-red-500 opacity-75"></span>
-                LIVE
-            </span>
-            <h1 class="text-3xl md:text-5xl font-extrabold text-white">TV9 Nusantara Live</h1>
-            <p class="text-emerald-100 mt-3">Siaran langsung TV9 Nusantara</p>
+    <div class="hero-gradient py-16">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <span
+                    class="inline-flex items-center gap-2 bg-red-600/20 text-red-400 text-sm font-bold px-4 py-1.5 rounded-full border border-red-500/30 mb-4">
+                    <span class="animate-ping inline-flex h-2 w-2 rounded-full bg-red-500 opacity-75"></span>
+                    LIVE
+                </span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white">TV9 Nusantara LIVE</h1>
+                <p class="text-emerald-100 mt-3">Siaran Langsung 24 Jam Non Stop</p>
         </div>
 
         <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video group">

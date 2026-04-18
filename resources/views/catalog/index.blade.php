@@ -6,6 +6,8 @@
     <title>Katalog Program – TV9 Nusantara</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://tv9.id/catalog">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0f172a; color: white; }
@@ -21,21 +23,25 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center h-16">
             <div class="flex items-center gap-10">
                 <a href="{{ route('beranda') }}" class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg" style="background:#775a19;">9</div>
-                    <span class="text-white font-bold text-xl tracking-tight hidden sm:block">TV9 Nusantara</span>
+                                                <div class="flex items-center justify-center">
+                                                    <img src="{{ asset('img/logotv9.png') }}" alt="Logo TV9 Nusantara" class="h-9 w-auto object-contain">
+                                                </div>
+                                                <span class="text-white font-bold text-xl tracking-tight hidden sm:block">Nusantara</span>
                 </a>
                 <div class="flex gap-7">
                     <a href="{{ route('beranda') }}" class="text-sm font-semibold text-white/70 hover:text-white transition-colors">Beranda</a>
                     <a href="{{ route('live') }}" class="text-sm font-semibold text-white/70 hover:text-white transition-colors">Live</a>
                     <a href="{{ route('jadwal') }}" class="text-sm font-semibold text-white/70 hover:text-white transition-colors">Jadwal</a>
                     <a href="{{ route('catalog.index') }}" class="text-sm font-semibold text-yellow-400 border-b-2 border-yellow-400 pb-0.5">Program</a>
+                    <a href="{{ route('berita.index') }}"
+                        class="text-sm font-semibold text-white/70 hover:text-white transition-colors">Berita</a>
                 </div>
             </div>
-            <div class="opacity-0 hover:opacity-100 transition-opacity">
+            <!-- <div class="opacity-0 hover:opacity-100 transition-opacity">
                 @auth
                     <a href="{{ url('/dashboard') }}" class="text-[10px] text-white/20">Dashboard</a>
                 @endauth
-            </div>
+            </div> -->
         </div>
     </nav>
     <div class="h-16"></div>
