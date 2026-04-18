@@ -3,7 +3,7 @@
 Selamat datang di dokumentasi API TV9 Nusantara. API ini menyediakan akses publik ke data Katalog Program dan Jadwal Siaran untuk integrasi aplikasi pihak ketiga.
 
 ## Base URL
-`http://localhost:8000/api`
+`http://{URL_SERVER}/api`
 
 ---
 
