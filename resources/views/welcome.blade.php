@@ -75,17 +75,49 @@ melalui pengalaman siaran Islami modern." />
                             </a>
                             
                             <!-- Menu items -->
-                            <div class="flex flex-row items-center gap-7">
-                            <a href="{{ route('beranda') }}"
-                                class="text-sm font-semibold text-yellow-400 border-b-2 border-yellow-400 pb-0.5">Beranda</a>
-                            <a href="{{ route('live') }}" class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors">LIVE</a>
-                            <a href="{{ route('jadwal') }}"
-                                class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors">Jadwal</a>
-                            <a href="{{ route('catalog.index') }}"
-                                class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors">Program</a>
-                            <a href="{{ route('berita.index') }}"
-                                class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors">Berita</a>
-                    </div>
+<div class="relative flex items-center justify-between" x-data="{ open: false }">
+    <!-- Mobile Menu Button -->
+    <button @click="open = !open" class="md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex md:flex-row md:items-center md:gap-7 md:relative">
+        <a href="{{ route('beranda') }}"
+            class="text-sm font-semibold text-yellow-400 border-b-2 border-yellow-400 pb-0.5 whitespace-nowrap">Beranda</a>
+        <a href="{{ route('live') }}"
+            class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">LIVE</a>
+        <a href="{{ route('jadwal') }}"
+            class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Jadwal</a>
+        <a href="{{ route('catalog.index') }}"
+            class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Program</a>
+        <a href="{{ route('berita.index') }}"
+            class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Berita</a>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div x-show="open" @click.away="open = false" x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 -translate-y-2"
+        class="absolute top-full left-0 mt-2 bg-gray-900 rounded-lg shadow-xl md:hidden z-50">
+        <div class="flex flex-col p-4 space-y-3">
+            <a href="{{ route('beranda') }}"
+               class="text-sm font-semibold text-yellow-400 border-l-2 border-yellow-400 pl-3 py-1">Beranda</a>
+            <a href="{{ route('live') }}" 
+               class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">LIVE</a>
+            <a href="{{ route('jadwal') }}" 
+               class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Jadwal</a>
+            <a href="{{ route('catalog.index') }}" 
+               class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Program</a>
+            <a href="{{ route('berita.index') }}" 
+               class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Berita</a>
+        </div>
+    </div>
+    </div>
+
                 </div>
 
                 <!-- Auth Access -->
