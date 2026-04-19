@@ -138,8 +138,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @forelse($schedules ?? [] as $program)
                 @php
-                    $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-                    $isLive = ($program->start_time <= $currentTime && $program->end_time >= $currentTime);
+    $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+    $isLive = ($program->start_time <= $currentTime && $program->end_time >= $currentTime);
                 @endphp
                 <div
                     class="bg-white rounded-2xl p-6 shadow-sm border {{ $isLive ? 'border-red-500 shadow-md ring-1 ring-red-500/50' : 'border-gray-100 hover:shadow-xl' }} transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden">
@@ -176,6 +176,14 @@
         </div>
     </div>
 </div>
+
+        <footer class="bg-white border-t border-gray-100 py-10">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; {{ date('Y') }} TV9 NUSANTARA - All Rights Reserved
+                </p>
+            </div>
+        </footer>
 
 <style>
     /* Sembunyikan durasi (timestamp) pada live streaming */

@@ -11,6 +11,24 @@
                 <div class="p-8">
                     <form action="{{ route('program.update', $program) }}" method="POST">
                         @csrf @method('PATCH')
+
+                        <!-- Error Display -->
+                        @if ($errors->any())
+                            <div class="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-r-xl">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-red-500 text-xl">⚠️</span>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-red-800">Gagal Memperbarui</h4>
+                                        <ul class="text-xs text-red-700 mt-1 list-disc list-inside">
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
                         <div class="space-y-6">
                             <div>
                                 <label class="block text-sm font-bold text-slate-700 mb-2">Nama Program</label>

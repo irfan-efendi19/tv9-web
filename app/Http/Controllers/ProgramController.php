@@ -25,6 +25,16 @@ class ProgramController extends Controller
             'day_of_week' => 'required|integer|between:1,7',
         ]);
 
+        // Check for overlaps
+        $overlap = Program::where('day_of_week', $request->day_of_week)
+            ->where('start_time', '<', $request->end_time)
+            ->where('end_time', '>', $request->start_time)
+            ->exists();
+
+        if ($overlap) {
+            return back()->withErrors(['overlap' => 'Waktu ini sudah terisi oleh program lain pada hari yang sama.'])->withInput();
+        }
+
         Program::create($validated);
         return redirect()->route('dashboard')->with('success', 'Jadwal berhasil ditambahkan.');
     }
@@ -46,6 +56,17 @@ class ProgramController extends Controller
             'end_time' => 'required',
             'day_of_week' => 'required|integer|between:1,7',
         ]);
+
+        // Check for overlaps, excluding current program
+        $overlap = Program::where('day_of_week', $request->day_of_week)
+            ->where('id', '!=', $program->id)
+            ->where('start_time', '<', $request->end_time)
+            ->where('end_time', '>', $request->start_time)
+            ->exists();
+
+        if ($overlap) {
+            return back()->withErrors(['overlap' => 'Waktu ini sudah terisi oleh program lain pada hari yang sama.'])->withInput();
+        }
 
         $program->update($validated);
         return redirect()->route('dashboard')->with('success', 'Jadwal berhasil diperbarui.');

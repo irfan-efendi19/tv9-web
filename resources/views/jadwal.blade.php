@@ -150,5 +150,12 @@
             @endforelse
         </div>
     </div>
+            <footer class="bg-white border-t border-gray-100 py-10 mt-10">
+                <div class="max-w-7xl mx-auto px-4 text-center">
+                    <p class="text-gray-400 text-sm">
+                        &copy; {{ date('Y') }} TV9 NUSANTARA - All Rights Reserved
+                    </p>
+                </div>
+            </footer>
 </body>
 </html>
