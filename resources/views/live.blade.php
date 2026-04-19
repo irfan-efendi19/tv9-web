@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 <link rel="canonical" href="https://tv9.id/live">
+<link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 <style>

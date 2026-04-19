@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="canonical" href="https://tv9.id/jadwal">
+<link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <style>
