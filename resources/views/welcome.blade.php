@@ -63,60 +63,64 @@ melalui pengalaman siaran Islami modern." />
         <body class="antialiased text-gray-800">
             <!-- Navigation -->
             <nav class="fixed top-0 w-full z-50 px-4 sm:px-8"
-                style="background: rgba(0,40,25,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08);">
-                <div class="max-w-7xl mx-auto flex justify-between items-center h-16">
-                    <!-- Logo -->
-                    <div class="flex flex-row items-center gap-10">
-                        <a href="{{ route('beranda') }}" class="flex items-center gap-3 no-underline">
-                            <div class="flex items-center justify-center">
-                                <img src="{{ asset('img/logotv9.png') }}" alt="Logo TV9 Nusantara" class="h-9 w-auto object-contain">
-                            </div>
-                            <span class="text-white font-bold text-xl tracking-tight hidden sm:block">Nusantara</span>
-                            </a>
-                            
-                            <!-- Menu items -->
-<div class="relative flex items-center justify-between" x-data="{ open: false }">
-    <!-- Mobile Menu Button -->
-    <button @click="open = !open" class="md:hidden text-white focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-    </button>
-
-    <!-- Desktop Menu -->
-    <div class="hidden md:flex md:flex-row md:items-center md:gap-7 md:relative">
-        <a href="{{ route('beranda') }}"
-            class="text-sm font-semibold text-yellow-400 border-b-2 border-yellow-400 pb-0.5 whitespace-nowrap">Beranda</a>
-        <a href="{{ route('live') }}"
-            class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">LIVE</a>
-        <a href="{{ route('jadwal') }}"
-            class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Jadwal</a>
-        <a href="{{ route('catalog.index') }}"
-            class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Program</a>
-        <a href="{{ route('berita.index') }}"
-            class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Berita</a>
-    </div>
-
-    <!-- Mobile Menu Dropdown -->
-    <div x-show="open" @click.away="open = false" x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
-        x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
-        x-transition:leave-end="opacity-0 -translate-y-2"
-        class="absolute top-full left-0 mt-2 bg-gray-900 rounded-lg shadow-xl md:hidden z-50">
-        <div class="flex flex-col p-4 space-y-3">
-            <a href="{{ route('beranda') }}"
-               class="text-sm font-semibold text-yellow-400 border-l-2 border-yellow-400 pl-3 py-1">Beranda</a>
-            <a href="{{ route('live') }}" 
-               class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">LIVE</a>
-            <a href="{{ route('jadwal') }}" 
-               class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Jadwal</a>
-            <a href="{{ route('catalog.index') }}" 
-               class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Program</a>
-            <a href="{{ route('berita.index') }}" 
-               class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Berita</a>
+     style="background: rgba(0,40,25,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <div class="max-w-7xl mx-auto flex justify-between items-center h-16">
+        <!-- Logo Kiri -->
+        <div class="flex flex-row items-center gap-10">
+            <a href="{{ route('beranda') }}" class="flex items-center gap-3 no-underline">
+                <div class="flex items-center justify-center">
+                    <img src="{{ asset('img/logotv9.png') }}" alt="Logo TV9 Nusantara" class="h-9 w-auto object-contain">
+                </div>
+                <span class="text-white font-bold text-xl tracking-tight hidden sm:block">Nusantara</span>
+            </a>
         </div>
-    </div>
-    </div>
+
+        <!-- Menu Kanan (Desktop & Mobile) -->
+        <div class="relative flex items-center" x-data="{ open: false }">
+        
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex md:flex-row md:items-center md:gap-7">
+                <a href="{{ route('beranda') }}"
+                    class="text-sm font-semibold text-yellow-400 border-b-2 border-yellow-400 pb-0.5 whitespace-nowrap">Beranda</a>
+                <a href="{{ route('live') }}"
+                    class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">LIVE</a>
+                <a href="{{ route('jadwal') }}"
+                    class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Jadwal</a>
+                <a href="{{ route('catalog.index') }}"
+                    class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Program</a>
+                <a href="{{ route('berita.index') }}"
+                    class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Berita</a>
+            </div>
+
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button @click="open = !open" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Mobile Menu Dropdown -->
+            <div x-show="open" @click.away="open = false" x-cloak x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 -translate-y-2"
+                 class="absolute top-full right-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-xl md:hidden z-50">
+                <div class="flex flex-col p-4 space-y-3">
+                    <a href="{{ route('beranda') }}"
+                       class="text-sm font-semibold text-yellow-400 border-l-2 border-yellow-400 pl-3 py-1">Beranda</a>
+                    <a href="{{ route('live') }}" 
+                       class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">LIVE</a>
+                    <a href="{{ route('jadwal') }}" 
+                       class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Jadwal</a>
+                    <a href="{{ route('catalog.index') }}" 
+                       class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Program</a>
+                    <a href="{{ route('berita.index') }}" 
+                       class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Berita</a>
+                </div>
+            </div>
+        </div>
+        </div>
+        </nav>
 
                 </div>
 
@@ -156,8 +160,8 @@ melalui pengalaman siaran Islami modern." />
                     
                     <!-- FOOTER -->
                     <!-- Footer Start -->
-                    <div class="relative bg-black text-gray-300 mt-5 px-4 lg:px-8">
-                        <div class="relative text-gray-300 mt-5 px-4 lg:px-8">
+                    <div class="relative bg-black text-gray-300 mt-5 ">
+                        <div class="relative text-gray-300 mt-5 px-4">
                             <div class="max-w-7xl mx-auto py-12 lg:py-16">
                                 <!-- Using flex instead of grid for exact col-lg-6 behavior: half width on large, full on small -->
                                 <div class="flex flex-wrap justify-start">
@@ -177,14 +181,7 @@ melalui pengalaman siaran Islami modern." />
                                             Informatika Republik Indonesia untuk melakukan siaran sebagai lembaga penyiaran swasta lokal di
                                             Surabaya/Jawa Timur.
                                         </p>
-                                        <!-- <p class="flex items-center gap-2 text-gray-300 mb-2">
-                                                                                                                                                                                                                                                                                            <i class="fas fa-phone-alt w-5 text-gray-400"></i>
-                                                                                                                                                                                                                                                                                            <span>+62 895-3498-23366</span>
-                                                                                                                                                                                                                                                                                        </p>
-                                                                                                                                                                                                                                                                                        <p class="flex items-center gap-2 text-gray-300 mb-4">
-                                                                                                                                                                                                                                                                                            <i class="fas fa-envelope w-5 text-gray-400"></i>
-                                                                                                                                                                                                                                                                                            <span>admin@rayakandigital.com</span>
-                                                                                                                                                                                                                                                                                        </p> -->
+                                        <p class="flex items-center gap-2 text-gray-300 mb-2"> </p>
                                         <div class="flex flex-wrap gap-3 mt-6">
                                             <a target="_blank" href="https://x.com/TV9NUsantara"
                                                 class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-400 text-gray-400 hover:bg-white hover:text-gray-900 transition-all duration-300">
@@ -207,15 +204,30 @@ melalui pengalaman siaran Islami modern." />
                                                 <i class="fab fa-tiktok"></i>
                                             </a>
                                         </div>
-                </div>
-                <!-- No second column to match original Bootstrap (only one .col-lg-6) -->
-                </div>
+</div>
+<div class="col-lg-2 ps-lg-5">
+    <div class="row g-5">
+        <div class="col-sm-6">
+            <h4 class="text-3xl lg:text-2xl font-semibold text-white mb-4">Alamat</h4>
+            <div class="flex flex-col space-y-2">
+                <a class="text-white/80 hover:text-white transition-colors no-underline cursor-default"
+                    style="pointer-events: none;">Jl. Raya Darmo No.96, Darmo, Kec. Wonokromo, Surabaya, Jawa Timur
+                    60241</a>
+            </div>
         </div>
+        <div class="col-sm-12">
+            <!-- Additional content can go here -->
         </div>
+    </div>
+</div>
+</div>
+                </div>
+                </div>
+                </div>
 
     <!-- COPYRIGHT SECTION (converted to Tailwind) -->
     <!-- Original: .copyright.container-fluid.bg-dark.text-white.border-top.border-secondary.px-0 -->
-    <div class="bg-gray-900 text-white border-t border-gray-700 px-0">
+    <div class="bg-gray-900 text-white border-t border-gray-700 px-0  ">
         <div class="max-w-7xl mx-auto py-3 px-3 text-center md:text-left">
             <div class="text-center">
                 <p class="text-gray-400 text-sm">

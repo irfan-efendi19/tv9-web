@@ -25,81 +25,78 @@
 <body class="antialiased text-white min-h-screen">
 
     <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 px-4 sm:px-8"
-        style="background: rgba(0,40,25,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08);">
-        <div class="max-w-7xl mx-auto flex justify-between items-center h-16">
-            <div class="flex items-center gap-10">
-                <a href="{{ route('beranda') }}" class="flex items-center gap-3">
-                    <div class="flex items-center justify-center">
-                        <img src="{{ asset('img/logotv9.png') }}" alt="Logo TV9 Nusantara" class="h-9 w-auto object-contain">
+            <nav class="fixed top-0 w-full z-50 px-4 sm:px-8"
+                style="background: rgba(0,40,25,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08);">
+                <div class="max-w-7xl mx-auto flex justify-between items-center h-16">
+                    <!-- Logo Kiri -->
+                    <div class="flex flex-row items-center gap-10">
+                        <a href="{{ route('beranda') }}" class="flex items-center gap-3 no-underline">
+                            <div class="flex items-center justify-center">
+                                <img src="{{ asset('img/logotv9.png') }}" alt="Logo TV9 Nusantara" class="h-9 w-auto object-contain">
+                                </div>
+                                <span class="text-white font-bold text-xl tracking-tight hidden sm:block">Nusantara</span>
+                                </a>
                     </div>
-                    <span class="text-white font-bold text-xl tracking-tight hidden sm:block">Nusantara</span>
-                </a>
-<!-- NAVBAR RESPONSIVE -->
-<div class="relative flex items-center justify-between" x-data="{ open: false }">
-    <!-- Mobile Menu Button -->
-    <button @click="open = !open" class="md:hidden text-white focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-    </button>
-
-    <!-- Desktop Menu -->
-    <div class="hidden md:flex md:flex-row md:items-center md:gap-7 md:relative">
-        <a href="{{ route('beranda') }}"
-            class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Beranda</a>
-        <a href="{{ route('live') }}"
-            class="text-sm font-semibold text-yellow-400 border-b-2 border-yellow-400 pb-0.5 whitespace-nowrap">LIVE</a>
-        <a href="{{ route('jadwal') }}"
-            class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Jadwal</a>
-        <a href="{{ route('catalog.index') }}"
-            class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Program</a>
-        <a href="{{ route('berita.index') }}"
-            class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Berita</a>
-    </div>
-
-    <!-- Mobile Menu Dropdown -->
-    <div x-show="open" @click.away="open = false" x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
-        x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
-        x-transition:leave-end="opacity-0 -translate-y-2"
-        class="absolute top-full left-0 mt-2 bg-gray-900 rounded-lg shadow-xl md:hidden z-50">
-        <div class="flex flex-col p-4 space-y-3">
-            <a href="{{ route('beranda') }}"
-                class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Beranda</a>
-            <a href="{{ route('live') }}"
-                class="text-sm font-semibold text-yellow-400 border-l-2 transition-colors pl-3 py-1">LIVE</a>
-            <a href="{{ route('jadwal') }}"
-                class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Jadwal</a>
-            <a href="{{ route('catalog.index') }}"
-                class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Program</a>
-            <a href="{{ route('berita.index') }}"
-                class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Berita</a>
-        </div>
-    </div>
-</div>
-            </div>
-            <div class="opacity-0 hover:opacity-100 transition-opacity">
-                @auth
-                    <a href="{{ url('/dashboard') }}" class="text-[10px] text-white/20">Dashboard</a>
-                @endauth
-            </div>
-        </div>
-    </nav>
-
-    <div class="h-16"></div>
-
-    <!-- Player Section -->
-    <div class="hero-gradient py-16">
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="text-center mb-8">
-                <span
-                    class="inline-flex items-center gap-2 bg-red-600/20 text-red-400 text-sm font-bold px-4 py-1.5 rounded-full border border-red-500/30 mb-4">
-                    <span class="animate-ping inline-flex h-2 w-2 rounded-full bg-red-500 opacity-75"></span>
-                    LIVE
-                </span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-white">TV9 Nusantara LIVE</h1>
-                <p class="text-emerald-100 mt-3">Siaran Langsung 24 Jam Non Stop</p>
+                    
+                    <!-- Menu Kanan (Desktop & Mobile) -->
+                    <div class="relative flex items-center" x-data="{ open: false }">
+                    
+                        <!-- Desktop Menu -->
+                        <div class="hidden md:flex md:flex-row md:items-center md:gap-7">
+                            <a href="{{ route('beranda') }}"
+                                class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Beranda</a>
+                            <a href="{{ route('live') }}"
+                                class="text-sm font-semibold text-yellow-400 border-b-2 border-yellow-400 pb-0.5 whitespace-nowrap">LIVE</a>
+                            <a href="{{ route('jadwal') }}"
+                                class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Jadwal</a>
+                            <a href="{{ route('catalog.index') }}"
+                                class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Program</a>
+                            <a href="{{ route('berita.index') }}"
+                                class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Berita</a>
+                        </div>
+                        <!-- Mobile Menu Button (Hamburger) -->
+                        <button @click="open = !open" class="md:hidden text-white focus:outline-none">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                                </path>
+                            </svg>
+                        </button>
+                        <!-- Mobile Menu Dropdown -->
+                        <div x-show="open" @click.away="open = false" x-cloak x-transition:enter="transition ease-out duration-200"
+                            x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+                            x-transition:leave="transition ease-in duration-150"
+                            x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2"
+                            class="absolute top-full right-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-xl md:hidden z-50">
+                            <div class="flex flex-col p-4 space-y-3">
+                                <a href="{{ route('beranda') }}"
+                                    class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Beranda</a>
+                                <a href="{{ route('live') }}"
+                                    class="text-sm font-semibold text-yellow-400 border-l-2 border-yellow-400 pl-3 py-1">LIVE</a>
+                                <a href="{{ route('jadwal') }}"
+                                    class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Jadwal</a>
+                                <a href="{{ route('catalog.index') }}"
+                                    class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Program</a>
+                                <a href="{{ route('berita.index') }}"
+                                    class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Berita</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+            <div class="h-16"></div>
+            
+            <!-- Player Section -->
+            <div class="hero-gradient py-16">
+                <div class="max-w-5xl mx-auto px-4">
+                    <div class="text-center mb-8">
+                        <span
+                            class="inline-flex items-center gap-2 bg-red-600/20 text-red-400 text-sm font-bold px-4 py-1.5 rounded-full border border-red-500/30 mb-4">
+                            <span class="animate-ping inline-flex h-2 w-2 rounded-full bg-red-500 opacity-75"></span>
+                            LIVE
+                        </span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-white">TV9 Nusantara</h1>
+                        <p class="text-emerald-100 mt-3">Siaran 24 Jam Non Stop</p>
         </div>
 
         <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video group">
