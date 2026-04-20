@@ -7,7 +7,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-<link rel="canonical" href="https://tv9.id/live">
+<link rel="canonical" href="{{ config('app.url') . '/live' }}">
+<meta name="robots" content="index, follow" />
+<meta name="description" content="Meningkatkan warisan spiritual dan intelektual Nusantara
+melalui pengalaman siaran Islami modern.">
+<meta name="author" content="TV9 Nusantara">
+<meta http-equiv="Copyright" content="TV9 Nusantara">
+<meta name="copyright" content="TV9 Nusantara">
+
+<!-- Facebook Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="TV9 Nusantara | Santun Menyejukkan" />
+<meta property="og:description" content="Meningkatkan warisan spiritual dan intelektual Nusantara
+melalui pengalaman siaran Islami modern." />
+<meta property="og:image" content="{{ url('/') }}/assets/base/img/thumbnail.jpg" />
+<meta property="og:url" content="{{ url('/') }}" />
+<meta property="og:site_name" content="TV9 Nusantara | Santun Menyejukkan" />
+
+<!-- Google Structured Data -->
+<meta itemprop="name" content="TV9 Nusantara | Santun Menyejukkan" />
+<meta itemprop="description" content="Meningkatkan warisan spiritual dan intelektual Nusantara
+melalui pengalaman siaran Islami modern." />
+<meta itemprop="image" content="{{ url('/') }}/assets/base/img/thumbnail.jpg" />
+
 <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>

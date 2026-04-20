@@ -146,272 +146,387 @@ melalui pengalaman siaran Islami modern." />
         <section id="hero" class="hero section dark-background">
             <img src="{{ asset('img/hero.png') }}" alt="" />
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 d-flex flex-column align-items-center align-items-lg-start text-white">
-                            <h2 data-aos="fade-up" data-aos-delay="100">
-                                TV9 NUSANTARA</span>
-                            </h2>
-                            <p data-aos="fade-up" data-aos-delay="200">
-                                Spirituality, Creativity, Connectivity
-                            </p>
-                        </div>
-                    </div>
-                    </div>
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap">
+            <div class="w-full lg:w-8/12 flex flex-col items-left lg:items-start text-white">
+    
+                <!-- Title -->
+                <h2 data-aos="fade-up" data-aos-delay="100"
+                    class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center lg:text-left">
+                    TV9 NUSANTARA
+                </h2>
+                <!-- Subtitle -->
+                <p data-aos="fade-up" data-aos-delay="200" class="text-base md:text-lg opacity-90 mb-8 text-center lg:text-left">
+                    Spirituality, Creativity, Connectivity
+                </p>
+                <!-- Tombol Container -->
+                <div data-aos="fade-up" data-aos-delay="300" class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
+                    <!-- Tombol Live Streaming -->
+                    <button id="liveBtn"
+                        class="group relative px-6 md:px-8 py-3 md:py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/50 flex items-center justify-center gap-3 overflow-hidden">
+                        <span
+                            class="absolute inset-0 w-full h-full bg-red-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                        <span class="relative flex items-center gap-2">
+                            <a href="{{ route('live') }}">
+                                <i class="fas fa-circle text-xs animate-pulse text-white"></i>
+                                <i class="fas fa-video text-lg"></i>
+                                <span>Live Streaming</span>
+                            </a>
+                        </span>
+                    </button>
+                    <!-- Tombol Lihat Jadwal -->
+                    <button id="scheduleBtn"
+                        class="group px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold
+                                                                                                                                                                                                                                                                                        rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg border border-white/30 flex
+                                                                                                                                                                                                                                                                                        items-center justify-center gap-3">
+                        <a href="{{ route('jadwal') }}">
+                            <i class="fas fa-calendar-alt text-lg"></i>
+                            <span>Lihat Jadwal</span>
+                            <i class="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                    </button>
+                
+                </div>
+                <!-- Indikator status (untuk feedback demo) -->
+                <div id="statusMessage"
+                    class="mt-6 text-sm text-white/70 bg-black/20 rounded-lg px-4 py-2 hidden transition-all duration-300">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    <span id="statusText"></span>
+                </div>
+                </div>
+                </div>
+                </div>
                     </section>
-
-                    <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 font-sans antialiased">
                     
-                        <!-- Main Container -->
-                        <div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
                     
-                            <!-- Hero Section -->
-                            <div class="max-w-7xl mx-auto">
-                    
-                                <!-- Header Content -->
-                                <div class="text-center mb-16 animate-fade-in">
-                                    <div class="inline-flex items-center justify-center mb-6">
-                                        <div
-                                            class="w-20 h-20 bg-gradient-custom rounded-2xl flex items-center justify-center shadow-lg transform rotate-3">
-                                            <i class="fas fa-mosque text-4xl text-white"></i>
-                                        </div>
-                                    </div>
-                                    <h1
-                                        class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4">
-                                        Access Everywhere
-                                    </h1>
-                                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                                        Stay connected with the Digital Minaret through your favorite devices, anytime and anywhere in the
-                                        world.
-                                    </p>
-                                </div>
-                    
-                                <!-- Cards Grid -->
-                                <div class="grid md:grid-cols-3 gap-8 mb-16">
-                    
-                                    <!-- Mobile App Card -->
-                                    <div class="relative group">
-                                        <!-- Shadow glow di belakang card -->
-                                        <div
-                                            class="absolute -inset-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-2xl blur opacity-0 group-hover:opacity-75 transition duration-300 z-0">
-                                        </div>
-                    
-                                        <!-- Coming Soon Badge -->
-                                        <div class="coming-soon-badge z-30">
-                                            <div class="relative">
-                                                <!-- Badge dengan efek animasi -->
-                                                <div
-                                                    class="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full blur-md opacity-75 animate-pulse">
-                                                </div>
-                                                <div
-                                                    class="relative bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
-                                                    <i class="fas fa-clock text-xs"></i>
-                                                    <span>COMING SOON</span>
-                                                    <i class="fas fa-sparkle text-xs"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                    
-                                        <!-- Card content dengan efek sedikit redup untuk coming soon -->
-                                        <div class="relative z-10 bg-white/90 rounded-2xl shadow-xl overflow-hidden card-hover">
-                                            <div class="bg-gradient-to-br from-blue-500 to-blue-600 p-6 text-center relative">
-                                                <!-- Overlay gelap tipis untuk efek coming soon -->
-                                                <div class="absolute inset-0 bg-black/20 backdrop-blur-[1px]"></div>
-                                                <div
-                                                    class="relative z-10 inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-2xl backdrop-blur-sm">
-                                                    <i class="fas fa-mobile-alt text-4xl text-white"></i>
-                                                </div>
-                                            </div>
-                                            <div class="p-6">
-                                                <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center justify-center gap-2">
-                                                    Mobile App
-                                                    <span class="bg-yellow-100 text-yellow-700 text-xs px-2 py-1 rounded-full">Soon</span>
-                                                </h3>
-                                                <p class="text-gray-600 leading-relaxed text-center">
-                                                    Available on iOS and Android for spiritual guidance on the go.
-                                                </p>
-                                                <div class="mt-4 flex justify-center space-x-3 opacity-50">
-                                                    <i class="fab fa-apple text-2xl text-gray-400"></i>
-                                                    <i class="fab fa-android text-2xl text-gray-400"></i>
-                                                </div>
-                                                <!-- Notify Me Button -->
-                                                <button
-                                                    class="mt-4 w-full bg-gray-100 text-gray-500 font-semibold py-2 px-4 rounded-xl transition flex items-center justify-center space-x-2 cursor-not-allowed">
-                                                    <i class="fas fa-bell"></i>
-                                                    <span>Notify Me</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                    
-                                    <!-- Web Portal Card -->
-                                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover animate-slide-up"
-                                        style="animation-delay: 0.2s;">
-                                        <div class="bg-gradient-to-br from-purple-500 to-purple-600 p-6 text-center">
-                                            <div
-                                                class="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-2xl backdrop-blur-sm">
-                                                <i class="fas fa-globe text-4xl text-white"></i>
-                                            </div>
-                                        </div>
-                                        <div class="p-6">
-                                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Web Portal</h3>
-                                            <p class="text-gray-600 leading-relaxed mb-4">
-                                                Seamless HD streaming experience directly through your browser.
-                                            </p>
-                                            <button
-                                                class="w-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-semibold py-3 px-4 rounded-xl btn-hover transition flex items-center justify-center space-x-2">
-                                                <i class="fas fa-play-circle"></i>
-                                                <span>Launch Web TV</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                    
-                                    <!-- Smart TV Card -->
-                                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover animate-slide-up"
-                                        style="animation-delay: 0.3s;">
-                                        <div class="bg-gradient-to-br from-green-500 to-teal-500 p-6 text-center">
-                                            <div
-                                                class="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-2xl backdrop-blur-sm">
-                                                <i class="fas fa-tv text-4xl text-white"></i>
-                                            </div>
-                                        </div>
-                                        <div class="p-6">
-                                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Smart TV</h3>
-                                            <p class="text-gray-600 leading-relaxed">
-                                                Experience cinematic quality on Samsung, LG, and Android TV.
-                                            </p>
-                                            <div class="mt-4 flex justify-center space-x-4">
-                                                <i class="fab fa-samsung text-xl text-gray-600 hover:text-gray-800 transition"></i>
-                                                <i class="fas fa-tv text-xl text-purple-600 hover:text-purple-700 transition"></i>
-                                                <i class="fab fa-android text-xl text-green-600 hover:text-green-700 transition"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                    
-                                <!-- Platform Badges -->
-                                <div class="text-center animate-fade-in">
-                                    <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg inline-block">
-                                        <div class="flex flex-wrap justify-center items-center gap-6">
-                                            <div class="flex items-center space-x-2">
-                                                <i class="fab fa-samsung text-2xl text-blue-600"></i>
-                                                <span class="font-semibold text-gray-700">SAMSUNG TIZEN</span>
-                                            </div>
-                                            <div class="w-px h-8 bg-gray-300 hidden sm:block"></div>
-                                            <div class="flex items-center space-x-2">
-                                                <i class="fab fa-lg text-2xl text-red-500">LG</i>
-                                                <span class="font-semibold text-gray-700">LG WEBOS</span>
-                                            </div>
-                                            <div class="w-px h-8 bg-gray-300 hidden sm:block"></div>
-                                            <div class="flex items-center space-x-2">
-                                                <i class="fab fa-android text-2xl text-green-600"></i>
-                                                <span class="font-semibold text-gray-700">ANDROID TV</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                    
-                                <!-- Additional Features Section -->
-                                <!-- <div class="mt-16 grid md:grid-cols-4 gap-6 text-center">
-                                                                                                                                                                                                                                                                                                                            <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4">
-                                                                                                                                                                                                                                                                                                                                <i class="fas fa-clock text-3xl text-indigo-500 mb-2"></i>
-                                                                                                                                                                                                                                                                                                                                <p class="text-sm text-gray-600">24/7 Live Streaming</p>
-                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                            <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4">
-                                                                                                                                                                                                                                                                                                                                <i class="fas fa-download text-3xl text-purple-500 mb-2"></i>
-                                                                                                                                                                                                                                                                                                                                <p class="text-sm text-gray-600">Offline Content</p>
-                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                            <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4">
-                                                                                                                                                                                                                                                                                                                                <i class="fas fa-bell text-3xl text-pink-500 mb-2"></i>
-                                                                                                                                                                                                                                                                                                                                <p class="text-sm text-gray-600">Prayer Notifications</p>
-                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                            <div class="bg-white/60 backdrop-blur-sm rounded-xl p-4">
-                                                                                                                                                                                                                                                                                                                                <i class="fas fa-quran text-3xl text-green-500 mb-2"></i>
-                                                                                                                                                                                                                                                                                                                                <p class="text-sm text-gray-600">Holy Quran Recitation</p>
-                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                        </div> -->
-                    
-                                <!-- Call to Action -->
-                                <!-- <div class="mt-12 text-center">
-                                                                                                                                                                                                                                                                                                        <button
-                                                                                                                                                                                                                                                                                                            class="bg-gradient-custom text-white font-bold py-4 px-8 rounded-full btn-hover shadow-lg inline-flex items-center space-x-3">
-                                                                                                                                                                                                                                                                                                            <i class="fas fa-download"></i>
-                                                                                                                                                                                                                                                                                                            <span>Download Now</span>
-                                                                                                                                                                                                                                                                                                            <i class="fas fa-arrow-right"></i>
-                                                                                                                                                                                                                                                                                                        </button>
-                                                                                                                                                                                                                                                                                                        <p class="text-sm text-gray-500 mt-4">
-                                                                                                                                                                                                                                                                                                            Available on App Store, Google Play, and major Smart TV platforms
-                                                                                                                                                                                                                                                                                                        </p>
-                                                                                                                                                                                                                                                                                                    </div> -->
-                    
+                    <!-- Section -->
+                    <section class="bg-gray-50 flex items-center justify-center p-8">
+                        <div class="w-full max-w-5xl">
+                            <!-- Heading -->
+                            <div class="mb-8">
+                                <h2 class="title-underline text-2xl font-semibold text-gray-900 tracking-tight">AKSES MULTIPLATFORM</h2>
                             </div>
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- Card 1: Satelit Telkom 4 -->
+        <div class="card bg-gray-100 rounded-2xl p-6 border border-gray-200">
+            <!-- Icon -->
+            <div class="w-12 h-12 bg-brand-green-light rounded-xl flex items-center justify-center mb-5">
+                <i class="fa-solid fa-satellite-dish text-brand-green text-xl"></i>
+            </div>
+        <h3 class="text-brand-green font-semibold text-base mb-4">Satelit Telkom 4</h3>
+        <table class="w-full text-sm">
+            <tbody>
+                <tr>
+                    <td class="text-gray-500 py-1.5">Frekuensi</td>
+                    <td class="text-right font-semibold text-brand-green py-1.5">3900 MHz</td>
+                </tr>
+                <tr>
+                    <td class="text-gray-500 py-1.5">Symbol Rate</td>
+                    <td class="text-right font-semibold text-brand-green py-1.5">29900 Msps</td>
+                </tr>
+                <tr>
+                    <td class="text-gray-500 py-1.5">Polarisasi</td>
+                    <td class="text-right font-semibold text-brand-green py-1.5">Horizontal</td>
+                </tr>
+                <tr>
+                    <td class="text-gray-500 py-1.5">Modulasi</td>
+                    <td class="text-right font-semibold text-brand-green py-1.5">DVB-S2 / 8PSK</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <!-- Card 2: TV Kabel -->
+        <div class="card bg-gray-100 rounded-2xl p-6 border border-gray-200">
+            <!-- Icon -->
+            <div class="w-12 h-12 bg-brand-green-light rounded-xl flex items-center justify-center mb-5">
+                <i class="fa-solid fa-tv text-brand-green text-xl"></i>
+            </div>
+            <h3 class="text-brand-green font-semibold text-base mb-3">TV Kabel</h3>
+            <p class="text-sm text-gray-500 mb-5 leading-relaxed">
+                Temukan kami di daftar channel favorit pada provider TV berbayar pilihan Anda.
+            </p>
+        <ul class="space-y-2.5">
+            <li class="flex items-center gap-2.5 text-sm text-gray-600">
+                <i class="fa-solid fa-circle-check text-brand-green text-base flex-shrink-0"></i>
+                IndiHome Channel 809
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-gray-600">
+                <i class="fa-solid fa-circle-check text-brand-green text-base flex-shrink-0"></i>
+                First Media Channel 314
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-gray-600">
+                <i class="fa-solid fa-circle-check text-brand-green text-base flex-shrink-0"></i>
+                MNC Vision Channel 102
+            </li>
+            <li class="flex items-center gap-2.5 text-sm text-gray-600">
+                <i class="fa-solid fa-circle-check text-brand-green text-base flex-shrink-0"></i>
+                TransVision Channel 55
+            </li>
+        </ul>
+        </div>
+<!-- Card 3: Digital & Apps -->
+<div class="card bg-gray-100 rounded-2xl p-6 border border-gray-200">
+    <!-- Icon -->
+    <div class="w-12 h-12 bg-brand-green-light rounded-xl flex items-center justify-center mb-5">
+        <i class="fa-solid fa-mobile-screen text-brand-green text-xl"></i>
+    </div>
+        <h3 class="text-brand-green font-semibold text-base mb-1">Digital &amp; Apps</h3>
+        <p class="text-sm text-gray-500 mb-1">Akses siaran langsung 24 jam</p>
+        <a href="https://www.tv9.co.id/live" target="_blank"
+            class="inline-flex items-center gap-1.5 text-sm text-brand-green font-semibold mb-5 hover:underline">
+            www.tv9.co.id/live
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        </a>
+        <p class="text-xs text-gray-400 mb-3 uppercase tracking-wide font-medium">Download Aplikasi Kami</p>
+        <!-- Google Play -->
+        <a href="#" class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 mb-2.5 w-full">
+            <i class="fa-brands fa-google-play text-sky-400 text-xl flex-shrink-0"></i>
+            <div class="leading-tight">
+                <p class="text-[10px] text-gray-400 font-normal">GET IT ON</p>
+                <p class="text-sm font-semibold">Google Play</p>
+            </div>
+        </a>
+        <!-- App Store -->
+        <a href="#" class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 w-full">
+            <i class="fa-brands fa-apple text-white text-xl flex-shrink-0"></i>
+            <div class="leading-tight">
+                <p class="text-[10px] text-gray-400 font-normal">DOWNLOAD ON THE</p>
+                <p class="text-sm font-semibold">App Store</p>
+            </div>
+        </a>
+        </div>
+        </div>
+        </div>
+        </section>
+
+<section class="media-section w-full py-16 px-8">
+    <div class="max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+            <!-- Left Content -->
+            <div>
+                <!-- Badge -->
+                <span
+                    class="inline-block text-[10px] font-semibold tracking-widest uppercase text-yellow-300 border border-yellow-500/40 bg-yellow-500/10 rounded px-3 py-1 mb-5">
+                    Media Solutions
+                </span>
+
+                <!-- Heading -->
+                <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight mb-4">
+                    Grow Your Brand with<br>Values–Driven Media
+                </h2>
+
+                <!-- Description -->
+                <p class="text-sm text-green-100/70 leading-relaxed mb-8 max-w-sm">
+                    Reach a dedicated, high-engagement audience through our premium advertising and custom marketing
+                    solutions tailored for the modern Muslim consumer.
+                </p>
+                <!-- Features -->
+                <div class="space-y-5 mb-10">
+                    <!-- On-Air Placements -->
+                    <div class="flex gap-4 items-start">
+                        <div class="feature-icon-wrap">
+                            <i class="fa-solid fa-tower-broadcast text-yellow-400 text-sm"></i>
                         </div>
-                    </section>
+            <div>
+                <h4 class="text-white font-semibold text-sm mb-1">On-Air Placements</h4>
+                <p class="text-xs text-green-100/60 leading-relaxed">Strategic TV commercials and program sponsorships during
+                    flagship broadcasts.</p>
+            </div>
+            </div>
+<!-- Digital Marketing -->
+<div class="flex gap-4 items-start">
+    <div class="feature-icon-wrap">
+        <i class="fa-solid fa-chart-line text-yellow-400 text-sm"></i>
+    </div>
+            <div>
+                <h4 class="text-white font-semibold text-sm mb-1">Digital Marketing</h4>
+                <p class="text-xs text-green-100/60 leading-relaxed">Multi-channel digital campaigns across our web, mobile, and
+                    social media platforms.</p>
+            </div>
+            </div>
+            <!-- Custom Content -->
+            <div class="flex gap-4 items-start">
+                <div class="feature-icon-wrap">
+                    <i class="fa-solid fa-film text-yellow-400 text-sm"></i>
+                </div>
+            <div>
+                <h4 class="text-white font-semibold text-sm mb-1">Custom Content</h4>
+                <p class="text-xs text-green-100/60 leading-relaxed">In-house production for branded segments and documentary-style
+                    advertisements.</p>
+            </div>
+            </div>
+            </div>
+<!-- CTA Button -->
+<a href="#"
+    class="contact-btn inline-flex items-center gap-2.5 bg-yellow-600 text-white text-sm font-semibold rounded-xl px-6 py-3">
+    <i class="fa-solid fa-headset text-base"></i>
+    Contact Sales Team
+</a>
+</div>
+        <!-- Right: Image + Stat -->
+        <div class="relative">
+            <div class="image-card w-full aspect-[4/3] bg-gray-800 overflow-hidden">
+                <!-- Placeholder image — replace src with actual image -->
+                <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=80" alt="Library Media"
+                    class="w-full h-full object-cover grayscale opacity-80" />
+                <!-- Stat Badge -->
+                <div class="stat-badge">
+                    <p class="text-3xl font-bold text-white leading-none mb-1">85%</p>
+                    <p class="text-[10px] text-yellow-200/80 uppercase tracking-widest font-medium">Audience Trust Rate</p>
+                </div>
+        </div>
+        </div>
+        </div>
+        </div>
+</section>
+
+
+<section class="w-full bg-white py-14 px-8">
+    <div class="max-w-5xl mx-auto">
+ 
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-8">
+        <div>
+            <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Jurnal 9: Berita Terkini</h2>
+            <div class="w-12 h-[3px] bg-yellow-600 rounded mt-2"></div>
+        </div>
+        <a href="https://jurnal9.tv" target="_blank"
+            class="text-sm font-semibold text-yellow-600 hover:text-yellow-700 flex items-center gap-1 transition-colors">
+            Selengkapnya <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+        </div>
+<!-- Loading State -->
+<div id="news-loading" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="animate-pulse">
+        <div class="bg-gray-100 rounded-2xl h-48 mb-4"></div>
+        <div class="h-3 bg-gray-100 rounded w-1/4 mb-3"></div>
+        <div class="h-4 bg-gray-100 rounded w-full mb-2"></div>
+        <div class="h-4 bg-gray-100 rounded w-3/4 mb-4"></div>
+        <div class="h-3 bg-gray-100 rounded w-full mb-1"></div>
+        <div class="h-3 bg-gray-100 rounded w-5/6"></div>
+    </div>
+    <div class="animate-pulse">
+        <div class="bg-gray-100 rounded-2xl h-48 mb-4"></div>
+        <div class="h-3 bg-gray-100 rounded w-1/4 mb-3"></div>
+        <div class="h-4 bg-gray-100 rounded w-full mb-2"></div>
+        <div class="h-4 bg-gray-100 rounded w-3/4 mb-4"></div>
+        <div class="h-3 bg-gray-100 rounded w-full mb-1"></div>
+        <div class="h-3 bg-gray-100 rounded w-5/6"></div>
+    </div>
+    <div class="animate-pulse">
+        <div class="bg-gray-100 rounded-2xl h-48 mb-4"></div>
+        <div class="h-3 bg-gray-100 rounded w-1/4 mb-3"></div>
+        <div class="h-4 bg-gray-100 rounded w-full mb-2"></div>
+        <div class="h-4 bg-gray-100 rounded w-3/4 mb-4"></div>
+        <div class="h-3 bg-gray-100 rounded w-full mb-1"></div>
+        <div class="h-3 bg-gray-100 rounded w-5/6"></div>
+    </div>
+    </div>
+<!-- News Grid -->
+<div id="news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 hidden"></div>
+
+<!-- Error State -->
+<div id="news-error" class="hidden text-center py-12 text-gray-400">
+    <i class="fa-solid fa-circle-exclamation text-3xl mb-3 block"></i>
+    <p class="text-sm">Gagal memuat berita. Silakan coba lagi.</p>
+</div>
+</div>
+</section>
+
+<section class="py-16 bg-gray-50">
+    <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-800">Partner & Kolaborator</h2>
+        <p class="text-gray-500 mt-2">Mitra terpercaya kami</p>
+    </div>
+    <div class="marquee-wrapper">
+        <div class="marquee-content">
+            <!-- Loop logo 2x untuk seamless -->
+            <div class="logo-item"><img src="https://picsum.photos/id/20/180/80" alt="Logo"></div>
+            <div class="logo-item"><img src="https://picsum.photos/id/26/180/80" alt="Logo"></div>
+            <div class="logo-item"><img src="https://picsum.photos/id/29/180/80" alt="Logo"></div>
+            <div class="logo-item"><img src="https://picsum.photos/id/39/180/80" alt="Logo"></div>
+            <div class="logo-item"><img src="https://picsum.photos/id/42/180/80" alt="Logo"></div>
+            <div class="logo-item"><img src="https://picsum.photos/id/48/180/80" alt="Logo"></div>
+            <!-- Duplicate untuk seamless -->
+            <div class="logo-item"><img src="https://picsum.photos/id/20/180/80" alt="Logo"></div>
+            <div class="logo-item"><img src="https://picsum.photos/id/26/180/80" alt="Logo"></div>
+            <div class="logo-item"><img src="https://picsum.photos/id/29/180/80" alt="Logo"></div>
+            <div class="logo-item"><img src="https://picsum.photos/id/39/180/80" alt="Logo"></div>
+            <div class="logo-item"><img src="https://picsum.photos/id/42/180/80" alt="Logo"></div>
+            <div class="logo-item"><img src="https://picsum.photos/id/48/180/80" alt="Logo"></div>
+        </div>
+        </div>
+        </section>
+<div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+    <iframe style="border: 0; width: 100%; height: 400px"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.5730295770977!2d112.736189175!3d-7.289322192718097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb957c5b56f7%3A0x1ee6fa80f21a83d3!2sTV9%20Nusantara!5e0!3m2!1sid!2sid!4v1776587954324!5m2!1sid!2sid"
+        frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
                     <!-- FOOTER -->
                     <!-- Footer Start -->
-                    <div class="relative bg-black text-gray-300 mt-5 ">
-                        <div class="relative text-gray-300 mt-5 px-4">
-                            <div class="max-w-7xl mx-auto py-12 lg:py-16">
-                                <!-- Using flex instead of grid for exact col-lg-6 behavior: half width on large, full on small -->
-                                <div class="flex flex-wrap justify-start">
-                                    <div class="w-full lg:w-1/2 lg:pr-12">
-                                        <a class="inline-block mb-4">
-                                            <h1 class="text-3xl lg:text-4xl font-semibold text-white">TV9 Nusantara</h1>
-                                        </a>
-                                        <p class="text-gray-300 leading-relaxed mb-4">
-                                            TV9 Nusantara merupakan stasiun televisi lokal di Kota Surabaya dan
-                                            menjadi salah satu awal televisi swasta di Indonesia yang memiliki karakter pemirsa komunitas
-                                            yang bernuansa Islam. TV9 dikelola oleh PT. Dakwah Inti Media, perusahaan yang dimiliki oleh
-                                            KH. Moh. Hasani Mutawakkil `Alallah, S.H.,M.M., termasuk di dalamnya organisasi sosial keagamaan
-                                            Nahdlatul 'Ulama (PWNU) Jawa Timur ini diluncurkan pada tanggal 31 Januari 2010 oleh Soekarwo
-                                            sebagai bagian dari perayaan ulang tahun Nahdlatul 'Ulama ke-84. Bersiaran di kanal 42 UHF, TV9
-                                            telah memperoleh Izin Penyelenggaraan Penyiaran prinsip tertanggal pada 7 Juli 2009 dan Izin
-                                            Penyelenggaraan Penyiaran tetap tertanggal pada 23 Juli 2012 dari Menteri Komunikasi dan
-                                            Informatika Republik Indonesia untuk melakukan siaran sebagai lembaga penyiaran swasta lokal di
-                                            Surabaya/Jawa Timur.
-                                        </p>
-                                        <p class="flex items-center gap-2 text-gray-300 mb-2"> </p>
-                                        <div class="flex flex-wrap gap-3 mt-6">
-                                            <a target="_blank" href="https://x.com/TV9NUsantara"
-                                                class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-400 text-gray-400 hover:bg-white hover:text-gray-900 transition-all duration-300">
-                                                <i class="fab fa-x-twitter"></i>
-                                            </a>
-                                            <a target="_blank" href="https://www.facebook.com/tv9nusantara"
-                                                class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-400 text-gray-400 hover:bg-white hover:text-gray-900 transition-all duration-300">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                            <a target="_blank" href="https://www.instagram.com/tv9nusantara/"
-                                                class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-400 text-gray-400 hover:bg-white hover:text-gray-900 transition-all duration-300">
-                                                <i class="fab fa-instagram"></i>
-                                            </a>
-                                            <a target="_blank" href="https://www.youtube.com/@tv9nusantara"
-                                                class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-400 text-gray-400 hover:bg-white hover:text-gray-900 transition-all duration-300">
-                                                <i class="fab fa-youtube"></i>
-                                            </a>
-                                            <a target="_blank" href="https://www.tiktok.com/@tv9nusantara"
-                                                class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-400 text-gray-400 hover:bg-white hover:text-gray-900 transition-all duration-300">
-                                                <i class="fab fa-tiktok"></i>
-                                            </a>
-                                        </div>
-</div>
-<div class="col-lg-2 ps-lg-5">
-    <div class="row g-5">
-        <div class="col-sm-6">
-            <h4 class="text-3xl lg:text-2xl font-semibold text-white mb-4">Alamat</h4>
-            <div class="flex flex-col space-y-2">
-                <a class="text-white/80 hover:text-white transition-colors no-underline cursor-default"
-                    style="pointer-events: none;">Jl. Raya Darmo No.96, Darmo, Kec. Wonokromo, Surabaya, Jawa Timur
-                    60241</a>
-            </div>
-        </div>
-        <div class="col-sm-12">
-            <!-- Additional content can go here -->
-        </div>
-    </div>
-</div>
-</div>
+<div class="relative bg-white text-black">
+    <div class="relative text-black px-4">
+        <div class="max-w-7xl mx-auto py-12 lg:py-16">
+            <!-- Flex container for two equal columns -->
+            <div class="flex flex-wrap -mx-4">
+                <!-- Left Column: About text and social links (SAME WIDTH as right column) -->
+                <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
+                    <a class="inline-block mb-4">
+                        <h1 class="text-3xl lg:text-4xl font-bold text-black">TV9 Nusantara</h1>
+                        <h1 class="text-xl lg:text-xl font-semibold text-black">PT. Dakwah Inti Media</h1>
+                        </a>
+                    <p class="text-black leading-relaxed mb-4">
+                        TV9 Nusantara merupakan stasiun televisi lokal di Kota Surabaya dan
+                        menjadi salah satu awal televisi swasta di Indonesia yang memiliki karakter pemirsa komunitas
+                        yang bernuansa Islam. TV9 dikelola oleh PT. Dakwah Inti Media, perusahaan yang dimiliki oleh
+                        KH. Moh. Hasani Mutawakkil `Alallah, S.H.,M.M., termasuk di dalamnya organisasi sosial keagamaan
+                        Nahdlatul 'Ulama (PWNU) Jawa Timur ini diluncurkan pada tanggal 31 Januari 2010 oleh Soekarwo
+                        sebagai bagian dari perayaan ulang tahun Nahdlatul 'Ulama ke-84. Bersiaran di kanal 42 UHF, TV9
+                        telah memperoleh Izin Penyelenggaraan Penyiaran prinsip tertanggal pada 7 Juli 2009 dan Izin
+                        Penyelenggaraan Penyiaran tetap tertanggal pada 23 Juli 2012 dari Menteri Komunikasi dan
+                        Informatika Republik Indonesia untuk melakukan siaran sebagai lembaga penyiaran swasta lokal di
+                        Surabaya/Jawa Timur.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mt-6">
+                        <a target="_blank" href="https://x.com/TV9NUsantara"
+                            class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a target="_blank" href="https://www.facebook.com/tv9nusantara"
+                            class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/tv9nusantara/"
+                            class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50  transition-all duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a target="_blank" href="https://www.youtube.com/@tv9nusantara"
+                            class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a target="_blank" href="https://www.tiktok.com/@tv9nusantara"
+                            class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50  transition-all duration-300">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
                 </div>
-                </div>
+<!-- Right Column: Address (SAME WIDTH as left column) -->
+<div class="w-full lg:w-1/2 px-4">
+    <h4 class="text-3xl lg:text-2xl font-semibold text-black mb-4">Alamat</h4>
+    <div class="flex flex-col space-y-2">
+                        <p class="text-black/80 leading-relaxed">
+                            Jl. Raya Darmo No.96,<br>
+                            Darmo, Kec. Wonokromo,<br>
+                            Surabaya, Jawa Timur 60241
+                        </p>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
                 </div>
 
     <!-- COPYRIGHT SECTION (converted to Tailwind) -->
@@ -450,6 +565,79 @@ melalui pengalaman siaran Islami modern." />
                 }
             });
         </script>
+
+<script>
+    (async function () {
+        const loading = document.getElementById('news-loading');
+        const grid = document.getElementById('news-grid');
+        const errorEl = document.getElementById('news-error');
+
+        const categoryColors = {
+            'nusantara': 'bg-emerald-700',
+            'religi': 'bg-amber-700',
+            'politik': 'bg-teal-700',
+            'ekonomi': 'bg-blue-700',
+            'olahraga': 'bg-red-700',
+        };
+
+        function getCatColor(name) {
+            const key = (name || '').toLowerCase();
+            for (const k in categoryColors) {
+                if (key.includes(k)) return categoryColors[k];
+            }
+            return 'bg-gray-700';
+        }
+
+        function stripHtml(html) {
+            return html.replace(/<[^>]*>/g, '').replace(/&hellip;/g, '...').replace(/&amp;/g, '&').replace(/&#8217;/g, "'").trim();
+        }
+
+        try {
+            const res = await fetch('https://jurnal9.tv/wp-json/wp/v2/posts?per_page=3&_embed=1');
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const posts = await res.json();
+
+            grid.innerHTML = posts.map(post => {
+                const title = stripHtml(post.title.rendered);
+                const excerpt = stripHtml(post.excerpt.rendered).slice(0, 120) + '...';
+                const link = post.link;
+
+                const media = post._embedded?.['wp:featuredmedia']?.[0];
+                const imgUrl = media?.media_details?.sizes?.medium?.source_url || media?.source_url || '';
+
+                const terms = post._embedded?.['wp:term']?.[0] || [];
+                const cat = terms[0]?.name || '';
+                const catColor = getCatColor(cat);
+
+                return `
+            <a href="${link}" target="_blank" class="group flex flex-col rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-200">
+              <div class="relative overflow-hidden h-48 bg-gray-100 flex-shrink-0">
+                ${imgUrl
+                        ? `<img src="${imgUrl}" alt="${title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />`
+                        : `<div class="w-full h-full bg-gray-200 flex items-center justify-center"><i class="fa-solid fa-newspaper text-gray-400 text-4xl"></i></div>`
+                    }
+                ${cat ? `<span class="absolute top-3 left-3 text-[9px] font-bold tracking-widest uppercase text-white px-2.5 py-1 rounded ${catColor}">${cat}</span>` : ''}
+              </div>
+              <div class="p-5 flex flex-col flex-1">
+                <h3 class="text-gray-900 font-bold text-sm leading-snug mb-2 group-hover:text-brand-green transition-colors line-clamp-2">${title}</h3>
+                <p class="text-gray-500 text-xs leading-relaxed flex-1 line-clamp-3">${excerpt}</p>
+                <div class="mt-4 flex items-center gap-1 text-xs font-semibold text-brand-green group-hover:gap-2 transition-all">
+                  Baca Selengkapnya <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </div>
+              </div>
+            </a>
+          `;
+            }).join('');
+
+            loading.classList.add('hidden');
+            grid.classList.remove('hidden');
+        } catch (e) {
+            loading.classList.add('hidden');
+            errorEl.classList.remove('hidden');
+            console.error('News fetch error:', e);
+        }
+    })();
+</script>
 
 <style>
     /* Sembunyikan durasi (timestamp) pada live streaming */

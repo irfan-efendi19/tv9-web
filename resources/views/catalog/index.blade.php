@@ -6,8 +6,30 @@
     <title>Katalog Program – TV9 Nusantara</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="canonical" href="https://tv9.id/catalog">
+<link rel="canonical" href="{{ config('app.url') . '/catalog' }}">
 <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+
+<meta name="robots" content="index, follow" />
+<meta name="description" content="Meningkatkan warisan spiritual dan intelektual Nusantara
+melalui pengalaman siaran Islami modern.">
+<meta name="author" content="TV9 Nusantara">
+<meta http-equiv="Copyright" content="TV9 Nusantara">
+<meta name="copyright" content="TV9 Nusantara">
+
+<!-- Facebook Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="TV9 Nusantara | Santun Menyejukkan" />
+<meta property="og:description" content="Meningkatkan warisan spiritual dan intelektual Nusantara
+melalui pengalaman siaran Islami modern." />
+<meta property="og:image" content="{{ url('/') }}/assets/base/img/thumbnail.jpg" />
+<meta property="og:url" content="{{ url('/') }}" />
+<meta property="og:site_name" content="TV9 Nusantara | Santun Menyejukkan" />
+
+<!-- Google Structured Data -->
+<meta itemprop="name" content="TV9 Nusantara | Santun Menyejukkan" />
+<meta itemprop="description" content="Meningkatkan warisan spiritual dan intelektual Nusantara
+melalui pengalaman siaran Islami modern." />
+<meta itemprop="image" content="{{ url('/') }}/assets/base/img/thumbnail.jpg" />
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
@@ -102,7 +124,7 @@
                 class="card-catalog group relative bg-slate-800 rounded-xl overflow-hidden shadow-2xl border border-white/5 cursor-pointer">
                 <div class="aspect-[2/3] relative">
                     @if($item->image_url)
-                        <img src="{{ $item->image_url }}" alt="{{ $item->title }}" class="w-full h-full object-cover group-hover:opacity-40 transition-opacity">
+                        <img src="{{ asset($item->image_url) }}" alt="{{ $item->title }}" class="w-full h-full object-cover group-hover:opacity-40 transition-opacity">
                     @else
                         <div class="w-full h-full bg-slate-700 flex items-center justify-center text-slate-500 font-bold text-center p-4">
                             {{ $item->title }}
@@ -146,7 +168,7 @@
                 <!-- Poster in Modal -->
                 <div class="w-full md:w-1/2 aspect-[2/3] bg-slate-800">
                     <template x-if="selected.image_url">
-                        <img :src="selected.image_url" :alt="selected.title" class="w-full h-full object-cover">
+                        <img :src="'/' + selected.image_url" :alt="selected.title" class="w-full h-full object-cover">
                     </template>
                     <template x-if="!selected.image_url">
                         <div class="w-full h-full flex items-center justify-center text-slate-600 font-bold text-xl" x-text="selected.title"></div>

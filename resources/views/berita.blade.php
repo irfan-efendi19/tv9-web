@@ -12,7 +12,29 @@
 
         <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
-        <link rel="canonical" href="https://tv9.id/berita">
+<link rel="canonical" href="{{ config('app.url') . '/berita' }}">
+
+<meta name="robots" content="index, follow" />
+<meta name="description" content="Meningkatkan warisan spiritual dan intelektual Nusantara
+melalui pengalaman siaran Islami modern.">
+<meta name="author" content="TV9 Nusantara">
+<meta http-equiv="Copyright" content="TV9 Nusantara">
+<meta name="copyright" content="TV9 Nusantara">
+
+<!-- Facebook Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="TV9 Nusantara | Santun Menyejukkan" />
+<meta property="og:description" content="Meningkatkan warisan spiritual dan intelektual Nusantara
+melalui pengalaman siaran Islami modern." />
+<meta property="og:image" content="{{ url('/') }}/assets/base/img/thumbnail.jpg" />
+<meta property="og:url" content="{{ url('/') }}" />
+<meta property="og:site_name" content="TV9 Nusantara | Santun Menyejukkan" />
+
+<!-- Google Structured Data -->
+<meta itemprop="name" content="TV9 Nusantara | Santun Menyejukkan" />
+<meta itemprop="description" content="Meningkatkan warisan spiritual dan intelektual Nusantara
+melalui pengalaman siaran Islami modern." />
+<meta itemprop="image" content="{{ url('/') }}/assets/base/img/thumbnail.jpg" />
 
         <!-- Scripts & Styles -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -147,6 +169,15 @@
                     </div>
                 @endforelse
             </div>
+<div class="text-center max-w-3xl mx-auto mt-8 ">
+    <a href="https://jurnal9.tv/" target="_blank">
+        <span class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
+               transition-all duration-300 ease-in-out 
+               hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
+            LIHAT SEMUA BERITA
+        </span>
+    </a>
+</div>
         </div>
 
         <footer class="bg-white border-t border-gray-100 py-10">

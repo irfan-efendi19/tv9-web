@@ -6,8 +6,30 @@
     <title>Jadwal Mingguan – TV9 Nusantara</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="canonical" href="https://tv9.id/jadwal">
+<link rel="canonical" href="{{ config('app.url') . '/jadwal' }}">
 <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+
+<meta name="robots" content="index, follow" />
+<meta name="description" content="Meningkatkan warisan spiritual dan intelektual Nusantara
+melalui pengalaman siaran Islami modern.">
+<meta name="author" content="TV9 Nusantara">
+<meta http-equiv="Copyright" content="TV9 Nusantara">
+<meta name="copyright" content="TV9 Nusantara">
+
+<!-- Facebook Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="TV9 Nusantara | Santun Menyejukkan" />
+<meta property="og:description" content="Meningkatkan warisan spiritual dan intelektual Nusantara
+melalui pengalaman siaran Islami modern." />
+<meta property="og:image" content="{{ url('/') }}/assets/base/img/thumbnail.jpg" />
+<meta property="og:url" content="{{ url('/') }}" />
+<meta property="og:site_name" content="TV9 Nusantara | Santun Menyejukkan" />
+
+<!-- Google Structured Data -->
+<meta itemprop="name" content="TV9 Nusantara | Santun Menyejukkan" />
+<meta itemprop="description" content="Meningkatkan warisan spiritual dan intelektual Nusantara
+melalui pengalaman siaran Islami modern." />
+<meta itemprop="image" content="{{ url('/') }}/assets/base/img/thumbnail.jpg" />
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 <style>
@@ -102,15 +124,15 @@
                     </div>
                 
                     @php
-                        $dayNames = [
-                            1 => 'Senin',
-                            2 => 'Selasa',
-                            3 => 'Rabu',
-                            4 => 'Kamis',
-                            5 => 'Jumat',
-                            6 => 'Sabtu',
-                            7 => 'Minggu'
-                        ];
+$dayNames = [
+    1 => 'Senin',
+    2 => 'Selasa',
+    3 => 'Rabu',
+    4 => 'Kamis',
+    5 => 'Jumat',
+    6 => 'Sabtu',
+    7 => 'Minggu'
+];
                     @endphp
                 
                     <div class="space-y-12">
