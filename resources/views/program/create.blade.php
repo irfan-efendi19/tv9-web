@@ -11,7 +11,7 @@
                 <div class="p-8">
                     <form action="{{ route('program.store') }}" method="POST">
                         @csrf
-                        
+
                         <!-- Error Display -->
                         @if ($errors->any())
                             <div class="mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-r-xl">
@@ -32,13 +32,16 @@
                         <div class="space-y-6">
                             <div>
                                 <label class="block text-sm font-bold text-slate-700 mb-2">Nama Program</label>
-                                <input type="text" name="title" required class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500" placeholder="Contoh: Kajian Pagi">
+                                <input type="text" name="title" required
+                                    class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500"
+                                    placeholder="Contoh: Kiswah Event">
                             </div>
-                            
+
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-sm font-bold text-slate-700 mb-2">Hari</label>
-                                    <select name="day_of_week" required class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500">
+                                    <select name="day_of_week" required
+                                        class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500">
                                         <option value="1">Senin</option>
                                         <option value="2">Selasa</option>
                                         <option value="3">Rabu</option>
@@ -50,30 +53,40 @@
                                 </div>
                                 <div>
                                     <label class="block text-sm font-bold text-slate-700 mb-2">Kategori</label>
-                                    <input type="text" name="category" class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500" placeholder="Religi, Berita, dll.">
+                                    <select name="category" required
+                                        class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500">
+                                        <option value="religi">Religi</option>
+                                        <option value="berita">Berita</option>
+                                        <option value="hiburan">Hiburan</option>
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-sm font-bold text-slate-700 mb-2">Waktu Mulai</label>
-                                    <input type="time" name="start_time" required class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500">
+                                    <input type="time" name="start_time" required
+                                        class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-bold text-slate-700 mb-2">Waktu Selesai</label>
-                                    <input type="time" name="end_time" required class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500">
+                                    <input type="time" name="end_time" required
+                                        class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500">
                                 </div>
                             </div>
 
                             <div>
                                 <label class="block text-sm font-bold text-slate-700 mb-2">Deskripsi Singkat</label>
-                                <textarea name="description" rows="3" class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500"></textarea>
+                                <textarea name="description" rows="3"
+                                    class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500"></textarea>
                             </div>
                         </div>
 
                         <div class="mt-8 flex items-center justify-end gap-4">
-                            <a href="{{ route('dashboard') }}" class="text-sm font-bold text-slate-400 hover:text-slate-600 transition-colors">Batal</a>
-                            <button type="submit" class="px-6 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl shadow-lg shadow-emerald-700/20 transition-all">
+                            <a href="{{ route('dashboard') }}"
+                                class="text-sm font-bold text-slate-400 hover:text-slate-600 transition-colors">Batal</a>
+                            <button type="submit"
+                                class="px-6 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl shadow-lg shadow-emerald-700/20 transition-all">
                                 Simpan Jadwal
                             </button>
                         </div>

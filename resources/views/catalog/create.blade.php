@@ -19,31 +19,44 @@
                             <div class="space-y-6">
                                 <div>
                                     <label class="block text-sm font-bold text-slate-700 mb-2">Judul Program</label>
-                                    <input type="text" name="title" required class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500" placeholder="Contoh: Dokumenter Wali Songo">
+                                    <input type="text" name="title" required
+                                        class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500"
+                                        placeholder="Contoh: Wisata Religi">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-bold text-slate-700 mb-2">Kategori</label>
-                                    <input type="text" name="category" class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500" placeholder="Contoh: Sejarah, Religi, Talkshow">
+                                    <input type="text" name="category"
+                                        class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500"
+                                        placeholder="Contoh: Sejarah, Religi, Talkshow">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-bold text-slate-700 mb-2">Deskripsi</label>
-                                    <textarea name="description" rows="4" class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500" placeholder="Jelaskan secara singkat mengenai program ini..."></textarea>
+                                    <textarea name="description" rows="4"
+                                        class="w-full rounded-xl border-slate-200 focus:border-emerald-500 focus:ring-emerald-500"
+                                        placeholder="Jelaskan secara singkat mengenai program ini..."></textarea>
                                 </div>
                             </div>
 
                             <!-- Right Column: Poster Upload & Crop -->
                             <div>
-                                <label class="block text-sm font-bold text-slate-700 mb-2">Poster Program (Upload Lokal)</label>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Poster Program (Upload
+                                    Lokal)</label>
                                 <div class="mb-4">
-                                    <input type="file" id="upload" accept="image/*" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 transition-all cursor-pointer">
+                                    <input type="file" id="upload" accept="image/*"
+                                        class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 transition-all cursor-pointer">
                                 </div>
-                                
+
                                 <!-- Croppie Container -->
                                 <div id="upload-demo" class="hidden rounded-xl overflow-hidden border border-slate-100 bg-slate-50"></div>
-                                
+
                                 <!-- Placeholder when empty -->
-                                <div id="upload-placeholder" class="aspect-[2/3] w-full bg-slate-50 rounded-xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-slate-400">
-                                    <svg class="w-12 h-12 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                <div id="upload-placeholder"
+                                    class="aspect-[3/2] w-full bg-slate-50 rounded-xl border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-slate-400">
+                                    <svg class="w-12 h-12 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
                                     <span class="text-xs font-medium">Pilih file untuk memotong gambar</span>
                                 </div>
 
@@ -52,10 +65,13 @@
                         </div>
 
                         <div class="mt-10 pt-6 border-t border-slate-100 flex items-center justify-end gap-4">
-                            <a href="{{ route('dashboard') }}" class="text-sm font-bold text-slate-400 hover:text-slate-600 transition-colors">Batal</a>
-                            <button type="submit" id="save-btn" class="px-8 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl shadow-lg shadow-emerald-700/20 transition-all flex items-center gap-2">
+                            <a href="{{ route('dashboard') }}"
+                                class="text-sm font-bold text-slate-400 hover:text-slate-600 transition-colors">Batal</a>
+                            <button type="submit" id="save-btn"
+                                class="px-8 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl shadow-lg shadow-emerald-700/20 transition-all flex items-center gap-2">
                                 <span id="btn-text">Simpan Program</span>
-                                <div id="loader" class="hidden w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                                <div id="loader" class="hidden w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin">
+                                </div>
                             </button>
                         </div>
                     </form>
@@ -67,24 +83,25 @@
     <!-- Croppie.js Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
-    
+
     <script>
         var $uploadCrop;
 
         function readFile(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#upload-demo').removeClass('hidden');
-                    $('#upload-placeholder').addClass('hidden');
-                    $uploadCrop.croppie('bind', {
-                        url: e.target.result
-                    });
-                }
-                reader.readAsDataURL(input.files[0]);
+            reader.onload = function (e) {
+                $('#upload-demo').removeClass('hidden');
+                $('#upload-placeholder').addClass('hidden');
+                $uploadCrop.croppie('bind', {
+                    url: e.target.result
+                });
             }
+            reader.readAsDataURL(input.files[0]);
         }
+    }
 
+        //UKURAN CROP GAMBAR
         $uploadCrop = $('#upload-demo').croppie({
             viewport: {
                 width: 200,
@@ -100,8 +117,8 @@
             enableOrientation: true
         });
 
-        $('#upload').on('change', function () { 
-            readFile(this); 
+        $('#upload').on('change', function () {
+            readFile(this);
         });
 
         $('#catalogForm').on('submit', function (ev) {
@@ -111,16 +128,19 @@
                 $('#loader').removeClass('hidden');
                 $('#btn-text').text('Memproses...');
 
-                $uploadCrop.croppie('result', {
-                    type: 'base64',
-                    size: { width: 600, height: 900 }, // Output size in 2:3 ratio
-                    format: 'png',
-                    quality: 0.9
-                }).then(function (resp) {
-                    $('#image_data').val(resp);
-                    $('#catalogForm')[0].submit();
-                });
-            }
-        });
+            $uploadCrop.croppie('result', {
+                type: 'base64',
+                size: {
+                    width: 600,
+                    height: 900
+                }, // Output size in 2:3 ratio
+                format: 'png',
+                quality: 0.9
+            }).then(function (resp) {
+                $('#image_data').val(resp);
+                $('#catalogForm')[0].submit();
+            });
+        }
+    });
     </script>
 </x-app-layout>
