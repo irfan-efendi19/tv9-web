@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -21,14 +22,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #0a0a0a;
-        }
+    body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background: #0a0a0a;
+    }
 
-        .hero-gradient {
-            background: linear-gradient(135deg, #006747 0%, #004d35 100%);
-        }
+    .hero-gradient {
+        background: linear-gradient(135deg, #006747 0%, #004d35 100%);
+    }
     </style>
 </head>
 
@@ -152,21 +153,21 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @forelse($schedules ?? [] as $program)
-                    @php
-                        $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-                        $isLive = ($program->start_time <= $currentTime && $program->end_time >= $currentTime);
+                @php
+                $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+                $isLive = ($program->start_time <= $currentTime && $program->end_time >= $currentTime);
                     @endphp
                     <div
                         class="bg-white rounded-2xl p-6 shadow-sm border {{ $isLive ? 'border-red-500 shadow-md ring-1 ring-red-500/50' : 'border-gray-100 hover:shadow-xl' }} transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden">
 
                         @if($isLive)
-                            <div class="absolute top-0 left-0 w-full h-1 bg-red-600"></div>
-                            <div class="absolute top-4 right-4 flex items-center justify-center">
-                                <span
-                                    class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
-                                <span class="ml-2 text-xs font-bold text-red-600 uppercase tracking-widest">Live</span>
-                            </div>
+                        <div class="absolute top-0 left-0 w-full h-1 bg-red-600"></div>
+                        <div class="absolute top-4 right-4 flex items-center justify-center">
+                            <span
+                                class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+                            <span class="ml-2 text-xs font-bold text-red-600 uppercase tracking-widest">Live</span>
+                        </div>
                         @endif
 
                         <div class="flex justify-between items-start mb-4">
@@ -184,12 +185,12 @@
                             {{ $program->description ?? 'Deskripsi belum tersedia.' }}
                         </p>
                     </div>
-                @empty
+                    @empty
                     <div
                         class="col-span-full py-12 text-center bg-gray-50 rounded-2xl border border-gray-100 border-dashed">
                         <p class="text-gray-500 font-medium">Belum ada jadwal tayang untuk hari ini.</p>
                     </div>
-                @endforelse
+                    @endforelse
             </div>
         </div>
         <div class="text-center max-w-3xl mx-auto mt-8 ">
@@ -210,41 +211,42 @@
     </footer>
 
     <style>
-        /* Sembunyikan durasi (timestamp) pada live streaming */
-        video::-webkit-media-controls-current-time-display,
-        video::-webkit-media-controls-time-remaining-display,
-        video::-webkit-media-controls-timeline {
-            display: none !important;
-        }
+    /* Sembunyikan durasi (timestamp) pada live streaming */
+    video::-webkit-media-controls-current-time-display,
+    video::-webkit-media-controls-time-remaining-display,
+    video::-webkit-media-controls-timeline {
+        display: none !important;
+    }
 
-        /* Untuk browser lain (Firefox) */
-        video::-moz-range-progress {
-            display: none;
-        }
+    /* Untuk browser lain (Firefox) */
+    video::-moz-range-progress {
+        display: none;
+    }
 
-        /* Alternatif: jika ingin menyembunyikan seluruh kontrol durasi dan progress bar */
-        /* video::-webkit-media-controls-timeline {
+    /* Alternatif: jika ingin menyembunyikan seluruh kontrol durasi dan progress bar */
+    /* video::-webkit-media-controls-timeline {
         display: none;
     } */
     </style>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const video = document.getElementById('video');
-            const src = 'https://5bf7b725107e5.streamlock.net:443/tv9/tv9/playlist.m3u8';
-            if (Hls.isSupported()) {
-                const hls = new Hls();
-                hls.loadSource(src);
-                hls.attachMedia(video);
-                hls.on(Hls.Events.MANIFEST_PARSED, () => {
-                    video.muted = true;
-                    video.play().catch(() => { });
-                });
-            } else if (vi deo.canPlayType('application/vnd.apple.mpegurl')) {
+    document.addEventListener("DOMContentLoaded", () => {
+        const video = document.getElementById('video');
+        const src = 'https://5bf7b725107e5.streamlock.net:443/tv9/tv9/playlist.m3u8';
+
+        if (Hls.isSupported()) {
+            const hls = new Hls();
+            hls.loadSource(src);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                video.muted = true;
+                video.play().catch(() => {});
+            });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
             video.src = src;
             video.addEventListener('loadedmetadata', () => {
                 video.muted = true;
-                video.play().catch(() => { });
+                video.play().catch(() => {});
             });
         }
     });
