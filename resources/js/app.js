@@ -2,8 +2,11 @@ import "./bootstrap";
 import Alpine from "alpinejs";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "video.js/dist/video-js.css";
+import videojs from "video.js";
 
-window.Alpine = Alpine;
 
-Alpine.start();
 AOS.init();
+window.Alpine = Alpine;
+window.videojs = videojs;
+Alpine.start();

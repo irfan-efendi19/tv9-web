@@ -185,6 +185,7 @@
         </div>
     </div>
 
+    <!-- Footer Section -->
     <footer class="bg-white border-t border-gray-100 py-10">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p class="text-gray-400 text-sm">

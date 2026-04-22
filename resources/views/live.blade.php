@@ -7,9 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description"
         content="Saksikan live streaming TV9 Nusantara secara gratis. Nikmati pengalaman siaran Islami modern yang meningkatkan warisan spiritual dan intelektual Nusantara. Santun, menyejukkan, dan tayang 24 jam." />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="TV9 Nusantara">
-
 
     <title>LIVE Streaming - TV9 Nusantara</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +18,11 @@
 
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
+    <!-- Video.js CSS -->
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
     <style>
     body {
         font-family: 'Plus Jakarta Sans', sans-serif;
@@ -29,6 +31,106 @@
 
     .hero-gradient {
         background: linear-gradient(135deg, #006747 0%, #004d35 100%);
+    }
+
+    /* Sembunyikan durasi dan progress bar untuk live stream */
+    .video-js .vjs-current-time,
+    .video-js .vjs-time-divider,
+    .video-js .vjs-duration,
+    .video-js .vjs-remaining-time,
+    .video-js .vjs-live-control,
+    .video-js .vjs-progress-control {
+        display: none !important;
+    }
+
+    /* Style untuk LIVE indicator */
+    .video-js .vjs-live-display {
+        display: flex !important;
+        background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+        padding: 4px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin-left: 10px;
+        text-transform: uppercase;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Atur ulang posisi kontrol bar */
+    .video-js .vjs-control-bar {
+        display: flex;
+        align-items: center;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+    }
+
+    .video-js .vjs-play-control {
+        order: 1;
+    }
+
+    .video-js .vjs-volume-panel {
+        order: 2;
+    }
+
+    .video-js .vjs-live-display {
+        order: 3;
+    }
+
+    .video-js .vjs-picture-in-picture-control {
+        order: 4;
+    }
+
+    .video-js .vjs-fullscreen-control {
+        order: 5;
+        margin-left: auto;
+    }
+
+    /* Custom styling untuk tombol play besar */
+    .video-js .vjs-big-play-button {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        border: 2px solid white;
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        margin-left: -35px;
+        margin-top: -35px;
+        backdrop-filter: blur(4px);
+    }
+
+    .video-js:hover .vjs-big-play-button {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.05);
+        transition: all 0.3s ease;
+    }
+
+    /* Sembunyikan kontrol native browser */
+    video::-webkit-media-controls-timeline,
+    video::-webkit-media-controls-current-time-display,
+    video::-webkit-media-controls-time-remaining-display {
+        display: none !important;
+    }
+
+    /* Animasi untuk badge LIVE kustom */
+    @keyframes pulse-ring {
+        0% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+        }
+
+        70% {
+            transform: scale(1);
+            box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+        }
+
+        100% {
+            transform: scale(0.95);
+            box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+        }
+    }
+
+    .pulse-ring {
+        animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
     </style>
 </head>
@@ -133,7 +235,15 @@
                     class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl">
                 </div>
 
-                <video id="video" class="w-full h-full" controls autoplay playsinline></video>
+                <!-- Video element untuk Video.js -->
+                <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered w-full h-full" controls
+                    preload="auto" playsinline
+                    poster="https://via.placeholder.com/1280x720/2d3748/ffffff?text=TV9+Nusantara">
+                    <p class="vjs-no-js">
+                        Untuk menonton video ini, harap aktifkan JavaScript dan gunakan browser yang mendukung HTML5
+                        video.
+                    </p>
+                </video>
             </div>
         </div>
     </div>
@@ -193,14 +303,12 @@
                     @endforelse
             </div>
         </div>
-        <div class="text-center max-w-3xl mx-auto mt-8 ">
+        <div class="text-center max-w-3xl mx-auto mt-8">
             <span class="inline-block py-1 px-3 font-italic text-gray-500 text-sm mb-4 tracking-widest">
                 *Jam tayang yang ditampilkan berdasarkan Waktu Indonesia Barat
             </span>
         </div>
     </div>
-
-
 
     <footer class="bg-white border-t border-gray-100 py-10">
         <div class="max-w-7xl mx-auto px-4 text-center">
@@ -210,45 +318,108 @@
         </div>
     </footer>
 
-    <style>
-    /* Sembunyikan durasi (timestamp) pada live streaming */
-    video::-webkit-media-controls-current-time-display,
-    video::-webkit-media-controls-time-remaining-display,
-    video::-webkit-media-controls-timeline {
-        display: none !important;
-    }
-
-    /* Untuk browser lain (Firefox) */
-    video::-moz-range-progress {
-        display: none;
-    }
-
-    /* Alternatif: jika ingin menyembunyikan seluruh kontrol durasi dan progress bar */
-    /* video::-webkit-media-controls-timeline {
-        display: none;
-    } */
-    </style>
-
     <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const video = document.getElementById('video');
-        const src = 'https://5bf7b725107e5.streamlock.net:443/tv9/tv9/playlist.m3u8';
+    document.addEventListener("DOMContentLoaded", function() {
+        const videoElement = document.getElementById('my-video');
+        const streamUrl = 'https://5bf7b725107e5.streamlock.net:443/tv9/tv9/playlist.m3u8';
 
+        // Inisialisasi Video.js dengan konfigurasi live streaming
+        const player = videojs(videoElement, {
+            controls: true,
+            autoplay: true,
+            muted: true, // Muted untuk memungkinkan autoplay
+            preload: 'auto',
+            fluid: true,
+            liveui: true, // UI khusus untuk live streaming
+            controlBar: {
+                currentTimeDisplay: false,
+                timeDivider: false,
+                durationDisplay: false,
+                remainingTimeDisplay: false,
+                liveDisplay: true, // Hanya tampilkan LIVE indicator
+                progressControl: false, // Sembunyikan progress bar
+                volumePanel: {
+                    inline: false
+                },
+                pictureInPictureToggle: true,
+                fullscreenToggle: true,
+                playToggle: true
+            },
+            userActions: {
+                hotkeys: true // Dukungan shortcut keyboard
+            }
+        });
+
+        // Cek dukungan HLS
         if (Hls.isSupported()) {
-            const hls = new Hls();
-            hls.loadSource(src);
-            hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED, () => {
-                video.muted = true;
-                video.play().catch(() => {});
+            const hls = new Hls({
+                enableWorker: true,
+                lowLatencyMode: true,
+                maxBufferLength: 30,
+                liveSyncDurationCount: 3,
+                liveMaxLatencyDurationCount: 7,
+                startPosition: -1 // Mulai dari live point terbaru
             });
-        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            video.src = src;
-            video.addEventListener('loadedmetadata', () => {
-                video.muted = true;
-                video.play().catch(() => {});
+
+            hls.loadSource(streamUrl);
+            hls.attachMedia(videoElement);
+
+            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                console.log('Stream loaded, starting playback');
+                player.muted(true);
+                player.play().catch(function(error) {
+                    console.log('Autoplay prevented:', error);
+                });
+            });
+
+            hls.on(Hls.Events.ERROR, function(event, data) {
+                console.error('HLS Error:', data);
+                if (data.fatal) {
+                    switch (data.type) {
+                        case Hls.ErrorTypes.NETWORK_ERROR:
+                            console.log('Network error, trying to recover...');
+                            hls.startLoad();
+                            break;
+                        case Hls.ErrorTypes.MEDIA_ERROR:
+                            console.log('Media error, attempting recovery...');
+                            hls.recoverMediaError();
+                            break;
+                        default:
+                            console.log('Fatal error, cannot recover');
+                            break;
+                    }
+                }
+            });
+
+            // Simpan instance HLS
+            player.hls = hls;
+
+        } else if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
+            // Untuk Safari
+            videoElement.src = streamUrl;
+            videoElement.addEventListener('loadedmetadata', function() {
+                player.muted(true);
+                player.play().catch(function(error) {
+                    console.log('Autoplay prevented on Safari:', error);
+                });
+            });
+        } else {
+            console.error('HLS not supported');
+            player.error({
+                code: 4,
+                message: 'Browser Anda tidak mendukung live streaming HLS'
             });
         }
+
+        // Event ketika player siap
+        player.ready(function() {
+            console.log('Video.js player is ready');
+        });
+
+        // Handle error
+        player.on('error', function() {
+            console.error('Video.js error:', player.error());
+        });
     });
     </script>
 </body>
