@@ -9,7 +9,7 @@
         content="Saksikan live streaming TV9 Nusantara secara gratis. Nikmati pengalaman siaran Islami modern yang meningkatkan warisan spiritual dan intelektual Nusantara. Santun, menyejukkan, dan tayang 24 jam." />
     <meta name="author" content="TV9 Nusantara">
 
-    <title>LIVE Streaming - TV9 Nusantara</title>
+    <title>LIVE Streaming | TV9 Nusantara</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
         rel="stylesheet">
