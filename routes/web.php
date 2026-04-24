@@ -42,6 +42,11 @@ Route::get('/jadwal', function () {
     return view('jadwal', compact('programs'));
 })->name('jadwal');
 
+
+Route::get('/layanan', function () {
+    return view('layanan');
+});
+
 // Katalog Program (Public)
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
 
@@ -65,4 +70,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -284,3 +284,67 @@
         .program-card {
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
+
+     /* Custom styles */
+        .hero-slide-item {
+            transition: opacity 0.8s ease-in-out;
+        }
+        
+        .hero-dot-indicator {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .hero-dot-indicator:hover {
+            transform: scale(1.3);
+            background-color: white !important;
+        }
+        
+        #prevSlide, #nextSlide {
+            transition: all 0.3s ease;
+        }
+        
+        #prevSlide:hover, #nextSlide:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        /* Floating animation for feature images */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        .feature-image {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* Pulse animation for decorative elements */
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }

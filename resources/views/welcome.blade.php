@@ -106,6 +106,133 @@
         background: #4a7a4a;
         transform: scale(1.3);
     }
+
+
+    /* Thumbnail container */
+
+    .card-wrap {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+
+    .card-wrap:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.13);
+    }
+
+    .thumb {
+        position: relative;
+        width: 100%;
+        padding-top: 58%;
+        overflow: hidden;
+        background: #1a1a1a;
+    }
+
+    .thumb iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        pointer-events: none;
+    }
+
+    .thumb-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.28);
+        transition: background 0.3s;
+        z-index: 2;
+    }
+
+    .card-wrap:hover .thumb-overlay {
+        background: rgba(0, 0, 0, 0.1);
+    }
+
+    .play-btn {
+        width: 52px;
+        height: 52px;
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s, background 0.2s;
+    }
+
+    .play-btn svg {
+        margin-left: 4px;
+    }
+
+    .card-wrap:hover .play-btn {
+        transform: scale(1.12);
+        background: #fff;
+    }
+
+    /* Badge */
+    .badge {
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        z-index: 3;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        padding: 4px 10px;
+        border-radius: 4px;
+        background: #1a3d2b;
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    /* Underline accent */
+    .title-underline {
+        display: inline-block;
+        border-bottom: 3px solid #b8860b;
+        padding-bottom: 4px;
+    }
+
+    /* Scrollbar hidden */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* Nav buttons */
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1.5px solid #d1d1c7;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s, border-color 0.2s;
+    }
+
+    .nav-btn:hover {
+        background: #1a3d2b;
+        border-color: #1a3d2b;
+        color: #fff;
+    }
+
+    .nav-btn:hover svg {
+        stroke: #fff;
+    }
     </style>
 </head>
 
@@ -188,65 +315,297 @@
                                         </div> -->
     </div>
     </nav>
-
-    <!-- Spacer for fixed nav -->
-    <div class="h-16"></div>
-
     <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-        <img src="{{ asset('img/hero.png') }}" alt="" />
+    <!-- Hero Section with Static Background & Slider -->
+    <section id="hero" class="hero section relative overflow-hidden">
+        <!-- STATIC BACKGROUND (tetap sama sepanjang slide) - tidak fixed -->
+        <div class="absolute inset-0 w-full h-full z-0">
+            <!-- Background Image Static -->
+            <img src="img/hero.png" alt="Background" class="w-full h-full object-cover" />
+            <!-- Overlay Gradient Static -->
+            <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70"></div>
+            <!-- Pattern Overlay Static -->
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=" 60" height="60" viewBox="0 0 60 60"
+                xmlns="http://www.w3.org/2000/svg" %3E%3Cg fill="none" fill-rule="evenodd" %3E%3Cg fill="%239C92AC"
+                fill-opacity="0.05" %3E%3Cpath
+                d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"
+                /%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+        </div>
 
-        <div class="container mx-auto px-4">
-            <div class="flex flex-wrap">
-                <div class="w-full lg:w-8/12 flex flex-col items-left lg:items-start text-white">
+        <!-- Slider Container -->
+        <div class="relative z-10 h-screen min-h-[500px] md:min-h-[600px] w-full">
 
-                    <!-- Title -->
-                    <h2 data-aos="fade-up" data-aos-delay="100"
-                        class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-center lg:text-left">
-                        TV9 NUSANTARA
-                    </h2>
-                    <!-- Subtitle -->
-                    <p data-aos="fade-up" data-aos-delay="200"
-                        class="text-base md:text-lg opacity-90 mb-8 text-center lg:text-left">
-                        Spirituality, Creativity, Connectivity
-                    </p>
-                    <!-- Tombol Container -->
-                    <div data-aos="fade-up" data-aos-delay="300"
-                        class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
-                        <!-- Tombol Live Streaming -->
-                        <button id="liveBtn"
-                            class="group relative px-6 md:px-8 py-3 md:py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/50 flex items-center justify-center gap-3 overflow-hidden">
-                            <span
-                                class="absolute inset-0 w-full h-full bg-red-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-                            <span class="relative flex items-center gap-2">
-                                <a href="{{ route('live') }}">
-                                    <i class="fas fa-circle text-base animate-pulse text-white"></i>
-                                    <i class="fas fa-video text-lg"></i>
-                                    <span>Live Streaming</span>
-                                </a>
-                            </span>
-                        </button>
-                        <!-- Tombol Lihat Jadwal -->
-                        <button id="scheduleBtn"
-                            class="group px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold
-                                                                                                                                                                                                                                                                                                rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg border border-white/30 flex
-                                                                                                                                                                                                                                                                                                items-center justify-center gap-3">
-                            <a href="{{ route('jadwal') }}">
-                                <i class="fas fa-calendar-alt text-lg"></i>
-                                <span>Lihat Jadwal</span>
-                                <i
-                                    class="fas fa-arrow-right text-base group-hover:translate-x-1 transition-transform duration-300"></i>
-                            </a>
-                        </button>
+            <!-- Slides dengan konten berbeda -->
+            <div id="heroSlider" class="relative w-full h-full">
 
-                    </div>
-                    <!-- Indikator status (untuk feedback demo) -->
-                    <div id="statusMessage"
-                        class="mt-6 text-base text-white/70 bg-black/20 rounded-lg px-4 py-2 hidden transition-all duration-300">
-                        <i class="fas fa-info-circle mr-2"></i>
-                        <span id="statusText"></span>
+                <!-- Slide 1 - TV9 NUSANTARA dengan gambar feature 1 -->
+                <div class="hero-slide-item absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-10"
+                    data-slide="0">
+                    <div class="relative z-10 container mx-auto px-4 h-full flex items-center">
+                        <div class="w-full lg:w-7/12 text-white">
+                            <h2
+                                class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-center lg:text-left animate-fadeInUp">
+                                TV9 NUSANTARA
+                            </h2>
+                            <p class="text-base md:text-lg lg:text-xl opacity-90 mb-8 text-center lg:text-left animate-fadeInUp"
+                                style="animation-delay: 0.2s">
+                                Spirituality, Creativity, Connectivity
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4 animate-fadeInUp"
+                                style="animation-delay: 0.4s">
+                                <button
+                                    class="group relative px-6 md:px-8 py-3 md:py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/50 flex items-center justify-center gap-3 overflow-hidden">
+                                    <span class="relative flex items-center gap-2">
+                                        <i class="fas fa-circle text-sm animate-pulse"></i>
+                                        <i class="fas fa-video text-lg"></i>
+                                        <span>Live Streaming</span>
+                                    </span>
+                                </button>
+                                <button
+                                    class="group px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg border border-white/30 flex items-center justify-center gap-3">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fas fa-calendar-alt text-lg"></i>
+                                        <span>Lihat Jadwal</span>
+                                        <i
+                                            class="fas fa-arrow-right text-base group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Feature Image Slide 1 (kanan) -->
+                        <div class="hidden lg:block lg:w-5/12 animate-fadeInUp" style="animation-delay: 0.6s">
+                            <div class="feature-image relative">
+                                <img src="https://cdn-icons-png.flaticon.com/512/4210/4210452.png" alt="Broadcasting"
+                                    class="w-80 h-80 mx-auto object-contain drop-shadow-2xl" />
+                                <div
+                                    class="absolute -bottom-10 -left-10 w-32 h-32 bg-yellow-500/20 rounded-full blur-2xl">
+                                </div>
+                                <div class="absolute -top-10 -right-10 w-40 h-40 bg-red-500/20 rounded-full blur-2xl">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Slide 2 - Inspirasi Nusantara dengan gambar feature 2 -->
+                <div class="hero-slide-item absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0"
+                    data-slide="1">
+                    <div class="relative z-10 container mx-auto px-4 h-full flex items-center">
+                        <div class="w-full lg:w-7/12 text-white">
+                            <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-center lg:text-left">
+                                Inspirasi Nusantara
+                            </h2>
+                            <p class="text-base md:text-lg lg:text-xl opacity-90 mb-8 text-center lg:text-left">
+                                Menyajikan Konten Berkualitas untuk Generasi Masa Depan
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
+                                <button
+                                    class="group relative px-6 md:px-8 py-3 md:py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/50 flex items-center justify-center gap-3 overflow-hidden">
+                                    <span class="relative flex items-center gap-2">
+                                        <i class="fas fa-circle text-sm animate-pulse"></i>
+                                        <i class="fas fa-video text-lg"></i>
+                                        <span>Live Streaming</span>
+                                    </span>
+                                </button>
+                                <button
+                                    class="group px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg border border-white/30 flex items-center justify-center gap-3">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fas fa-tv text-lg"></i>
+                                        <span>Lihat Program</span>
+                                        <i
+                                            class="fas fa-arrow-right text-base group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Feature Image Slide 2 -->
+                        <div class="hidden lg:block lg:w-5/12">
+                            <div class="feature-image relative">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png" alt="Inspiration"
+                                    class="w-80 h-80 mx-auto object-contain drop-shadow-2xl" />
+                                <div
+                                    class="absolute -bottom-10 -left-10 w-32 h-32 bg-green-500/20 rounded-full blur-2xl">
+                                </div>
+                                <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/20 rounded-full blur-2xl">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 - TV Digital Masa Kini dengan gambar feature 3 -->
+                <div class="hero-slide-item absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0"
+                    data-slide="2">
+                    <div class="relative z-10 container mx-auto px-4 h-full flex items-center">
+                        <div class="w-full lg:w-7/12 text-white">
+                            <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-center lg:text-left">
+                                TV Digital Masa Kini
+                            </h2>
+                            <p class="text-base md:text-lg lg:text-xl opacity-90 mb-8 text-center lg:text-left">
+                                Tonton Dimana Saja, Kapan Saja. Akses 24/7 di Semua Platform
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
+                                <button
+                                    class="group relative px-6 md:px-8 py-3 md:py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/50 flex items-center justify-center gap-3 overflow-hidden">
+                                    <span class="relative flex items-center gap-2">
+                                        <i class="fas fa-circle text-sm animate-pulse"></i>
+                                        <i class="fas fa-video text-lg"></i>
+                                        <span>Live Streaming</span>
+                                    </span>
+                                </button>
+                                <button
+                                    class="group px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg border border-white/30 flex items-center justify-center gap-3">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fas fa-info-circle text-lg"></i>
+                                        <span>Tentang Kami</span>
+                                        <i
+                                            class="fas fa-arrow-right text-base group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Feature Image Slide 3 -->
+                        <div class="hidden lg:block lg:w-5/12">
+                            <div class="feature-image relative">
+                                <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Digital TV"
+                                    class="w-80 h-80 mx-auto object-contain drop-shadow-2xl" />
+                                <div
+                                    class="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl">
+                                </div>
+                                <div
+                                    class="absolute -top-10 -right-10 w-40 h-40 bg-orange-500/20 rounded-full blur-2xl">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4 - Berita Terkini dengan gambar feature 4 -->
+                <div class="hero-slide-item absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0"
+                    data-slide="3">
+                    <div class="relative z-10 container mx-auto px-4 h-full flex items-center">
+                        <div class="w-full lg:w-7/12 text-white">
+                            <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-center lg:text-left">
+                                Berita Terkini
+                            </h2>
+                            <p class="text-base md:text-lg lg:text-xl opacity-90 mb-8 text-center lg:text-left">
+                                Update Tercepat dan Terpercaya Seputar Nusantara
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
+                                <button
+                                    class="group relative px-6 md:px-8 py-3 md:py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/50 flex items-center justify-center gap-3 overflow-hidden">
+                                    <span class="relative flex items-center gap-2">
+                                        <i class="fas fa-circle text-sm animate-pulse"></i>
+                                        <i class="fas fa-video text-lg"></i>
+                                        <span>Live Streaming</span>
+                                    </span>
+                                </button>
+                                <button
+                                    class="group px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg border border-white/30 flex items-center justify-center gap-3">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fas fa-newspaper text-lg"></i>
+                                        <span>Berita Lainnya</span>
+                                        <i
+                                            class="fas fa-arrow-right text-base group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Feature Image Slide 4 -->
+                        <div class="hidden lg:block lg:w-5/12">
+                            <div class="feature-image relative">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2888/2888408.png" alt="News"
+                                    class="w-80 h-80 mx-auto object-contain drop-shadow-2xl" />
+                                <div
+                                    class="absolute -bottom-10 -left-10 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl">
+                                </div>
+                                <div class="absolute -top-10 -right-10 w-40 h-40 bg-pink-500/20 rounded-full blur-2xl">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Event & Hiburan dengan gambar feature 5 -->
+                <div class="hero-slide-item absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0"
+                    data-slide="4">
+                    <div class="relative z-10 container mx-auto px-4 h-full flex items-center">
+                        <div class="w-full lg:w-7/12 text-white">
+                            <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-center lg:text-left">
+                                Event & Hiburan
+                            </h2>
+                            <p class="text-base md:text-lg lg:text-xl opacity-90 mb-8 text-center lg:text-left">
+                                Saksikan Event Seru dan Hiburan Menarik Setiap Harinya
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
+                                <button
+                                    class="group relative px-6 md:px-8 py-3 md:py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/50 flex items-center justify-center gap-3 overflow-hidden">
+                                    <span class="relative flex items-center gap-2">
+                                        <i class="fas fa-circle text-sm animate-pulse"></i>
+                                        <i class="fas fa-video text-lg"></i>
+                                        <span>Live Streaming</span>
+                                    </span>
+                                </button>
+                                <button
+                                    class="group px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg border border-white/30 flex items-center justify-center gap-3">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fas fa-music text-lg"></i>
+                                        <span>Lihat Event</span>
+                                        <i
+                                            class="fas fa-arrow-right text-base group-hover:translate-x-1 transition-transform duration-300"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Feature Image Slide 5 -->
+                        <div class="hidden lg:block lg:w-5/12">
+                            <div class="feature-image relative">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3082/3082030.png" alt="Event"
+                                    class="w-80 h-80 mx-auto object-contain drop-shadow-2xl" />
+                                <div
+                                    class="absolute -bottom-10 -left-10 w-32 h-32 bg-indigo-500/20 rounded-full blur-2xl">
+                                </div>
+                                <div
+                                    class="absolute -top-10 -right-10 w-40 h-40 bg-yellow-500/20 rounded-full blur-2xl">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Arrows -->
+            <button id="prevSlide"
+                class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-black/70 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                <i class="fas fa-chevron-left text-lg md:text-xl"></i>
+            </button>
+            <button id="nextSlide"
+                class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-black/70 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                <i class="fas fa-chevron-right text-lg md:text-xl"></i>
+            </button>
+
+            <!-- Dots/Indicators -->
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2 md:gap-3">
+                <button
+                    class="hero-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300"
+                    data-dot="0"></button>
+                <button
+                    class="hero-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300"
+                    data-dot="1"></button>
+                <button
+                    class="hero-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300"
+                    data-dot="2"></button>
+                <button
+                    class="hero-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300"
+                    data-dot="3"></button>
+                <button
+                    class="hero-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300"
+                    data-dot="4"></button>
             </div>
         </div>
     </section>
@@ -269,71 +628,71 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 @forelse($schedules ?? [] as $program)
-                @php
-                $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-                $isLive = $program->start_time <= $currentTime && $program->end_time >=
-                    $currentTime;
-                    $isDone = $program->end_time < $currentTime; @endphp <div
-                        class="relative bg-white rounded-2xl p-5 border mb-5
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                {{ $isLive
+                            @php
+                                $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+                                $isLive = $program->start_time <= $currentTime && $program->end_time >=
+                                    $currentTime;
+                            $isDone = $program->end_time < $currentTime; @endphp <div
+                                    class="relative bg-white rounded-2xl p-5 border mb-5
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        {{ $isLive
                     ? 'border-2 border-[#006747] shadow-lg shadow-[#006747]/10'
                     : 'border-gray-200 hover:shadow-md' }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                {{ $isDone ? 'opacity-60' : '' }}">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        {{ $isDone ? 'opacity-60' : '' }}">
 
-                        {{-- Badge SEDANG TAYANG di atas card --}}
-                        @if($isLive)
-                        <div class="absolute -top-px left-1/2 -translate-x-1/2">
-                            <span
-                                class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
-                                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                Sedang Tayang
-                            </span>
+                                    {{-- Badge SEDANG TAYANG di atas card --}}
+                                    @if($isLive)
+                                        <div class="absolute -top-px left-1/2 -translate-x-1/2">
+                                            <span
+                                                class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
+                                                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                                Sedang Tayang
+                                            </span>
+                                        </div>
+                                    @endif
+
+                                    {{-- Jam --}}
+                                    <p class="text-base font-semibold {{ $isLive ? 'text-[#006747]' : 'text-gray-400' }} mt-3">
+                                        {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }} –
+                                        {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
+                                    </p>
+
+                                    {{-- Judul & Deskripsi --}}
+                                    <div class="flex-1">
+                                        <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
+                                            {{ $program->title }}
+                                        </h3>
+                                        <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
+                                            {{ $program->description ?? 'Deskripsi belum tersedia.' }}
+                                        </p>
+                                    </div>
+
+                                    {{-- Status Badge --}}
+                                    <div>
+                                        @if($isLive)
+                                            <span
+                                                class="inline-flex items-center gap-1.5 bg-[#006747] text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
+                                                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                                Live
+                                            </span>
+                                        @elseif($isDone)
+                                            <span
+                                                class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                                Selesai
+                                            </span>
+                                        @else
+                                            <span
+                                                class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                                Akan Datang
+                                            </span>
+                                        @endif
+                                    </div>
                         </div>
-                        @endif
 
-                        {{-- Jam --}}
-                        <p class="text-base font-semibold {{ $isLive ? 'text-[#006747]' : 'text-gray-400' }} mt-3">
-                            {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }} –
-                            {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
-                        </p>
-
-                        {{-- Judul & Deskripsi --}}
-                        <div class="flex-1">
-                            <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
-                                {{ $program->title }}
-                            </h3>
-                            <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
-                                {{ $program->description ?? 'Deskripsi belum tersedia.' }}
-                            </p>
-                        </div>
-
-                        {{-- Status Badge --}}
-                        <div>
-                            @if($isLive)
-                            <span
-                                class="inline-flex items-center gap-1.5 bg-[#006747] text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
-                                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                Live
-                            </span>
-                            @elseif($isDone)
-                            <span
-                                class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                Selesai
-                            </span>
-                            @else
-                            <span
-                                class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                Akan Datang
-                            </span>
-                            @endif
-                        </div>
-            </div>
-
-            @empty
-            <div class="col-span-full py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
-                <p class="text-gray-500 font-medium">Belum ada jadwal tayang untuk hari ini.</p>
-            </div>
+                @empty
+                <div class="col-span-full py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                    <p class="text-gray-500 font-medium">Belum ada jadwal tayang untuk hari ini.</p>
+                </div>
             @endforelse
         </div>
         </div>
@@ -1020,6 +1379,150 @@
         </div>
     </section>
 
+
+    <section class="max-w-6xl mx-auto">
+
+        <!-- Header -->
+        <div class="flex items-start justify-between mb-10">
+            <div>
+                <p class="text-xs font-semibold tracking-widest text-amber-700 uppercase mb-2">Eksplorasi Kreatif</p>
+                <h2 class="text-4xl font-extrabold text-gray-900 title-underline">Portfolio &amp; Karya Unggulan</h2>
+            </div>
+            <div class="flex gap-2 mt-2">
+                <button class="nav-btn" id="prevBtn" aria-label="Previous">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                </button>
+                <button class="nav-btn" id="nextBtn" aria-label="Next">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Cards Slider -->
+        <div class="relative overflow-hidden">
+            <div class="flex gap-6 no-scrollbar transition-transform duration-500 ease-in-out" id="portfolioTrack">
+
+                <!-- Card 1 -->
+                <div class="card-wrap flex-none w-72"
+                    onclick="openVideo('https://www.youtube.com/watch?v=dQw4w9WgXcQ')">
+                    <div class="thumb">
+                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Jejak Spiritual Pesisir"
+                            class="absolute inset-0 w-full h-full object-cover" />
+                        <div class="thumb-overlay">
+                            <div class="play-btn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#1a3d2b">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="badge">Documentary</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-base font-bold text-gray-900 mb-1">Jejak Spiritual Pesisir</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Sebuah narasi mendalam tentang harmoni antara
+                            tradisi leluhur dan nilai-nilai keagamaan di sepanjang pesisir Utara Jawa.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-wrap flex-none w-72"
+                    onclick="openVideo('https://www.youtube.com/watch?v=9bZkp7q19f0')">
+                    <div class="thumb">
+                        <img src="https://img.youtube.com/vi/9bZkp7q19f0/hqdefault.jpg" alt="Satu Abad Kebangkitan"
+                            class="absolute inset-0 w-full h-full object-cover" />
+                        <div class="thumb-overlay">
+                            <div class="play-btn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#1a3d2b">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="badge">Special Coverage</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-base font-bold text-gray-900 mb-1">Satu Abad Kebangkitan</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Liputan eksklusif rangkaian peringatan satu
+                            abad organisasi massa terbesar, merangkum sejarah dan masa depan umat.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-wrap flex-none w-72"
+                    onclick="openVideo('https://www.youtube.com/watch?v=kXYiU_JCYtU')">
+                    <div class="thumb">
+                        <img src="https://img.youtube.com/vi/kXYiU_JCYtU/hqdefault.jpg" alt="Festival Budaya Nusantara"
+                            class="absolute inset-0 w-full h-full object-cover" />
+                        <div class="thumb-overlay">
+                            <div class="play-btn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#1a3d2b">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="badge">Event Highlights</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-base font-bold text-gray-900 mb-1">Festival Budaya Nusantara</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Rangkuman momen-momen magis dari festival
+                            budaya yang menyatukan berbagai etnis di Indonesia dalam satu panggung.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card-wrap flex-none w-72"
+                    onclick="openVideo('https://www.youtube.com/watch?v=JGwWNGJdvx8')">
+                    <div class="thumb">
+                        <img src="https://img.youtube.com/vi/JGwWNGJdvx8/hqdefault.jpg" alt="Arsitektur Warisan"
+                            class="absolute inset-0 w-full h-full object-cover" />
+                        <div class="thumb-overlay">
+                            <div class="play-btn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#1a3d2b">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="badge">Short Film</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-base font-bold text-gray-900 mb-1">Arsitektur Warisan</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Menelusuri keindahan arsitektur bersejarah
+                            Indonesia yang menjadi saksi bisu peradaban dan keagungan masa lalu.</p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="card-wrap flex-none w-72"
+                    onclick="openVideo('https://www.youtube.com/watch?v=tgbNymZ7vqY')">
+                    <div class="thumb">
+                        <img src="https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg" alt="Suara Alam Borneo"
+                            class="absolute inset-0 w-full h-full object-cover" />
+                        <div class="thumb-overlay">
+                            <div class="play-btn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#1a3d2b">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="badge">Nature</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-base font-bold text-gray-900 mb-1">Suara Alam Borneo</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Perjalanan mendalam ke jantung hutan
+                            Kalimantan, merekam keanekaragaman hayati yang semakin terancam modernisasi.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
     <section class="py-16 bg-gray-50">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold text-gray-800">Partner & Kolaborator</h2>
@@ -1253,23 +1756,23 @@
                 const catColor = getCatColor(cat);
 
                 return `
-                <a href="${link}" target="_blank" class="group flex flex-col rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-200">
-                  <div class="relative overflow-hidden h-48 bg-gray-100 flex-shrink-0">
-                    ${imgUrl
+                    <a href="${link}" target="_blank" class="group flex flex-col rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-200">
+                      <div class="relative overflow-hidden h-48 bg-gray-100 flex-shrink-0">
+                        ${imgUrl
                             ? `<img src="${imgUrl}" alt="${title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />`
                             : `<div class="w-full h-full bg-gray-200 flex items-center justify-center"><i class="fa-solid fa-newspaper text-gray-400 text-4xl"></i></div>`
                         }
-                    ${cat ? `<span class="absolute top-3 left-3 text-[9px] font-bold tracking-widest uppercase text-white px-2.5 py-1 rounded ${catColor}">${cat}</span>` : ''}
-                  </div>
-                  <div class="p-5 flex flex-col flex-1">
-                    <h3 class="text-gray-900 font-bold text-base leading-snug mb-2 group-hover:text-brand-green transition-colors line-clamp-2">${title}</h3>
-                    <p class="text-gray-500 text-base leading-relaxed flex-1 line-clamp-3">${excerpt}</p>
-                    <div class="mt-4 flex items-center gap-1 text-base font-semibold text-brand-green group-hover:gap-2 transition-all">
-                      Baca Selengkapnya <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                    </div>
-                  </div>
-                </a>
-              `;
+                        ${cat ? `<span class="absolute top-3 left-3 text-[9px] font-bold tracking-widest uppercase text-white px-2.5 py-1 rounded ${catColor}">${cat}</span>` : ''}
+                      </div>
+                      <div class="p-5 flex flex-col flex-1">
+                        <h3 class="text-gray-900 font-bold text-base leading-snug mb-2 group-hover:text-brand-green transition-colors line-clamp-2">${title}</h3>
+                        <p class="text-gray-500 text-base leading-relaxed flex-1 line-clamp-3">${excerpt}</p>
+                        <div class="mt-4 flex items-center gap-1 text-base font-semibold text-brand-green group-hover:gap-2 transition-all">
+                          Baca Selengkapnya <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </div>
+                      </div>
+                    </a>
+                  `;
             }).join('');
 
             loading.classList.add('hidden');
@@ -1319,6 +1822,197 @@
         autoTimer = setInterval(() => move(current < total - 1 ? 1 : -(total - 1)),
             4500);
     });
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.querySelectorAll('.hero-slide-item');
+        const dots = document.querySelectorAll('.hero-dot-indicator');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        const currentSlideNum = document.getElementById('currentSlideNum');
+        let currentSlide = 0;
+        let slideInterval;
+        const totalSlides = slides.length;
+        const autoPlayDelay = 5000; // 5 detik per slide
+
+        // Update slide counter
+        function updateCounter() {
+            if (currentSlideNum) {
+                currentSlideNum.textContent = currentSlide + 1;
+            }
+        }
+
+        // Function to show specific slide
+        function showSlide(index) {
+            // Reset all slides
+            slides.forEach((slide, i) => {
+                slide.style.opacity = '0';
+                slide.style.zIndex = '1';
+            });
+
+            // Reset all dots
+            dots.forEach(dot => {
+                dot.classList.remove('bg-white');
+                dot.classList.add('bg-white/50');
+                dot.style.transform = 'scale(1)';
+            });
+
+            // Show current slide
+            if (slides[index]) {
+                slides[index].style.opacity = '1';
+                slides[index].style.zIndex = '2';
+
+                // Add animation to content
+                const titles = slides[index].querySelectorAll('h2, p, div.flex, .feature-image');
+                titles.forEach(el => {
+                    el.style.animation = 'none';
+                    setTimeout(() => {
+                        el.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    }, 10);
+                });
+            }
+
+            // Update current dot
+            if (dots[index]) {
+                dots[index].classList.remove('bg-white/50');
+                dots[index].classList.add('bg-white');
+                dots[index].style.transform = 'scale(1.2)';
+            }
+
+            currentSlide = index;
+            updateCounter();
+        }
+
+        // Next slide function
+        function nextSlide() {
+            let nextIndex = currentSlide + 1;
+            if (nextIndex >= totalSlides) {
+                nextIndex = 0;
+            }
+            showSlide(nextIndex);
+            resetAutoPlay();
+        }
+
+        // Previous slide function
+        function prevSlide() {
+            let prevIndex = currentSlide - 1;
+            if (prevIndex < 0) {
+                prevIndex = totalSlides - 1;
+            }
+            showSlide(prevIndex);
+            resetAutoPlay();
+        }
+
+        // Auto play function
+        function startAutoPlay() {
+            slideInterval = setInterval(() => {
+                nextSlide();
+            }, autoPlayDelay);
+        }
+
+        function resetAutoPlay() {
+            clearInterval(slideInterval);
+            startAutoPlay();
+        }
+
+        function stopAutoPlay() {
+            clearInterval(slideInterval);
+        }
+
+        // Event listeners
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+        // Dot click event
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                resetAutoPlay();
+            });
+        });
+
+        // Pause auto play on hover
+        const heroSection = document.getElementById('hero');
+        if (heroSection) {
+            heroSection.addEventListener('mouseenter', stopAutoPlay);
+            heroSection.addEventListener('mouseleave', startAutoPlay);
+        }
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        heroSection.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        heroSection.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchEndX - touchStartX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    prevSlide();
+                } else {
+                    nextSlide();
+                }
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+
+        // Set total slides counter
+        const totalSlidesNum = document.getElementById('totalSlidesNum');
+        if (totalSlidesNum) {
+            totalSlidesNum.textContent = totalSlides;
+        }
+
+        // Show first slide
+        showSlide(0);
+
+        // Start auto play
+        startAutoPlay();
+    });
+
+
+    // Portfolio section logic
+    const portfolioTrack = document.getElementById('portfolioTrack');
+    const portfolioCardWidth = 288 + 24; // w-72 + gap-6
+    let portfolioActiveIndex = 0;
+    const portfolioTotalCards = portfolioTrack.children.length;
+    const portfolioVisibleCount = 3;
+
+    function portfolioMoveTrack() {
+        const portfolioMaxIndex = portfolioTotalCards - portfolioVisibleCount;
+        portfolioActiveIndex = Math.max(0, Math.min(portfolioActiveIndex, portfolioMaxIndex));
+        portfolioTrack.style.transform = `translateX(-${portfolioActiveIndex * portfolioCardWidth}px)`;
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+        portfolioActiveIndex--;
+        portfolioMoveTrack();
+    });
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        portfolioActiveIndex++;
+        portfolioMoveTrack();
+    });
+
+    function openVideo(url) {
+        window.open(url, '_blank');
+    }
     </script>
 
     <style>
