@@ -199,7 +199,7 @@
 
             <!-- Menu Kanan -->
             <div class="flex items-center gap-3 md:gap-7" x-data="{ open: false }">
-            
+
                 <!-- LIVE Button — selalu tampil di navbar (desktop & mobile) -->
                 <a href="{{ route('live') }}"
                     class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-bold text-white transition-all duration-200 hover:scale-105"
