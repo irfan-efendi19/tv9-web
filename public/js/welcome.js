@@ -1,0 +1,330 @@
+    document.addEventListener("DOMContentLoaded", () => {
+        var video = document.getElementById('video');
+        var videoSrc = 'https://5bf7b725107e5.streamlock.net:443/tv9/tv9/playlist.m3u8';
+        if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                video.muted = true;
+                video.play().catch(() => {});
+            });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = videoSrc;
+            video.addEventListener('loadedmetadata', function() {
+                video.muted = true;
+                video.play().catch(() => {});
+            });
+        }
+    });
+
+
+(async function() {
+        const loading = document.getElementById('news-loading');
+        const grid = document.getElementById('news-grid');
+        const errorEl = document.getElementById('news-error');
+
+        const categoryColors = {
+            'nusantara': 'bg-emerald-700',
+            'religi': 'bg-amber-700',
+            'politik': 'bg-teal-700',
+            'ekonomi': 'bg-blue-700',
+            'olahraga': 'bg-red-700',
+        };
+
+        function getCatColor(name) {
+            const key = (name || '').toLowerCase();
+            for (const k in categoryColors) {
+                if (key.includes(k)) return categoryColors[k];
+            }
+            return 'bg-gray-700';
+        }
+
+        function stripHtml(html) {
+            return html.replace(/<[^>]*>/g, '').replace(/&hellip;/g, '...').replace(
+                    /&amp;/g, '&')
+                .replace(
+                    /&#8217;/g, "'").trim();
+        }
+
+        try {
+            const res = await fetch(
+                'https://jurnal9.tv/wp-json/wp/v2/posts?per_page=3&_embed=1');
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const posts = await res.json();
+
+            grid.innerHTML = posts.map(post => {
+                const title = stripHtml(post.title.rendered);
+                const excerpt = stripHtml(post.excerpt.rendered).slice(0, 120) +
+                    '...';
+                const link = post.link;
+
+                const media = post._embedded?. ['wp:featuredmedia']?. [0];
+                const imgUrl = media?.media_details?.sizes?.medium
+                    ?.source_url || media
+                    ?.source_url ||
+                    '';
+
+                const terms = post._embedded?. ['wp:term']?. [0] || [];
+                const cat = terms[0]?.name || '';
+                const catColor = getCatColor(cat);
+
+                return `
+                    <a href="${link}" target="_blank" class="group flex flex-col rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow duration-200">
+                      <div class="relative overflow-hidden h-48 bg-gray-100 flex-shrink-0">
+                        ${imgUrl
+                            ? `<img src="${imgUrl}" alt="${title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />`
+                            : `<div class="w-full h-full bg-gray-200 flex items-center justify-center"><i class="fa-solid fa-newspaper text-gray-400 text-4xl"></i></div>`
+                        }
+                        ${cat ? `<span class="absolute top-3 left-3 text-[9px] font-bold tracking-widest uppercase text-white px-2.5 py-1 rounded ${catColor}">${cat}</span>` : ''}
+                      </div>
+                      <div class="p-5 flex flex-col flex-1">
+                        <h3 class="text-gray-900 font-bold text-base leading-snug mb-2 group-hover:text-brand-green transition-colors line-clamp-2">${title}</h3>
+                        <p class="text-gray-500 text-base leading-relaxed flex-1 line-clamp-3">${excerpt}</p>
+                        <div class="mt-4 flex items-center gap-1 text-base font-semibold text-brand-green group-hover:gap-2 transition-all">
+                          Baca Selengkapnya <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </div>
+                      </div>
+                    </a>
+                  `;
+            }).join('');
+
+            loading.classList.add('hidden');
+            grid.classList.remove('hidden');
+        } catch (e) {
+            loading.classList.add('hidden');
+            errorEl.classList.remove('hidden');
+            console.error('News fetch error:', e);
+        }
+    })();
+
+
+    const track = document.getElementById('track');
+    const slides = track.querySelectorAll('.slide');
+    const dotsEl = document.getElementById('dots');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    let current = 0;
+    const total = slides.length;
+
+    slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Slide ' + (i + 1));
+        d.onclick = () => goTo(i);
+        dotsEl.appendChild(d);
+    });
+
+    function goTo(n) {
+        current = Math.max(0, Math.min(n, total - 1));
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dotsEl.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i ===
+            current));
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current === total - 1;
+    }
+
+    function move(dir) {
+        goTo(current + dir);
+    }
+
+    goTo(0);
+
+    let autoTimer = setInterval(() => move(current < total - 1 ? 1 : -(total - 1)), 4500);
+    track.parentElement.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    track.parentElement.addEventListener('mouseleave', () => {
+        autoTimer = setInterval(() => move(current < total - 1 ? 1 : -(total - 1)),
+            4500);
+    });
+
+
+
+     document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.querySelectorAll('.hero-slide-item');
+        const dots = document.querySelectorAll('.hero-dot-indicator');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        const currentSlideNum = document.getElementById('currentSlideNum');
+        let currentSlide = 0;
+        let slideInterval;
+        const totalSlides = slides.length;
+        const autoPlayDelay = 5000; // 5 detik per slide
+
+        // Update slide counter
+        function updateCounter() {
+            if (currentSlideNum) {
+                currentSlideNum.textContent = currentSlide + 1;
+            }
+        }
+
+        // Function to show specific slide
+        function showSlide(index) {
+            // Reset all slides
+            slides.forEach((slide, i) => {
+                slide.style.opacity = '0';
+                slide.style.zIndex = '1';
+            });
+            
+            // Reset all dots
+            dots.forEach(dot => {
+                dot.classList.remove('bg-white');
+                dot.classList.add('bg-white/50');
+                dot.style.transform = 'scale(1)';
+            });
+            
+            // Show current slide
+            if (slides[index]) {
+                slides[index].style.opacity = '1';
+                slides[index].style.zIndex = '2';
+                
+                // Add animation to content
+                const titles = slides[index].querySelectorAll('h2, p, div.flex, .feature-image');
+                titles.forEach(el => {
+                    el.style.animation = 'none';
+                    setTimeout(() => {
+                        el.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    }, 10);
+                });
+            }
+            
+            // Update current dot
+            if (dots[index]) {
+                dots[index].classList.remove('bg-white/50');
+                dots[index].classList.add('bg-white');
+                dots[index].style.transform = 'scale(1.2)';
+            }
+            
+            currentSlide = index;
+            updateCounter();
+        }
+        
+        // Next slide function
+        function nextSlide() {
+            let nextIndex = currentSlide + 1;
+            if (nextIndex >= totalSlides) {
+                nextIndex = 0;
+            }
+            showSlide(nextIndex);
+            resetAutoPlay();
+        }
+        
+        // Previous slide function
+        function prevSlide() {
+            let prevIndex = currentSlide - 1;
+            if (prevIndex < 0) {
+                prevIndex = totalSlides - 1;
+            }
+            showSlide(prevIndex);
+            resetAutoPlay();
+        }
+        
+        // Auto play function
+        function startAutoPlay() {
+            slideInterval = setInterval(() => {
+                nextSlide();
+            }, autoPlayDelay);
+        }
+        
+        function resetAutoPlay() {
+            clearInterval(slideInterval);
+            startAutoPlay();
+        }
+        
+        function stopAutoPlay() {
+            clearInterval(slideInterval);
+        }
+        
+        // Event listeners
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        
+        // Dot click event
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                resetAutoPlay();
+            });
+        });
+        
+        // Pause auto play on hover
+        const heroSection = document.getElementById('hero');
+        if (heroSection) {
+            heroSection.addEventListener('mouseenter', stopAutoPlay);
+            heroSection.addEventListener('mouseleave', startAutoPlay);
+        }
+        
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        heroSection.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        heroSection.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchEndX - touchStartX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    prevSlide();
+                } else {
+                    nextSlide();
+                }
+            }
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+        
+        // Set total slides counter
+        const totalSlidesNum = document.getElementById('totalSlidesNum');
+        if (totalSlidesNum) {
+            totalSlidesNum.textContent = totalSlides;
+        }
+        
+        // Show first slide
+        showSlide(0);
+        
+        // Start auto play
+        startAutoPlay();
+    });
+   
+
+
+    // Portfolio section logic
+    const portfolioTrack = document.getElementById('portfolioTrack');
+    const portfolioCardWidth = 288 + 24; // w-72 + gap-6
+    let portfolioActiveIndex = 0;
+    const portfolioTotalCards = portfolioTrack.children.length;
+    const portfolioVisibleCount = 3;
+
+    function portfolioMoveTrack() {
+        const portfolioMaxIndex = portfolioTotalCards - portfolioVisibleCount;
+        portfolioActiveIndex = Math.max(0, Math.min(portfolioActiveIndex, portfolioMaxIndex));
+        portfolioTrack.style.transform = `translateX(-${portfolioActiveIndex * portfolioCardWidth}px)`;
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+        portfolioActiveIndex--;
+        portfolioMoveTrack();
+    });
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        portfolioActiveIndex++;
+        portfolioMoveTrack();
+    });
+
+    function openVideo(url) {
+        window.open(url, '_blank');
+    }

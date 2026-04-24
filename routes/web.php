@@ -1,13 +1,15 @@
 <?php
-
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Program;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\LayananController;
+use App\Http\Controllers\TV9xLPMaarifController;
 
-// Halaman Utama - Digital Minaret
+
+// Halaman Utama
 Route::get('/', function () {
     $today = date('N');
     $currentTime = \Carbon\Carbon::now()->format('H:i:s');
@@ -43,10 +45,6 @@ Route::get('/jadwal', function () {
 })->name('jadwal');
 
 
-Route::get('/layanan', function () {
-    return view('layanan');
-});
-
 // Katalog Program (Public)
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
 
@@ -71,3 +69,10 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+
+// Halaman Layanan
+Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');
+
+// Halaman TV9xLPMaarif
+Route::get('/tv9xlpmaarif', [TV9xLPMaarifController::class, 'index'])->name('tv9xlpmaarif');

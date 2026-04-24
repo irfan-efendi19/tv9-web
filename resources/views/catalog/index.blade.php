@@ -59,32 +59,44 @@
                         <span class="text-white font-bold text-xl tracking-tight hidden sm:block">Nusantara</span>
                         </a>
                         </div>
-                        
-                        <!-- Menu Kanan (Desktop & Mobile) -->
-                        <div class="relative flex items-center" x-data="{ open: false }">
-                        
-                            <!-- Desktop Menu -->
-                            <div class="hidden md:flex md:flex-row md:items-center md:gap-7">
-                                <a href="{{ route('beranda') }}"
-                                    class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Beranda</a>
-                                <a href="{{ route('live') }}"
-                                    class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">LIVE</a>
-                                <a href="{{ route('jadwal') }}"
-                                    class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Jadwal</a>
-                                <a href="{{ route('catalog.index') }}"
-                                    class="text-sm font-semibold text-yellow-400 border-b-2 border-yellow-400 pb-0.5 whitespace-nowrap">Program</a>
-                                <a href="{{ route('berita.index') }}"
-                                    class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Berita</a>
-                            </div>
 
-                <!-- Mobile Menu Button (Hamburger) -->
+            <!-- Menu Kanan -->
+            <div class="flex items-center gap-3 md:gap-7" x-data="{ open: false }">
+
+                <!-- LIVE Button — selalu tampil di navbar (desktop & mobile) -->
+                <a href="{{ route('live') }}"
+                    class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-bold text-white transition-all duration-200 hover:scale-105"
+                    style="background: linear-gradient(135deg, #dc2626, #b91c1c); box-shadow: 0 0 12px rgba(220,38,38,0.5);">
+                    <!-- Pulsing dot -->
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                    </span>
+                    LIVE
+                </a>
+                
+                <!-- Desktop Menu Links -->
+                <div class="hidden md:flex md:flex-row md:items-center md:gap-7">
+                    <a href="{{ route('beranda') }}"
+                        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Beranda</a>
+                    <a href="{{ route('jadwal') }}"
+                        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Jadwal</a>
+                    <a href="{{ route('layanan') }}"
+                        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Layanan</a>
+                    <a href="{{ route('catalog.index') }}"
+                        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Program</a>
+                    <a href="{{ route('berita.index') }}"
+                        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Berita</a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
                 <button @click="open = !open" class="md:hidden text-white focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                         </button>
 
-                <!-- Mobile Menu Dropdown -->
+                <!-- Mobile Dropdown (tanpa LIVE) -->
                 <div x-show="open" @click.away="open = false" x-cloak x-transition:enter="transition ease-out duration-200"
                     x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
                     x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
@@ -92,17 +104,18 @@
                     class="absolute top-full right-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-xl md:hidden z-50">
                     <div class="flex flex-col p-4 space-y-3">
                         <a href="{{ route('beranda') }}"
-                            class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Beranda</a>
-                        <a href="{{ route('live') }}"
-                            class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">LIVE</a>
+                            class="text-base font-semibold text-yellow-400 border-l-2 border-yellow-400 pl-3 py-1">Beranda</a>
                         <a href="{{ route('jadwal') }}"
-                            class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Jadwal</a>
+                            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Jadwal</a>
+                        <a href="{{ route('layanan') }}"
+                            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Layanan</a>
                         <a href="{{ route('catalog.index') }}"
-                            class="text-sm font-semibold text-yellow-400 border-l-2 border-yellow-400 pl-3 py-1">Program</a>
+                            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Program</a>
                         <a href="{{ route('berita.index') }}"
-                            class="text-sm font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Berita</a>
+                            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Berita</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </nav>
@@ -129,7 +142,7 @@
                 </span>
                 <span class="text-xs font-semibold tracking-wide text-emerald-300 uppercase">KONTEN EKSLUSIF</span>
             </div>
-            
+
             <h1
                 class="text-5xl md:text-7xl font-black tracking-tight mb-6 bg-gradient-to-r from-white via-emerald-200 to-emerald-400 bg-clip-text drop-shadow-2xl">
                 Katalog <span
@@ -220,9 +233,9 @@
 
                         <!-- Badge Trending / New -->
                         <!-- <div
-                                                                                                                                                                                                                                                        class="absolute top-2 right-2 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full px-2 py-0.5 text-[9px] font-bold text-white shadow-lg">
-                                                                                                                                                                                                                                                        {{ $loop->index < 3 ? 'TRENDING' : 'NEW' }}
-                                                                                                                                                                                                                                                    </div> -->
+                                                                                                                                                                                                                                                                                        class="absolute top-2 right-2 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full px-2 py-0.5 text-[9px] font-bold text-white shadow-lg">
+                                                                                                                                                                                                                                                                                        {{ $loop->index < 3 ? 'TRENDING' : 'NEW' }}
+                                                                                                                                                                                                                                                                                    </div> -->
                     </div>
                 </div>
             @empty
@@ -317,7 +330,7 @@
                         <span class="text-xs font-black text-emerald-400 uppercase tracking-widest"
                             x-text="selected.category || 'Program'"></span>
                     </div>
-                    
+
                     <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight" x-text="selected.title"></h2>
 
                     <!-- Meta Information -->
@@ -357,31 +370,31 @@
                 searchQuery: '',
                 filteredCatalogs: @json($catalogs),
 
-                init() {
-                    this.filteredCatalogs = @json($catalogs);
-                },
+            init() {
+                this.filteredCatalogs = @json($catalogs);
+            },
 
-                filterCatalog() {
-                    let filtered = @json($catalogs);
+            filterCatalog() {
+                let filtered = @json($catalogs);
 
-                    // Filter by category
-                    if (this.activeFilter !== 'all') {
-                        filtered = filtered.filter(item => item.category === this.activeFilter);
-                    }
-
-                    // Filter by search query
-                    if (this.searchQuery.trim() !== '') {
-                        const query = this.searchQuery.toLowerCase();
-                        filtered = filtered.filter(item =>
-                            item.title.toLowerCase().includes(query) ||
-                            (item.category && item.category.toLowerCase().includes(query))
-                        );
-                    }
-
-                    this.filteredCatalogs = filtered;
+                // Filter by category
+                if (this.activeFilter !== 'all') {
+                    filtered = filtered.filter(item => item.category === this.activeFilter);
                 }
-            }));
-        });
+
+                // Filter by search query
+                if (this.searchQuery.trim() !== '') {
+                    const query = this.searchQuery.toLowerCase();
+                    filtered = filtered.filter(item =>
+                        item.title.toLowerCase().includes(query) ||
+                        (item.category && item.category.toLowerCase().includes(query))
+                    );
+                }
+
+                this.filteredCatalogs = filtered;
+            }
+        }));
+    });
     </script>
 
     <style>
