@@ -430,3 +430,49 @@
         // Show first slide
         showSlide(0);
     });
+
+
+
+(function () {
+    const wrapper = document.getElementById("marquee-wrapper");
+    const track = document.getElementById("marquee-track");
+    const GAP = 24; // harus sama dengan gap di HTML (24px)
+    const SPEED = 0.5; // px per frame, naikkan untuk lebih cepat
+
+    const allItems = Array.from(track.children);
+    const totalItems = allItems.length;
+    const originalCount = totalItems / 2; // 6 asli, 6 duplikat
+
+    let pos = 0;
+    let paused = false;
+    let setWidth = 0;
+
+    function calcSetWidth() {
+        let w = 0;
+        for (let i = 0; i < originalCount; i++) {
+            w += allItems[i].offsetWidth + GAP;
+        }
+        return w;
+    }
+
+    wrapper.addEventListener("mouseenter", () => (paused = true));
+    wrapper.addEventListener("mouseleave", () => (paused = false));
+
+    function animate() {
+        if (!paused) {
+            pos -= SPEED;
+            // Reset saat sudah geser sejauh 1 set penuh → loop seamless
+            if (Math.abs(pos) >= setWidth) {
+                pos = 0;
+            }
+            track.style.transform = `translateX(${pos}px)`;
+        }
+        requestAnimationFrame(animate);
+    }
+
+    // Tunggu gambar load agar offsetWidth akurat
+    window.addEventListener("load", function () {
+        setWidth = calcSetWidth();
+        requestAnimationFrame(animate);
+    });
+})();

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+                    <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -530,6 +530,17 @@
                         <p class="text-gray-500 font-medium">Belum ada jadwal tayang untuk hari ini.</p>
                     </div>
                 @endforelse
+
+                <div class="text-center max-w-3xl mx-auto mt-8 ">
+                    <a href="{{ route('jadwal') }}">
+                        <span
+                            class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
+                                                                                               transition-all duration-300 ease-in-out 
+                                                                                               hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
+                            LIHAT SEMUA JADWAL
+                        </span>
+                    </a>
+                </div>
             </div>
 
             <!-- Dots/Indicators Only -->
@@ -730,7 +741,7 @@
                         </div>
                     </div>
                     <!-- Tombol CTA -->
-                    <a href="#"
+                    <a href="{{ route('layanan') }}"
                         class="contact-btn inline-flex items-center gap-2.5 bg-yellow-600 text-white text-base font-semibold rounded-xl px-6 py-3">
                         <i class="fa-solid fa-headset text-base"></i>
                         Hubungi Tim Marketing TV9
@@ -1392,66 +1403,148 @@
             <h2 class="text-3xl font-bold text-gray-800">Partner & Kolaborator</h2>
             <p class="text-gray-500 mt-2">Mitra terpercaya kami</p>
         </div>
-        <div class="w-full max-w-[1400px]">
-            <!-- Wrapper tanpa border, tanpa shadow, tanpa background -->
-            <div class="marquee-wrapper w-full overflow-hidden relative">
-                <div class="marquee-content flex items-center gap-6 gap-8 animate-marquee">
+        <div class="w-full max-w-[1400px] mx-auto">
+            <div class="marquee-wrapper w-full overflow-hidden relative" id="marquee-wrapper">
+                <div class="marquee-track flex items-center" id="marquee-track" style="gap: 24px;">
 
-                    <!-- 6 Logo Asli -->
+                    {{-- 6 Logo Asli --}}
                     <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px]  rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
                     </div>
 
-                    <!-- Duplikat 6 Logo -->
                     <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
                     </div>
                     <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px]  rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
                     </div>
                     <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
                     </div>
                     <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px]  rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
                     </div>
                     <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px]  rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
                     </div>
                     <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
                     </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+
+
+                    {{-- Duplikat 6 Logo (clone set) --}}
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+
                 </div>
             </div>
         </div>
+    </section>
 
+    <!-- ── READY TO COLLABORATE ───────────────────────────────────── -->
+    <section style="background:#f0f0f5" class="py-20 px-6">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="font-display text-3xl lg:text-4xl font-bold text-pine mb-4">
+                Siap Berkolaborasi? Let's Connect!
+            </h2>
+            <p class="text-gray-500 text-sm leading-relaxed mb-8 max-w-lg mx-auto">
+                Bergabunglah dengan kami dalam misi kami untuk menyiarkan kesantunan dan kesejukan.
+                Baik Anda tertarik
+                pada kemitraan, periklanan, atau berbagi cerita Anda, tim kami siap untuk terhubung.
+            </p>
+            <a href="{{route('kontak')}}" class="inline-block font-bold text-sm text-white px-8 py-3.5 rounded-md"
+                style="background:#0d4a35;letter-spacing:.04em;text-decoration:none;">
+                Kontak Kami
+            </a>
+        </div>
     </section>
     <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
         <iframe style="border: 0; width: 100%; height: 400px"
@@ -1460,7 +1553,7 @@
     </div>
     <!-- FOOTER -->
     <!-- Footer Start -->
-    <div class="relative bg-white text-black">
+    <footer class="relative bg-white text-black">
         <div class="relative text-black px-4">
             <div class="max-w-7xl mx-auto py-12 lg:py-16">
                 <!-- Flex container for two equal columns -->
@@ -1558,33 +1651,29 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
 
-    <!-- COPYRIGHT SECTION (converted to Tailwind) -->
-    <!-- Original: .copyright.container-fluid.bg-dark.text-white.border-top.border-secondary.px-0 -->
-    <div class="bg-white border-t border-gray-100 py-10">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-400 text-base">
-                &copy; {{ date('Y') }} TV9 NUSANTARA - All Rights Reserved
-            </p>
+
+
+        <!-- COPYRIGHT SECTION (converted to Tailwind) -->
+        <!-- Original: .copyright.container-fluid.bg-dark.text-white.border-top.border-secondary.px-0 -->
+        <div class="bg-white border-t border-gray-100 py-10">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <p class="text-gray-400 text-base">
+                    &copy; {{ date('Y') }} TV9 NUSANTARA - All Rights Reserved
+                </p>
+            </div>
         </div>
-    </div>
+    </footer>
     <!-- Simple script to inject current year dynamically (like {{ date('Y') }} in PHP) -->
     <script>
-    document.getElementById('currentYear').innerText = new Date().getFullYear();
+    document.getElementById('currentYear').inner
+    Text = new Date().getFullYear();
     </script>
 
 
 
     <script src="js/welcome.js"></script>
     <style>
-    /* Marquee animation fix */
-    .marquee-content {
-        display: flex;
-        width: max-content;
-    }
-
     /* Sembunyikan durasi (timestamp) pada live streaming */
     video::-webkit-media-controls-current-time-display,
     video::-webkit-media-controls-time-remaining-display,

@@ -19,6 +19,10 @@
         rel="stylesheet" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         font-family: 'Plus Jakarta Sans', sans-serif;
     }
@@ -220,10 +224,10 @@
                     <h1 class="font-display text-5xl lg:text-6xl font-black leading-tight text-white mb-3">
                         Generasi Emas
                     </h1>
-                    <h1 class="font-display text-5xl lg:text-6xl font-black leading-tight text-gold mb-3">
+                    <h1 class="font-display text-5xl lg:text-6xl font-black leading-tight text-white mb-3">
                         Tumbuh Dari
                     </h1>
-                    <h1 class="font-display text-5xl lg:text-6xl font-black leading-tight text-white mb-6">
+                    <h1 class="font-display text-5xl lg:text-6xl font-black leading-tight text-amber-500 mb-6">
                         Pendidikan<br>Berkelas
                     </h1>
                     <p class="text-white/70 text-sm leading-relaxed max-w-md mb-8">
@@ -231,12 +235,12 @@
                         pendidikan LP Ma'arif NU yang berhaluan Ahlussunnah wal Jama'ah.
                     </p>
                     <div class="flex flex-wrap gap-3">
-                        <button class="btn-primary text-sm">
+                        <a class="btn-primary text-sm" href="#form">
                             <i class="fa-solid fa-pen-to-square"></i> Daftar Sekarang
-                        </button>
-                        <button class="btn-outline text-sm">
+                        </a>
+                        <a class="btn-outline text-sm">
                             <i class="fa-solid fa-play"></i> Pelajari Program
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -246,11 +250,10 @@
                         <div
                             class="w-80 h-80 lg:w-96 lg:h-96 bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center overflow-hidden">
                             <!-- Students SVG illustration -->
-                            <img src="{{ asset('img/hero.png') }}" class="w-full h-full p-4 rounded-3xl">
-                            </img>
+                            <img src="{{ asset('img/event/lpmaarif.jpeg') }}" class="w-full h-full p-4 rounded-3xl object-cover">
                         </div>
                         <div
-                            class="absolute -bottom-4 -right-4 w-20 h-20 bg-gold/20 rounded-2xl border border-gold/30 flex items-center justify-center">
+                            class="absolute -bottom-4 -right-4 w-20 h-20 bg-amber-500 rounded-2xl border border-amber-500 flex items-center justify-center">
                             <i class="fa-solid fa-graduation-cap text-gold text-2xl"></i>
                         </div>
                     </div>
@@ -303,7 +306,7 @@
                                 <i class="fa-regular fa-calendar text-pine-800 text-sm"></i>
                             </div>
                             <div>
-                                <p class="font-bold text-gray-800 text-sm">Kamis &amp; Jumat</p>
+                                <p class="font-bold text-gray-800 text-sm">Senin sampai Sabtu</p>
                                 <p class="text-gray-500 text-xs">Jadwal Rutin</p>
                             </div>
                         </div>
@@ -312,7 +315,7 @@
                                 <i class="fa-regular fa-clock text-gold text-sm"></i>
                             </div>
                             <div>
-                                <p class="font-bold text-gray-800 text-sm">18:30 WIB</p>
+                                <p class="font-bold text-gray-800 text-sm">16:30 WIB</p>
                                 <p class="text-gray-500 text-xs">Live Broadcast</p>
                             </div>
                         </div>
@@ -388,7 +391,7 @@
     </section>
 
     <!-- ========== KERJA SAMA FORM ========== -->
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-white" id="form">
         <div class="max-w-5xl mx-auto px-6">
             <div class="bg-white rounded-3xl shadow-2xl shadow-gray-100 border border-gray-100 overflow-hidden">
                 <div class="grid lg:grid-cols-5">
@@ -483,7 +486,118 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
+    <!-- Footer Start -->
+    <footer class="relative bg-white text-black">
+        <div class="relative text-black px-4">
+            <div class="max-w-7xl mx-auto py-12 lg:py-16">
+                <!-- Flex container for two equal columns -->
+                <div class="flex flex-wrap -mx-4">
+                    <!-- Left Column: About text and social links (SAME WIDTH as right column) -->
+                    <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
+                        <a class="inline-block mb-4">
+                            <h1 class="text-3xl lg:text-4xl font-bold text-black">TV9 Nusantara
+                            </h1>
+                            <h1 class="text-xl lg:text-xl font-semibold text-black">PT. Dakwah
+                                Inti Media
+                            </h1>
+                        </a>
+                        <p class="text-black leading-relaxed mb-4">
+                            TV9 Nusantara merupakan stasiun televisi lokal di Kota Surabaya dan
+                            menjadi salah satu awal televisi swasta di Indonesia yang memiliki
+                            karakter
+                            pemirsa
+                            komunitas
+                            yang bernuansa Islam. TV9 dikelola oleh PT. Dakwah Inti Media,
+                            perusahaan yang
+                            dimiliki oleh
+                            KH. Moh. Hasani Mutawakkil `Alallah, S.H.,M.M., termasuk di dalamnya
+                            organisasi
+                            sosial
+                            keagamaan
+                            Nahdlatul 'Ulama (PWNU) Jawa Timur ini diluncurkan pada tanggal 31
+                            Januari 2010
+                            oleh
+                            Soekarwo
+                            sebagai bagian dari perayaan ulang tahun Nahdlatul 'Ulama ke-84.
+                            Bersiaran di
+                            kanal
+                            42 UHF,
+                            TV9
+                            telah memperoleh Izin Penyelenggaraan Penyiaran prinsip tertanggal
+                            pada 7 Juli
+                            2009
+                            dan Izin
+                            Penyelenggaraan Penyiaran tetap tertanggal pada 23 Juli 2012 dari
+                            Menteri
+                            Komunikasi
+                            dan
+                            Informatika Republik Indonesia untuk melakukan siaran sebagai
+                            lembaga penyiaran
+                            swasta lokal
+                            di
+                            Surabaya/Jawa Timur.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mt-6">
+                            <a target="_blank" href="https://x.com/TV9NUsantara"
+                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300">
+                                <i class="fab fa-x-twitter"></i>
+                            </a>
+                            <a target="_blank" href="https://www.facebook.com/tv9nusantara"
+                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a target="_blank" href="https://www.instagram.com/tv9nusantara/"
+                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50  transition-all duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a target="_blank" href="https://www.youtube.com/@tv9nusantara"
+                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a target="_blank" href="https://www.tiktok.com/@tv9nusantara"
+                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50  transition-all duration-300">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Right Column: Address (SAME WIDTH as left column) -->
+                    <div class="w-full lg:w-1/2 px-4">
+                        <h4 class="text-3xl lg:text-2xl font-semibold text-black mb-4">Alamat
+                        </h4>
+                        <div class="flex flex-col space-y-2">
+                            <p class="text-black/80 leading-relaxed">
+                                Jl. Raya Darmo No.96,<br>
+                                Darmo, Kec. Wonokromo,<br>
+                                Surabaya, Jawa Timur 60241
+                            </p>
+                            <h4 class="text-3xl lg:text-2xl font-semibold text-black mb-4 mt-4">
+                                Kontak</h4>
+                            <div class="flex items-center">
+                                <a target="_blank" href="https://www.youtube.com/@tv9nusantara"
+                                    class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300 mr-2">
+                                    <i class="fa-solid fa-phone-volume"></i>
+                                </a>
+                                <p>Kokokowd</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
 
+
+        <!-- COPYRIGHT SECTION (converted to Tailwind) -->
+        <!-- Original: .copyright.container-fluid.bg-dark.text-white.border-top.border-secondary.px-0 -->
+        <div class="bg-white border-t border-gray-100 py-10">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <p class="text-gray-400 text-base">
+                    &copy; {{ date('Y') }} TV9 NUSANTARA - All Rights Reserved
+                </p>
+            </div>
+        </div>
+        </footer>
 </body>
 
 </html>

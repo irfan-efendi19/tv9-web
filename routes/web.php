@@ -7,6 +7,7 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\TV9xLPMaarifController;
+use App\Http\Controllers\KontakController;
 
 
 // Halaman Utama
@@ -73,6 +74,9 @@ require __DIR__ . '/auth.php';
 
 // Halaman Layanan
 Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');
+
+// Halaman Kontak
+Route::get('/kontak', [KontakController::class, 'index'])->name('kontak');
 
 // Halaman TV9xLPMaarif
 Route::get('/tv9xlpmaarif', [TV9xLPMaarifController::class, 'index'])->name('tv9xlpmaarif');

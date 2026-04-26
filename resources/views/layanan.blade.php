@@ -6,8 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description"
-        content="TV9 Nusantara adalah televisi Islami modern yang berbasis di Surabaya, Jawa Timur. Dengan tagline Santun Menyejukkan, TV9 menyajikan tayangan bernuansa Ahlussunnah Wal Jamaah (Aswaja) yang mengedepankan nilai-nilai keislaman, kebangsaan, dan kearifan lokal Nusantara. Tersedia via live streaming, digital platform, dan siaran digital terestrial.">
-    <meta name="author" content="TV9 Nusantara">
+        content="Jelajahi berbagai layanan profesional TV9 Nusantara, mulai dari slot iklan televisi, produksi konten Islami, hingga kerja sama live streaming untuk menyebarkan syiar Ahlussunnah Wal Jamaah secara luas.">
 
     <title>Layanan | TV9 Nusantara</title>
     <!-- Favicon -->
@@ -15,6 +14,7 @@
     <!-- External Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
+    <link rel="canonical" href="{{ config('app.url') . '/layanan' }}">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -269,47 +269,46 @@
         <div class="max-w-6xl mx-auto px-6 py-24 w-full grid md:grid-cols-2 gap-12 items-center">
             <!-- Left -->
             <div class="relative z-10">
-                <p class="section-label mb-4 fade-up">Official Media Services</p>
-                <h1 class="font-display text-5xl md:text-6xl leading-[1.1] text-white font-black mb-6 fade-up-2">
+                <p class="section-label mb-4 fade-up">Layanan Media</p>
+                <h1 class="font-display text-5xl md:text-6xl leading-[1.1] text-black font-black mb-6 fade-up-2">
                     Solusi Media &amp; <br />
-                    <span class="text-brand-gold">Komunikasi</span> <br />
+                    <span class="text-black">Komunikasi</span> <br />
                     Terpadu
                 </h1>
-                <p class="text-white/70 text-base leading-relaxed max-w-md mb-10 fade-up-3">
+                <p class="text-black/70 text-base leading-relaxed max-w-md mb-10 fade-up-3">
                     Kami menghadirkan ekosistem promosi yang komprehensif, menggabungkan otoritas penyiaran tradisional
                     dengan ketangkasan media digital nusantara.
                 </p>
                 <div class="flex flex-wrap gap-4 fade-up-3">
-                    <a href="#"
-                        class="px-7 py-3.5 bg-brand-gold text-brand-darkgreen font-semibold rounded-full text-sm hover:bg-yellow-400 transition-colors shadow-lg shadow-yellow-900/20">
+                    <a href="{{ route('kontak') }}"
+                        class="px-7 py-3.5 bg-black text-white font-semibold rounded-full text-sm shadow-lg shadow-yellow-900/20">
                         Konsultasi Sekarang
                     </a>
                     <a href="#"
-                        class="px-7 py-3.5 border border-white/30 text-white font-semibold rounded-full text-sm hover:bg-white/10 transition-colors backdrop-blur-sm">
+                        class="px-7 py-3.5 border border-black/30 text-black font-semibold rounded-full text-sm backdrop-blur-sm">
                         <i class="fa-solid fa-download mr-2 text-xs"></i>Unduh Rate Card
                     </a>
                 </div>
             </div>
             <!-- Right: decorative visual -->
             <div class="hidden md:flex justify-center items-center relative">
-                <div
-                    class="w-72 h-72 rounded-full border border-brand-gold/20 flex items-center justify-center relative">
-                    <div class="w-56 h-56 rounded-full border border-brand-gold/30 flex items-center justify-center">
-                        <div class="w-40 h-40 rounded-full bg-brand-gold/10 flex items-center justify-center">
-                            <i class="fa-solid fa-broadcast-tower text-brand-gold text-6xl"></i>
+                <div class="w-72 h-72 rounded-full border border-black/20 flex items-center justify-center relative">
+                    <div class="w-56 h-56 rounded-full border border-black/30 flex items-center justify-center">
+                        <div class="w-40 h-40 rounded-full bg-black/10 flex items-center justify-center">
+                            <i class="fa-solid fa-broadcast-tower text-black text-6xl"></i>
                         </div>
                     </div>
                     <!-- Orbiting dots -->
-                    <span class="absolute top-6 right-6 w-3 h-3 rounded-full bg-brand-gold"></span>
-                    <span class="absolute bottom-10 left-4 w-2 h-2 rounded-full bg-brand-gold/50"></span>
-                    <span class="absolute top-1/2 -right-2 w-4 h-4 rounded-full border-2 border-brand-gold/40"></span>
+                    <span class="absolute top-6 right-6 w-3 h-3 rounded-full bg-black"></span>
+                    <span class="absolute bottom-10 left-4 w-2 h-2 rounded-full bg-black/50"></span>
+                    <span class="absolute top-1/2 -right-2 w-4 h-4 rounded-full border-2 border-brand-black/40"></span>
                 </div>
             </div>
         </div>
         <!-- bottom wave -->
         <div class="absolute bottom-0 left-0 right-0">
             <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 60V30C240 0 480 60 720 40C960 20 1200 0 1440 30V60H0Z" fill="#fafaf7" />
+                <path d="M0 60V30C240 0 480 60 720 40C960 20 1200 0 1440 30V60H0Z" fill="#59ad3f" />
             </svg>
         </div>
     </section>
@@ -344,7 +343,7 @@
                         layar utama.
                     </p>
                     <a href="#" class="arrow-link">
-                        Pelajari Lebih Lanjut <i class="fa-solid fa-arrow-right text-xs"></i>
+                        <!-- Pelajari Lebih Lanjut <i class="fa-solid fa-arrow-right text-xs"></i> -->
                     </a>
                 </div>
                 <!-- Program Sponsorship -->
@@ -359,7 +358,7 @@
                         program favorit pemirsa.
                     </p>
                     <a href="#" class="arrow-link">
-                        Pelajari Lebih Lanjut <i class="fa-solid fa-arrow-right text-xs"></i>
+                        <!-- Pelajari Lebih Lanjut <i class="fa-solid fa-arrow-right text-xs"></i> -->
                     </a>
                 </div>
             </div>
@@ -402,7 +401,7 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-4">
                 <p class="section-label mb-3">Field Activation</p>
-                <h2 class="font-display text-4xl font-bold text-brand-darkgreen">Off-Air Activation</h2>
+                <h2 class="font-display text-4xl font-bold text-brand-darkgreen">Off-Air Event</h2>
             </div>
             <div class="flex justify-center mb-4">
                 <div class="divider-gold"></div>
@@ -418,9 +417,6 @@
                     <div class="event-img-wrap mb-6 h-64 bg-brand-green overflow-hidden rounded-2xl flex items-center justify-center"
                         style="background:linear-gradient(135deg,#1a4a3a,#2d5c45)">
                         <i class="fa-solid fa-building text-white/20 text-8xl"></i>
-                        <div class="absolute inset-0 flex items-end p-6">
-                            <span class="text-white/60 text-xs font-semibold uppercase tracking-widest">Indoor</span>
-                        </div>
                     </div>
                     <div class="bg-brand-cream rounded-2xl p-7">
                         <div class="flex items-center gap-3 mb-4">
@@ -489,7 +485,7 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="mb-4">
                 <p class="section-label mb-3">Digital Ecosystem</p>
-                <h2 class="font-display text-4xl font-bold text-brand-darkgreen">New Media Presence</h2>
+                <h2 class="font-display text-4xl font-bold text-brand-darkgreen">NEW MEDIA</h2>
             </div>
             <div class="divider-gold mb-4"></div>
             <p class="text-gray-500 max-w-lg mb-16 text-sm leading-relaxed">
@@ -508,11 +504,6 @@
                     <p class="text-gray-400 text-xs leading-relaxed mb-5">
                         Membangun estetika visual dan engagement mendalam melalui kurasi konten premium.
                     </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="badge" style="background:#fdf2f8;color:#be185d">Story Ads</span>
-                        <span class="badge" style="background:#fdf2f8;color:#be185d">Feed Post</span>
-                        <span class="badge" style="background:#fdf2f8;color:#be185d">Reels Production</span>
-                    </div>
                 </div>
 
                 <!-- TikTok -->
@@ -525,10 +516,6 @@
                     <p class="text-gray-400 text-xs leading-relaxed mb-5">
                         Mengikuti tren tercepat dengan konten short-form yang viral dan kreatif untuk audiens gen-Z.
                     </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="badge" style="background:#f0fdf4;color:#166534">Viral Challenge</span>
-                        <span class="badge" style="background:#f0fdf4;color:#166534">Native Integration</span>
-                    </div>
                 </div>
 
                 <!-- YouTube -->
@@ -541,11 +528,6 @@
                     <p class="text-gray-400 text-xs leading-relaxed mb-5">
                         Analisis mendalam dan konten long-form yang memberikan nilai edukasi dan informasi yang kuat.
                     </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="badge" style="background:#fff7ed;color:#c2410c">Web Series</span>
-                        <span class="badge" style="background:#fff7ed;color:#c2410c">Deep Review</span>
-                        <span class="badge" style="background:#fff7ed;color:#c2410c">Live Streaming</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -564,7 +546,7 @@
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="#"
-                    class="px-8 py-3.5 bg-brand-gold text-brand-darkgreen font-bold rounded-full text-sm hover:bg-yellow-400 transition-colors shadow-lg shadow-yellow-900/30">
+                    class="px-8 py-3.5 bg-black text-white font-bold rounded-full text-sm shadow-lg shadow-yellow-900/30">
                     <i class="fa-solid fa-headset mr-2"></i>Hubungi Tim Marketing
                 </a>
                 <a href="#"
