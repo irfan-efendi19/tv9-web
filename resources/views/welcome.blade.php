@@ -11,8 +11,6 @@
         dan siaran digital terestrial.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="TV9 Nusantara">
-
-
     <title>TV9 Nusantara | Santun Menyejukkan</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -147,7 +145,8 @@
             <!-- Background Image Static -->
             <img src="{{ asset('img/hero.png') }}" alt="Background" class="w-full h-full object-cover" />
             <!-- Overlay Gradient Static -->
-            <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70">
+            </div>
             <!-- Pattern Overlay Static -->
             <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=" 60" height="60" viewBox="0 0 60 60"
                 xmlns="http://www.w3.org/2000/svg" %3E%3Cg fill="none" fill-rule="evenodd" %3E%3Cg fill="%239C92AC"
@@ -444,7 +443,8 @@
             <!-- Header -->
             <div class="flex items-center justify-between mb-8">
                 <div>
-                    <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Program Hari Ini</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Program Hari Ini
+                    </h2>
                     <div class="w-12 h-[3px] bg-yellow-600 rounded mt-2"></div>
                 </div>
                 <div class="flex items-center gap-2 text-base text-gray-500">
@@ -460,95 +460,98 @@
                         $scheduleList = $schedules ?? [];
                         $chunkedSchedules = collect($scheduleList)->chunk(3);
                     @endphp
-            
+
                     @forelse($chunkedSchedules as $slideIndex => $scheduleChunk)
-                        <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
-                            data-slide="{{ $slideIndex }}">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                @foreach($scheduleChunk as $program)
-                                    @php
-                                        $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-                                        $isLive = $program->start_time <= $currentTime && $program->end_time >= $currentTime;
-                                    $isDone = $program->end_time < $currentTime; @endphp <div
-                                        class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-[#006747] shadow-lg shadow-[#006747]/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
-                                        {{-- Badge SEDANG TAYANG di atas card --}}
-                                        @if($isLive)
-                                            <div class="absolute -top-px left-1/2 -translate-x-1/2">
-                                                <span
-                                                    class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
-                                                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                                    Sedang Tayang
-                                                </span>
-                                            </div>
-                                        @endif
+                            <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
+                                data-slide="{{ $slideIndex }}">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    @foreach($scheduleChunk as $program)
+                                            @php
+                                                $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+                                                $isLive = $program->start_time <= $currentTime && $program->end_time >=
+                                                    $currentTime;
+                                            $isDone = $program->end_time < $currentTime; @endphp <div
+                                                    class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-[#006747] shadow-lg shadow-[#006747]/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
+                                                    {{-- Badge SEDANG TAYANG di atas card --}}
+                                                    @if($isLive)
+                                                        <div class="absolute -top-px left-1/2 -translate-x-1/2">
+                                                            <span
+                                                                class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
+                                                                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                                                Sedang Tayang
+                                                            </span>
+                                                        </div>
+                                                    @endif
 
-                                        {{-- Jam --}}
-                                        <p class="text-base font-semibold {{ $isLive ? 'text-[#006747]' : 'text-gray-400' }} mt-3">
-                                            {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }} –
-                                            {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
-                                        </p>
+                                                    {{-- Jam --}}
+                                                    <p
+                                                        class="text-base font-semibold {{ $isLive ? 'text-[#006747]' : 'text-gray-400' }} mt-3">
+                                                        {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
+                                                        –
+                                                        {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
+                                                    </p>
 
-                                        {{-- Judul & Deskripsi --}}
-                                        <div class="flex-1">
-                                            <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
-                                                {{ $program->title }}
-                                            </h3>
-                                            <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
-                                                {{ $program->description ?? 'Deskripsi belum tersedia.' }}
-                                            </p>
+                                                    {{-- Judul & Deskripsi --}}
+                                                    <div class="flex-1">
+                                                        <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
+                                                            {{ $program->title }}
+                                                        </h3>
+                                                        <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
+                                                            {{ $program->description ?? 'Deskripsi belum tersedia.' }}
+                                                        </p>
+                                                    </div>
+
+                                                    {{-- Status Badge --}}
+                                                    <div>
+                                                        @if($isLive)
+                                                            <span
+                                                                class="inline-flex items-center gap-1.5 bg-[#006747] text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
+                                                                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                                                Live
+                                                            </span>
+                                                        @elseif($isDone)
+                                                            <span
+                                                                class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                                                Selesai
+                                                            </span>
+                                                        @else
+                                                            <span
+                                                                class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                                                Akan Datang
+                                                            </span>
+                                                        @endif
+                                                    </div>
                                         </div>
-
-                                        {{-- Status Badge --}}
-                                        <div>
-                                            @if($isLive)
-                                                <span
-                                                    class="inline-flex items-center gap-1.5 bg-[#006747] text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
-                                                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                                    Live
-                                                </span>
-                                            @elseif($isDone)
-                                                <span
-                                                    class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                                    Selesai
-                                                </span>
-                                            @else
-                                                <span
-                                                    class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                                    Akan Datang
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
                             </div>
                         </div>
                     @empty
-                        <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
-                            <p class="text-gray-500 font-medium">Belum ada jadwal tayang untuk hari ini.</p>
-                        </div>
-                    @endforelse
-                </div>
-            
-                <!-- Dots/Indicators Only -->
-                @if($chunkedSchedules->count() > 1)
-                    <div class="flex gap-2 md:gap-3 justify-center mt-6">
-                        @for($i = 0; $i < $chunkedSchedules->count(); $i++)
-                            <button
-                                class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
-                                data-dot="{{ $i }}"></button>
-                        @endfor
+                    <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                        <p class="text-gray-500 font-medium">Belum ada jadwal tayang untuk hari ini.</p>
                     </div>
-                @endif
+                @endforelse
             </div>
-            </div>
-            </section>
-            
-            <!-- SECTION AKSES MULTIPLATFORM -->
-            <section class="bg-gray-50 flex items-center justify-center p-8">
-                <div class="w-full max-w-5xl" data-aos="fade-up" data-aos-delay="100">
-                    <!-- Heading -->
-                    <div class="mb-8">
-                        <h2 class="title-underline text-2xl font-semibold text-gray-900 tracking-tight">
+
+            <!-- Dots/Indicators Only -->
+            @if($chunkedSchedules->count() > 1)
+                <div class="flex gap-2 md:gap-3 justify-center mt-6">
+                    @for($i = 0; $i < $chunkedSchedules->count(); $i++)
+                        <button
+                            class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
+                            data-dot="{{ $i }}"></button>
+                    @endfor
+                </div>
+            @endif
+        </div>
+        </div>
+    </section>
+
+    <!-- SECTION AKSES MULTIPLATFORM -->
+    <section class="bg-gray-50 flex items-center justify-center p-8">
+        <div class="w-full max-w-5xl" data-aos="fade-up" data-aos-delay="100">
+            <!-- Heading -->
+            <div class="mb-8">
+                <h2 class="title-underline text-2xl font-semibold text-gray-900 tracking-tight">
                     Akses Multiplatform
                 </h2>
             </div>
@@ -1228,7 +1231,8 @@
             <div>
                 <p class="text-xs font-semibold tracking-widest text-amber-700 uppercase mb-2">
                     Eksplorasi Kreatif</p>
-                <h2 class="text-4xl font-extrabold text-gray-900 title-underline">Portfolio &amp; Karya
+                <h2 class="text-4xl font-extrabold text-gray-900 title-underline">Portfolio &amp;
+                    Karya
                     Unggulan</h2>
             </div>
             <div class="flex gap-2 mt-2">
@@ -1267,10 +1271,13 @@
                         <span class="badge">Documentary</span>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">Jejak Spiritual Pesisir</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Sebuah narasi mendalam tentang
+                        <h3 class="text-base font-bold text-gray-900 mb-1">Jejak Spiritual Pesisir
+                        </h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Sebuah narasi mendalam
+                            tentang
                             harmoni antara
-                            tradisi leluhur dan nilai-nilai keagamaan di sepanjang pesisir Utara Jawa.
+                            tradisi leluhur dan nilai-nilai keagamaan di sepanjang pesisir Utara
+                            Jawa.
                         </p>
                     </div>
                 </div>
@@ -1291,10 +1298,12 @@
                         <span class="badge">Special Coverage</span>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">Satu Abad Kebangkitan</h3>
+                        <h3 class="text-base font-bold text-gray-900 mb-1">Satu Abad Kebangkitan
+                        </h3>
                         <p class="text-sm text-gray-500 leading-relaxed">Liputan eksklusif rangkaian
                             peringatan satu
-                            abad organisasi massa terbesar, merangkum sejarah dan masa depan umat.</p>
+                            abad organisasi massa terbesar, merangkum sejarah dan masa depan umat.
+                        </p>
                     </div>
                 </div>
 
@@ -1318,7 +1327,8 @@
                         </h3>
                         <p class="text-sm text-gray-500 leading-relaxed">Rangkuman momen-momen magis
                             dari festival
-                            budaya yang menyatukan berbagai etnis di Indonesia dalam satu panggung.</p>
+                            budaya yang menyatukan berbagai etnis di Indonesia dalam satu panggung.
+                        </p>
                     </div>
                 </div>
 
@@ -1339,7 +1349,8 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-base font-bold text-gray-900 mb-1">Arsitektur Warisan</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Menelusuri keindahan arsitektur
+                        <p class="text-sm text-gray-500 leading-relaxed">Menelusuri keindahan
+                            arsitektur
                             bersejarah
                             Indonesia yang menjadi saksi bisu peradaban dan keagungan masa lalu.</p>
                     </div>
@@ -1362,9 +1373,11 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-base font-bold text-gray-900 mb-1">Suara Alam Borneo</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Perjalanan mendalam ke jantung
+                        <p class="text-sm text-gray-500 leading-relaxed">Perjalanan mendalam ke
+                            jantung
                             hutan
-                            Kalimantan, merekam keanekaragaman hayati yang semakin terancam modernisasi.
+                            Kalimantan, merekam keanekaragaman hayati yang semakin terancam
+                            modernisasi.
                         </p>
                     </div>
                 </div>
@@ -1379,36 +1392,66 @@
             <h2 class="text-3xl font-bold text-gray-800">Partner & Kolaborator</h2>
             <p class="text-gray-500 mt-2">Mitra terpercaya kami</p>
         </div>
-        <div class="marquee-wrapper">
-            <div class="marquee-content">
-                <!-- Loop logo 2x untuk seamless -->
-                <div class="logo-item"><img src="https://picsum.photos/id/20/180/80" alt="Logo">
-                </div>
-                <div class="logo-item"><img src="https://picsum.photos/id/26/180/80" alt="Logo">
-                </div>
-                <div class="logo-item"><img src="https://picsum.photos/id/29/180/80" alt="Logo">
-                </div>
-                <div class="logo-item"><img src="https://picsum.photos/id/39/180/80" alt="Logo">
-                </div>
-                <div class="logo-item"><img src="https://picsum.photos/id/42/180/80" alt="Logo">
-                </div>
-                <div class="logo-item"><img src="https://picsum.photos/id/48/180/80" alt="Logo">
-                </div>
-                <!-- Duplicate untuk seamless -->
-                <div class="logo-item"><img src="https://picsum.photos/id/20/180/80" alt="Logo">
-                </div>
-                <div class="logo-item"><img src="https://picsum.photos/id/26/180/80" alt="Logo">
-                </div>
-                <div class="logo-item"><img src="https://picsum.photos/id/29/180/80" alt="Logo">
-                </div>
-                <div class="logo-item"><img src="https://picsum.photos/id/39/180/80" alt="Logo">
-                </div>
-                <div class="logo-item"><img src="https://picsum.photos/id/42/180/80" alt="Logo">
-                </div>
-                <div class="logo-item"><img src="https://picsum.photos/id/48/180/80" alt="Logo">
+        <div class="w-full max-w-[1400px]">
+            <!-- Wrapper tanpa border, tanpa shadow, tanpa background -->
+            <div class="marquee-wrapper w-full overflow-hidden relative">
+                <div class="marquee-content flex items-center gap-6 gap-8 animate-marquee">
+
+                    <!-- 6 Logo Asli -->
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px]  rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                    </div>
+
+                    <!-- Duplikat 6 Logo -->
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px]  rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px]  rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px]  rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3 transition-transform duration-300 hover:scale-105">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain">
+                    </div>
                 </div>
             </div>
         </div>
+
     </section>
     <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
         <iframe style="border: 0; width: 100%; height: 400px"
@@ -1532,8 +1575,16 @@
     document.getElementById('currentYear').innerText = new Date().getFullYear();
     </script>
 
+
+
     <script src="js/welcome.js"></script>
     <style>
+    /* Marquee animation fix */
+    .marquee-content {
+        display: flex;
+        width: max-content;
+    }
+
     /* Sembunyikan durasi (timestamp) pada live streaming */
     video::-webkit-media-controls-current-time-display,
     video::-webkit-media-controls-time-remaining-display,

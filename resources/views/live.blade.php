@@ -154,7 +154,6 @@
 
             <!-- Menu Kanan -->
             <div class="flex items-center gap-3 md:gap-7" x-data="{ open: false }">
-            
                 <!-- LIVE Button — selalu tampil di navbar (desktop & mobile) -->
                 <a href="{{ route('live') }}"
                     class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-bold text-white transition-all duration-200 hover:scale-105"
@@ -207,105 +206,105 @@
                             class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Berita</a>
                     </div>
                 </div>
-
+            
             </div>
-        </div>
-    </nav>
-
-    <div class="h-16"></div>
-
-    <!-- Player Section -->
-    <div class="hero-gradient py-16">
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="text-center mb-8">
-                <span
-                    class="inline-flex items-center gap-2 bg-red-600/20 text-red-400 text-sm font-bold px-4 py-1.5 rounded-full border border-red-500/30 mb-4">
-                    <span class="animate-ping inline-flex h-2 w-2 rounded-full bg-red-500 opacity-75"></span>
-                    LIVE
-                </span>
-                <h1 class="text-3xl md:text-5xl font-extrabold text-white">TV9 Nusantara</h1>
-                <p class="text-emerald-100 mt-3">Siaran 24 Jam Non Stop</p>
             </div>
-
-            <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video group">
-                <!-- Badge LIVE elegan -->
-                <div
-                    class="absolute top-4 left-4 z-10 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold px-4 py-1.5 rounded-lg text-xs tracking-wider shadow-lg backdrop-blur-sm bg-opacity-90 flex items-center gap-2 border border-red-400/30">
-                    <div class="relative">
+            </nav>
+            
+            <div class="h-16"></div>
+            
+            <!-- Player Section -->
+            <div class="hero-gradient py-16">
+                <div class="max-w-5xl mx-auto px-4">
+                    <div class="text-center mb-8">
                         <span
-                            class="absolute inline-flex h-2.5 w-2.5 rounded-full bg-red-400 opacity-75 animate-ping"></span>
-                        <span class="relative inline-flex h-2 w-2 rounded-full bg-red-500"></span>
+                            class="inline-flex items-center gap-2 bg-red-600/20 text-red-400 text-sm font-bold px-4 py-1.5 rounded-full border border-red-500/30 mb-4">
+                            <span class="animate-ping inline-flex h-2 w-2 rounded-full bg-red-500 opacity-75"></span>
+                            LIVE
+                        </span>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-white">TV9 Nusantara</h1>
+                        <p class="text-emerald-100 mt-3">Siaran 24 Jam Non Stop</p>
                     </div>
-                    <span class="uppercase text-[11px] font-semibold">LIVE</span>
-                    <span class="hidden sm:inline-block text-[10px] font-normal text-red-200">Streaming</span>
-                </div>
-
-                <!-- Efek glassmorphism overlay saat hover -->
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl">
-                </div>
-
-                <!-- Video element untuk Video.js -->
-                <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered w-full h-full" controls
-                    preload="auto" playsinline
-                    poster="https://via.placeholder.com/1280x720/2d3748/ffffff?text=TV9+Nusantara">
-                    <p class="vjs-no-js">
-                        Untuk menonton video ini, harap aktifkan JavaScript dan gunakan browser yang mendukung HTML5
-                        video.
-                    </p>
-                </video>
-            </div>
-        </div>
-    </div>
-
-    <!-- Schedule Section (Today) -->
-    <div class="bg-white py-20 text-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between mb-10">
-                <div>
-                    <h2 class="text-3xl font-bold text-gray-900 mb-2">Jadwal Hari Ini</h2>
-                    <p class="text-gray-500">Tayangan menarik yang akan menemani hari Anda.</p>
-                </div>
-                <div class="h-1 flex-1 bg-gray-100 ml-8 rounded-full hidden sm:block">
-                    <div class="w-32 h-full" style="background:#006747; border-radius: 9999px;"></div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                @forelse($schedules ?? [] as $program)
-                @php
-    $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-    $isLive = ($program->start_time <= $currentTime && $program->end_time >= $currentTime);
-                    @endphp
-                    <div
-                        class="bg-white rounded-2xl p-6 shadow-sm border {{ $isLive ? 'border-red-500 shadow-md ring-1 ring-red-500/50' : 'border-gray-100 hover:shadow-xl' }} transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden">
-
-                        @if($isLive)
-                        <div class="absolute top-0 left-0 w-full h-1 bg-red-600"></div>
-                        <div class="absolute top-4 right-4 flex items-center justify-center">
-                            <span
-                                class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
-                            <span class="ml-2 text-xs font-bold text-red-600 uppercase tracking-widest">Live</span>
+            
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video group">
+                        <!-- Badge LIVE elegan -->
+                        <div
+                            class="absolute top-4 left-4 z-10 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold px-4 py-1.5 rounded-lg text-xs tracking-wider shadow-lg backdrop-blur-sm bg-opacity-90 flex items-center gap-2 border border-red-400/30">
+                            <div class="relative">
+                                <span
+                                    class="absolute inline-flex h-2.5 w-2.5 rounded-full bg-red-400 opacity-75 animate-ping"></span>
+                                <span class="relative inline-flex h-2 w-2 rounded-full bg-red-500"></span>
+                            </div>
+                            <span class="uppercase text-[11px] font-semibold">LIVE</span>
+                            <span class="hidden sm:inline-block text-[10px] font-normal text-red-200">Streaming</span>
                         </div>
-                        @endif
-
-                        <div class="flex justify-between items-start mb-4">
+            
+                        <!-- Efek glassmorphism overlay saat hover -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl">
+                        </div>
+            
+                        <!-- Video element untuk Video.js -->
+                        <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered w-full h-full" controls
+                            preload="auto" playsinline
+                            poster="https://via.placeholder.com/1280x720/2d3748/ffffff?text=TV9+Nusantara">
+                            <p class="vjs-no-js">
+                                Untuk menonton video ini, harap aktifkan JavaScript dan gunakan browser yang mendukung HTML5
+                                video.
+                            </p>
+                        </video>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Schedule Section (Today) -->
+            <div class="bg-white py-20 text-gray-800">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex items-center justify-between mb-10">
+                        <div>
+                            <h2 class="text-3xl font-bold text-gray-900 mb-2">Jadwal Hari Ini</h2>
+                            <p class="text-gray-500">Tayangan menarik yang akan menemani hari Anda.</p>
+                        </div>
+                        <div class="h-1 flex-1 bg-gray-100 ml-8 rounded-full hidden sm:block">
+                            <div class="w-32 h-full" style="background:#006747; border-radius: 9999px;"></div>
+                        </div>
+                    </div>
+            
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        @forelse($schedules ?? [] as $program)
+                                @php
+                                    $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+                                    $isLive = ($program->start_time <= $currentTime && $program->end_time >= $currentTime);
+                                @endphp
                             <div
-                                class="py-1 px-3 {{ $isLive ? 'bg-red-50 text-red-600' : 'bg-emerald-50 text-emerald-700' }} text-xs font-bold rounded-lg">
-                                {{ $program->category ?? 'Umum' }}
+                                class="bg-white rounded-2xl p-6 shadow-sm border {{ $isLive ? 'border-red-500 shadow-md ring-1 ring-red-500/50' : 'border-gray-100 hover:shadow-xl' }} transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden">
+
+                                @if($isLive)
+                                <div class="absolute top-0 left-0 w-full h-1 bg-red-600"></div>
+                                <div class="absolute top-4 right-4 flex items-center justify-center">
+                                    <span
+                                        class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-red-500 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
+                                    <span class="ml-2 text-xs font-bold text-red-600 uppercase tracking-widest">Live</span>
+                                </div>
+                                @endif
+
+                                <div class="flex justify-between items-start mb-4">
+                                    <div
+                                        class="py-1 px-3 {{ $isLive ? 'bg-red-50 text-red-600' : 'bg-emerald-50 text-emerald-700' }} text-xs font-bold rounded-lg">
+                                        {{ $program->category ?? 'Umum' }}
+                                    </div>
+                                    <div class="text-sm font-semibold {{ $isLive ? 'text-gray-900 mt-1' : 'text-gray-400' }}">
+                                        {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }} -
+                                        {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">{{ $program->title }}</h3>
+                                <p class="text-gray-500 text-sm line-clamp-2">
+                                    {{ $program->description ?? 'Deskripsi belum tersedia.' }}
+                                </p>
                             </div>
-                            <div class="text-sm font-semibold {{ $isLive ? 'text-gray-900 mt-1' : 'text-gray-400' }}">
-                                {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }} -
-                                {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">{{ $program->title }}</h3>
-                        <p class="text-gray-500 text-sm line-clamp-2">
-                            {{ $program->description ?? 'Deskripsi belum tersedia.' }}
-                        </p>
-                    </div>
-                    @empty
+                        @empty
                     <div
                         class="col-span-full py-12 text-center bg-gray-50 rounded-2xl border border-gray-100 border-dashed">
                         <p class="text-gray-500 font-medium">Belum ada jadwal tayang untuk hari ini.</p>
