@@ -3,7 +3,7 @@ name: Deploy via cPanel Git
 on:
   push:
     branches:
-      - main
+      - tv9  # sesuai branch kamu
 
 jobs:
   build:
@@ -11,6 +11,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -36,6 +38,17 @@ jobs:
     needs: build
 
     steps:
-      - name: Trigger cPanel Git pull
-        run: |
-          curl -X POST "${{ secrets.CPANEL_WEBHOOK_URL }}"
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASS }}
+          script: |
+            cd /home/tv9x6755/tv9
+            git pull origin tv9
+            composer install --no-dev --optimize-autoloader
+            php artisan migrate --force
+            php artisan config:cache
+            php artisan route:cache
+            php artisan view:cache
