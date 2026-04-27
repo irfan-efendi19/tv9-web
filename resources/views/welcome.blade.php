@@ -1,4 +1,4 @@
-                    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -462,98 +462,98 @@
                     @endphp
 
                     @forelse($chunkedSchedules as $slideIndex => $scheduleChunk)
-                            <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
-                                data-slide="{{ $slideIndex }}">
-                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                    @foreach($scheduleChunk as $program)
-                                            @php
-                                                $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-                                                $isLive = $program->start_time <= $currentTime && $program->end_time >=
-                                                    $currentTime;
-                                            $isDone = $program->end_time < $currentTime; @endphp <div
-                                                    class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-[#006747] shadow-lg shadow-[#006747]/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
-                                                    {{-- Badge SEDANG TAYANG di atas card --}}
-                                                    @if($isLive)
-                                                        <div class="absolute -top-px left-1/2 -translate-x-1/2">
-                                                            <span
-                                                                class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
-                                                                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                                                Sedang Tayang
-                                                            </span>
-                                                        </div>
-                                                    @endif
+                        <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
+                            data-slide="{{ $slideIndex }}">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                @foreach($scheduleChunk as $program)
+                                    @php
+                                        $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+                                        $isLive = $program->start_time <= $currentTime && $program->end_time >=
+                                            $currentTime;
+                                    $isDone = $program->end_time < $currentTime; @endphp <div
+                                        class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-[#006747] shadow-lg shadow-[#006747]/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
+                                        {{-- Badge SEDANG TAYANG di atas card --}}
+                                        @if($isLive)
+                                            <div class="absolute -top-px left-1/2 -translate-x-1/2">
+                                                <span
+                                                    class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
+                                                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                                    Sedang Tayang
+                                                </span>
+                                            </div>
+                                        @endif
 
-                                                    {{-- Jam --}}
-                                                    <p
-                                                        class="text-base font-semibold {{ $isLive ? 'text-[#006747]' : 'text-gray-400' }} mt-3">
-                                                        {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
-                                                        –
-                                                        {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
-                                                    </p>
+                                        {{-- Jam --}}
+                                        <p
+                                            class="text-base font-semibold {{ $isLive ? 'text-[#006747]' : 'text-gray-400' }} mt-3">
+                                            {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
+                                            –
+                                            {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
+                                        </p>
 
-                                                    {{-- Judul & Deskripsi --}}
-                                                    <div class="flex-1">
-                                                        <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
-                                                            {{ $program->title }}
-                                                        </h3>
-                                                        <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
-                                                            {{ $program->description ?? 'Deskripsi belum tersedia.' }}
-                                                        </p>
-                                                    </div>
-
-                                                    {{-- Status Badge --}}
-                                                    <div>
-                                                        @if($isLive)
-                                                            <span
-                                                                class="inline-flex items-center gap-1.5 bg-[#006747] text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
-                                                                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                                                Live
-                                                            </span>
-                                                        @elseif($isDone)
-                                                            <span
-                                                                class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                                                Selesai
-                                                            </span>
-                                                        @else
-                                                            <span
-                                                                class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                                                Akan Datang
-                                                            </span>
-                                                        @endif
-                                                    </div>
+                                        {{-- Judul & Deskripsi --}}
+                                        <div class="flex-1">
+                                            <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
+                                                {{ $program->title }}
+                                            </h3>
+                                            <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
+                                                {{ $program->description ?? 'Deskripsi belum tersedia.' }}
+                                            </p>
                                         </div>
-                                    @endforeach
+
+                                        {{-- Status Badge --}}
+                                        <div>
+                                            @if($isLive)
+                                                <span
+                                                    class="inline-flex items-center gap-1.5 bg-[#006747] text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
+                                                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                                    Live
+                                                </span>
+                                            @elseif($isDone)
+                                                <span
+                                                    class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                                    Selesai
+                                                </span>
+                                            @else
+                                                <span
+                                                    class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                                    Akan Datang
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     @empty
-                    <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
-                        <p class="text-gray-500 font-medium">Belum ada jadwal tayang untuk hari ini.</p>
-                    </div>
-                @endforelse
+                        <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                            <p class="text-gray-500 font-medium">Belum ada jadwal tayang untuk hari ini.</p>
+                        </div>
+                    @endforelse
 
-                <div class="text-center max-w-3xl mx-auto mt-8 ">
-                    <a href="{{ route('jadwal') }}">
-                        <span
-                            class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
+                    <div class="text-center max-w-3xl mx-auto mt-8 ">
+                        <a href="{{ route('jadwal') }}">
+                            <span
+                                class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
                                                                                                transition-all duration-300 ease-in-out 
                                                                                                hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
-                            LIHAT SEMUA JADWAL
-                        </span>
-                    </a>
+                                LIHAT SEMUA JADWAL
+                            </span>
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Dots/Indicators Only -->
-            @if($chunkedSchedules->count() > 1)
-                <div class="flex gap-2 md:gap-3 justify-center mt-6">
-                    @for($i = 0; $i < $chunkedSchedules->count(); $i++)
-                        <button
-                            class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
-                            data-dot="{{ $i }}"></button>
-                    @endfor
-                </div>
-            @endif
-        </div>
+                <!-- Dots/Indicators Only -->
+                @if($chunkedSchedules->count() > 1)
+                    <div class="flex gap-2 md:gap-3 justify-center mt-6">
+                        @for($i = 0; $i < $chunkedSchedules->count(); $i++)
+                            <button
+                                class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
+                                data-dot="{{ $i }}"></button>
+                        @endfor
+                    </div>
+                @endif
+            </div>
         </div>
     </section>
 
@@ -821,10 +821,9 @@
     </section>
 
     <!-- Suara Komunitas Section -->
-    <section class="w-full media-section py-16 px-8">
+    <!-- <section class="w-full media-section py-16 px-8">
         <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="100">
 
-            <!-- Header -->
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-white mb-3">Suara Komunitas</h2>
                 <p class="text-white text-base">Apa kata mereka tentang dampak positif TV9
@@ -832,10 +831,8 @@
                     masyarakat.</p>
             </div>
 
-            <!-- Testimonials Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
 
-                <!-- Card 1 -->
                 <div
                     class="testimonial-card bg-white rounded-2xl p-7 flex flex-col justify-between border border-gray-100 shadow-sm">
                     <div>
@@ -862,7 +859,6 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
                 <div
                     class="testimonial-card bg-white rounded-2xl p-7 flex flex-col justify-between border border-gray-100 shadow-sm">
                     <div>
@@ -889,7 +885,6 @@
                     </div>
                 </div>
 
-                <!-- Card 3 -->
                 <div
                     class="testimonial-card bg-white rounded-2xl p-7 flex flex-col justify-between border border-gray-100 shadow-sm">
                     <div>
@@ -918,11 +913,11 @@
 
             </div>
         </div>
-    </section>
+    </section> -->
 
 
     <!-- Section: Legalitas & Izin Penyiaran -->
-    <section class="py-20 px-6 bg-white">
+    <section class="py-20 px-6 bg-grey">
         <div class="max-w-5xl mx-auto">
             <div class="bg-brand-green-light rounded-2xl px-10 py-12 font-sans">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
@@ -1045,14 +1040,14 @@
             </div>
     </section>
 
-    <section class="py-20 px-6">
+    <section class="py-20 px-6 media-section">
         <div class="max-w-5xl mx-auto">
 
             <!-- Header -->
             <div class="text-center mb-14">
                 <p class="text-base font-semibold tracking-[0.25em] text-[#7a6a50] uppercase mb-3">
                     Dedikasi & Kualitas</p>
-                <h2 class="text-4xl md:text-5xl font-bold text-[#1a2e1a]">Penghargaan &
+                <h2 class="text-4xl md:text-5xl font-bold text-white">Penghargaan &
                     Apresiasi</h2>
                 <div class="mt-5 mx-auto w-12 h-[3px] bg-[#4a7a4a] rounded-full"></div>
             </div>
@@ -1530,18 +1525,18 @@
     </section>
 
     <!-- ── READY TO COLLABORATE ───────────────────────────────────── -->
-    <section style="background:#f0f0f5" class="py-20 px-6">
+    <section class="py-20 px-6 media-section">
         <div class="max-w-2xl mx-auto text-center">
-            <h2 class="font-display text-3xl lg:text-4xl font-bold text-pine mb-4">
+            <h2 class="font-display text-3xl lg:text-4xl font-bold text-white mb-4">
                 Siap Berkolaborasi? Let's Connect!
             </h2>
-            <p class="text-gray-500 text-sm leading-relaxed mb-8 max-w-lg mx-auto">
+            <p class="text-white text-sm leading-relaxed mb-8 max-w-lg mx-auto">
                 Bergabunglah dengan kami dalam misi kami untuk menyiarkan kesantunan dan kesejukan.
                 Baik Anda tertarik
                 pada kemitraan, periklanan, atau berbagi cerita Anda, tim kami siap untuk terhubung.
             </p>
-            <a href="{{route('kontak')}}" class="inline-block font-bold text-sm text-white px-8 py-3.5 rounded-md"
-                style="background:#0d4a35;letter-spacing:.04em;text-decoration:none;">
+            <a href="{{route('kontak')}}" class="inline-block font-bold text-sm text-black px-8 py-3.5 rounded-md"
+                style="background:white;letter-spacing:.04em;text-decoration:none;">
                 Kontak Kami
             </a>
         </div>

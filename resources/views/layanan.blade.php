@@ -645,7 +645,7 @@
                                 Kontak</h4>
                             <div class="flex items-center">
                                 <a target="_blank" href="https://www.youtube.com/@tv9nusantara"
-                                    class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300 mr-2">
+                                    class="flex items-center justify-center w-10 h-10 text-black  mr-2">
                                     <i class="fa-solid fa-phone-volume"></i>
                                 </a>
                                 <p>Kokokowd</p>
