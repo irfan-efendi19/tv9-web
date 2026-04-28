@@ -460,7 +460,7 @@
                         $scheduleList = $schedules ?? [];
                         $chunkedSchedules = collect($scheduleList)->chunk(3);
                     @endphp
-
+                    
                     @forelse($chunkedSchedules as $slideIndex => $scheduleChunk)
                         <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
                             data-slide="{{ $slideIndex }}">
@@ -484,8 +484,7 @@
                                         @endif
 
                                         {{-- Jam --}}
-                                        <p
-                                            class="text-base font-semibold {{ $isLive ? 'text-[#006747]' : 'text-gray-400' }} mt-3">
+                                        <p class="text-base font-semibold {{ $isLive ? 'text-[#006747]' : 'text-gray-400' }} mt-3">
                                             {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
                                             –
                                             {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
@@ -530,30 +529,30 @@
                             <p class="text-gray-500 font-medium">Belum ada jadwal tayang untuk hari ini.</p>
                         </div>
                     @endforelse
-
+                    
                     <div class="text-center max-w-3xl mx-auto mt-8 ">
                         <a href="{{ route('jadwal') }}">
                             <span
                                 class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
-                                                                                               transition-all duration-300 ease-in-out 
-                                                                                               hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
+                                                                                                                                       transition-all duration-300 ease-in-out 
+                                                                                                                                       hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
                                 LIHAT SEMUA JADWAL
                             </span>
                         </a>
                     </div>
-                </div>
-
-                <!-- Dots/Indicators Only -->
-                @if($chunkedSchedules->count() > 1)
-                    <div class="flex gap-2 md:gap-3 justify-center mt-6">
-                        @for($i = 0; $i < $chunkedSchedules->count(); $i++)
-                            <button
-                                class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
-                                data-dot="{{ $i }}"></button>
-                        @endfor
                     </div>
-                @endif
-            </div>
+                    
+                    <!-- Dots/Indicators Only -->
+                    @if($chunkedSchedules->count() > 1)
+                        <div class="flex gap-2 md:gap-3 justify-center mt-6">
+                            @for($i = 0; $i < $chunkedSchedules->count(); $i++)
+                                <button
+                                    class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
+                                    data-dot="{{ $i }}"></button>
+                            @endfor
+                        </div>
+                    @endif
+                    </div>
         </div>
     </section>
 

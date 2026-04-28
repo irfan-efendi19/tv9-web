@@ -8,6 +8,11 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\TV9xLPMaarifController;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\SitemapController;
+
+// Sitemap
+Route::get('/sitemap.xml', [SitemapController::class, 'index']);
+
 
 
 // Halaman Utama
