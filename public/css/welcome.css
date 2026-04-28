@@ -57,6 +57,18 @@
         box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         cursor: pointer;
+        user-select: none;
+    }
+
+    #portfolioTrack {
+        touch-action: pan-y pinch-zoom;
+        user-select: none;
+    }
+
+    @media (max-width: 640px) {
+        .card-wrap {
+            border-radius: 10px;
+        }
     }
 
     .card-wrap:hover {
@@ -161,6 +173,18 @@
         justify-content: center;
         cursor: pointer;
         transition: background 0.2s, border-color 0.2s;
+    }
+
+    @media (max-width: 640px) {
+        .nav-btn {
+            width: 36px;
+            height: 36px;
+        }
+
+        .nav-btn svg {
+            width: 14px;
+            height: 14px;
+        }
     }
 
     .nav-btn:hover {

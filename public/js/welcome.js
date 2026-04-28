@@ -303,19 +303,42 @@
    
 
 
-    // Portfolio section logic
+    // Portfolio section logic - Responsive
     const portfolioTrack = document.getElementById('portfolioTrack');
-    const portfolioCardWidth = 288 + 24; // w-72 + gap-6
-    let portfolioActiveIndex = 0;
     const portfolioTotalCards = portfolioTrack.children.length;
-    const portfolioVisibleCount = 3;
+    let portfolioActiveIndex = 0;
+    let portfolioCardWidth = 0;
+    let portfolioVisibleCount = 0;
+
+    function getPortfolioSettings() {
+        const isMobile = window.innerWidth < 640; // sm breakpoint
+        if (isMobile) {
+            // Mobile: w-80 (320px) + gap-3 (12px)
+            return { cardWidth: 320 + 12, visibleCount: 1 };
+        } else {
+            // Desktop: w-72 (288px) + gap-6 (24px)
+            return { cardWidth: 288 + 24, visibleCount: 3 };
+        }
+    }
+
+    function updatePortfolioSettings() {
+        const settings = getPortfolioSettings();
+        portfolioCardWidth = settings.cardWidth;
+        portfolioVisibleCount = settings.visibleCount;
+        portfolioActiveIndex = 0; // Reset index on resize
+        portfolioMoveTrack();
+    }
 
     function portfolioMoveTrack() {
-        const portfolioMaxIndex = portfolioTotalCards - portfolioVisibleCount;
+        const portfolioMaxIndex = Math.max(0, portfolioTotalCards - portfolioVisibleCount);
         portfolioActiveIndex = Math.max(0, Math.min(portfolioActiveIndex, portfolioMaxIndex));
         portfolioTrack.style.transform = `translateX(-${portfolioActiveIndex * portfolioCardWidth}px)`;
     }
 
+    // Initialize
+    updatePortfolioSettings();
+
+    // Event listeners
     document.getElementById('prevBtn').addEventListener('click', () => {
         portfolioActiveIndex--;
         portfolioMoveTrack();
@@ -323,6 +346,40 @@
     document.getElementById('nextBtn').addEventListener('click', () => {
         portfolioActiveIndex++;
         portfolioMoveTrack();
+    });
+
+    // Swipe gesture for portfolio
+    let portfolioTouchStartX = 0;
+    let portfolioTouchEndX = 0;
+
+    portfolioTrack.addEventListener('touchstart', (e) => {
+        portfolioTouchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    portfolioTrack.addEventListener('touchend', (e) => {
+        portfolioTouchEndX = e.changedTouches[0].screenX;
+        portfolioHandleSwipe();
+    }, false);
+
+    function portfolioHandleSwipe() {
+        const swipeThreshold = 50; // minimum distance to trigger swipe
+        const diff = portfolioTouchStartX - portfolioTouchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swipe left - show next
+                portfolioActiveIndex++;
+            } else {
+                // Swipe right - show previous
+                portfolioActiveIndex--;
+            }
+            portfolioMoveTrack();
+        }
+    }
+
+    // Update on window resize
+    window.addEventListener('resize', () => {
+        updatePortfolioSettings();
     });
 
     function openVideo(url) {
