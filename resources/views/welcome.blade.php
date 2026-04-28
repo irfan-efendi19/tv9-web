@@ -139,303 +139,127 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section id="hero" class="hero section relative overflow-hidden">
-        <!-- STATIC BACKGROUND (tetap sama sepanjang slide) - tidak fixed -->
-        <div class="absolute w-full h-full">
-            <!-- Background Image Static -->
-            <img src="{{ asset('img/hero.png') }}" alt="Background" class="w-full h-full object-cover" />
-            <!-- Overlay Gradient Static -->
-            <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70">
-            </div>
-            <!-- Pattern Overlay Static -->
-            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=" 60" height="60" viewBox="0 0 60 60"
-                xmlns="http://www.w3.org/2000/svg" %3E%3Cg fill="none" fill-rule="evenodd" %3E%3Cg fill="%239C92AC"
-                fill-opacity="0.05" %3E%3Cpath
-                d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"
-                /%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+    <section id="hero" class="relative overflow-hidden" style="min-height: 100vh;">
+        <div class="absolute inset-0 w-full h-full z-0">
+            <img src="{{ asset('img/hero.png') }}" alt="Background Static" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70"></div>
         </div>
-
-        <!-- Slider Container -->
+    
         <div class="relative z-10 h-screen min-h-[500px] md:min-h-[600px] w-full">
-
-            <!-- Slides dengan konten berbeda -->
             <div id="heroSlider" class="relative w-full h-full">
-
-                <!-- Slide 1 - TV9 NUSANTARA dengan gambar feature 1 -->
+    
+                <!-- SLIDE 1 -->
                 <div class="hero-slide-item absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-10"
                     data-slide="0">
-                    <div class="relative z-10 container mx-auto px-4 h-full flex items-center">
-                        <div class="w-full lg:w-7/12 text-white">
-                            <h2
-                                class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-center lg:text-left animate-fadeInUp">
-                                TV9 NUSANTARA
-                            </h2>
-                            <p class="text-base md:text-lg lg:text-xl opacity-90 mb-8 text-center lg:text-left animate-fadeInUp"
-                                style="animation-delay: 0.2s">
-                                Spirituality, Creativity, Connectivity
-                            </p>
-                            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4 animate-fadeInUp"
-                                style="animation-delay: 0.4s">
-                                <button
-                                    class="group relative px-6 md:px-8 py-3 md:py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/50 flex items-center justify-center gap-3 overflow-hidden">
-                                    <span class="relative flex items-center gap-2">
-                                        <i class="fas fa-circle text-sm animate-pulse"></i>
-                                        <i class="fas fa-video text-lg"></i>
-                                        <span>Live Streaming</span>
-                                    </span>
-                                </button>
-                                <button
-                                    class="group px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg border border-white/30 flex items-center justify-center gap-3">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fas fa-calendar-alt text-lg"></i>
-                                        <span>Lihat Jadwal</span>
-                                        <i
-                                            class="fas fa-arrow-right text-base group-hover:translate-x-1 transition-transform duration-300"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Feature Image Slide 1 (kanan) -->
-                        <div class="hidden lg:block lg:w-5/12 animate-fadeInUp" style="animation-delay: 0.6s">
-                            <div class="feature-image relative">
-                                <img src="{{ asset('img/feature/1.png') }}" alt="Broadcasting"
-                                    class="w-80 h-80 mx-auto object-contain drop-shadow-2xl" />
-                                <div
-                                    class="absolute -bottom-10 -left-10 w-32 h-32 bg-yellow-500/20 rounded-full blur-2xl">
+                    <div class="w-full h-full">
+                        <div class="container mx-auto px-0 md:px-4 h-full md:flex md:items-center md:justify-between">
+                            <div class="mobile-slide-inner md:hidden">
+                                <div class="mobile-poster-wrapper">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/4210/4210452.png" alt="Poster"
+                                        class="mobile-poster-image" />
                                 </div>
-                                <div class="absolute -top-10 -right-10 w-40 h-40 bg-red-500/20 rounded-full blur-2xl">
+                                <div class="mobile-text-wrapper">
+                                    <span class="mobile-badge"><i class="fas fa-star text-yellow-400 text-xs mr-1"></i>
+                                        BUILD LIKE THEM</span>
+                                    <h2 class="text-white font-bold">Asmara Gen Z</h2>
+                                    <p class="text-white/85">Kisah cinta modern yang menginspirasi generasi masa kini.
+                                    </p>
+                                    <div
+                                        class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-4 justify-center btn-group">
+                                        <button class="btn-primary"><i class="fas fa-play text-sm"></i> Tonton</button>
+                                        <button class="btn-outline">Selengkapnya <i
+                                                class="fas fa-arrow-right text-xs"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hidden md:flex md:w-full md:items-center md:justify-between">
+                                <div class="w-full lg:w-7/12 text-white">
+                                    <span
+                                        class="inline-block bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm mb-3"><i
+                                            class="fas fa-star text-yellow-400 mr-1"></i> BUILD LIKE THEM</span>
+                                    <h2 class="text-5xl lg:text-7xl font-bold mb-4">Asmara Gen Z</h2>
+                                    <p class="text-xl opacity-90 mb-8">Kisah cinta modern yang menginspirasi generasi
+                                        masa kini.</p>
+                                    <div class="flex gap-4">
+                                        <button
+                                            class="px-8 py-3 bg-red-600 hover:bg-red-700 rounded-full font-semibold flex items-center gap-2"><i
+                                                class="fas fa-play"></i> Tonton</button>
+                                        <button
+                                            class="px-8 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full border border-white/30 flex items-center gap-2">Selengkapnya
+                                            <i class="fas fa-arrow-right"></i></button>
+                                    </div>
+                                </div>
+                                <div class="lg:w-5/12 desktop-feature-col">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/4210/4210452.png" alt="Broadcasting"
+                                        class="w-80 h-80 mx-auto object-contain drop-shadow-2xl" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Slide 2 - Inspirasi Nusantara dengan gambar feature 2 -->
+    
+                <!-- SLIDE 2 -->
                 <div class="hero-slide-item absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0"
                     data-slide="1">
-                    <div class="relative z-10 container mx-auto px-4 h-full flex items-center">
-                        <div class="w-full lg:w-7/12 text-white">
-                            <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-center lg:text-left">
-                                Inspirasi Nusantara
-                            </h2>
-                            <p class="text-base md:text-lg lg:text-xl opacity-90 mb-8 text-center lg:text-left">
-                                Menyajikan Konten Berkualitas untuk Generasi Masa Depan
-                            </p>
-                            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
-                                <button
-                                    class="group relative px-6 md:px-8 py-3 md:py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/50 flex items-center justify-center gap-3 overflow-hidden">
-                                    <span class="relative flex items-center gap-2">
-                                        <i class="fas fa-circle text-sm animate-pulse"></i>
-                                        <i class="fas fa-video text-lg"></i>
-                                        <span>Live Streaming</span>
-                                    </span>
-                                </button>
-                                <button
-                                    class="group px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg border border-white/30 flex items-center justify-center gap-3">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fas fa-tv text-lg"></i>
-                                        <span>Lihat Program</span>
-                                        <i
-                                            class="fas fa-arrow-right text-base group-hover:translate-x-1 transition-transform duration-300"></i>
-                                    </span>
-                                </button>
+                    <div class="w-full h-full">
+                        <div class="container mx-auto px-0 md:px-4 h-full md:flex md:items-center md:justify-between">
+                            <div class="mobile-slide-inner md:hidden">
+                                <div class="mobile-poster-wrapper"><img
+                                        src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png"
+                                        class="mobile-poster-image" alt="Inspiration" /></div>
+                                <div class="mobile-text-wrapper">
+                                    <span class="mobile-badge"><i class="fas fa-lightbulb text-yellow-400 text-xs mr-1"></i>
+                                        INSPIRATION</span>
+                                    <h2 class="text-white font-bold">Inspirasi Nusantara</h2>
+                                    <p class="text-white/85">Menyajikan Konten Berkualitas untuk Generasi Masa Depan</p>
+                                    <div class="flex justify-center btn-group"><button class="btn-primary"><i
+                                                class="fas fa-play"></i> Tonton</button><button
+                                            class="btn-outline">Selengkapnya <i class="fas fa-arrow-right"></i></button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
-                        <!-- Feature Image Slide 2 -->
-                        <div class="hidden lg:block lg:w-5/12">
-                            <div class="feature-image relative">
-                                <img src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png" alt="Inspiration"
-                                    class="w-80 h-80 mx-auto object-contain drop-shadow-2xl" />
-                                <div
-                                    class="absolute -bottom-10 -left-10 w-32 h-32 bg-green-500/20 rounded-full blur-2xl">
+                            <div class="hidden md:flex md:w-full md:items-center md:justify-between">
+                                <div class="w-full lg:w-7/12 text-white"><span
+                                        class="inline-block bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm mb-3"><i
+                                            class="fas fa-lightbulb text-yellow-400 mr-1"></i> INSPIRATION</span>
+                                    <h2 class="text-5xl lg:text-7xl font-bold mb-4">Inspirasi Nusantara</h2>
+                                    <p class="text-xl opacity-90 mb-8">Menyajikan Konten Berkualitas untuk Generasi Masa
+                                        Depan</p>
+                                    <div class="flex gap-4"><button
+                                            class="px-8 py-3 bg-red-600 hover:bg-red-700 rounded-full font-semibold flex items-center gap-2"><i
+                                                class="fas fa-play"></i> Tonton</button><button
+                                            class="px-8 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full border border-white/30 flex items-center gap-2">Selengkapnya
+                                            <i class="fas fa-arrow-right"></i></button></div>
                                 </div>
-                                <div class="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/20 rounded-full blur-2xl">
-                                </div>
+                                <div class="lg:w-5/12 desktop-feature-col"><img
+                                        src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png"
+                                        class="w-80 h-80 mx-auto object-contain drop-shadow-2xl" /></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Slide 3 - TV Digital Masa Kini dengan gambar feature 3 -->
-                <div class="hero-slide-item absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0"
-                    data-slide="2">
-                    <div class="relative z-10 container mx-auto px-4 h-full flex items-center">
-                        <div class="w-full lg:w-7/12 text-white">
-                            <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-center lg:text-left">
-                                TV Digital Masa Kini
-                            </h2>
-                            <p class="text-base md:text-lg lg:text-xl opacity-90 mb-8 text-center lg:text-left">
-                                Tonton Dimana Saja, Kapan Saja. Akses 24/7 di Semua Platform
-                            </p>
-                            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
-                                <button
-                                    class="group relative px-6 md:px-8 py-3 md:py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/50 flex items-center justify-center gap-3 overflow-hidden">
-                                    <span class="relative flex items-center gap-2">
-                                        <i class="fas fa-circle text-sm animate-pulse"></i>
-                                        <i class="fas fa-video text-lg"></i>
-                                        <span>Live Streaming</span>
-                                    </span>
-                                </button>
-                                <button
-                                    class="group px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg border border-white/30 flex items-center justify-center gap-3">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fas fa-info-circle text-lg"></i>
-                                        <span>Tentang Kami</span>
-                                        <i
-                                            class="fas fa-arrow-right text-base group-hover:translate-x-1 transition-transform duration-300"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Feature Image Slide 3 -->
-                        <div class="hidden lg:block lg:w-5/12">
-                            <div class="feature-image relative">
-                                <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Digital TV"
-                                    class="w-80 h-80 mx-auto object-contain drop-shadow-2xl" />
-                                <div
-                                    class="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl">
-                                </div>
-                                <div
-                                    class="absolute -top-10 -right-10 w-40 h-40 bg-orange-500/20 rounded-full blur-2xl">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 4 - Berita Terkini dengan gambar feature 4 -->
-                <div class="hero-slide-item absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0"
-                    data-slide="3">
-                    <div class="relative z-10 container mx-auto px-4 h-full flex items-center">
-                        <div class="w-full lg:w-7/12 text-white">
-                            <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-center lg:text-left">
-                                Berita Terkini
-                            </h2>
-                            <p class="text-base md:text-lg lg:text-xl opacity-90 mb-8 text-center lg:text-left">
-                                Update Tercepat dan Terpercaya Seputar Nusantara
-                            </p>
-                            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
-                                <button
-                                    class="group relative px-6 md:px-8 py-3 md:py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/50 flex items-center justify-center gap-3 overflow-hidden">
-                                    <span class="relative flex items-center gap-2">
-                                        <i class="fas fa-circle text-sm animate-pulse"></i>
-                                        <i class="fas fa-video text-lg"></i>
-                                        <span>Live Streaming</span>
-                                    </span>
-                                </button>
-                                <button
-                                    class="group px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg border border-white/30 flex items-center justify-center gap-3">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fas fa-newspaper text-lg"></i>
-                                        <span>Berita Lainnya</span>
-                                        <i
-                                            class="fas fa-arrow-right text-base group-hover:translate-x-1 transition-transform duration-300"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Feature Image Slide 4 -->
-                        <div class="hidden lg:block lg:w-5/12">
-                            <div class="feature-image relative">
-                                <img src="https://cdn-icons-png.flaticon.com/512/2888/2888408.png" alt="News"
-                                    class="w-80 h-80 mx-auto object-contain drop-shadow-2xl" />
-                                <div
-                                    class="absolute -bottom-10 -left-10 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl">
-                                </div>
-                                <div class="absolute -top-10 -right-10 w-40 h-40 bg-pink-500/20 rounded-full blur-2xl">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 5 - Event & Hiburan dengan gambar feature 5 -->
-                <div class="hero-slide-item absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0"
-                    data-slide="4">
-                    <div class="relative z-10 container mx-auto px-4 h-full flex items-center">
-                        <div class="w-full lg:w-7/12 text-white">
-                            <h2 class="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-center lg:text-left">
-                                Event & Hiburan
-                            </h2>
-                            <p class="text-base md:text-lg lg:text-xl opacity-90 mb-8 text-center lg:text-left">
-                                Saksikan Event Seru dan Hiburan Menarik Setiap Harinya
-                            </p>
-                            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
-                                <button
-                                    class="group relative px-6 md:px-8 py-3 md:py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/50 flex items-center justify-center gap-3 overflow-hidden">
-                                    <span class="relative flex items-center gap-2">
-                                        <i class="fas fa-circle text-sm animate-pulse"></i>
-                                        <i class="fas fa-video text-lg"></i>
-                                        <span>Live Streaming</span>
-                                    </span>
-                                </button>
-                                <button
-                                    class="group px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg border border-white/30 flex items-center justify-center gap-3">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fas fa-music text-lg"></i>
-                                        <span>Lihat Event</span>
-                                        <i
-                                            class="fas fa-arrow-right text-base group-hover:translate-x-1 transition-transform duration-300"></i>
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Feature Image Slide 5 -->
-                        <div class="hidden lg:block lg:w-5/12">
-                            <div class="feature-image relative">
-                                <img src="https://cdn-icons-png.flaticon.com/512/3082/3082030.png" alt="Event"
-                                    class="w-80 h-80 mx-auto object-contain drop-shadow-2xl" />
-                                <div
-                                    class="absolute -bottom-10 -left-10 w-32 h-32 bg-indigo-500/20 rounded-full blur-2xl">
-                                </div>
-                                <div
-                                    class="absolute -top-10 -right-10 w-40 h-40 bg-yellow-500/20 rounded-full blur-2xl">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    
+                <!-- SLIDE 3, 4, 5 similar structure... (add more slides as needed) -->
             </div>
-
-            <!-- Navigation Arrows -->
+    
             <button id="prevSlide"
-                class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-black/70 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hidden md:block">
-                <i class="fas fa-chevron-left text-lg md:text-xl"></i>
-            </button>
+                class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-black/70 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center"><i
+                    class="fas fa-chevron-left"></i></button>
             <button id="nextSlide"
-                class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-black/70 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hidden md:block">
-                <i class="fas fa-chevron-right text-lg md:text-xl"></i>
-            </button>
-
-            <!-- Dots/Indicators -->
+                class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-black/70 text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center"><i
+                    class="fas fa-chevron-right"></i></button>
+    
             <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2 md:gap-3">
-                <button
-                    class="hero-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300"
-                    data-dot="0"></button>
-                <button
-                    class="hero-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300"
-                    data-dot="1"></button>
-                <button
-                    class="hero-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300"
-                    data-dot="2"></button>
-                <button
-                    class="hero-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300"
-                    data-dot="3"></button>
-                <button
-                    class="hero-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50 hover:bg-white transition-all duration-300"
-                    data-dot="4"></button>
+                <button class="hero-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50" data-dot="0"></button>
+                <button class="hero-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50" data-dot="1"></button>
             </div>
+    
+            <div class="swipe-hint"><i class="fas fa-chevron-left"></i><span>swipe</span><i
+                    class="fas fa-chevron-right"></i></div>
         </div>
     </section>
     <!-- Hero Section -->
-
-
-
+    
     <!-- Program Hari Ini Section -->
     <!-- Schedule Section (Today) -->
     <section class="bg-gray-50 flex items-center justify-center p-8">
@@ -460,7 +284,7 @@
                         $scheduleList = $schedules ?? [];
                         $chunkedSchedules = collect($scheduleList)->chunk(3);
                     @endphp
-
+    
                     @forelse($chunkedSchedules as $slideIndex => $scheduleChunk)
                         <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
                             data-slide="{{ $slideIndex }}">
@@ -484,8 +308,7 @@
                                         @endif
 
                                         {{-- Jam --}}
-                                        <p
-                                            class="text-base font-semibold {{ $isLive ? 'text-[#006747]' : 'text-gray-400' }} mt-3">
+                                        <p class="text-base font-semibold {{ $isLive ? 'text-[#006747]' : 'text-gray-400' }} mt-3">
                                             {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
                                             –
                                             {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
@@ -530,19 +353,19 @@
                             <p class="text-gray-500 font-medium">Belum ada jadwal tayang untuk hari ini.</p>
                         </div>
                     @endforelse
-
+    
                     <div class="text-center max-w-3xl mx-auto mt-8 ">
                         <a href="{{ route('jadwal') }}">
                             <span
                                 class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
-                                                                                                                                       transition-all duration-300 ease-in-out 
-                                                                                                                                       hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
+                                                                                                                                                       transition-all duration-300 ease-in-out 
+                                                                                                                                                       hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
                                 LIHAT SEMUA JADWAL
                             </span>
                         </a>
                     </div>
                 </div>
-
+    
                 <!-- Dots/Indicators Only -->
                 @if($chunkedSchedules->count() > 1)
                     <div class="flex gap-2 md:gap-3 justify-center mt-6">
@@ -556,7 +379,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- SECTION AKSES MULTIPLATFORM -->
     <section class="bg-gray-50 flex items-center justify-center p-8">
         <div class="w-full max-w-5xl" data-aos="fade-up" data-aos-delay="100">
@@ -670,7 +493,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- SECTION MARKETING & MEDIA SOLUTIONS -->
     <section class="media-section w-full py-16 px-8">
         <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="100">
@@ -682,12 +505,12 @@
                         class="inline-block text-[10px] font-semibold tracking-widest uppercase text-yellow-300 border border-yellow-500/40 bg-yellow-500/10 rounded px-3 py-1 mb-5">
                         Solusi Media TV9 Nusantara
                     </span>
-
+    
                     <!-- Judul -->
                     <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight mb-4">
                         Kembangkan Bisnis Anda bersama<br>TV9 Nusantara
                     </h2>
-
+    
                     <!-- Deskripsi -->
                     <p class="text-base text-green-100/70 leading-relaxed mb-8 max-w-sm">
                         Raih audiens yang loyal dan berdaya beli tinggi melalui solusi
@@ -764,11 +587,10 @@
             </div>
         </div>
     </section>
-
-
+    
     <section class="w-full bg-white py-14 px-8">
         <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-
+    
             <!-- Header -->
             <div class="flex items-center justify-between mb-8">
                 <div>
@@ -811,7 +633,7 @@
             </div>
             <!-- News Grid -->
             <div id="news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 hidden"></div>
-
+    
             <!-- Error State -->
             <div id="news-error" class="hidden text-center py-12 text-gray-400">
                 <i class="fa-solid fa-circle-exclamation text-3xl mb-3 block"></i>
@@ -819,109 +641,107 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Suara Komunitas Section -->
     <!-- <section class="w-full media-section py-16 px-8">
-        <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-white mb-3">Suara Komunitas</h2>
-                <p class="text-white text-base">Apa kata mereka tentang dampak positif TV9
-                    Nusantara bagi
-                    masyarakat.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
-
-                <div
-                    class="testimonial-card bg-white rounded-2xl p-7 flex flex-col justify-between border border-gray-100 shadow-sm">
-                    <div>
-                        <i class="fa-solid fa-quote-right text-4xl text-gray-100 card-quote float-right ml-3 -mt-1"></i>
-                        <p class="text-gray-600 text-base leading-relaxed italic mb-6 card-text">
-                            "TV9 Nusantara menjadi rujukan keluarga kami untuk konten religi
-                            yang
-                            menyejukkan.
-                            Program-programnya sangat relevan dengan nilai kebangsaan."
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div
-                            class="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center text-white text-base font-bold flex-shrink-0 card-avatar">
-                            AK</div>
-                        <div>
-                            <p class="text-base font-bold text-gray-900 uppercase tracking-wide card-name">
-                                Ahmad
-                                Kurniawan
-                            </p>
-                            <p class="text-base text-gray-400 card-role">Tokoh Masyarakat, Jombang
-                            </p>
+                        <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                        
+                            <div class="text-center mb-12">
+                                <h2 class="text-3xl font-bold text-white mb-3">Suara Komunitas</h2>
+                                <p class="text-white text-base">Apa kata mereka tentang dampak positif TV9
+                                    Nusantara bagi
+                                    masyarakat.</p>
+                            </div>
+                        
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
+                        
+                                <div
+                                    class="testimonial-card bg-white rounded-2xl p-7 flex flex-col justify-between border border-gray-100 shadow-sm">
+                                    <div>
+                                        <i class="fa-solid fa-quote-right text-4xl text-gray-100 card-quote float-right ml-3 -mt-1"></i>
+                                        <p class="text-gray-600 text-base leading-relaxed italic mb-6 card-text">
+                                            "TV9 Nusantara menjadi rujukan keluarga kami untuk konten religi
+                                            yang
+                                            menyejukkan.
+                                            Program-programnya sangat relevan dengan nilai kebangsaan."
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center text-white text-base font-bold flex-shrink-0 card-avatar">
+                                            AK</div>
+                                        <div>
+                                            <p class="text-base font-bold text-gray-900 uppercase tracking-wide card-name">
+                                                Ahmad
+                                                Kurniawan
+                                            </p>
+                                            <p class="text-base text-gray-400 card-role">Tokoh Masyarakat, Jombang
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div
+                                    class="testimonial-card bg-white rounded-2xl p-7 flex flex-col justify-between border border-gray-100 shadow-sm">
+                                    <div>
+                                        <i class="fa-solid fa-quote-right text-4xl text-gray-100 card-quote float-right ml-3 -mt-1"></i>
+                                        <p class="text-gray-600 text-base leading-relaxed italic font-medium mb-6 card-text">
+                                            "Sangat terbantu dengan aplikasi mobile TV9. Bisa menyimak kajian
+                                            kitab
+                                            dimanapun.
+                                            Kualitas
+                                            streamingnya jernih meski di daerah."
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-10 h-10 rounded-xl bg-gray-200 flex items-center justify-center text-gray-600 text-base font-bold flex-shrink-0 card-avatar">
+                                            SP</div>
+                                        <div>
+                                            <p class="text-base font-bold text-gray-900 uppercase tracking-wide card-name">
+                                                Siti
+                                                Rahmawati
+                                            </p>
+                                            <p class="text-base text-gray-400 card-role">Guru, Samarinda</p>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <div
+                                    class="testimonial-card bg-white rounded-2xl p-7 flex flex-col justify-between border border-gray-100 shadow-sm">
+                                    <div>
+                                        <i class="fa-solid fa-quote-right text-4xl text-gray-100 card-quote float-right ml-3 -mt-1"></i>
+                                        <p class="text-gray-600 text-base leading-relaxed italic mb-6 card-text">
+                                            "Sebagai pelaku UMKM, iklan di TV9 sangat efektif menjangkau pasar
+                                            yang loyal.
+                                            Tim
+                                            produksinya
+                                            sangat kreatif dan kooperatif."
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-10 h-10 rounded-xl bg-yellow-500 flex items-center justify-center text-white text-base font-bold flex-shrink-0 card-avatar">
+                                            BR</div>
+                                        <div>
+                                            <p class="text-base font-bold text-gray-900 uppercase tracking-wide card-name">
+                                                Budi
+                                                Santoso
+                                            </p>
+                                            <p class="text-base text-gray-400 card-role">Wirausaha, Gresik</p>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div
-                    class="testimonial-card bg-white rounded-2xl p-7 flex flex-col justify-between border border-gray-100 shadow-sm">
-                    <div>
-                        <i class="fa-solid fa-quote-right text-4xl text-gray-100 card-quote float-right ml-3 -mt-1"></i>
-                        <p class="text-gray-600 text-base leading-relaxed italic font-medium mb-6 card-text">
-                            "Sangat terbantu dengan aplikasi mobile TV9. Bisa menyimak kajian
-                            kitab
-                            dimanapun.
-                            Kualitas
-                            streamingnya jernih meski di daerah."
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div
-                            class="w-10 h-10 rounded-xl bg-gray-200 flex items-center justify-center text-gray-600 text-base font-bold flex-shrink-0 card-avatar">
-                            SP</div>
-                        <div>
-                            <p class="text-base font-bold text-gray-900 uppercase tracking-wide card-name">
-                                Siti
-                                Rahmawati
-                            </p>
-                            <p class="text-base text-gray-400 card-role">Guru, Samarinda</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="testimonial-card bg-white rounded-2xl p-7 flex flex-col justify-between border border-gray-100 shadow-sm">
-                    <div>
-                        <i class="fa-solid fa-quote-right text-4xl text-gray-100 card-quote float-right ml-3 -mt-1"></i>
-                        <p class="text-gray-600 text-base leading-relaxed italic mb-6 card-text">
-                            "Sebagai pelaku UMKM, iklan di TV9 sangat efektif menjangkau pasar
-                            yang loyal.
-                            Tim
-                            produksinya
-                            sangat kreatif dan kooperatif."
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div
-                            class="w-10 h-10 rounded-xl bg-yellow-500 flex items-center justify-center text-white text-base font-bold flex-shrink-0 card-avatar">
-                            BR</div>
-                        <div>
-                            <p class="text-base font-bold text-gray-900 uppercase tracking-wide card-name">
-                                Budi
-                                Santoso
-                            </p>
-                            <p class="text-base text-gray-400 card-role">Wirausaha, Gresik</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section> -->
-
-
+                        </section> -->
     <!-- Section: Legalitas & Izin Penyiaran -->
     <section class="py-20 px-6 bg-grey">
         <div class="max-w-5xl mx-auto">
             <div class="bg-brand-green-light rounded-2xl px-10 py-12 font-sans">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-
+    
                     <!-- Kolom Kiri -->
                     <div>
                         <h2 class="text-4xl font-bold text-brand-green-dark leading-tight mb-4">
@@ -934,7 +754,7 @@
                             payung hukum yang sah dan pengawasan ketat dari otoritas komunikasi
                             Indonesia.
                         </p>
-
+    
                         <!-- IPP -->
                         <div
                             class="bg-brand-green-light rounded-xl border border-brand-border px-4 py-3 flex items-start gap-3 mb-3">
@@ -945,8 +765,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <p
-                                    class="text-[10.5px] font-semibold text-brand-green uppercase tracking-widest mb-0.5">
+                                <p class="text-[10.5px] font-semibold text-brand-green uppercase tracking-widest mb-0.5">
                                     No. IPP (Izin Penyelenggaraan Penyiaran)
                                 </p>
                                 <p class="text-base font-medium text-brand-green-dark">
@@ -954,7 +773,7 @@
                                 </p>
                             </div>
                         </div>
-
+    
                         <!-- Akreditasi -->
                         <div class="bg-white rounded-xl border border-brand-border px-4 py-3 flex items-start gap-3">
                             <div
@@ -962,8 +781,7 @@
                                 <img width="16" height="16" src="/img/kpi.png" alt="Logo KPI" class="object-contain">
                             </div>
                             <div>
-                                <p
-                                    class="text-[10.5px] font-semibold text-brand-green uppercase tracking-widest mb-0.5">
+                                <p class="text-[10.5px] font-semibold text-brand-green uppercase tracking-widest mb-0.5">
                                     Akreditasi Konten & Siaran
                                 </p>
                                 <p class="text-base font-medium text-brand-green-dark">
@@ -972,13 +790,13 @@
                             </div>
                         </div>
                     </div>
-
+    
                     <!-- Kolom Kanan -->
                     <div class="flex flex-col gap-3">
-
+    
                         <!-- Kartu Otoritas -->
                         <div class="grid grid-cols-2 gap-3">
-
+    
                             <!-- Kementerian Kominfo -->
                             <div
                                 class="bg-white rounded-xl border border-brand-border border-t-4 border-t-brand-green px-4 py-5 flex flex-col items-center gap-2 text-center">
@@ -995,7 +813,7 @@
                                     Otoritas Perizinan
                                 </p>
                             </div>
-
+    
                             <!-- KPI -->
                             <div
                                 class="bg-white rounded-xl border border-brand-border border-t-4 border-t-brand-gold px-4 py-5 flex flex-col items-center gap-2 text-center">
@@ -1006,8 +824,7 @@
                                         </img>
                                     </div>
                                 </div>
-                                <p
-                                    class="text-[10.5px] font-bold text-brand-gold uppercase tracking-widest leading-tight">
+                                <p class="text-[10.5px] font-bold text-brand-gold uppercase tracking-widest leading-tight">
                                     Komisi Penyiaran<br />Indonesia
                                 </p>
                                 <p class="text-[10px] text-[#6a7a6a] uppercase tracking-widest">
@@ -1015,7 +832,7 @@
                                 </p>
                             </div>
                         </div>
-
+    
                         <!-- Standar Penyiaran Digital -->
                         <div class="media-section rounded-xl px-6 py-5 flex items-center justify-between gap-4">
                             <div>
@@ -1030,8 +847,8 @@
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <path d="M12 2L14 8H20L15.5 11.5L17.5 17.5L12 14.5L6.5 17.5L8.5 11.5L4 8H10L12 2Z"
                                         fill="white" opacity="0.9" />
-                                    <path d="M9 12L11 14L15 10" stroke="#1a5c2e" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M9 12L11 14L15 10" stroke="#1a5c2e" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                 </svg>
                             </div>
                         </div>
@@ -1039,10 +856,10 @@
                 </div>
             </div>
     </section>
-
+    
     <section class="py-20 px-6 media-section">
         <div class="max-w-5xl mx-auto">
-
+    
             <!-- Header -->
             <div class="text-center mb-14">
                 <p class="text-base font-semibold tracking-[0.25em] text-[#7a6a50] uppercase mb-3">
@@ -1051,18 +868,17 @@
                     Apresiasi</h2>
                 <div class="mt-5 mx-auto w-12 h-[3px] bg-[#4a7a4a] rounded-full"></div>
             </div>
-
+    
             <!-- Slideshow Wrapper -->
             <div class="relative overflow-hidden rounded-2xl">
                 <div class="slides-track" id="track">
-
+    
                     <!-- Slide 1 -->
                     <div class="slide">
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
+    
                             <!-- Card 1 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
+                            <div class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
                                 <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=KPI+Pusat"
                                     alt="Anugerah KPI Pusat" class="w-full object-cover aspect-video">
                                 <div class="p-5">
@@ -1076,10 +892,9 @@
                                         Peduli Syiar Islam Terbaik untuk Program 'Jurnal 9'.</p>
                                 </div>
                             </div>
-
+    
                             <!-- Card 2 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
+                            <div class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
                                 <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=KPID+Jatim"
                                     alt="KPID Awards Jatim" class="w-full object-cover aspect-video">
                                 <div class="p-5">
@@ -1093,10 +908,9 @@
                                         Lokal Terbaik dengan Konsistensi Budaya Nusantara.</p>
                                 </div>
                             </div>
-
+    
                             <!-- Card 3 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
+                            <div class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
                                 <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=Islamic+Media"
                                     alt="Islamic Media Awards" class="w-full object-cover aspect-video">
                                 <div class="p-5">
@@ -1110,10 +924,9 @@
                                         Islamic Content Delivery in South East Asia Region.</p>
                                 </div>
                             </div>
-
+    
                             <!-- Card 4 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
+                            <div class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
                                 <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=MUI+Award"
                                     alt="MUI Excellence Award" class="w-full object-cover aspect-video">
                                 <div class="p-5">
@@ -1127,18 +940,16 @@
                                         Menjaga Kerukunan Umat dan Moderasi Beragama.</p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <!-- End Slide 1 -->
-
+    
                     <!-- Slide 2 -->
                     <div class="slide">
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
+    
                             <!-- Card 5 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
+                            <div class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
                                 <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=Jurnalistik"
                                     alt="Anugerah Jurnalistik" class="w-full object-cover aspect-video">
                                 <div class="p-5">
@@ -1152,12 +963,11 @@
                                         atas liputan mendalam isu sosial dan kebangsaan.</p>
                                 </div>
                             </div>
-
+    
                             <!-- Card 6 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
-                                <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=TV+Lokal"
-                                    alt="TV Lokal Terbaik" class="w-full object-cover aspect-video">
+                            <div class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
+                                <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=TV+Lokal" alt="TV Lokal Terbaik"
+                                    class="w-full object-cover aspect-video">
                                 <div class="p-5">
                                     <span
                                         class="text-base font-semibold tracking-widest text-[#9a8a70] uppercase">2020</span>
@@ -1169,10 +979,9 @@
                                         Terbaik versi survei nasional kepuasan pemirsa.</p>
                                 </div>
                             </div>
-
+    
                             <!-- Card 7 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
+                            <div class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
                                 <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=ISO+9001"
                                     alt="Sertifikasi ISO 9001" class="w-full object-cover aspect-video">
                                 <div class="p-5">
@@ -1186,12 +995,11 @@
                                         internasional untuk operasional siaran dan redaksi.</p>
                                 </div>
                             </div>
-
+    
                             <!-- Card 8 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
-                                <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=CSR+Award"
-                                    alt="Penghargaan CSR" class="w-full object-cover aspect-video">
+                            <div class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
+                                <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=CSR+Award" alt="Penghargaan CSR"
+                                    class="w-full object-cover aspect-video">
                                 <div class="p-5">
                                     <span
                                         class="text-base font-semibold tracking-widest text-[#9a8a70] uppercase">2019</span>
@@ -1204,15 +1012,14 @@
                                         masyarakat.</p>
                                 </div>
                             </div>
-
+    
                         </div>
                     </div>
                     <!-- End Slide 2 -->
-
+    
                 </div>
             </div>
             <!-- End Slideshow -->
-
             <!-- Navigation -->
             <div class="flex items-center justify-center gap-4 mt-8">
                 <button id="prev" onclick="move(-1)" disabled
@@ -1225,13 +1032,12 @@
                     &#8594;
                 </button>
             </div>
-
+    
         </div>
     </section>
-
-
+    
     <section class="py-20 px-4 sm:px-6 max-w-6xl mx-auto">
-
+    
         <!-- Header -->
         <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-8 sm:mb-10">
             <div class="mb-6 sm:mb-0">
@@ -1256,12 +1062,10 @@
                 </button>
             </div>
         </div>
-
+    
         <!-- Cards Slider -->
         <div class="relative overflow-hidden">
-            <div class="flex gap-3 sm:gap-6 no-scrollbar transition-transform duration-500 ease-in-out"
-                id="portfolioTrack">
-
+            <div class="flex gap-3 sm:gap-6 no-scrollbar transition-transform duration-500 ease-in-out" id="portfolioTrack">
                 <!-- Card 1 -->
                 <div class="card-wrap flex-none w-80 sm:w-72"
                     onclick="openVideo('https://www.youtube.com/watch?v=dQw4w9WgXcQ')">
@@ -1288,7 +1092,7 @@
                         </p>
                     </div>
                 </div>
-
+    
                 <!-- Card 2 -->
                 <div class="card-wrap flex-none w-80 sm:w-72"
                     onclick="openVideo('https://www.youtube.com/watch?v=9bZkp7q19f0')">
@@ -1313,7 +1117,7 @@
                         </p>
                     </div>
                 </div>
-
+    
                 <!-- Card 3 -->
                 <div class="card-wrap flex-none w-80 sm:w-72"
                     onclick="openVideo('https://www.youtube.com/watch?v=kXYiU_JCYtU')">
@@ -1338,7 +1142,7 @@
                         </p>
                     </div>
                 </div>
-
+    
                 <!-- Card 4 -->
                 <div class="card-wrap flex-none w-80 sm:w-72"
                     onclick="openVideo('https://www.youtube.com/watch?v=JGwWNGJdvx8')">
@@ -1362,9 +1166,10 @@
                             Indonesia yang menjadi saksi bisu peradaban dan keagungan masa lalu.</p>
                     </div>
                 </div>
-
+    
                 <!-- Card 5 -->
-                <div class="card-wrap flex-none w-80 sm:w-72"onclick="openVideo('https://www.youtube.com/watch?v=tgbNymZ7vqY')">
+                <div class="card-wrap flex-none w-80 sm:w-72"
+                    onclick="openVideo('https://www.youtube.com/watch?v=tgbNymZ7vqY')">
                     <div class="thumb">
                         <img src="https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg" alt="Suara Alam Borneo"
                             class="absolute inset-0 w-full h-full object-cover" />
