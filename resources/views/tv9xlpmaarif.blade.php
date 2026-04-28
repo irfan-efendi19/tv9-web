@@ -453,17 +453,17 @@
                         <div class="grid grid-cols-2 gap-4 mb-4">
                             <div>
                                 <label class="form-label">Nama Lengkap</label>
-                                <input type="text" placeholder="Bpk/Ibu Fulan" class="form-input" />
+                                <input id="f-nama" type="text" placeholder="Bpk/Ibu Fulan" class="form-input" />
                             </div>
                             <div>
                                 <label class="form-label">Instansi</label>
-                                <input type="text" placeholder="Nama Sekolah/Lembaga" class="form-input" />
+                                <input id="f-instansi" type="text" placeholder="Nama Sekolah/Lembaga" class="form-input" />
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <label class="form-label">Keperluan Kerja Sama</label>
-                            <select class="form-input">
+                            <select id="f-keperluan" class="form-input">
                                 <option>Promosi Media (TV9)</option>
                                 <option>Kerja Sama Pendidikan</option>
                                 <option>Kolaborasi Program</option>
@@ -473,11 +473,21 @@
 
                         <div class="mb-6">
                             <label class="form-label">Pesan Singkat</label>
-                            <textarea rows="4" placeholder="Tuliskan rencana kerja sama Anda..."
+                            <textarea id="f-pesan" rows="4" placeholder="Tuliskan rencana kerja sama Anda..."
                                 class="form-input resize-none"></textarea>
                         </div>
 
-                        <button class="btn-primary w-full justify-center text-sm">
+                        <!-- Notifikasi -->
+                        <div id="msg-sukses" style="display:none"
+                            class="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm">
+                            ✅ Permohonan berhasil dikirim!
+                        </div>
+                        <div id="msg-gagal" style="display:none"
+                            class="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+                            ❌ Gagal mengirim. Silakan coba lagi.
+                        </div>
+                        
+                        <button id="btn-kirim" onclick="kirimPermohonan()" class="btn-primary w-full justify-center text-sm">
                             <i class="fa-solid fa-paper-plane"></i> Kirim Permohonan
                         </button>
                     </div>
@@ -582,7 +592,7 @@
                             </div>
                         </div>
                     </div>
-    
+
                 </div>
             </div>
         </div>
@@ -597,7 +607,57 @@
                 </p>
             </div>
         </div>
-        </footer>
+    </footer>
+    <script>
+        const SCRIPT_URL = 'GANTI_DENGAN_URL_APPS_SCRIPT_ANDA';
+
+        async function kirimPermohonan() {
+            const nama = document.getElementById('f-nama').value.trim();
+            const instansi = document.getElementById('f-instansi').value.trim();
+            const keperluan = document.getElementById('f-keperluan').value;
+            const pesan = document.getElementById('f-pesan').value.trim();
+
+            if (!nama || !instansi || !pesan) {
+                alert('Mohon isi semua field yang wajib diisi.');
+                return;
+            }
+
+            const btn = document.getElementById('btn-kirim');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Mengirim...';
+
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        nama,
+                        instansi,
+                        keperluan,
+                        pesan
+                    })
+                });
+
+                document.getElementById('f-nama').value = '';
+                document.getElementById('f-instansi').value = '';
+                document.getElementById('f-pesan').value = '';
+                document.getElementById('f-keperluan').selectedIndex = 0;
+
+                document.getElementById('msg-sukses').style.display = 'block';
+                setTimeout(() => document.getElementById('msg-sukses').style.display = 'none', 5000);
+
+            } catch (err) {
+                document.getElementById('msg-gagal').style.display = 'block';
+                setTimeout(() => document.getElementById('msg-gagal').style.display = 'none', 5000);
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Kirim Permohonan';
+        }
+    </script>
 </body>
 
 </html>
