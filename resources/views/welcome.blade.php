@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+                    <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -460,99 +460,100 @@
                         $scheduleList = $schedules ?? [];
                         $chunkedSchedules = collect($scheduleList)->chunk(3);
                     @endphp
-                    
+
                     @forelse($chunkedSchedules as $slideIndex => $scheduleChunk)
-                        <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
-                            data-slide="{{ $slideIndex }}">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                @foreach($scheduleChunk as $program)
-                                    @php
-                                        $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-                                        $isLive = $program->start_time <= $currentTime && $program->end_time >=
-                                            $currentTime;
-                                    $isDone = $program->end_time < $currentTime; @endphp <div
-                                        class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-[#006747] shadow-lg shadow-[#006747]/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
-                                        {{-- Badge SEDANG TAYANG di atas card --}}
-                                        @if($isLive)
-                                            <div class="absolute -top-px left-1/2 -translate-x-1/2">
-                                                <span
-                                                    class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
-                                                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                                    Sedang Tayang
-                                                </span>
-                                            </div>
-                                        @endif
+                            <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
+                                data-slide="{{ $slideIndex }}">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    @foreach($scheduleChunk as $program)
+                                            @php
+                                                $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+                                                $isLive = $program->start_time <= $currentTime && $program->end_time >=
+                                                    $currentTime;
+                                            $isDone = $program->end_time < $currentTime; @endphp <div
+                                                    class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-[#006747] shadow-lg shadow-[#006747]/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
+                                                    {{-- Badge SEDANG TAYANG di atas card --}}
+                                                    @if($isLive)
+                                                        <div class="absolute -top-px left-1/2 -translate-x-1/2">
+                                                            <span
+                                                                class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
+                                                                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                                                Sedang Tayang
+                                                            </span>
+                                                        </div>
+                                                    @endif
 
-                                        {{-- Jam --}}
-                                        <p class="text-base font-semibold {{ $isLive ? 'text-[#006747]' : 'text-gray-400' }} mt-3">
-                                            {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
-                                            –
-                                            {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
-                                        </p>
+                                                    {{-- Jam --}}
+                                                    <p
+                                                        class="text-base font-semibold {{ $isLive ? 'text-[#006747]' : 'text-gray-400' }} mt-3">
+                                                        {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
+                                                        –
+                                                        {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
+                                                    </p>
 
-                                        {{-- Judul & Deskripsi --}}
-                                        <div class="flex-1">
-                                            <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
-                                                {{ $program->title }}
-                                            </h3>
-                                            <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
-                                                {{ $program->description ?? 'Deskripsi belum tersedia.' }}
-                                            </p>
+                                                    {{-- Judul & Deskripsi --}}
+                                                    <div class="flex-1">
+                                                        <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
+                                                            {{ $program->title }}
+                                                        </h3>
+                                                        <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
+                                                            {{ $program->description ?? 'Deskripsi belum tersedia.' }}
+                                                        </p>
+                                                    </div>
+
+                                                    {{-- Status Badge --}}
+                                                    <div>
+                                                        @if($isLive)
+                                                            <span
+                                                                class="inline-flex items-center gap-1.5 bg-[#006747] text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
+                                                                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                                                Live
+                                                            </span>
+                                                        @elseif($isDone)
+                                                            <span
+                                                                class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                                                Selesai
+                                                            </span>
+                                                        @else
+                                                            <span
+                                                                class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                                                Akan Datang
+                                                            </span>
+                                                        @endif
+                                                    </div>
                                         </div>
-
-                                        {{-- Status Badge --}}
-                                        <div>
-                                            @if($isLive)
-                                                <span
-                                                    class="inline-flex items-center gap-1.5 bg-[#006747] text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
-                                                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                                    Live
-                                                </span>
-                                            @elseif($isDone)
-                                                <span
-                                                    class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                                    Selesai
-                                                </span>
-                                            @else
-                                                <span
-                                                    class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                                    Akan Datang
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
                             </div>
                         </div>
                     @empty
-                        <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
-                            <p class="text-gray-500 font-medium">Belum ada jadwal tayang untuk hari ini.</p>
-                        </div>
-                    @endforelse
-                    
-                    <div class="text-center max-w-3xl mx-auto mt-8 ">
-                        <a href="{{ route('jadwal') }}">
-                            <span
-                                class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
+                    <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                        <p class="text-gray-500 font-medium">Belum ada jadwal tayang untuk hari ini.</p>
+                    </div>
+                @endforelse
+
+                <div class="text-center max-w-3xl mx-auto mt-8 ">
+                    <a href="{{ route('jadwal') }}">
+                        <span
+                            class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
                                                                                                                                        transition-all duration-300 ease-in-out 
                                                                                                                                        hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
-                                LIHAT SEMUA JADWAL
-                            </span>
-                        </a>
-                    </div>
-                    </div>
-                    
-                    <!-- Dots/Indicators Only -->
-                    @if($chunkedSchedules->count() > 1)
-                        <div class="flex gap-2 md:gap-3 justify-center mt-6">
-                            @for($i = 0; $i < $chunkedSchedules->count(); $i++)
-                                <button
-                                    class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
-                                    data-dot="{{ $i }}"></button>
-                            @endfor
-                        </div>
-                    @endif
-                    </div>
+                            LIHAT SEMUA JADWAL
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Dots/Indicators Only -->
+            @if($chunkedSchedules->count() > 1)
+                <div class="flex gap-2 md:gap-3 justify-center mt-6">
+                    @for($i = 0; $i < $chunkedSchedules->count(); $i++)
+                        <button
+                            class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
+                            data-dot="{{ $i }}"></button>
+                    @endfor
+                </div>
+            @endif
+        </div>
         </div>
     </section>
 
@@ -1410,55 +1411,158 @@
 
                     <div
                         class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                        <img src="{{ asset('img/partner/Badan-Wakaf-Indonesia-BWI-Logo-BWI.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
+
                     <div
                         class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                        <img src="{{ asset('img/partner/bawaslu.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
+
                     <div
                         class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                        <img src="{{ asset('img/partner/beacukai.jpg') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
+
                     <div
                         class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                        <img src="{{ asset('img/partner/bhs.png') }}" alt="Logo" class="w-full h-full object-contain"
                             draggable="false">
                     </div>
 
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/bhs1.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/BI_Logo.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Halal-logo-MUI.jpg') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Kopi-Tubruk_Gadjah.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo-ATLAS_& BHS.jpg') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo-DPRD.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/LOGO-uinsa_PNG.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo-Unisma_Malang.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo_BAZNAS_RI-Hijau-01.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo_BKKBN_(2020).png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo_bpbd-jatim.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo_kominfo.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo_main-dark.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo_PLN.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo_Siantar_Top.svg.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo-BKKBN-Terbaru.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo-FiberCreme-01-2.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo-icon.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/LOGO-UNUSA-NEW.-Jpg.jpg') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo-web-rsi.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/savoria-new.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/sayang.jpg') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
 
                     {{-- Duplikat 6 Logo (clone set) --}}
                     <div
@@ -1469,55 +1573,158 @@
 
                     <div
                         class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                        <img src="{{ asset('img/partner/Badan-Wakaf-Indonesia-BWI-Logo-BWI.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
+
                     <div
                         class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                        <img src="{{ asset('img/partner/bawaslu.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
+
                     <div
                         class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                        <img src="{{ asset('img/partner/beacukai.jpg') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
+
                     <div
                         class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                        <img src="{{ asset('img/partner/bhs.png') }}" alt="Logo" class="w-full h-full object-contain"
                             draggable="false">
                     </div>
 
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/bhs1.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/BI_Logo.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Halal-logo-MUI.jpg') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Kopi-Tubruk_Gadjah.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo-ATLAS_& BHS.jpg') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo-DPRD.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/LOGO-uinsa_PNG.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo-Unisma_Malang.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo_BAZNAS_RI-Hijau-01.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo_BKKBN_(2020).png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo_bpbd-jatim.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo_kominfo.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo_main-dark.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo_PLN.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo_Siantar_Top.svg.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo-BKKBN-Terbaru.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo-FiberCreme-01-2.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo-icon.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/LOGO-UNUSA-NEW.-Jpg.jpg') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo-web-rsi.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/savoria-new.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+
+
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/sayang.jpg') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
                 </div>
             </div>
         </div>
