@@ -1,5 +1,0 @@
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/tv9x6755/tv9
-    - cd $DEPLOYPATH
-    - composer install --no-dev --optimize-autoloader
