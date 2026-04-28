@@ -16,7 +16,6 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="canonical" href="{{ config('app.url') . '/live' }}">
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
-    
     <!-- Video.js CSS -->
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -309,129 +308,188 @@
                             </p>
                         </div>
                     @empty
-                    <div
-                        class="col-span-full py-12 text-center bg-gray-50 rounded-2xl border border-gray-100 border-dashed">
-                        <p class="text-gray-500 font-medium">Belum ada jadwal tayang untuk hari ini.</p>
-                    </div>
+                        <div
+                            class="col-span-full py-12 text-center bg-gray-50 rounded-2xl border border-gray-100 border-dashed">
+                            <p class="text-gray-500 font-medium">Belum ada jadwal tayang untuk hari ini.</p>
+                        </div>
                     @endforelse
+                </div>
+            </div>
+            <div class="text-center max-w-3xl mx-auto mt-8">
+                <span class="inline-block py-1 px-3 font-italic text-gray-500 text-sm mb-4 tracking-widest">
+                    *Jam tayang yang ditampilkan berdasarkan Waktu Indonesia Barat
+                </span>
             </div>
         </div>
-        <div class="text-center max-w-3xl mx-auto mt-8">
-            <span class="inline-block py-1 px-3 font-italic text-gray-500 text-sm mb-4 tracking-widest">
-                *Jam tayang yang ditampilkan berdasarkan Waktu Indonesia Barat
-            </span>
-        </div>
-    </div>
+    
+        <footer class="bg-white border-t border-gray-100 py-10">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; {{ date('Y') }} TV9 NUSANTARA - All Rights Reserved
+                </p>
+            </div>
+        </footer>
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const videoElement = document.getElementById('my-video');
+                const streamUrl = 'https://5bf7b725107e5.streamlock.net:443/tv9/tv9/playlist.m3u8';
 
-    <footer class="bg-white border-t border-gray-100 py-10">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-400 text-sm">
-                &copy; {{ date('Y') }} TV9 NUSANTARA - All Rights Reserved
-            </p>
-        </div>
-    </footer>
+                // Buat overlay "Klik untuk Aktifkan Suara"
+                const playerWrapper = videoElement.closest('.relative');
+                const unmuteOverlay = document.createElement('div');
+                unmuteOverlay.id = 'unmute-overlay';
+                unmuteOverlay.innerHTML =
+                    `
+                                                    <div class="flex flex-col items-center gap-2">
+                                                        <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl px-6 py-4 flex items-center gap-3 shadow-2xl cursor-pointer hover:scale-105 transition-all duration-200">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                                                            </svg>
+                                                            <span class="text-white font-bold text-sm tracking-wide">Klik untuk Aktifkan Suara</span>
+                                                        </div>
+                                                    </div>
+                                                                                                                                                        `;
+                unmuteOverlay.style.cssText =
+                    `
+                                                                                                                                                            position: absolute;
+                                                                                                                                                            bottom: 60px;
+                                                                                                                                                            left: 50%;
+                                                                                                                                                            transform: translateX(-50%);
+                                                                                                                                                            z-index: 20;
+                                                                                                                                                            cursor: pointer;
+                                                                                                                                                            animation: fadeInUp 0.5s ease forwards;
+                                                                                                                                                        `;
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const videoElement = document.getElementById('my-video');
-        const streamUrl = 'https://5bf7b725107e5.streamlock.net:443/tv9/tv9/playlist.m3u8';
+                // Tambahkan animasi CSS
+                const style = document.createElement('style');
+                style.textContent =
+                    `
+                                                                                                                                                            @keyframes fadeInUp {
+                                                                                                                                                                from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+                                                                                                                                                                to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+                                                                                                                                                            }
+                                                                                                                                                            @keyframes fadeOut {
+                                                                                                                                                                from { opacity: 1; }
+                                                                                                                                                                to   { opacity: 0; pointer-events: none; }
+                                                                                                                                                            }
+                                                                                                                                                        `;
+                document.head.appendChild(style);
 
-        // Inisialisasi Video.js dengan konfigurasi live streaming
-        const player = videojs(videoElement, {
-            controls: true,
-            autoplay: true,
-            muted: true, // Muted untuk memungkinkan autoplay
-            preload: 'auto',
-            fluid: true,
-            liveui: true, // UI khusus untuk live streaming
-            controlBar: {
-                currentTimeDisplay: false,
-                timeDivider: false,
-                durationDisplay: false,
-                remainingTimeDisplay: false,
-                liveDisplay: true, // Hanya tampilkan LIVE indicator
-                progressControl: false, // Sembunyikan progress bar
-                volumePanel: {
-                    inline: false
-                },
-                pictureInPictureToggle: true,
-                fullscreenToggle: true,
-                playToggle: true
-            },
-            userActions: {
-                hotkeys: true // Dukungan shortcut keyboard
-            }
-        });
-
-        // Cek dukungan HLS
-        if (Hls.isSupported()) {
-            const hls = new Hls({
-                enableWorker: true,
-                lowLatencyMode: true,
-                maxBufferLength: 30,
-                liveSyncDurationCount: 3,
-                liveMaxLatencyDurationCount: 7,
-                startPosition: -1 // Mulai dari live point terbaru
-            });
-
-            hls.loadSource(streamUrl);
-            hls.attachMedia(videoElement);
-
-            hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                console.log('Stream loaded, starting playback');
-                player.muted(true);
-                player.play().catch(function(error) {
-                    console.log('Autoplay prevented:', error);
-                });
-            });
-
-            hls.on(Hls.Events.ERROR, function(event, data) {
-                console.error('HLS Error:', data);
-                if (data.fatal) {
-                    switch (data.type) {
-                        case Hls.ErrorTypes.NETWORK_ERROR:
-                            console.log('Network error, trying to recover...');
-                            hls.startLoad();
-                            break;
-                        case Hls.ErrorTypes.MEDIA_ERROR:
-                            console.log('Media error, attempting recovery...');
-                            hls.recoverMediaError();
-                            break;
-                        default:
-                            console.log('Fatal error, cannot recover');
-                            break;
-                    }
+                function showUnmuteOverlay() {
+                    playerWrapper.appendChild(unmuteOverlay);
                 }
-            });
 
-            // Simpan instance HLS
-            player.hls = hls;
+                function hideUnmuteOverlay() {
+                    unmuteOverlay.style.animation = 'fadeOut 0.3s ease forwards';
+                    setTimeout(() => unmuteOverlay.remove(), 300);
+                }
 
-        } else if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
-            // Untuk Safari
-            videoElement.src = streamUrl;
-            videoElement.addEventListener('loadedmetadata', function() {
-                player.muted(true);
-                player.play().catch(function(error) {
-                    console.log('Autoplay prevented on Safari:', error);
+                // Klik overlay → unmute
+                unmuteOverlay.addEventListener('click', function () {
+                    player.muted(false);
+                    player.volume(1);
+                    hideUnmuteOverlay();
                 });
-            });
-        } else {
-            console.error('HLS not supported');
-            player.error({
-                code: 4,
-                message: 'Browser Anda tidak mendukung live streaming HLS'
-            });
-        }
 
-        // Event ketika player siap
-        player.ready(function() {
-            console.log('Video.js player is ready');
-        });
+                // Juga unmute jika user klik video langsung
+                videoElement.addEventListener('click', function () {
+                    if (player.muted()) {
+                        player.muted(false);
+                        player.volume(1);
+                        hideUnmuteOverlay();
+                    }
+                });
 
-        // Handle error
-        player.on('error', function() {
-            console.error('Video.js error:', player.error());
+                const player = videojs(videoElement, {
+                    controls: true,
+                    autoplay: true,
+                    muted: true,
+                    preload: 'auto',
+                    fluid: true,
+                    liveui: true,
+                    controlBar: {
+                        currentTimeDisplay: false,
+                        timeDivider: false,
+                        durationDisplay: false,
+                        remainingTimeDisplay: false,
+                        liveDisplay: true,
+                        progressControl: false,
+                        volumePanel: {
+                            inline: false
+                        },
+                        pictureInPictureToggle: true,
+                        fullscreenToggle: true,
+                        playToggle: true
+                    },
+                    userActions: {
+                        hotkeys: true
+                    }
+                });
+
+                if (Hls.isSupported()) {
+                    const hls = new Hls({
+                        enableWorker: true,
+                        lowLatencyMode: true,
+                        maxBufferLength: 30,
+                        liveSyncDurationCount: 3,
+                        liveMaxLatencyDurationCount: 7,
+                        startPosition: -1
+                    });
+
+                    hls.loadSource(streamUrl);
+                    hls.attachMedia(videoElement);
+
+                    hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                        player.muted(true);
+                        player.play()
+                            .then(() => showUnmuteOverlay()) // Tampilkan overlay setelah autoplay berhasil
+                            .catch(function (error) {
+                                console.log('Autoplay prevented:', error);
+                                showUnmuteOverlay();
+                            });
+                    });
+
+                    hls.on(Hls.Events.ERROR, function (event, data) {
+                        if (data.fatal) {
+                            switch (data.type) {
+                                case Hls.ErrorTypes.NETWORK_ERROR:
+                                    hls.startLoad();
+                                    break;
+                                case Hls.ErrorTypes.MEDIA_ERROR:
+                                    hls.recoverMediaError();
+                                    break;
+                            }
+                        }
+                    });
+
+                    player.hls = hls;
+
+                } else if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
+                    videoElement.src = streamUrl;
+                    videoElement.addEventListener('loadedmetadata', function () {
+                        player.muted(true);
+                        player.play()
+                            .then(() => showUnmuteOverlay())
+                            .catch(() => showUnmuteOverlay());
+                    });
+                } else {
+                    player.error({
+                        code: 4,
+                        message: 'Browser Anda tidak mendukung live streaming HLS'
+                    });
+                }
+
+                player.ready(function () {
+                    console.log('Player ready');
+                });
+
+                // Sembunyikan overlay jika user unmute lewat tombol volume bawaan
+                player.on('volumechange', function () {
+                    if (!player.muted() && document.getElementById('unmute-overlay')) {
+                        hideUnmuteOverlay();
+                    }
         });
     });
     </script>
