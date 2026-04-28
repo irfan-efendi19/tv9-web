@@ -11,7 +11,9 @@
     <meta name="author" content="TV9 Nusantara">
     <link rel="canonical" href="{{ config('app.url') . '/kontak' }}">
     <title>Kontak | TV9 Nusantara</title>
-    @php
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
+    <!-- @php
         $isProduction = app()->environment('production');
         $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_path('build/manifest.json');
     @endphp
@@ -25,7 +27,7 @@
     @else
         @viteReactRefresh
         @vite(['resources/js/app.js', 'resources/css/app.css'])
-    @endif
+    @endif -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
@@ -399,36 +401,33 @@
                 <h2 class="font-display text-2xl font-bold text-pine mb-8 gold-line">Kirim Pesan</h2>
 
                 <div class="grid sm:grid-cols-2 gap-5 mb-5">
-                    <!-- Full Name -->
                     <div>
                         <label class="block text-gray-400 uppercase mb-2"
                             style="font-size:11px;font-weight:600;letter-spacing:.15em">Nama Lengkap</label>
                         <div class="relative">
                             <i class="fa-regular fa-user absolute text-gray-300 text-sm"
                                 style="left:.875rem;top:50%;transform:translateY(-50%)"></i>
-                            <input type="text" placeholder="Fulan" class="field" />
+                            <input id="f-nama" type="text" placeholder="Fulan" class="field" />
                         </div>
                     </div>
-                    <!-- Email -->
                     <div>
                         <label class="block text-gray-400 uppercase mb-2"
                             style="font-size:11px;font-weight:600;letter-spacing:.15em">Alamat Email</label>
                         <div class="relative">
                             <i class="fa-regular fa-envelope absolute text-gray-300 text-sm"
                                 style="left:.875rem;top:50%;transform:translateY(-50%)"></i>
-                            <input type="email" placeholder="fulan@example.com" class="field" />
+                            <input id="f-email" type="email" placeholder="fulan@example.com" class="field" />
                         </div>
                     </div>
                 </div>
 
-                <!-- Subject -->
                 <div class="mb-5">
                     <label class="block text-gray-400 uppercase mb-2"
                         style="font-size:11px;font-weight:600;letter-spacing:.15em">Keperluan</label>
                     <div class="relative">
                         <i class="fa-regular fa-folder-open absolute text-gray-300 text-sm pointer-events-none"
                             style="left:.875rem;top:50%;transform:translateY(-50%)"></i>
-                        <select class="field">
+                        <select id="f-keperluan" class="field">
                             <option>Lainnya</option>
                         </select>
                         <i class="fa-solid fa-chevron-down absolute text-gray-300 pointer-events-none"
@@ -436,18 +435,25 @@
                     </div>
                 </div>
 
-                <!-- Message -->
                 <div class="mb-7">
                     <label class="block text-gray-400 uppercase mb-2"
                         style="font-size:11px;font-weight:600;letter-spacing:.15em">Isi Pesan</label>
-                    <textarea rows="6" placeholder="Bagaimana kami dapat membantu Anda hari ini??"
+                    <textarea id="f-pesan" rows="6" placeholder="Bagaimana kami dapat membantu Anda hari ini??"
                         class="field"></textarea>
                 </div>
 
-                <button class="btn-send">
+                <button id="btn-send" onclick="kirimPesan()" class="btn-send">
                     Kirim Pesan
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
+                <div id="msg-sukses" style="display:none"
+                    class="mt-5 p-4 bg-green-50 border border-green-200 rounded-xl text-green-700 text-sm font-medium">
+                    ✅ Pesan berhasil dikirim! Kami akan segera menghubungi Anda.
+                </div>
+                <div id="msg-gagal" style="display:none"
+                    class="mt-5 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm font-medium">
+                    ❌ Gagal mengirim pesan. Silakan coba lagi.
+                </div>
             </div>
 
             <!-- Right column -->
@@ -514,10 +520,21 @@
                     <p class="uppercase mb-3 text-gray-400" style="font-size:10px;font-weight:600;letter-spacing:.18em">
                         Follow TV9 Nusantara</p>
                     <div class="flex gap-3">
-                        <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a target="_blank" href="https://www.facebook.com/tv9nusantara" class="social-btn">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/tv9nusantara/" class="social-btn">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a target="_blank" href="https://www.youtube.com/@tv9nusantara" class="social-btn">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a target="_blank" href="https://x.com/TV9NUsantara" class="social-btn">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a target="_blank" href="https://www.tiktok.com/@tv9nusantara" class="social-btn">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -642,6 +659,55 @@
             </div>
         </div>
     </footer>
+    <script>
+        const SCRIPT_URL = 'GANTI_DENGAN_URL_APPS_SCRIPT_ANDA';
+
+        async function kirimPesan() {
+            const nama = document.getElementById('f-nama').value.trim();
+            const email = document.getElementById('f-email').value.trim();
+            const keperluan = document.getElementById('f-keperluan').value;
+            const pesan = document.getElementById('f-pesan').value.trim();
+
+            if (!nama || !email || !pesan) {
+                alert('Mohon isi semua field yang wajib diisi.');
+                return;
+            }
+
+            const btn = document.getElementById('btn-send');
+            btn.disabled = true;
+            btn.innerHTML = 'Mengirim... <i class="fa-solid fa-spinner fa-spin"></i>';
+
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // wajib untuk Apps Script
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        nama,
+                        email,
+                        keperluan,
+                        pesan
+                    })
+                });
+
+                // no-cors tidak return response body, anggap sukses jika tidak error
+                document.getElementById('f-nama').value = '';
+                document.getElementById('f-email').value = '';
+                document.getElementById('f-pesan').value = '';
+                document.getElementById('msg-sukses').style.display = 'block';
+                setTimeout(() => document.getElementById('msg-sukses').style.display = 'none', 5000);
+
+            } catch (err) {
+                document.getElementById('msg-gagal').style.display = 'block';
+                setTimeout(() => document.getElementById('msg-gagal').style.display = 'none', 5000);
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = 'Kirim Pesan <i class="fa-solid fa-arrow-right"></i>';
+        }
+    </script>
 </body>
 
 </html>
