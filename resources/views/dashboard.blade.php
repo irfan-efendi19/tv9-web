@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12 bg-slate-50 min-h-screen" x-data="{ activeTab: 'schedule' }">
+    <div class="py-12 bg-slate-50 min-h-screen" x-data="{ activeTab: 'schedule', showImportModal: false }">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <!-- Welcome Card -->
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-2xl border border-emerald-100 mb-8">
@@ -29,6 +29,72 @@
                 </div>
             </div>
 
+            {{-- Flash Messages --}}
+            @if(session('import_success'))
+            <div class="mb-6 p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-2xl flex items-start gap-3">
+                <span class="text-xl mt-0.5">✅</span>
+                <div>
+                    <p class="font-bold">{{ session('import_success') }}</p>
+                    @if(session('import_errors'))
+                        <ul class="mt-2 text-xs text-emerald-700 list-disc list-inside">
+                            @foreach(session('import_errors') as $err)
+                                <li>{{ $err }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </div>
+            </div>
+            @endif
+            @if(session('import_error'))
+            <div class="mb-6 p-4 bg-red-50 border border-red-200 text-red-800 rounded-2xl flex items-start gap-3">
+                <span class="text-xl mt-0.5">❌</span>
+                <p class="font-bold">{{ session('import_error') }}</p>
+            </div>
+            @endif
+
+            {{-- Import Modal --}}
+            <div x-show="showImportModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm" style="display:none;">
+                <div @click.away="showImportModal = false" class="bg-white rounded-3xl shadow-2xl w-full max-w-lg p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-800">Upload Jadwal via CSV</h2>
+                            <p class="text-sm text-slate-500 mt-1">File CSV dapat dibuat dari Microsoft Excel atau Google Sheets.</p>
+                        </div>
+                        <button @click="showImportModal = false" class="text-slate-400 hover:text-slate-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        </button>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-2xl p-4 mb-6 text-sm text-slate-600">
+                        <p class="font-bold text-slate-700 mb-2">📋 Format kolom yang diperlukan:</p>
+                        <code class="text-xs bg-white border border-slate-200 px-3 py-2 rounded-lg block font-mono">
+                            nama_program | kategori | hari | waktu_mulai | waktu_selesai | deskripsi
+                        </code>
+                        <p class="mt-2 text-xs text-slate-400">Kolom "hari" diisi: Senin, Selasa, Rabu, Kamis, Jumat, Sabtu, atau Minggu</p>
+                    </div>
+
+                    <form action="{{ route('program.import') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="border-2 border-dashed border-slate-200 rounded-2xl p-8 text-center mb-6 hover:border-emerald-400 transition-colors cursor-pointer" onclick="document.getElementById('csv-file').click()">
+                            <svg class="w-10 h-10 text-slate-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                            <p class="text-slate-500 font-medium text-sm">Klik untuk pilih file CSV</p>
+                            <p class="text-slate-400 text-xs mt-1">Format: .csv (max 2MB)</p>
+                            <input id="csv-file" name="file" type="file" accept=".csv,.txt" class="hidden" onchange="document.getElementById('filename-label').textContent = this.files[0]?.name || 'Belum ada file'">
+                        </div>
+                        <p id="filename-label" class="text-center text-xs text-slate-400 -mt-4 mb-6">Belum ada file dipilih</p>
+
+                        <div class="flex gap-3">
+                            <a href="{{ route('program.template') }}" class="flex-1 text-center py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm rounded-xl transition-colors">
+                                📥 Unduh Template
+                            </a>
+                            <button type="submit" class="flex-1 py-3 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-sm rounded-xl transition-all shadow-lg shadow-emerald-700/20">
+                                Upload & Import
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <!-- Tab Navigation -->
             <div class="flex gap-4 mb-8 overflow-x-auto pb-2">
                 <button @click="activeTab = 'schedule'"
@@ -47,12 +113,17 @@
             <div x-show="activeTab === 'schedule'" x-transition:enter="transition ease-out duration-300"
                 x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0">
                 <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                    <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+                    <div class="p-6 border-b border-slate-100 flex flex-wrap justify-between items-center gap-3 bg-slate-50/50">
                         <h3 class="font-bold text-lg text-slate-800">Manajemen Jadwal Tayang</h3>
-                        <a href="{{ route('program.create') }}"
-                            class="inline-flex items-center px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-bold rounded-lg transition-colors">
-                            + Tambah Jadwal
-                        </a>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <button @click="showImportModal = true" class="inline-flex items-center px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-bold rounded-lg transition-colors gap-1.5">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l4-4m0 0l4 4m-4-4v12"/></svg>
+                                Upload CSV
+                            </button>
+                            <a href="{{ route('program.create') }}" class="inline-flex items-center px-4 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-sm font-bold rounded-lg transition-colors">
+                                + Tambah Jadwal
+                            </a>
+                        </div>
                     </div>
                     <div class="p-0 overflow-x-auto">
                         <table class="w-full text-left border-collapse">

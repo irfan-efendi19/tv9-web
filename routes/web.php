@@ -9,6 +9,7 @@ use App\Http\Controllers\LayananController;
 use App\Http\Controllers\TV9xLPMaarifController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\ProgramImportController;
 
 // Sitemap
 Route::get('/sitemap.xml', [SitemapController::class, 'index']);
@@ -60,6 +61,11 @@ Route::get('/berita', [NewsController::class, 'index'])->name('berita.index');
 // CRUD Management (Admin Only)
 Route::middleware(['auth'])->group(function () {
     Route::resource('catalog', CatalogController::class)->except(['index']);
+
+    // CSV Import routes MUST be declared before the resource to avoid {program} wildcard conflict
+    Route::post('/program/import', [ProgramImportController::class, 'store'])->name('program.import');
+    Route::get('/program/template', [ProgramImportController::class, 'template'])->name('program.template');
+
     Route::resource('program', ProgramController::class)->except(['index']);
 });
 

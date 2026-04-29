@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+            <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -142,7 +142,8 @@
     <section id="hero" class="relative overflow-hidden" style="min-height: 100vh;">
         <div class="absolute inset-0 w-full h-full z-0">
             <img src="{{ asset('img/hero.png') }}" alt="Background Static" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70">
+            </div>
         </div>
         <div class="relative z-10 h-screen min-h-[500px] md:min-h-[600px] w-full">
             <div id="heroSlider" class="relative w-full h-full">
@@ -160,12 +161,14 @@
                                 <div class="mobile-text-wrapper">
                                     <!-- <span class="mobile-badge"><i class="fas fa-star text-yellow-400 text-xs mr-1"></i>
                                                                         BUILD LIKE THEM</span> -->
-                                    <h2 class="text-white font-bold">TV9 Nusantara</h2>
+                                    <h2 class="text-white font-bold">TV9 Nusantara
+                                    </h2>
                                     <p class="text-white/85">Santun Menyejukkan
                                     </p>
                                     <div
                                         class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-4 justify-center btn-group">
-                                        <button class="btn-primary"><i class="fas fa-play text-sm"></i> Tonton</button>
+                                        <button class="btn-primary"><i class="fas fa-play text-sm"></i>
+                                            Tonton</button>
                                         <button class="btn-outline">Selengkapnya <i
                                                 class="fas fa-arrow-right text-xs"></i></button>
                                     </div>
@@ -175,13 +178,17 @@
                                 <div class="w-full lg:w-7/12 text-white">
                                     <span
                                         class="inline-block bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm mb-3"><i
-                                            class="fas fa-star text-yellow-400 mr-1"></i> BUILD LIKE THEM</span>
-                                    <h2 class="text-5xl lg:text-7xl font-bold mb-4">TV9 Nusantara</h2>
-                                    <p class="text-xl opacity-90 mb-8">Santun Menyejukkan</p>
+                                            class="fas fa-star text-yellow-400 mr-1"></i>
+                                        BUILD LIKE THEM</span>
+                                    <h2 class="text-5xl lg:text-7xl font-bold mb-4">
+                                        TV9 Nusantara</h2>
+                                    <p class="text-xl opacity-90 mb-8">Santun
+                                        Menyejukkan</p>
                                     <div class="flex gap-4">
                                         <button
                                             class="px-8 py-3 bg-red-600 hover:bg-red-700 rounded-full font-semibold flex items-center gap-2"><i
-                                                class="fas fa-play"></i> Tonton</button>
+                                                class="fas fa-play"></i>
+                                            Tonton</button>
                                         <button
                                             class="px-8 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full border border-white/30 flex items-center gap-2">Selengkapnya
                                             <i class="fas fa-arrow-right"></i></button>
@@ -210,11 +217,13 @@
                                     <span class="mobile-badge"><i
                                             class="fas fa-lightbulb text-yellow-400 text-xs mr-1"></i>
                                         INSPIRATION</span>
-                                    <h2 class="text-white font-bold">Inspirasi Nusantara</h2>
-                                    <p class="text-white/85">Menyajikan Konten Berkualitas untuk Generasi Masa Depan</p>
-                                    <div class="flex justify-center btn-group"><button class="btn-primary"><i
-                                                class="fas fa-play"></i> Tonton</button><button
-                                            class="btn-outline">Selengkapnya
+                                    <h2 class="text-white font-bold">Inspirasi
+                                        Nusantara</h2>
+                                    <p class="text-white/85">Menyajikan Konten
+                                        Berkualitas untuk Generasi Masa Depan</p>
+                                    <div class="flex justify-center btn-group">
+                                        <button class="btn-primary"><i class="fas fa-play"></i>
+                                            Tonton</button><button class="btn-outline">Selengkapnya
                                             <i class="fas fa-arrow-right"></i></button>
                                     </div>
                                 </div>
@@ -222,19 +231,25 @@
                             <div class="hidden md:flex md:w-full md:items-center md:justify-between">
                                 <div class="w-full lg:w-7/12 text-white"><span
                                         class="inline-block bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm mb-3"><i
-                                            class="fas fa-lightbulb text-yellow-400 mr-1"></i> INSPIRATION</span>
-                                    <h2 class="text-5xl lg:text-7xl font-bold mb-4">Inspirasi Nusantara</h2>
-                                    <p class="text-xl opacity-90 mb-8">Menyajikan Konten Berkualitas untuk Generasi Masa
+                                            class="fas fa-lightbulb text-yellow-400 mr-1"></i>
+                                        INSPIRATION</span>
+                                    <h2 class="text-5xl lg:text-7xl font-bold mb-4">
+                                        Inspirasi Nusantara</h2>
+                                    <p class="text-xl opacity-90 mb-8">Menyajikan
+                                        Konten Berkualitas untuk Generasi Masa
                                         Depan</p>
                                     <div class="flex gap-4"><button
                                             class="px-8 py-3 bg-red-600 hover:bg-red-700 rounded-full font-semibold flex items-center gap-2"><i
-                                                class="fas fa-play"></i> Tonton</button><button
+                                                class="fas fa-play"></i>
+                                            Tonton</button><button
                                             class="px-8 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full border border-white/30 flex items-center gap-2">Selengkapnya
-                                            <i class="fas fa-arrow-right"></i></button></div>
+                                            <i class="fas fa-arrow-right"></i></button>
+                                    </div>
                                 </div>
                                 <div class="lg:w-5/12 desktop-feature-col"><img
                                         src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png"
-                                        class="w-80 h-80 mx-auto object-contain drop-shadow-2xl" /></div>
+                                        class="w-80 h-80 mx-auto object-contain drop-shadow-2xl" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -267,7 +282,8 @@
             <!-- Header -->
             <div class="flex items-center justify-between mb-8">
                 <div>
-                    <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Program Hari Ini
+                    <h2 class="text-2xl font-bold text-gray-900 tracking-tight">
+                        Program Hari Ini
                     </h2>
                     <div class="w-12 h-[3px] bg-yellow-600 rounded mt-2"></div>
                 </div>
@@ -281,78 +297,79 @@
                 <div id="scheduleSlider" class="relative">
                     <!-- Slides -->
                     @php
-                    $scheduleList = $schedules ?? [];
-                    $chunkedSchedules = collect($scheduleList)->chunk(3);
+                        $scheduleList = $schedules ?? [];
+                        $chunkedSchedules = collect($scheduleList)->chunk(3);
                     @endphp
 
                     @forelse($chunkedSchedules as $slideIndex => $scheduleChunk)
-                    <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
-                        data-slide="{{ $slideIndex }}">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                            @foreach($scheduleChunk as $program)
-                            @php
-                            $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-                            $isLive = $program->start_time <= $currentTime && $program->end_time >=
-                                $currentTime;
-                                $isDone = $program->end_time < $currentTime; @endphp <div
-                                    class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-[#006747] shadow-lg shadow-[#006747]/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
-                                    {{-- Badge SEDANG TAYANG di atas card --}}
-                                    @if($isLive)
-                                    <div class="absolute -top-px left-1/2 -translate-x-1/2">
-                                        <span
-                                            class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
-                                            <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                            Sedang Tayang
-                                        </span>
-                                    </div>
-                                    @endif
+                            <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
+                                data-slide="{{ $slideIndex }}">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    @foreach($scheduleChunk as $program)
+                                            @php
+                                                $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+                                                $isLive = $program->start_time <= $currentTime && $program->end_time >=
+                                                    $currentTime;
+                                            $isDone = $program->end_time < $currentTime; @endphp <div
+                                                    class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-[#006747] shadow-lg shadow-[#006747]/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
+                                                    {{-- Badge SEDANG TAYANG di atas card --}}
+                                                    @if($isLive)
+                                                        <div class="absolute -top-px left-1/2 -translate-x-1/2">
+                                                            <span
+                                                                class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
+                                                                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                                                Sedang Tayang
+                                                            </span>
+                                                        </div>
+                                                    @endif
 
-                                    {{-- Jam --}}
-                                    <p
-                                        class="text-base font-semibold {{ $isLive ? 'text-[#006747]' : 'text-gray-400' }} mt-3">
-                                        {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
-                                        –
-                                        {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
-                                    </p>
+                                                    {{-- Jam --}}
+                                                    <p
+                                                        class="text-base font-semibold {{ $isLive ? 'text-[#006747]' : 'text-gray-400' }} mt-3">
+                                                        {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
+                                                        –
+                                                        {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
+                                                    </p>
 
-                                    {{-- Judul & Deskripsi --}}
-                                    <div class="flex-1">
-                                        <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
-                                            {{ $program->title }}
-                                        </h3>
-                                        <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
-                                            {{ $program->description ?? 'Deskripsi belum tersedia.' }}
-                                        </p>
-                                    </div>
+                                                    {{-- Judul & Deskripsi --}}
+                                                    <div class="flex-1">
+                                                        <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
+                                                            {{ $program->title }}
+                                                        </h3>
+                                                        <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
+                                                            {{ $program->description ?? 'Deskripsi belum tersedia.' }}
+                                                        </p>
+                                                    </div>
 
-                                    {{-- Status Badge --}}
-                                    <div>
-                                        @if($isLive)
-                                        <span
-                                            class="inline-flex items-center gap-1.5 bg-[#006747] text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
-                                            <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                            Live
-                                        </span>
-                                        @elseif($isDone)
-                                        <span
-                                            class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                            Selesai
-                                        </span>
-                                        @else
-                                        <span
-                                            class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                            Akan Datang
-                                        </span>
-                                        @endif
-                                    </div>
+                                                    {{-- Status Badge --}}
+                                                    <div>
+                                                        @if($isLive)
+                                                            <span
+                                                                class="inline-flex items-center gap-1.5 bg-[#006747] text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
+                                                                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                                                Live
+                                                            </span>
+                                                        @elseif($isDone)
+                                                            <span
+                                                                class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                                                Selesai
+                                                            </span>
+                                                        @else
+                                                            <span
+                                                                class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                                                Akan Datang
+                                                            </span>
+                                                        @endif
+                                                    </div>
+                                        </div>
+                                    @endforeach
+                            </div>
                         </div>
-                        @endforeach
+                    @empty
+                    <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                        <p class="text-gray-500 font-medium">Belum ada jadwal tayang
+                            untuk hari ini.</p>
                     </div>
-                </div>
-                @empty
-                <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
-                    <p class="text-gray-500 font-medium">Belum ada jadwal tayang untuk hari ini.</p>
-                </div>
                 @endforelse
 
                 <div class="text-center max-w-3xl mx-auto mt-8 ">
@@ -369,13 +386,13 @@
 
             <!-- Dots/Indicators Only -->
             @if($chunkedSchedules->count() > 1)
-            <div class="flex gap-2 md:gap-3 justify-center mt-6">
-                @for($i = 0; $i < $chunkedSchedules->count(); $i++)
-                    <button
-                        class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
-                        data-dot="{{ $i }}"></button>
+                <div class="flex gap-2 md:gap-3 justify-center mt-6">
+                    @for($i = 0; $i < $chunkedSchedules->count(); $i++)
+                        <button
+                            class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
+                            data-dot="{{ $i }}"></button>
                     @endfor
-            </div>
+                </div>
             @endif
         </div>
         </div>
@@ -398,7 +415,8 @@
                     <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5">
                         <i class="fa-solid fa-satellite-dish text-brand-green text-xl"></i>
                     </div>
-                    <h3 class="text-brand-green font-semibold text-base mb-4">Satelit Telkom 4
+                    <h3 class="text-brand-green font-semibold text-base mb-4">
+                        Satelit Telkom 4
                     </h3>
                     <table class="w-full text-base">
                         <tbody>
@@ -431,9 +449,11 @@
                     <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5">
                         <i class="fa-solid fa-tv text-brand-green text-xl"></i>
                     </div>
-                    <h3 class="text-brand-green font-semibold text-base mb-3">TV Kabel</h3>
+                    <h3 class="text-brand-green font-semibold text-base mb-3">TV
+                        Kabel</h3>
                     <p class="text-base text-gray-500 mb-5 leading-relaxed">
-                        Temukan kami di daftar channel favorit pada provider TV berbayar pilihan
+                        Temukan kami di daftar channel favorit pada provider TV
+                        berbayar pilihan
                         Anda.
                     </p>
                     <ul class="space-y-2.5">
@@ -461,9 +481,11 @@
                     <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5">
                         <i class="fa-solid fa-mobile-screen text-brand-green text-xl"></i>
                     </div>
-                    <h3 class="text-brand-green font-semibold text-base mb-1">Digital &amp; Apps
+                    <h3 class="text-brand-green font-semibold text-base mb-1">
+                        Digital &amp; Apps
                     </h3>
-                    <p class="text-base text-gray-500 mb-1">Akses siaran langsung 24 jam</p>
+                    <p class="text-base text-gray-500 mb-1">Akses siaran langsung 24
+                        jam</p>
                     <a href="https://www.tv9.co.id/live" target="_blank"
                         class="inline-flex items-center gap-1.5 text-base text-brand-green font-semibold mb-5 hover:underline">
                         www.tv9.co.id/live
@@ -477,7 +499,8 @@
                         class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 mb-2.5 w-full">
                         <i class="fa-brands fa-google-play text-sky-400 text-xl flex-shrink-0"></i>
                         <div class="leading-tight">
-                            <p class="text-[10px] text-gray-400 font-normal">GET IT ON</p>
+                            <p class="text-[10px] text-gray-400 font-normal">GET IT
+                                ON</p>
                             <p class="text-base font-semibold">Google Play</p>
                         </div>
                     </a>
@@ -486,7 +509,8 @@
                         class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 w-full">
                         <i class="fa-brands fa-apple text-white text-xl flex-shrink-0"></i>
                         <div class="leading-tight">
-                            <p class="text-[10px] text-gray-400 font-normal">DOWNLOAD ON THE</p>
+                            <p class="text-[10px] text-gray-400 font-normal">
+                                DOWNLOAD ON THE</p>
                             <p class="text-base font-semibold">App Store</p>
                         </div>
                     </a>
@@ -514,9 +538,11 @@
 
                     <!-- Deskripsi -->
                     <p class="text-base text-green-100/70 leading-relaxed mb-8 max-w-sm">
-                        Raih audiens yang loyal dan berdaya beli tinggi melalui solusi
+                        Raih audiens yang loyal dan berdaya beli tinggi melalui
+                        solusi
                         periklanan & pemasaran
-                        yang selaras dengan nilai-nilai Islam dan kearifan lokal Indonesia.
+                        yang selaras dengan nilai-nilai Islam dan kearifan lokal
+                        Indonesia.
                     </p>
                     <!-- Fitur -->
                     <div class="space-y-5 mb-10">
@@ -526,11 +552,14 @@
                                 <i class="fa-solid fa-tv text-yellow-400 text-base"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-semibold text-base mb-1">Iklan &
+                                <h4 class="text-white font-semibold text-base mb-1">
+                                    Iklan &
                                     Sponsorship Siaran</h4>
-                                <p class="text-base text-green-100/60 leading-relaxed">Penempatan
+                                <p class="text-base text-green-100/60 leading-relaxed">
+                                    Penempatan
                                     iklan TV dan sponsor
-                                    program unggulan seperti kajian Islami, kuliner Nusantara,
+                                    program unggulan seperti kajian Islami, kuliner
+                                    Nusantara,
                                     dan berita daerah.</p>
                             </div>
                         </div>
@@ -540,11 +569,14 @@
                                 <i class="fa-solid fa-chart-line text-yellow-400 text-base"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-semibold text-base mb-1">Pemasaran
+                                <h4 class="text-white font-semibold text-base mb-1">
+                                    Pemasaran
                                     Digital & Sosial Media</h4>
-                                <p class="text-base text-green-100/60 leading-relaxed">Kampanye
+                                <p class="text-base text-green-100/60 leading-relaxed">
+                                    Kampanye
                                     digital terintegrasi di
-                                    platform digital TV9 Nusantara, YouTube, Instagram, dan
+                                    platform digital TV9 Nusantara, YouTube,
+                                    Instagram, dan
                                     TikTok.</p>
                             </div>
                         </div>
@@ -554,11 +586,14 @@
                                 <i class="fa-solid fa-film text-yellow-400 text-base"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-semibold text-base mb-1">Produksi
+                                <h4 class="text-white font-semibold text-base mb-1">
+                                    Produksi
                                     Konten Kreatif</h4>
-                                <p class="text-base text-green-100/60 leading-relaxed">Jasa
+                                <p class="text-base text-green-100/60 leading-relaxed">
+                                    Jasa
                                     produksi in-house untuk video
-                                    company profile, talkshow bermerek, hingga iklan layanan
+                                    company profile, talkshow bermerek, hingga iklan
+                                    layanan
                                     masyarakat bernuansa
                                     edukatif.</p>
                             </div>
@@ -579,7 +614,8 @@
                             class="w-full h-full object-cover grayscale opacity-80" />
                         <!-- Lencana Statistik -->
                         <div class="stat-badge absolute bottom-4 left-4 bg-black/60 backdrop-blur-md rounded-lg p-3">
-                            <p class="text-3xl font-bold text-white leading-none mb-1">85%</p>
+                            <p class="text-3xl font-bold text-white leading-none mb-1">
+                                85%</p>
                             <p class="text-[10px] text-yellow-200/80 uppercase tracking-widest font-medium">
                                 Tingkat Kepercayaan Pemirsa</p>
                         </div>
@@ -595,7 +631,8 @@
             <!-- Header -->
             <div class="flex items-center justify-between mb-8">
                 <div>
-                    <h2 class="text-2xl font-bold text-gray-900 tracking-tight">Jurnal 9: Berita
+                    <h2 class="text-2xl font-bold text-gray-900 tracking-tight">
+                        Jurnal 9: Berita
                         Terkini
                     </h2>
                     <div class="w-12 h-[3px] bg-yellow-600 rounded mt-2"></div>
@@ -749,10 +786,13 @@
                             Legalitas &<br />Izin Penyiaran
                         </h2>
                         <p class="text-base text-[#4a5a4a] leading-relaxed mb-6">
-                            Sebagai lembaga penyiaran swasta yang bertanggung jawab, TV9
+                            Sebagai lembaga penyiaran swasta yang bertanggung jawab,
+                            TV9
                             Nusantara
-                            berkomitmen pada standar regulasi nasional. Kami beroperasi di bawah
-                            payung hukum yang sah dan pengawasan ketat dari otoritas komunikasi
+                            berkomitmen pada standar regulasi nasional. Kami
+                            beroperasi di bawah
+                            payung hukum yang sah dan pengawasan ketat dari otoritas
+                            komunikasi
                             Indonesia.
                         </p>
 
@@ -771,7 +811,7 @@
                                     No. IPP (Izin Penyelenggaraan Penyiaran)
                                 </p>
                                 <p class="text-base font-medium text-brand-green-dark">
-                                    123/KEP/M.KOMINFO/05/2024
+                                    No. 1164/T.02.02/2022
                                 </p>
                             </div>
                         </div>
@@ -870,7 +910,8 @@
                     Dedikasi & Kualitas</p>
                 <h2 class="text-4xl md:text-5xl font-bold text-white">Penghargaan &
                     Apresiasi</h2>
-                <div class="mt-5 mx-auto w-12 h-[3px] bg-[#4a7a4a] rounded-full"></div>
+                <div class="mt-5 mx-auto w-12 h-[3px] bg-[#4a7a4a] rounded-full">
+                </div>
             </div>
 
             <!-- Slideshow Wrapper -->
@@ -892,9 +933,11 @@
                                     <h3 class="text-base font-bold text-[#2d5a2d] mt-1 mb-2 leading-snug">
                                         Anugerah KPI
                                         Pusat</h3>
-                                    <p class="text-base text-[#6b6b6b] leading-relaxed">Pemenang
+                                    <p class="text-base text-[#6b6b6b] leading-relaxed">
+                                        Pemenang
                                         Kategori Program Televisi
-                                        Peduli Syiar Islam Terbaik untuk Program 'Jurnal 9'.</p>
+                                        Peduli Syiar Islam Terbaik untuk Program
+                                        'Jurnal 9'.</p>
                                 </div>
                             </div>
 
@@ -909,9 +952,11 @@
                                     <h3 class="text-base font-bold text-[#2d5a2d] mt-1 mb-2 leading-snug">
                                         KPID Awards
                                         Jatim</h3>
-                                    <p class="text-base text-[#6b6b6b] leading-relaxed">Lembaga
+                                    <p class="text-base text-[#6b6b6b] leading-relaxed">
+                                        Lembaga
                                         Penyiaran Televisi Swasta
-                                        Lokal Terbaik dengan Konsistensi Budaya Nusantara.</p>
+                                        Lokal Terbaik dengan Konsistensi Budaya
+                                        Nusantara.</p>
                                 </div>
                             </div>
 
@@ -926,9 +971,11 @@
                                     <h3 class="text-base font-bold text-[#2d5a2d] mt-1 mb-2 leading-snug">
                                         Islamic Media
                                         Awards</h3>
-                                    <p class="text-base text-[#6b6b6b] leading-relaxed">Best
+                                    <p class="text-base text-[#6b6b6b] leading-relaxed">
+                                        Best
                                         Digital Innovation for
-                                        Islamic Content Delivery in South East Asia Region.</p>
+                                        Islamic Content Delivery in South East Asia
+                                        Region.</p>
                                 </div>
                             </div>
 
@@ -945,7 +992,8 @@
                                         Award</h3>
                                     <p class="text-base text-[#6b6b6b] leading-relaxed">
                                         Penghargaan atas Peran Aktif
-                                        Menjaga Kerukunan Umat dan Moderasi Beragama.</p>
+                                        Menjaga Kerukunan Umat dan Moderasi
+                                        Beragama.</p>
                                 </div>
                             </div>
                         </div>
@@ -969,7 +1017,8 @@
                                         Jurnalistik</h3>
                                     <p class="text-base text-[#6b6b6b] leading-relaxed">
                                         Penghargaan Jurnalistik Nasional
-                                        atas liputan mendalam isu sosial dan kebangsaan.</p>
+                                        atas liputan mendalam isu sosial dan
+                                        kebangsaan.</p>
                                 </div>
                             </div>
 
@@ -984,9 +1033,11 @@
                                     <h3 class="text-base font-bold text-[#2d5a2d] mt-1 mb-2 leading-snug">
                                         TV Lokal
                                         Terbaik</h3>
-                                    <p class="text-base text-[#6b6b6b] leading-relaxed">Dinobatkan
+                                    <p class="text-base text-[#6b6b6b] leading-relaxed">
+                                        Dinobatkan
                                         sebagai Televisi Lokal
-                                        Terbaik versi survei nasional kepuasan pemirsa.</p>
+                                        Terbaik versi survei nasional kepuasan
+                                        pemirsa.</p>
                                 </div>
                             </div>
 
@@ -1001,9 +1052,11 @@
                                     <h3 class="text-base font-bold text-[#2d5a2d] mt-1 mb-2 leading-snug">
                                         Sertifikasi
                                         ISO 9001</h3>
-                                    <p class="text-base text-[#6b6b6b] leading-relaxed">Lulus
+                                    <p class="text-base text-[#6b6b6b] leading-relaxed">
+                                        Lulus
                                         sertifikasi manajemen mutu
-                                        internasional untuk operasional siaran dan redaksi.</p>
+                                        internasional untuk operasional siaran dan
+                                        redaksi.</p>
                                 </div>
                             </div>
 
@@ -1018,9 +1071,11 @@
                                     <h3 class="text-base font-bold text-[#2d5a2d] mt-1 mb-2 leading-snug">
                                         Penghargaan
                                         CSR</h3>
-                                    <p class="text-base text-[#6b6b6b] leading-relaxed">Apresiasi
+                                    <p class="text-base text-[#6b6b6b] leading-relaxed">
+                                        Apresiasi
                                         program tanggung jawab
-                                        sosial terbaik di bidang pendidikan dan pemberdayaan
+                                        sosial terbaik di bidang pendidikan dan
+                                        pemberdayaan
                                         masyarakat.</p>
                                 </div>
                             </div>
@@ -1055,7 +1110,8 @@
             <div class="mb-6 sm:mb-0">
                 <p class="text-xs font-semibold tracking-widest text-amber-700 uppercase mb-2">
                     Eksplorasi Kreatif</p>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 title-underline">Portfolio &amp;
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 title-underline">
+                    Portfolio &amp;
                     Karya
                     Unggulan</h2>
             </div>
@@ -1095,12 +1151,15 @@
                         <span class="badge">Documentary</span>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">Jejak Spiritual Pesisir
+                        <h3 class="text-base font-bold text-gray-900 mb-1">Jejak
+                            Spiritual Pesisir
                         </h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Sebuah narasi mendalam
+                        <p class="text-sm text-gray-500 leading-relaxed">Sebuah
+                            narasi mendalam
                             tentang
                             harmoni antara
-                            tradisi leluhur dan nilai-nilai keagamaan di sepanjang pesisir Utara
+                            tradisi leluhur dan nilai-nilai keagamaan di sepanjang
+                            pesisir Utara
                             Jawa.
                         </p>
                     </div>
@@ -1122,11 +1181,14 @@
                         <span class="badge">Special Coverage</span>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">Satu Abad Kebangkitan
+                        <h3 class="text-base font-bold text-gray-900 mb-1">Satu Abad
+                            Kebangkitan
                         </h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Liputan eksklusif rangkaian
+                        <p class="text-sm text-gray-500 leading-relaxed">Liputan
+                            eksklusif rangkaian
                             peringatan satu
-                            abad organisasi massa terbesar, merangkum sejarah dan masa depan umat.
+                            abad organisasi massa terbesar, merangkum sejarah dan
+                            masa depan umat.
                         </p>
                     </div>
                 </div>
@@ -1147,11 +1209,14 @@
                         <span class="badge">Event Highlights</span>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">Festival Budaya Nusantara
+                        <h3 class="text-base font-bold text-gray-900 mb-1">Festival
+                            Budaya Nusantara
                         </h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Rangkuman momen-momen magis
+                        <p class="text-sm text-gray-500 leading-relaxed">Rangkuman
+                            momen-momen magis
                             dari festival
-                            budaya yang menyatukan berbagai etnis di Indonesia dalam satu panggung.
+                            budaya yang menyatukan berbagai etnis di Indonesia dalam
+                            satu panggung.
                         </p>
                     </div>
                 </div>
@@ -1172,11 +1237,14 @@
                         <span class="badge">Short Film</span>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">Arsitektur Warisan</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Menelusuri keindahan
+                        <h3 class="text-base font-bold text-gray-900 mb-1">
+                            Arsitektur Warisan</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Menelusuri
+                            keindahan
                             arsitektur
                             bersejarah
-                            Indonesia yang menjadi saksi bisu peradaban dan keagungan masa lalu.</p>
+                            Indonesia yang menjadi saksi bisu peradaban dan
+                            keagungan masa lalu.</p>
                     </div>
                 </div>
 
@@ -1196,11 +1264,14 @@
                         <span class="badge">Nature</span>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">Suara Alam Borneo</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Perjalanan mendalam ke
+                        <h3 class="text-base font-bold text-gray-900 mb-1">Suara
+                            Alam Borneo</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Perjalanan
+                            mendalam ke
                             jantung
                             hutan
-                            Kalimantan, merekam keanekaragaman hayati yang semakin terancam
+                            Kalimantan, merekam keanekaragaman hayati yang semakin
+                            terancam
                             modernisasi.
                         </p>
                     </div>
@@ -1555,9 +1626,11 @@
                 Siap Berkolaborasi? Let's Connect!
             </h2>
             <p class="text-white text-sm leading-relaxed mb-8 max-w-lg mx-auto">
-                Bergabunglah dengan kami dalam misi kami untuk menyiarkan kesantunan dan kesejukan.
+                Bergabunglah dengan kami dalam misi kami untuk menyiarkan kesantunan
+                dan kesejukan.
                 Baik Anda tertarik
-                pada kemitraan, periklanan, atau berbagi cerita Anda, tim kami siap untuk terhubung.
+                pada kemitraan, periklanan, atau berbagi cerita Anda, tim kami siap
+                untuk terhubung.
             </p>
             <a href="{{route('kontak')}}" class="inline-block font-bold text-sm text-black px-8 py-3.5 rounded-md"
                 style="background:white;letter-spacing:.04em;text-decoration:none;">
@@ -1580,43 +1653,54 @@
                     <!-- Left Column: About text and social links (SAME WIDTH as right column) -->
                     <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
                         <a class="inline-block mb-4">
-                            <h1 class="text-3xl lg:text-4xl font-bold text-black">TV9 Nusantara
+                            <h1 class="text-3xl lg:text-4xl font-bold text-black">
+                                TV9 Nusantara
                             </h1>
-                            <h1 class="text-xl lg:text-xl font-semibold text-black">PT. Dakwah
+                            <h1 class="text-xl lg:text-xl font-semibold text-black">
+                                PT. Dakwah
                                 Inti Media
                             </h1>
                         </a>
                         <p class="text-black leading-relaxed mb-4">
-                            TV9 Nusantara merupakan stasiun televisi lokal di Kota Surabaya dan
-                            menjadi salah satu awal televisi swasta di Indonesia yang memiliki
+                            TV9 Nusantara merupakan stasiun televisi lokal di Kota
+                            Surabaya dan
+                            menjadi salah satu awal televisi swasta di Indonesia
+                            yang memiliki
                             karakter
                             pemirsa
                             komunitas
-                            yang bernuansa Islam. TV9 dikelola oleh PT. Dakwah Inti Media,
+                            yang bernuansa Islam. TV9 dikelola oleh PT. Dakwah Inti
+                            Media,
                             perusahaan yang
                             dimiliki oleh
-                            KH. Moh. Hasani Mutawakkil `Alallah, S.H.,M.M., termasuk di dalamnya
+                            KH. Moh. Hasani Mutawakkil `Alallah, S.H.,M.M., termasuk
+                            di dalamnya
                             organisasi
                             sosial
                             keagamaan
-                            Nahdlatul 'Ulama (PWNU) Jawa Timur ini diluncurkan pada tanggal 31
+                            Nahdlatul 'Ulama (PWNU) Jawa Timur ini diluncurkan pada
+                            tanggal 31
                             Januari 2010
                             oleh
                             Soekarwo
-                            sebagai bagian dari perayaan ulang tahun Nahdlatul 'Ulama ke-84.
+                            sebagai bagian dari perayaan ulang tahun Nahdlatul
+                            'Ulama ke-84.
                             Bersiaran di
                             kanal
                             42 UHF,
                             TV9
-                            telah memperoleh Izin Penyelenggaraan Penyiaran prinsip tertanggal
+                            telah memperoleh Izin Penyelenggaraan Penyiaran prinsip
+                            tertanggal
                             pada 7 Juli
                             2009
                             dan Izin
-                            Penyelenggaraan Penyiaran tetap tertanggal pada 23 Juli 2012 dari
+                            Penyelenggaraan Penyiaran tetap tertanggal pada 23 Juli
+                            2012 dari
                             Menteri
                             Komunikasi
                             dan
-                            Informatika Republik Indonesia untuk melakukan siaran sebagai
+                            Informatika Republik Indonesia untuk melakukan siaran
+                            sebagai
                             lembaga penyiaran
                             swasta lokal
                             di
@@ -1647,7 +1731,8 @@
                     </div>
                     <!-- Right Column: Address (SAME WIDTH as left column) -->
                     <div class="w-full lg:w-1/2 px-4">
-                        <h4 class="text-3xl lg:text-2xl font-semibold text-black mb-4">Alamat
+                        <h4 class="text-3xl lg:text-2xl font-semibold text-black mb-4">
+                            Alamat
                         </h4>
                         <div class="flex flex-col space-y-2">
                             <p class="text-black/80 leading-relaxed">
@@ -1662,7 +1747,7 @@
                                     class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300 mr-2">
                                     <i class="fa-solid fa-phone-volume"></i>
                                 </a>
-                                <p>Kokokowd</p>
+                                <p>031-5620999</p>
                             </div>
                         </div>
                     </div>
