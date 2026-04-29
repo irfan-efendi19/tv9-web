@@ -16,6 +16,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="canonical" href="{{ config('app.url') . '/live' }}">
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <!-- OG Image / Thumbnail -->
+    <meta property="og:image" content="{{ asset('img/thumbnail.jpg') }}" />
+    <meta itemprop="image" content="{{ asset('img/thumbnail.jpg') }}" />
+    <meta name="twitter:image" content="{{ asset('img/thumbnail.jpg') }}" />
     <!-- Video.js CSS -->
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>

@@ -17,6 +17,10 @@
         rel="stylesheet">
     <link rel="canonical" href="{{ config('app.url') . '/catalog' }}">
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <!-- OG Image / Thumbnail -->
+    <meta property="og:image" content="{{ asset('img/thumbnail.jpg') }}" />
+    <meta itemprop="image" content="{{ asset('img/thumbnail.jpg') }}" />
+    <meta name="twitter:image" content="{{ asset('img/thumbnail.jpg') }}" />
 
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])

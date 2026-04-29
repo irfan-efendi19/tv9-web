@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
     <link rel="canonical" href="{{ config('app.url') . '/layanan' }}">
+    <!-- OG Image / Thumbnail -->
+    <meta property="og:image" content="{{ asset('img/thumbnail.jpg') }}" />
+    <meta itemprop="image" content="{{ asset('img/thumbnail.jpg') }}" />
+    <meta name="twitter:image" content="{{ asset('img/thumbnail.jpg') }}" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -10,6 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="TV9 Nusantara">
     <link rel="canonical" href="{{ config('app.url') . '/kontak' }}">
+    <!-- OG Image / Thumbnail -->
+    <meta property="og:image" content="{{ asset('img/thumbnail.jpg') }}" />
+    <meta itemprop="image" content="{{ asset('img/thumbnail.jpg') }}" />
+    <meta name="twitter:image" content="{{ asset('img/thumbnail.jpg') }}" />
     <title>Kontak | TV9 Nusantara</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     

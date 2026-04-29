@@ -13,6 +13,10 @@
     <meta name="author" content="TV9 Nusantara">
     <title>TV9 Nusantara × LP Ma'arif NU</title>
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <!-- OG Image / Thumbnail -->
+    <meta property="og:image" content="{{ asset('img/thumbnail.jpg') }}" />
+    <meta itemprop="image" content="{{ asset('img/thumbnail.jpg') }}" />
+    <meta name="twitter:image" content="{{ asset('img/thumbnail.jpg') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
