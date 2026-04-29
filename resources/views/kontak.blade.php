@@ -312,7 +312,7 @@
                             class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
                     </span>
-                    LIVE
+                    SIARAN LANGSUNG
                 </a>
 
                 <!-- Desktop Menu Links -->
@@ -348,7 +348,7 @@
                     class="absolute top-full right-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-xl md:hidden z-50">
                     <div class="flex flex-col p-4 space-y-3">
                         <a href="{{ route('beranda') }}"
-                            class="text-base font-semibold text-yellow-400 border-l-2 border-yellow-400 pl-3 py-1">Beranda</a>
+                            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Beranda</a>
                         <a href="{{ route('jadwal') }}"
                             class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Jadwal</a>
                         <a href="{{ route('layanan') }}"

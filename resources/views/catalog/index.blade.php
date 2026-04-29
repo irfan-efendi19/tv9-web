@@ -76,9 +76,9 @@
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
                     </span>
-                    LIVE
+                    SIARAN LANGSUNG
                 </a>
-                
+
                 <!-- Desktop Menu Links -->
                 <div class="hidden md:flex md:flex-row md:items-center md:gap-7">
                     <a href="{{ route('beranda') }}"
@@ -108,7 +108,7 @@
                     class="absolute top-full right-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-xl md:hidden z-50">
                     <div class="flex flex-col p-4 space-y-3">
                         <a href="{{ route('beranda') }}"
-                            class="text-base font-semibold text-yellow-400 border-l-2 border-yellow-400 pl-3 py-1">Beranda</a>
+                            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Beranda</a>
                         <a href="{{ route('jadwal') }}"
                             class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Jadwal</a>
                         <a href="{{ route('layanan') }}"
@@ -237,9 +237,9 @@
 
                         <!-- Badge Trending / New -->
                         <!-- <div
-                                                                                                                                                                                                                                                                                        class="absolute top-2 right-2 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full px-2 py-0.5 text-[9px] font-bold text-white shadow-lg">
-                                                                                                                                                                                                                                                                                        {{ $loop->index < 3 ? 'TRENDING' : 'NEW' }}
-                                                                                                                                                                                                                                                                                    </div> -->
+                                                                                                                                                                                                                                                                                                        class="absolute top-2 right-2 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full px-2 py-0.5 text-[9px] font-bold text-white shadow-lg">
+                                                                                                                                                                                                                                                                                                        {{ $loop->index < 3 ? 'TRENDING' : 'NEW' }}
+                                                                                                                                                                                                                                                                                                    </div> -->
                     </div>
                 </div>
             @empty

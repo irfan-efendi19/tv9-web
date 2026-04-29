@@ -60,130 +60,129 @@
 
             <!-- Menu Kanan -->
             <div class="flex items-center gap-3 md:gap-7" x-data="{ open: false }">
-            
-                <!-- LIVE Button — selalu tampil di navbar (desktop & mobile) -->
-                <a href="{{ route('live') }}"
-                    class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-bold text-white transition-all duration-200 hover:scale-105"
-                    style="background: linear-gradient(135deg, #dc2626, #b91c1c); box-shadow: 0 0 12px rgba(220,38,38,0.5);">
-                    <!-- Pulsing dot -->
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-                    </span>
-                    LIVE
-                </a>
-            
-                <!-- Desktop Menu Links -->
-                <div class="hidden md:flex md:flex-row md:items-center md:gap-7">
-                    <a href="{{ route('beranda') }}"
-                        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Beranda</a>
-                    <a href="{{ route('jadwal') }}"
-                        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Jadwal</a>
-                    <a href="{{ route('layanan') }}"
-                        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Layanan</a>
-                    <a href="{{ route('catalog.index') }}"
-                        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Program</a>
-                    <a href="{{ route('berita.index') }}"
-                        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Berita</a>
-                </div>
-            
-                <!-- Mobile Hamburger Button -->
-                <button @click="open = !open" class="md:hidden text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            
-                <!-- Mobile Dropdown (tanpa LIVE) -->
-                <div x-show="open" @click.away="open = false" x-cloak x-transition:enter="transition ease-out duration-200"
-                    x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
-                    x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
-                    x-transition:leave-end="opacity-0 -translate-y-2"
-                    class="absolute top-full right-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-xl md:hidden z-50">
-                    <div class="flex flex-col p-4 space-y-3">
-                        <a href="{{ route('beranda') }}"
-                            class="text-base font-semibold text-yellow-400 border-l-2 border-yellow-400 pl-3 py-1">Beranda</a>
-                        <a href="{{ route('jadwal') }}"
-                            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Jadwal</a>
-                        <a href="{{ route('layanan') }}"
-                            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Layanan</a>
-                        <a href="{{ route('catalog.index') }}"
-                            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Program</a>
-                        <a href="{{ route('berita.index') }}"
-                            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Berita</a>
-                    </div>
-                </div>
+<!-- LIVE Button — selalu tampil di navbar (desktop & mobile) -->
+<a href="{{ route('live') }}"
+    class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-bold text-white transition-all duration-200 hover:scale-105"
+    style="background: linear-gradient(135deg, #dc2626, #b91c1c); box-shadow: 0 0 12px rgba(220,38,38,0.5);">
+    <!-- Pulsing dot -->
+    <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+    </span>
+    SIARAN LANGSUNG
+</a>
 
-            </div>
-        </div>
-    </nav>
+<!-- Desktop Menu Links -->
+<div class="hidden md:flex md:flex-row md:items-center md:gap-7">
+    <a href="{{ route('beranda') }}"
+        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Beranda</a>
+    <a href="{{ route('jadwal') }}"
+        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Jadwal</a>
+    <a href="{{ route('layanan') }}"
+        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Layanan</a>
+    <a href="{{ route('catalog.index') }}"
+        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Program</a>
+    <a href="{{ route('berita.index') }}"
+        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Berita</a>
+</div>
 
-    <!-- Spacer for fixed nav -->
-    <div class="h-16"></div>
+<!-- Mobile Hamburger Button -->
+<button @click="open = !open" class="md:hidden text-white focus:outline-none">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+</button>
 
-    <!-- Header Section -->
-    <div class="news-gradient py-12 md:py-20 overflow-hidden relative">
-        <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-emerald-500/10 blur-3xl"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto">
-                <span
-                    class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest">
-                    Update Terkini
-                </span>
-                <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">JURNAL9.TV</h1>
-                <p class="text-emerald-50 text-lg">Informasi terbaru seputar berita, inspirasi, dan dinamika masyarakat
-                    Indonesia dari
-                    Jurnal9 yang menghadirkan jurnalisme maslahat.</p>
-            </div>
+<!-- Mobile Dropdown (tanpa LIVE) -->
+<div x-show="open" @click.away="open = false" x-cloak x-transition:enter="transition ease-out duration-200"
+    x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
+    x-transition:leave-end="opacity-0 -translate-y-2"
+    class="absolute top-full right-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-xl md:hidden z-50">
+    <div class="flex flex-col p-4 space-y-3">
+        <a href="{{ route('beranda') }}"
+            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Beranda</a>
+        <a href="{{ route('jadwal') }}"
+            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Jadwal</a>
+        <a href="{{ route('layanan') }}"
+            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Layanan</a>
+        <a href="{{ route('catalog.index') }}"
+            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Program</a>
+        <a href="{{ route('berita.index') }}"
+            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Berita</a>
+    </div>
+</div>
+
+</div>
+</div>
+</nav>
+
+<!-- Spacer for fixed nav -->
+<div class="h-16"></div>
+
+<!-- Header Section -->
+<div class="news-gradient py-12 md:py-20 overflow-hidden relative">
+    <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-emerald-500/10 blur-3xl"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-3xl mx-auto">
+            <span
+                class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest">
+                Update Terkini
+            </span>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">JURNAL9.TV</h1>
+            <p class="text-emerald-50 text-lg">Informasi terbaru seputar berita, inspirasi, dan dinamika masyarakat
+                Indonesia dari
+                Jurnal9 yang menghadirkan jurnalisme maslahat.</p>
         </div>
     </div>
+</div>
 
-    <!-- News Grid -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 m-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            @forelse($news as $post)
+<!-- News Grid -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 m-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        @forelse($news as $post)
             @php
-    // Extract Featured Image from _embedded
-    $imageUrl = $post['_embedded']['wp:featuredmedia'][0]['source_url'] ??
-        'https://api.dicebear.com/7.x/initials/svg?seed=Jurnal9';
-    $excerpt = strip_tags($post['excerpt']['rendered']);
-    $excerpt = strlen($excerpt) > 120 ? substr($excerpt, 0, 120) . '...' : $excerpt;
+                // Extract Featured Image from _embedded
+                $imageUrl = $post['_embedded']['wp:featuredmedia'][0]['source_url'] ??
+                    'https://api.dicebear.com/7.x/initials/svg?seed=Jurnal9';
+                $excerpt = strip_tags($post['excerpt']['rendered']);
+                $excerpt = strlen($excerpt) > 120 ? substr($excerpt, 0, 120) . '...' : $excerpt;
             @endphp
-            <article
-                class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group flex flex-col mx-2 my-2">
-                <div class="aspect-video relative overflow-hidden bg-gray-100">
-                    <img src="{{ $imageUrl }}" alt="{{ $post['title']['rendered'] }}"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute top-4 left-4">
-                        <span
-                            class="bg-emerald-700 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Update</span>
+                <article
+                    class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group flex flex-col mx-2 my-2">
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="{{ $imageUrl }}" alt="{{ $post['title']['rendered'] }}"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="bg-emerald-700 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Update</span>
+                        </div>
                     </div>
-                </div>
-                <div class="p-8 flex flex-col flex-1">
-                    <h2 class="text-xl font-bold text-gray-900 mb-4 leading-tight line-clamp-2">
-                        {!! $post['title']['rendered'] !!}
-                    </h2>
-                    <p class="text-gray-500 text-sm mb-6 flex-1">
-                        {{ $excerpt }}
-                    </p>
-                    <div
-                        class="flex items-center justify-between pt-6 border-t border-gray-50 uppercase tracking-tighter">
-                        <span class="text-[10px] font-bold text-gray-400">
-                            {{ \Carbon\Carbon::parse($post['date'])->translatedFormat('d F Y') }}
-                        </span>
-                        <a href="{{ $post['link'] }}" target="_blank"
-                            class="text-emerald-700 font-bold text-xs hover:text-emerald-900 flex items-center gap-1 group/btn">
-                            BACA ARTIKEL
-                            <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform"
-                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                            </svg>
-                        </a>
+                    <div class="p-8 flex flex-col flex-1">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4 leading-tight line-clamp-2">
+                            {!! $post['title']['rendered'] !!}
+                        </h2>
+                        <p class="text-gray-500 text-sm mb-6 flex-1">
+                            {{ $excerpt }}
+                        </p>
+                        <div
+                            class="flex items-center justify-between pt-6 border-t border-gray-50 uppercase tracking-tighter">
+                            <span class="text-[10px] font-bold text-gray-400">
+                                {{ \Carbon\Carbon::parse($post['date'])->translatedFormat('d F Y') }}
+                            </span>
+                            <a href="{{ $post['link'] }}" target="_blank"
+                                class="text-emerald-700 font-bold text-xs hover:text-emerald-900 flex items-center gap-1 group/btn">
+                                BACA ARTIKEL
+                                <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </article>
-            @empty
+                </article>
+        @empty
             <div class="col-span-full py-20 text-center">
                 <p class="text-gray-500">Gagal mengambil data berita. Silakan coba beberapa saat lagi.</p>
             </div>
