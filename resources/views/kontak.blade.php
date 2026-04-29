@@ -16,22 +16,6 @@
     <meta name="twitter:image" content="{{ asset('img/thumbnail.jpg') }}" />
     <title>Kontak | TV9 Nusantara</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    
-    <!-- @php
-        $isProduction = app()->environment('production');
-        $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_path('build/manifest.json');
-    @endphp
-    
-    @if ($isProduction && file_exists($manifestPath))
-        @php
-            $manifest = json_decode(file_get_contents($manifestPath), true);
-        @endphp
-        <link rel="stylesheet" href="{{ config('app.url') }}/build/{{ $manifest['resources/css/app.css']['file'] }}">
-        <script type="module" src="{{ config('app.url') }}/build/{{ $manifest['resources/js/app.js']['file'] }}"></script>
-    @else
-        @viteReactRefresh
-        @vite(['resources/js/app.js', 'resources/css/app.css'])
-    @endif -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
@@ -475,7 +459,7 @@
                             <div>
                                 <p class="uppercase mb-1"
                                     style="font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,.5)">Telepon</p>
-                                <a href="tel:+6231829999" class="contact-link">+62 31 829 9999</a>
+                                <a href="tel:+6231829999" class="contact-link">031-562-0999</a>
                             </div>
                         </div>
 
@@ -486,7 +470,7 @@
                             <div>
                                 <p class="uppercase mb-1"
                                     style="font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,.5)">Email</p>
-                                <a href="mailto:redaksi@tv9.co.id" class="contact-link">redaksi@tv9.co.id</a>
+                                <a href="mailto:admin@tv9.co.id" class="contact-link">admin@tv9.co.id</a>
                             </div>
                         </div>
 
@@ -497,7 +481,7 @@
                             <div>
                                 <p class="uppercase mb-1"
                                     style="font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,.5)">WhatsApp</p>
-                                <a href="https://wa.me/628113333999" class="contact-link">+62 811 3333 999</a>
+                                <a href="https://wa.me/6282232480057" class="contact-link">+62 822 3248 0057</a>
                             </div>
                         </div>
 
@@ -513,7 +497,7 @@
                         kelancaran aplikasi seluler kami, demi menjaga kenyamanan menonton Anda di mana saja dan kapan
                         saja.
                     </p>
-                    <a href="#" class="btn-support">
+                    <a href="https://wa.me/6282301517398" class="btn-support">
                         <i class="fa-solid fa-headset"></i>
                         Hubungi Dukungan
                     </a>
@@ -664,53 +648,53 @@
         </div>
     </footer>
     <script>
-        const SCRIPT_URL = 'GANTI_DENGAN_URL_APPS_SCRIPT_ANDA';
+    const SCRIPT_URL = 'GANTI_DENGAN_URL_APPS_SCRIPT_ANDA';
 
-        async function kirimPesan() {
-            const nama = document.getElementById('f-nama').value.trim();
-            const email = document.getElementById('f-email').value.trim();
-            const keperluan = document.getElementById('f-keperluan').value;
-            const pesan = document.getElementById('f-pesan').value.trim();
+    async function kirimPesan() {
+        const nama = document.getElementById('f-nama').value.trim();
+        const email = document.getElementById('f-email').value.trim();
+        const keperluan = document.getElementById('f-keperluan').value;
+        const pesan = document.getElementById('f-pesan').value.trim();
 
-            if (!nama || !email || !pesan) {
-                alert('Mohon isi semua field yang wajib diisi.');
-                return;
-            }
-
-            const btn = document.getElementById('btn-send');
-            btn.disabled = true;
-            btn.innerHTML = 'Mengirim... <i class="fa-solid fa-spinner fa-spin"></i>';
-
-            try {
-                await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors', // wajib untuk Apps Script
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        nama,
-                        email,
-                        keperluan,
-                        pesan
-                    })
-                });
-
-                // no-cors tidak return response body, anggap sukses jika tidak error
-                document.getElementById('f-nama').value = '';
-                document.getElementById('f-email').value = '';
-                document.getElementById('f-pesan').value = '';
-                document.getElementById('msg-sukses').style.display = 'block';
-                setTimeout(() => document.getElementById('msg-sukses').style.display = 'none', 5000);
-
-            } catch (err) {
-                document.getElementById('msg-gagal').style.display = 'block';
-                setTimeout(() => document.getElementById('msg-gagal').style.display = 'none', 5000);
-            }
-
-            btn.disabled = false;
-            btn.innerHTML = 'Kirim Pesan <i class="fa-solid fa-arrow-right"></i>';
+        if (!nama || !email || !pesan) {
+            alert('Mohon isi semua field yang wajib diisi.');
+            return;
         }
+
+        const btn = document.getElementById('btn-send');
+        btn.disabled = true;
+        btn.innerHTML = 'Mengirim... <i class="fa-solid fa-spinner fa-spin"></i>';
+
+        try {
+            await fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // wajib untuk Apps Script
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nama,
+                    email,
+                    keperluan,
+                    pesan
+                })
+            });
+
+            // no-cors tidak return response body, anggap sukses jika tidak error
+            document.getElementById('f-nama').value = '';
+            document.getElementById('f-email').value = '';
+            document.getElementById('f-pesan').value = '';
+            document.getElementById('msg-sukses').style.display = 'block';
+            setTimeout(() => document.getElementById('msg-sukses').style.display = 'none', 5000);
+
+        } catch (err) {
+            document.getElementById('msg-gagal').style.display = 'block';
+            setTimeout(() => document.getElementById('msg-gagal').style.display = 'none', 5000);
+        }
+
+        btn.disabled = false;
+        btn.innerHTML = 'Kirim Pesan <i class="fa-solid fa-arrow-right"></i>';
+    }
     </script>
 </body>
 

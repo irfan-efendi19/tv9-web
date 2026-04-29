@@ -24,7 +24,6 @@
     <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
-    
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -345,40 +344,40 @@
                 unmuteOverlay.id = 'unmute-overlay';
                 unmuteOverlay.innerHTML =
                     `
-                                                    <div class="flex flex-col items-center gap-2">
-                                                        <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl px-6 py-4 flex items-center gap-3 shadow-2xl cursor-pointer hover:scale-105 transition-all duration-200">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-                                                            </svg>
-                                                            <span class="text-white font-bold text-sm tracking-wide">Klik untuk Aktifkan Suara</span>
+                                                        <div class="flex flex-col items-center gap-2">
+                                                            <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl px-6 py-4 flex items-center gap-3 shadow-2xl cursor-pointer hover:scale-105 transition-all duration-200">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                                                                </svg>
+                                                                <span class="text-white font-bold text-sm tracking-wide">Klik untuk Aktifkan Suara</span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                                                                                                                        `;
+                                                                                                                                                            `;
                 unmuteOverlay.style.cssText =
                     `
-                                                                                                                                                            position: absolute;
-                                                                                                                                                            bottom: 60px;
-                                                                                                                                                            left: 50%;
-                                                                                                                                                            transform: translateX(-50%);
-                                                                                                                                                            z-index: 20;
-                                                                                                                                                            cursor: pointer;
-                                                                                                                                                            animation: fadeInUp 0.5s ease forwards;
-                                                                                                                                                        `;
+                                                                                                                                                                position: absolute;
+                                                                                                                                                                bottom: 60px;
+                                                                                                                                                                left: 50%;
+                                                                                                                                                                transform: translateX(-50%);
+                                                                                                                                                                z-index: 20;
+                                                                                                                                                                cursor: pointer;
+                                                                                                                                                                animation: fadeInUp 0.5s ease forwards;
+                                                                                                                                                            `;
 
                 // Tambahkan animasi CSS
                 const style = document.createElement('style');
                 style.textContent =
                     `
-                                                                                                                                                            @keyframes fadeInUp {
-                                                                                                                                                                from { opacity: 0; transform: translateX(-50%) translateY(10px); }
-                                                                                                                                                                to   { opacity: 1; transform: translateX(-50%) translateY(0); }
-                                                                                                                                                            }
-                                                                                                                                                            @keyframes fadeOut {
-                                                                                                                                                                from { opacity: 1; }
-                                                                                                                                                                to   { opacity: 0; pointer-events: none; }
-                                                                                                                                                            }
-                                                                                                                                                        `;
+                                                                                                                                                                @keyframes fadeInUp {
+                                                                                                                                                                    from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+                                                                                                                                                                    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+                                                                                                                                                                }
+                                                                                                                                                                @keyframes fadeOut {
+                                                                                                                                                                    from { opacity: 1; }
+                                                                                                                                                                    to   { opacity: 0; pointer-events: none; }
+                                                                                                                                                                }
+                                                                                                                                                            `;
                 document.head.appendChild(style);
 
                 function showUnmuteOverlay() {
