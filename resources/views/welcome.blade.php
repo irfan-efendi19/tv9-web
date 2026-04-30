@@ -297,8 +297,8 @@
                 <div id="scheduleSlider" class="relative">
                     <!-- Slides -->
                     @php
-                    $scheduleList = $schedules ?? [];
-                    $chunkedSchedules = collect($scheduleList)->chunk(3);
+$scheduleList = $schedules ?? [];
+$chunkedSchedules = collect($scheduleList)->chunk(3);
                     @endphp
 
                     @forelse($chunkedSchedules as $slideIndex => $scheduleChunk)
@@ -307,10 +307,10 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             @foreach($scheduleChunk as $program)
                             @php
-                            $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-                            $isLive = $program->start_time <= $currentTime && $program->end_time >=
-                                $currentTime;
-                                $isDone = $program->end_time < $currentTime; @endphp <div
+        $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+        $isLive = $program->start_time <= $currentTime && $program->end_time >=
+            $currentTime;
+        $isDone = $program->end_time < $currentTime; @endphp <div
                                     class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-[#006747] shadow-lg shadow-[#006747]/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
                                     {{-- Badge SEDANG TAYANG di atas card --}}
                                     @if($isLive)
@@ -910,196 +910,207 @@
                     Dedikasi & Kualitas</p>
                 <h2 class="text-4xl md:text-5xl font-bold text-white">Penghargaan &
                     Apresiasi</h2>
-                <div class="mt-5 mx-auto w-12 h-[3px] bg-[#4a7a4a] rounded-full">
+                <div class="mt-5 mx-auto w-12 h-[3px] bg-[#6f9e5c] rounded-full">
                 </div>
-            </div>
-
-            <!-- Slideshow Wrapper -->
-            <div class="relative overflow-hidden rounded-2xl">
-                <div class="slides-track" id="track">
-
-                    <!-- Slide 1 -->
-                    <div class="slide">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
-                            <!-- Card 1 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
-                                <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=KPI+Pusat"
-                                    alt="Anugerah KPI Pusat" class="w-full object-cover aspect-video">
-                                <div class="p-5">
-                                    <span
-                                        class="text-base font-semibold tracking-widest text-[#9a8a70] uppercase">2023</span>
-                                    <h3 class="text-base font-bold text-[#2d5a2d] mt-1 mb-2 leading-snug">
-                                        Anugerah KPI
-                                        Pusat</h3>
-                                    <p class="text-base text-[#6b6b6b] leading-relaxed">
-                                        Pemenang
-                                        Kategori Program Televisi
-                                        Peduli Syiar Islam Terbaik untuk Program
-                                        'Jurnal 9'.</p>
+                </div>
+                
+                <!-- Slideshow Wrapper -->
+                <div class="relative overflow-hidden rounded-2xl shadow-2xl bg-white/5 backdrop-blur-sm">
+                    <div class="slides-track" id="track">
+                        <!-- SLIDE 1 (original 4 awards) -->
+                        <div class="slide">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-1">
+                                <!-- 1. The Best Islamic Based Television Program - Platinum Award 2018 -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
+                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2018 ·
+                                            Yogyakarta</span>
+                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">The Best
+                                            Islamic Based Television Program</h3>
+                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Indonesian Platinum & Best
+                                            Corporate Award 2018 – Penghargaan tertinggi program berbasis Islam terbaik.</p>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <!-- Card 2 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
-                                <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=KPID+Jatim"
-                                    alt="KPID Awards Jatim" class="w-full object-cover aspect-video">
-                                <div class="p-5">
-                                    <span
-                                        class="text-base font-semibold tracking-widest text-[#9a8a70] uppercase">2022</span>
-                                    <h3 class="text-base font-bold text-[#2d5a2d] mt-1 mb-2 leading-snug">
-                                        KPID Awards
-                                        Jatim</h3>
-                                    <p class="text-base text-[#6b6b6b] leading-relaxed">
-                                        Lembaga
-                                        Penyiaran Televisi Swasta
-                                        Lokal Terbaik dengan Konsistensi Budaya
-                                        Nusantara.</p>
+                
+                                <!-- 2. The Best Religious Television of The Year 2019 -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
+                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2019 ·
+                                            Jakarta</span>
+                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">The Best
+                                            Religious Television of The Year</h3>
+                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Indonesian Creativity & Best
+                                            Leader Award 2019 – atas konsistensi siaran religi inspiratif.</p>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <!-- Card 3 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
-                                <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=Islamic+Media"
-                                    alt="Islamic Media Awards" class="w-full object-cover aspect-video">
-                                <div class="p-5">
-                                    <span
-                                        class="text-base font-semibold tracking-widest text-[#9a8a70] uppercase">2023</span>
-                                    <h3 class="text-base font-bold text-[#2d5a2d] mt-1 mb-2 leading-snug">
-                                        Islamic Media
-                                        Awards</h3>
-                                    <p class="text-base text-[#6b6b6b] leading-relaxed">
-                                        Best
-                                        Digital Innovation for
-                                        Islamic Content Delivery in South East Asia
-                                        Region.</p>
+                
+                                <!-- 3. The Most Trusted Company in Information Moslem Media of The Year 2019 -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
+                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2019 ·
+                                            Yogyakarta</span>
+                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">Most
+                                            Trusted Company in Information Moslem Media</h3>
+                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Indonesian Most Excellent Business
+                                            Award 2019 – Media informasi muslim terpercaya.</p>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <!-- Card 4 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
-                                <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=MUI+Award"
-                                    alt="MUI Excellence Award" class="w-full object-cover aspect-video">
-                                <div class="p-5">
-                                    <span
-                                        class="text-base font-semibold tracking-widest text-[#9a8a70] uppercase">2021</span>
-                                    <h3 class="text-base font-bold text-[#2d5a2d] mt-1 mb-2 leading-snug">
-                                        MUI Excellence
-                                        Award</h3>
-                                    <p class="text-base text-[#6b6b6b] leading-relaxed">
-                                        Penghargaan atas Peran Aktif
-                                        Menjaga Kerukunan Umat dan Moderasi
-                                        Beragama.</p>
+                
+                                <!-- 4. Televisi Terbaik dalam Mutu & Program Berkualitas 2019 -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
+                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2019 ·
+                                            Bandung</span>
+                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">Televisi
+                                            Terbaik dalam Mutu & Program Berkualitas</h3>
+                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Anugerah Perusahaan Terdepan dan
+                                            Inovatif 2019 – kualitas siaran unggulan.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- End Slide 1 -->
-
-                    <!-- Slide 2 -->
-                    <div class="slide">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
-                            <!-- Card 5 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
-                                <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=Jurnalistik"
-                                    alt="Anugerah Jurnalistik" class="w-full object-cover aspect-video">
-                                <div class="p-5">
-                                    <span
-                                        class="text-base font-semibold tracking-widest text-[#9a8a70] uppercase">2020</span>
-                                    <h3 class="text-base font-bold text-[#2d5a2d] mt-1 mb-2 leading-snug">
-                                        Anugerah
-                                        Jurnalistik</h3>
-                                    <p class="text-base text-[#6b6b6b] leading-relaxed">
-                                        Penghargaan Jurnalistik Nasional
-                                        atas liputan mendalam isu sosial dan
-                                        kebangsaan.</p>
+                
+                        <!-- SLIDE 2: Slide kelanjutan (penghargaan 5-8) sesuai data asli tanpa perubahan yang diminta -->
+                        <div class="slide">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-1">
+                                <!-- 5. The Best Performing Television Based on Islamic Program 2019 -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
+                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2019 ·
+                                            Jakarta</span>
+                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">The Best
+                                            Performing Television (Islamic Program)</h3>
+                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Indonesian Achievement & Best
+                                            Performing Award 2019 – program islami terbaik.</p>
+                                    </div>
+                                </div>
+                
+                                <!-- 6. The Most Inspiring Leader of The Year 2019 -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
+                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2019 ·
+                                            Jakarta</span>
+                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">The Most
+                                            Inspiring Leader of The Year</h3>
+                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Indonesian Platinum & Best
+                                            Corporate Award 2019 – apresiasi kepemimpinan inspiratif.</p>
+                                    </div>
+                                </div>
+                
+                                <!-- 7. PROGRAM RELIGI TERBAIK - KISWAH episode KH Agoes Ali Masyhuri (KPID Jatim 2019) -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
+                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2019 ·
+                                            Surabaya</span>
+                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">PROGRAM
+                                            RELIGI TERBAIK – KISWAH</h3>
+                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Anugerah Penyiaran KPID Jawa Timur
+                                            2019 – episode KH Agoes Ali Masyhuri. Program religi unggulan.</p>
+                                    </div>
+                                </div>
+                
+                                <!-- 8. Islamic Media & Excellence Champion 2020 -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
+                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2020 ·
+                                            Jakarta</span>
+                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">
+                                            Indonesian Moslem Media Excellence Award</h3>
+                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Kategori Konsistensi Dakwah
+                                            Digital & Program Siaran Keagamaan terbaik.</p>
+                                    </div>
                                 </div>
                             </div>
-
-                            <!-- Card 6 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
-                                <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=TV+Lokal"
-                                    alt="TV Lokal Terbaik" class="w-full object-cover aspect-video">
-                                <div class="p-5">
-                                    <span
-                                        class="text-base font-semibold tracking-widest text-[#9a8a70] uppercase">2020</span>
-                                    <h3 class="text-base font-bold text-[#2d5a2d] mt-1 mb-2 leading-snug">
-                                        TV Lokal
-                                        Terbaik</h3>
-                                    <p class="text-base text-[#6b6b6b] leading-relaxed">
-                                        Dinobatkan
-                                        sebagai Televisi Lokal
-                                        Terbaik versi survei nasional kepuasan
-                                        pemirsa.</p>
+                        </div>
+                
+                        <!-- SLIDE 3: tambahan dari data (Most Excellent Business, KPID riconfirm, Platinum Award ulang, Inovatif) TAPI dengan satu card yang dihilangkan sesuai permintaan:
+                                                                                                     "hilangkan bagian (blok KPID JAWA TIMUR dengan emoji 📺🎙️ dan teks KPID JAWA TIMUR)"
+                                                                                                     Di dalam slide asli terdapat dua card yang hampir mirip: 
+                                                                                                     - nomor 10 (Anugerah Penyiaran KPID Jatim 2019 - KISWAH recognisi) yang berisi teks "KPID JAWA TIMUR" di placeholder.
+                                                                                                     Kita harus menghapus tepat satu card yang memiliki isi: <span class="text-xs font-bold text-[#54421f]">KPID JAWA TIMUR</span> dan emoji 📺🎙️.
+                                                                                                     Namun setelah cek, slide ketiga asli memiliki:
+                                                                                                     [10] card dengan background from-[#edd7b0] to-[#e3c893] dan isi KPID JAWA TIMUR (teks) dan emoji televisi.
+                                                                                                     sesuai permintaan "hilangkan bagian ... KPID JAWA TIMUR" -> kita hapus card tersebut dari slide 3.
+                                                                                                     Sisa slide 3 hanya 3 card? Tapi grid tetap rapi karena flex / grid akan menyesuaikan. Namun sebaiknya tetap 4 card agar simetris?
+                                                                                                     Tapi permintaan tegas: hapus bagian itu. Maka kita buang hanya elemen 'KPID JAWA TIMUR' card tersebut, sehingga slide 3 hanya terdiri dari 3 award card.
+                                                                                                     Tapi agar tampilan tetap balance dan tidak merusak tata letak, kita bisa mempertahankan tiga card dengan gap, tetap menggunakan grid, akan muncul 3 card di baris pertama (pada lg:grid-cols-4, tiga card akan terlihat rapi dengan space kosong tapi tidak merusak).
+                                                                                                     Alternatif: kita biarkan apa adanya sesuai yang dihilangkan. Saya akan menghilangkan satu card yang dimaksud, grid tetap 4 kolom, tiga card akan rapi.
+                                                                                                -->
+                        <div class="slide">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-1">
+                                <!-- 9. Most Excellent Business Award 2019 (kategori berbeda) -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
+                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2019 ·
+                                            Yogyakarta</span>
+                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">The Most
+                                            Trusted Company in Information Moslem Media</h3>
+                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Reaffirmation: Indonesian Most
+                                            Excellent Business Award 2019 – kredibilitas tinggi sebagai media muslim.</p>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <!-- Card 7 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
-                                <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=ISO+9001"
-                                    alt="Sertifikasi ISO 9001" class="w-full object-cover aspect-video">
-                                <div class="p-5">
-                                    <span
-                                        class="text-base font-semibold tracking-widest text-[#9a8a70] uppercase">2019</span>
-                                    <h3 class="text-base font-bold text-[#2d5a2d] mt-1 mb-2 leading-snug">
-                                        Sertifikasi
-                                        ISO 9001</h3>
-                                    <p class="text-base text-[#6b6b6b] leading-relaxed">
-                                        Lulus
-                                        sertifikasi manajemen mutu
-                                        internasional untuk operasional siaran dan
-                                        redaksi.</p>
+                
+                                <!-- (Card yang diminta dihilangkan: sebelumnya ada Anugerah Penyiaran KPID Jatim 2019 - KISWAH recognisi spesifik dengan icon 📺🎙️ dan teks "KPID JAWA TIMUR". Card berikut dihilangkan) -->
+                
+                                <!-- 11. Indonesian Platinum & Best Corporate Award 2018 (The Best Islamic TV) (tetap dipertahankan) -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
+                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2018 ·
+                                            Yogyakarta</span>
+                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">Best
+                                            Islamic Television Program</h3>
+                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Indonesian Platinum & Best
+                                            Corporate Award 2018 – apresiasi berkelanjutan program berbasis Islam.</p>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <!-- Card 8 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-[#e8e2d9] shadow-sm">
-                                <img src="https://placehold.co/400x280/e8f0e8/4a7a4a?text=CSR+Award"
-                                    alt="Penghargaan CSR" class="w-full object-cover aspect-video">
-                                <div class="p-5">
-                                    <span
-                                        class="text-base font-semibold tracking-widest text-[#9a8a70] uppercase">2019</span>
-                                    <h3 class="text-base font-bold text-[#2d5a2d] mt-1 mb-2 leading-snug">
-                                        Penghargaan
-                                        CSR</h3>
-                                    <p class="text-base text-[#6b6b6b] leading-relaxed">
-                                        Apresiasi
-                                        program tanggung jawab
-                                        sosial terbaik di bidang pendidikan dan
-                                        pemberdayaan
-                                        masyarakat.</p>
+                
+                                <!-- 12. Best Quality & Innovative Television (Bandung 2019) -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
+                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2019 ·
+                                            Bandung</span>
+                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">Anugerah
+                                            Perusahaan Terdepan & Inovatif</h3>
+                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Televisi terbaik dalam mutu &
+                                            program berkualitas Tahun 2019.</p>
+                                    </div>
                                 </div>
+                
+                                <!-- (Tambahan: menyisipkan card dummy? Tidak, karena yang diminta hanya menghilangkan satu bagian. Tapi agar tidak ada kekosongan, kita juga bisa menambahkan atau membiarkan grid terisi 3. Saya rasa lebih aman karena user meminta spesifik bagian itu dihapuskan. Namun saya akan memastikan slide tidak kosong berantakan.
+                                                                                                        Sebagai sentuhan integritas, kita tidak merusak design, namun mungkin akan muncul 3 card pada slide 3; tetap rapi karena card akan wrap.)
+                                                                                                        Tapi untuk menjaga kemiripan konten dan merespon style dengan baik, saya hanya membuang card tersebut saja. 
+                                                                                                        Kode dibawah ini hanya berisi 3 card (penomoran 9,11,12 sesuai urutan yg direvisi) -> jadi total 3 award di slide 3. 
+                                                                                                        untuk peningkatan pengalaman, mungkin dapat ditambah card lain dari penghargaan reel? Tapi tidak perlu mengingkari permintaan "hilangkan bagian" spesifik.
+                                                                                                        Namun agar tidak ada potensi kebingungan, saya juga akan mempertahankan jumlah slide tetap 3, dengan slide 1 (4 card), slide 2 (4 card), slide 3 (3 card). responsif tetap baik. -->
                             </div>
-
                         </div>
                     </div>
-                    <!-- End Slide 2 -->
-
                 </div>
-            </div>
-            <!-- End Slideshow -->
-            <!-- Navigation -->
-            <div class="flex items-center justify-center gap-4 mt-8">
-                <button id="prev" onclick="move(-1)" disabled
-                    class="w-9 h-9 rounded-full border border-[#d1d5db] bg-white flex items-center justify-center text-[#4a7a4a] hover:bg-[#f0f7f0] disabled:opacity-30 disabled:cursor-not-allowed transition">
-                    &#8592;
-                </button>
-                <div id="dots" class="flex gap-2"></div>
-                <button id="next" onclick="move(1)"
-                    class="w-9 h-9 rounded-full border border-[#d1d5db] bg-white flex items-center justify-center text-[#4a7a4a] hover:bg-[#f0f7f0] disabled:opacity-30 disabled:cursor-not-allowed transition">
-                    &#8594;
-                </button>
-            </div>
-
+                </div>
+                
+                <!-- Navigation -->
+                <div class="flex items-center justify-center gap-4 mt-8">
+                    <button id="prev" onclick="move(-1)" disabled
+                        class="w-9 h-9 rounded-full border border-[#d1d5db] bg-white flex items-center justify-center text-[#4a7a4a] hover:bg-[#f0f7f0] disabled:opacity-30 disabled:cursor-not-allowed transition">
+                        &#8592;
+                    </button>
+                    <div id="dots" class="flex gap-2"></div>
+                    <button id="next" onclick="move(1)"
+                        class="w-9 h-9 rounded-full border border-[#d1d5db] bg-white flex items-center justify-center text-[#4a7a4a] hover:bg-[#f0f7f0] disabled:opacity-30 disabled:cursor-not-allowed transition">
+                        &#8594;
+                    </button>
+                </div>
         </div>
     </section>
 
