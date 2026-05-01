@@ -10,7 +10,6 @@
     <meta property="og:image" content="{{ asset('img/thumbnail.jpg') }}" />
     <meta itemprop="image" content="{{ asset('img/thumbnail.jpg') }}" />
     <meta name="twitter:image" content="{{ asset('img/thumbnail.jpg') }}" />
-
     <meta name="robots" content="noindex, nofollow" />
 
     <!-- Fonts -->
@@ -20,7 +19,6 @@
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="font-sans antialiased">
