@@ -32,7 +32,6 @@
     }
 
     body {
-        font-family: 'Plus Jakarta Sans', sans-serif;
         background: var(--cream);
         color: #1f2937;
     }
@@ -118,7 +117,6 @@
         border-radius: .5rem;
         padding: .625rem 1rem .625rem 2.25rem;
         font-size: .875rem;
-        font-family: 'DM Sans', sans-serif;
         color: #374151;
         outline: none;
         transition: border-color .2s, box-shadow .2s;

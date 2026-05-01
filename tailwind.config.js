@@ -12,11 +12,22 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                sans: ["Plus Jakarta Sans", ...defaultTheme.fontFamily.sans],
+                display: [
+                    "Plus Jakarta Sans",
+                    ...defaultTheme.fontFamily.serif,
+                ],
+                serif: ["Playfair Display", ...defaultTheme.fontFamily.serif],
+                body: ["Plus Jakarta Sans", ...defaultTheme.fontFamily.sans],
+                dm: ["DM Sans", ...defaultTheme.fontFamily.sans],
+            },
+            backgroundColor: {
+                "light-bg": "#f8fafc",
             },
             colors: {
                 tv9: {
                     primary: "#006747",
+                    dark: "#103d2f",
                     green: {
                         700: "#3a7055",
                         800: "#2d5c45",

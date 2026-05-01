@@ -18,16 +18,14 @@
         rel="stylesheet">
     <link rel="canonical" href="{{ config('app.url') . '/jadwal' }}">
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <!-- OG Image / Thumbnail -->
     <meta property="og:image" content="{{ asset('img/thumbnail.jpg') }}" />
     <meta itemprop="image" content="{{ asset('img/thumbnail.jpg') }}" />
     <meta name="twitter:image" content="{{ asset('img/thumbnail.jpg') }}" />
-    
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #fdfdfd;
             color: #1e293b;
         }
     
@@ -37,7 +35,7 @@
     </style>
     </head>
     
-    <body class="antialiased pb-20">
+    <body class="antialiased">
     
         <!-- Navbar -->
         <nav class="fixed top-0 w-full z-50 px-4 sm:px-8"
@@ -144,8 +142,8 @@
                     @foreach($programs as $dayNum => $dayPrograms)
                         <button @click="activeDay = {{ $dayNum }}"
                             :class="activeDay === {{ $dayNum }}
-                                                                                                                            ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm'
-                                                                                                                            : 'bg-white text-slate-500 border-slate-200 hover:border-slate-300 hover:text-slate-700'"
+                                                                                                                                                                                                        ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm'
+                                                                                                                                                                                                        : 'bg-white text-slate-500 border-slate-200 hover:border-slate-300 hover:text-slate-700'"
                             class="text-xs font-semibold px-4 py-2 rounded-full border transition-all duration-150 cursor-pointer">
                             {{ $dayNames[$dayNum] }}
                         </button>
@@ -227,19 +225,99 @@
                         <p class="text-sm">Belum ada jadwal yang diunggah.</p>
                     </div>
                 @endforelse
-
-            {{-- Footer --}}
-            <p class="text-center text-xl text-slate-400 italic pt-2">
-                * Jam tayang berdasarkan Waktu Indonesia Barat (WIB)
-            </p>
+    
+    
+                {{-- Footer --}}
+                <p class="text-center text-xl text-slate-400 italic pt-2">
+                    * Jam tayang berdasarkan Waktu Indonesia Barat (WIB)
+                </p>
+            </div>
         </div>
-    </div>
-    </div>
-    <footer class="bg-white border-t border-gray-100 py-10 mt-10">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-400 text-sm">
-                &copy; {{ date('Y') }} TV9 NUSANTARA - All Rights Reserved
-            </p>
+        </div>
+        <!-- ========= FOOTER ========= -->
+        <footer class="bg-tv9-dark text-white py-14 px-6 mt-16">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-4 gap-8 mb-10">
+                    <div class="md:col-span-1">
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="w-8 h-8 rounded-full bg-tv9-gold flex items-center justify-center">
+                                <span class="text-tv9-green-dark font-black text-xs">TV9</span>
+                            </div>
+                            <span class="font-bold text-sm">TV9 Nusantara</span>
+                        </div>
+                        <p class="text-white/40 text-xs leading-relaxed">Santun Menyejukkan
+                        </p>
+                        <div class="flex gap-3 mt-4">
+                            <!-- Social Media Icons with Font Awesome -->
+                            <a target="_blank" href="https://x.com/TV9NUsantara"
+                                class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
+                                <i class="fab fa-x-twitter text-xs"></i>
+                            </a>
+                            <a target="_blank" href="https://www.facebook.com/tv9nusantara"
+                                class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
+                                <i class="fab fa-facebook-f text-xs"></i>
+                            </a>
+                            <a target="_blank" href="https://www.instagram.com/tv9nusantara/"
+                                class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
+                                <i class="fab fa-instagram text-xs"></i>
+                            </a>
+                            <a target="_blank" href="https://www.youtube.com/@tv9nusantara"
+                                class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
+                                <i class="fab fa-youtube text-xs"></i>
+                            </a>
+                            <a target="_blank" href="https://www.tiktok.com/@tv9nusantara"
+                                class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
+                                <i class="fab fa-tiktok text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <h5 class="font-semibold text-sm mb-4 text-tv9-gold">Navigasi</h5>
+                        <ul class="space-y-2 text-white/50 text-xs">
+                            <li><a href="{{ route('tentang') }}" class="hover:text-white transition-colors">Tentang Kami</a>
+                            </li>
+                            <li><a href="{{ route('layanan') }}" class="hover:text-white transition-colors">Layanan</a></li>
+                            <li><a href="{{ route('kontak') }}" class="hover:text-white transition-colors">Hubungi Kami</a>
+                            </li>
+                            <li><a href="{{ route('sitemap') }}" class="hover:text-white transition-colors">Sitemap</a>
+                            </li>
+                            <li><a href="" class="hover:text-white transition-colors">Pedoman Pers</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold text-sm mb-4 text-tv9-gold">Program</h5>
+                        <ul class="space-y-2 text-white/50 text-xs">
+                            <li><a href="{{ route('berita.index') }}" class="hover:text-white transition-colors">Jurnal
+                                    9</a></li>
+                            <li><a href="{{ route('live') }}" class="hover:text-white transition-colors">Live TV</a></li>
+                            <li><a href="{{ route('jadwal') }}" class="hover:text-white transition-colors">Jadwal Acara</a>
+                            </li>
+                            <li><a href="{{ route('catalog.index') }}" class="hover:text-white transition-colors">Program
+                                    Unggulan</a></li>
+                        </ul>
+                    </div>
+    
+                    <div>
+                        <h5 class="font-semibold text-sm mb-4 text-tv9-gold">Kontak</h5>
+                        <ul class="space-y-2 text-white/50 text-xs">
+                            <li>Jl. Raya Darmo No. 96</li>
+                            <li>Surabaya, Jawa Timur</li>
+                            <li>admin@tv9.co.id</li>
+                            <li>+62 31 5677 9000</li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-white/30 text-xs">&copy; {{ date('Y') }} TV9 Nusantara. PT. Dakwah Inti Media. All rights
+                        reserved.
+                    </p>
+                    <div class="flex gap-4 text-white/30 text-xs">
+                        <!-- <a href="#" class="hover:text-white transition-colors">Kebijakan Privasi</a>
+                                                                                                                                                                                                                                                                                                            <a href="#" class="hover:text-white transition-colors">Syarat &amp; Ketentuan</a> -->
+                    </div>
+                </div>
         </div>
     </footer>
 </body>

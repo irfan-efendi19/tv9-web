@@ -27,10 +27,6 @@
         scroll-behavior: smooth;
     }
 
-    body {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-
     .hero-bg {
         background: linear-gradient(135deg, #0d2a1a 0%, #1a3a2a 50%, #22502f 100%);
         position: relative;
@@ -95,7 +91,6 @@
         border-radius: 8px;
         padding: 10px 14px;
         width: 100%;
-        font-family: 'Plus Jakarta Sans', sans-serif;
         font-size: 0.875rem;
         color: #374151;
         outline: none;
@@ -212,7 +207,7 @@
     </style>
 </head>
 
-<body class="bg-white" style="font-family:'Plus Jakarta Sans',sans-serif;">
+<body class="bg-white">
 
     <!-- ========== HERO ========== -->
     <section class="hero-bg min-h-screen flex items-center relative">

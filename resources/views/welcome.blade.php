@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+                    <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -301,99 +301,99 @@
                     @endphp
 
                     @forelse($chunkedSchedules as $slideIndex => $scheduleChunk)
-                        <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
-                            data-slide="{{ $slideIndex }}">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                @foreach($scheduleChunk as $program)
-                                    @php
-                                        $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-                                        $isLive = $program->start_time <= $currentTime && $program->end_time >=
-                                            $currentTime;
-                                    $isDone = $program->end_time < $currentTime; @endphp <div
-                                        class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-tv9-primary shadow-lg shadow-tv9-primary/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
-                                        {{-- Badge SEDANG TAYANG di atas card --}}
-                                        @if($isLive)
-                                            <div class="absolute -top-px left-1/2 -translate-x-1/2">
-                                                <span
-                                                    class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
-                                                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                                    Sedang Tayang
-                                                </span>
-                                            </div>
-                                        @endif
+                            <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
+                                data-slide="{{ $slideIndex }}">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    @foreach($scheduleChunk as $program)
+                                            @php
+                                                $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+                                                $isLive = $program->start_time <= $currentTime && $program->end_time >=
+                                                    $currentTime;
+                                            $isDone = $program->end_time < $currentTime; @endphp <div
+                                                    class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-tv9-primary shadow-lg shadow-tv9-primary/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
+                                                    {{-- Badge SEDANG TAYANG di atas card --}}
+                                                    @if($isLive)
+                                                        <div class="absolute -top-px left-1/2 -translate-x-1/2">
+                                                            <span
+                                                                class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
+                                                                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                                                Sedang Tayang
+                                                            </span>
+                                                        </div>
+                                                    @endif
 
-                                        {{-- Jam --}}
-                                        <p
-                                            class="text-base font-semibold {{ $isLive ? 'text-tv9-primary' : 'text-gray-400' }} mt-3">
-                                            {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
-                                            –
-                                            {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
-                                        </p>
+                                                    {{-- Jam --}}
+                                                    <p
+                                                        class="text-base font-semibold {{ $isLive ? 'text-tv9-primary' : 'text-gray-400' }} mt-3">
+                                                        {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
+                                                        –
+                                                        {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
+                                                    </p>
 
-                                        {{-- Judul & Deskripsi --}}
-                                        <div class="flex-1">
-                                            <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
-                                                {{ $program->title }}
-                                            </h3>
-                                            <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
-                                                {{ $program->description ?? 'Deskripsi belum tersedia.' }}
-                                            </p>
+                                                    {{-- Judul & Deskripsi --}}
+                                                    <div class="flex-1">
+                                                        <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
+                                                            {{ $program->title }}
+                                                        </h3>
+                                                        <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
+                                                            {{ $program->description ?? 'Deskripsi belum tersedia.' }}
+                                                        </p>
+                                                    </div>
+
+                                                    {{-- Status Badge --}}
+                                                    <div>
+                                                        @if($isLive)
+                                                            <span
+                                                                class="inline-flex items-center gap-1.5 bg-tv9-primary text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
+                                                                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                                                Live
+                                                            </span>
+                                                        @elseif($isDone)
+                                                            <span
+                                                                class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                                                Selesai
+                                                            </span>
+                                                        @else
+                                                            <span
+                                                                class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                                                Akan Datang
+                                                            </span>
+                                                        @endif
+                                                    </div>
                                         </div>
-
-                                        {{-- Status Badge --}}
-                                        <div>
-                                            @if($isLive)
-                                                <span
-                                                    class="inline-flex items-center gap-1.5 bg-tv9-primary text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
-                                                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                                    Live
-                                                </span>
-                                            @elseif($isDone)
-                                                <span
-                                                    class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                                    Selesai
-                                                </span>
-                                            @else
-                                                <span
-                                                    class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                                    Akan Datang
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
                             </div>
                         </div>
                     @empty
-                        <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
-                            <p class="text-gray-500 font-medium">Belum ada jadwal tayang
-                                untuk hari ini.</p>
-                        </div>
-                    @endforelse
+                    <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                        <p class="text-gray-500 font-medium">Belum ada jadwal tayang
+                            untuk hari ini.</p>
+                    </div>
+                @endforelse
 
-                    <div class="text-center max-w-3xl mx-auto mt-8 ">
-                        <a href="{{ route('jadwal') }}">
-                            <span
-                                class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
+                <div class="text-center max-w-3xl mx-auto mt-8 ">
+                    <a href="{{ route('jadwal') }}">
+                        <span
+                            class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
                                                                                                                                                                                                                                transition-all duration-300 ease-in-out 
                                                                                                                                                                                                                                hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
-                                LIHAT SEMUA JADWAL
-                            </span>
-                        </a>
-                    </div>
+                            LIHAT SEMUA JADWAL
+                        </span>
+                    </a>
                 </div>
-
-                <!-- Dots/Indicators Only -->
-                @if($chunkedSchedules->count() > 1)
-                    <div class="flex gap-2 md:gap-3 justify-center mt-6">
-                        @for($i = 0; $i < $chunkedSchedules->count(); $i++)
-                            <button
-                                class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
-                                data-dot="{{ $i }}"></button>
-                        @endfor
-                    </div>
-                @endif
             </div>
+
+            <!-- Dots/Indicators Only -->
+            @if($chunkedSchedules->count() > 1)
+                <div class="flex gap-2 md:gap-3 justify-center mt-6">
+                    @for($i = 0; $i < $chunkedSchedules->count(); $i++)
+                        <button
+                            class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
+                            data-dot="{{ $i }}"></button>
+                    @endfor
+                </div>
+            @endif
+        </div>
         </div>
     </section>
 
@@ -775,570 +775,7 @@
                                                         </section> -->
     <!-- Section: Legalitas & Izin Penyiaran -->
 
-    <section class="py-20 px-6 media-section">
-        <div class="max-w-5xl mx-auto">
 
-            <!-- Header -->
-            <div class="text-center mb-14">
-                <p class="text-base font-semibold tracking-[0.25em] text-tv9-brown-500 uppercase mb-3">
-                    Dedikasi & Kualitas</p>
-                <h2 class="text-4xl md:text-5xl font-bold text-white">Penghargaan &
-                    Apresiasi</h2>
-                <div class="mt-5 mx-auto w-12 h-[3px] bg-tv9-leaf-500 rounded-full">
-                </div>
-            </div>
-
-            <!-- Slideshow Wrapper -->
-            <div class="relative overflow-hidden rounded-2xl shadow-2xl bg-white/5 backdrop-blur-sm">
-                <div class="slides-track" id="track">
-                    <!-- SLIDE 1 (original 4 awards) -->
-                    <div class="slide">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-1">
-                            <!-- 1. The Best Islamic Based Television Program - Platinum Award 2018 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2018 ·
-                                        Yogyakarta</span>
-                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">The
-                                        Best
-                                        Islamic Based Television Program</h3>
-                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Indonesian Platinum & Best
-                                        Corporate Award 2018 – Penghargaan tertinggi program berbasis Islam terbaik.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- 2. The Best Religious Television of The Year 2019 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2019 ·
-                                        Jakarta</span>
-                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">The
-                                        Best
-                                        Religious Television of The Year</h3>
-                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Indonesian Creativity & Best
-                                        Leader Award 2019 – atas konsistensi siaran religi inspiratif.</p>
-                                </div>
-                            </div>
-
-                            <!-- 3. The Most Trusted Company in Information Moslem Media of The Year 2019 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2019 ·
-                                        Yogyakarta</span>
-                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">Most
-                                        Trusted Company in Information Moslem Media</h3>
-                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Indonesian Most Excellent
-                                        Business
-                                        Award 2019 – Media informasi muslim terpercaya.</p>
-                                </div>
-                            </div>
-
-                            <!-- 4. Televisi Terbaik dalam Mutu & Program Berkualitas 2019 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2019 ·
-                                        Bandung</span>
-                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
-                                        Televisi
-                                        Terbaik dalam Mutu & Program Berkualitas</h3>
-                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Anugerah Perusahaan Terdepan
-                                        dan
-                                        Inovatif 2019 – kualitas siaran unggulan.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SLIDE 2: Slide kelanjutan (penghargaan 5-8) sesuai data asli tanpa perubahan yang diminta -->
-                    <div class="slide">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-1">
-                            <!-- 5. The Best Performing Television Based on Islamic Program 2019 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2019 ·
-                                        Jakarta</span>
-                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">The
-                                        Best
-                                        Performing Television (Islamic Program)</h3>
-                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Indonesian Achievement & Best
-                                        Performing Award 2019 – program islami terbaik.</p>
-                                </div>
-                            </div>
-
-                            <!-- 6. The Most Inspiring Leader of The Year 2019 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2019 ·
-                                        Jakarta</span>
-                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">The
-                                        Most
-                                        Inspiring Leader of The Year</h3>
-                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Indonesian Platinum & Best
-                                        Corporate Award 2019 – apresiasi kepemimpinan inspiratif.</p>
-                                </div>
-                            </div>
-
-                            <!-- 7. PROGRAM RELIGI TERBAIK - KISWAH episode KH Agoes Ali Masyhuri (KPID Jatim 2019) -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2019 ·
-                                        Surabaya</span>
-                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
-                                        PROGRAM
-                                        RELIGI TERBAIK – KISWAH</h3>
-                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Anugerah Penyiaran KPID Jawa
-                                        Timur
-                                        2019 – episode KH Agoes Ali Masyhuri. Program religi unggulan.</p>
-                                </div>
-                            </div>
-
-                            <!-- 8. Islamic Media & Excellence Champion 2020 -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2020 ·
-                                        Jakarta</span>
-                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
-                                        Indonesian Moslem Media Excellence Award</h3>
-                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Kategori Konsistensi Dakwah
-                                        Digital & Program Siaran Keagamaan terbaik.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SLIDE 3: tambahan dari data (Most Excellent Business, KPID riconfirm, Platinum Award ulang, Inovatif) TAPI dengan satu card yang dihilangkan sesuai permintaan:
-                                                                                                     "hilangkan bagian (blok KPID JAWA TIMUR dengan emoji 📺🎙️ dan teks KPID JAWA TIMUR)"
-                                                                                                     Di dalam slide asli terdapat dua card yang hampir mirip: 
-                                                                                                     - nomor 10 (Anugerah Penyiaran KPID Jatim 2019 - KISWAH recognisi) yang berisi teks "KPID JAWA TIMUR" di placeholder.
-                                                                                                     Kita harus menghapus tepat satu card yang memiliki isi: <span class="text-xs font-bold text-tv9-brown-900">KPID JAWA TIMUR</span> dan emoji 📺🎙️.
-                                                                                                     Namun setelah cek, slide ketiga asli memiliki:
-                                                                                                     [10] card dengan background from-tv9-gold-300 to-tv9-gold-400 dan isi KPID JAWA TIMUR (teks) dan emoji televisi.
-                                                                                                     sesuai permintaan "hilangkan bagian ... KPID JAWA TIMUR" -> kita hapus card tersebut dari slide 3.
-                                                                                                     Sisa slide 3 hanya 3 card? Tapi grid tetap rapi karena flex / grid akan menyesuaikan. Namun sebaiknya tetap 4 card agar simetris?
-                                                                                                     Tapi permintaan tegas: hapus bagian itu. Maka kita buang hanya elemen 'KPID JAWA TIMUR' card tersebut, sehingga slide 3 hanya terdiri dari 3 award card.
-                                                                                                     Tapi agar tampilan tetap balance dan tidak merusak tata letak, kita bisa mempertahankan tiga card dengan gap, tetap menggunakan grid, akan muncul 3 card di baris pertama (pada lg:grid-cols-4, tiga card akan terlihat rapi dengan space kosong tapi tidak merusak).
-                                                                                                     Alternatif: kita biarkan apa adanya sesuai yang dihilangkan. Saya akan menghilangkan satu card yang dimaksud, grid tetap 4 kolom, tiga card akan rapi.
-                                                                                                -->
-                    <div class="slide">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-1">
-                            <!-- 9. Most Excellent Business Award 2019 (kategori berbeda) -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2019 ·
-                                        Yogyakarta</span>
-                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">The
-                                        Most
-                                        Trusted Company in Information Moslem Media</h3>
-                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Reaffirmation: Indonesian Most
-                                        Excellent Business Award 2019 – kredibilitas tinggi sebagai media muslim.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- (Card yang diminta dihilangkan: sebelumnya ada Anugerah Penyiaran KPID Jatim 2019 - KISWAH recognisi spesifik dengan icon 📺🎙️ dan teks "KPID JAWA TIMUR". Card berikut dihilangkan) -->
-
-                            <!-- 11. Indonesian Platinum & Best Corporate Award 2018 (The Best Islamic TV) (tetap dipertahankan) -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2018 ·
-                                        Yogyakarta</span>
-                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">Best
-                                        Islamic Television Program</h3>
-                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Indonesian Platinum & Best
-                                        Corporate Award 2018 – apresiasi berkelanjutan program berbasis Islam.</p>
-                                </div>
-                            </div>
-
-                            <!-- 12. Best Quality & Innovative Television (Bandung 2019) -->
-                            <div
-                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2019 ·
-                                        Bandung</span>
-                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
-                                        Anugerah
-                                        Perusahaan Terdepan & Inovatif</h3>
-                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Televisi terbaik dalam mutu &
-                                        program berkualitas Tahun 2019.</p>
-                                </div>
-                            </div>
-
-                            <!-- (Tambahan: menyisipkan card dummy? Tidak, karena yang diminta hanya menghilangkan satu bagian. Tapi agar tidak ada kekosongan, kita juga bisa menambahkan atau membiarkan grid terisi 3. Saya rasa lebih aman karena user meminta spesifik bagian itu dihapuskan. Namun saya akan memastikan slide tidak kosong berantakan.
-                                                                                                        Sebagai sentuhan integritas, kita tidak merusak design, namun mungkin akan muncul 3 card pada slide 3; tetap rapi karena card akan wrap.)
-                                                                                                        Tapi untuk menjaga kemiripan konten dan merespon style dengan baik, saya hanya membuang card tersebut saja. 
-                                                                                                        Kode dibawah ini hanya berisi 3 card (penomoran 9,11,12 sesuai urutan yg direvisi) -> jadi total 3 award di slide 3. 
-                                                                                                        untuk peningkatan pengalaman, mungkin dapat ditambah card lain dari penghargaan reel? Tapi tidak perlu mengingkari permintaan "hilangkan bagian" spesifik.
-                                                                                                        Namun agar tidak ada potensi kebingungan, saya juga akan mempertahankan jumlah slide tetap 3, dengan slide 1 (4 card), slide 2 (4 card), slide 3 (3 card). responsif tetap baik. -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Navigation -->
-        <div class="flex items-center justify-center gap-4 mt-8">
-            <button id="prev" onclick="move(-1)" disabled
-                class="w-9 h-9 rounded-full border border-gray-300 bg-white flex items-center justify-center text-tv9-leaf-700 hover:bg-tv9-leaf-50 disabled:opacity-30 disabled:cursor-not-allowed transition">
-                &#8592;
-            </button>
-            <div id="dots" class="flex gap-2"></div>
-            <button id="next" onclick="move(1)"
-                class="w-9 h-9 rounded-full border border-gray-300 bg-white flex items-center justify-center text-tv9-leaf-700 hover:bg-tv9-leaf-50 disabled:opacity-30 disabled:cursor-not-allowed transition">
-                &#8594;
-            </button>
-        </div>
-        </div>
-    </section>
-
-
-
-    <section class="py-16 bg-gray-50">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-800">Partner & Kolaborator</h2>
-            <p class="text-gray-500 mt-2">Mitra terpercaya kami</p>
-        </div>
-        <div class="w-full max-w-[1400px] mx-auto">
-            <div class="marquee-wrapper w-full overflow-hidden relative" id="marquee-wrapper">
-                <div class="marquee-track flex items-center" id="marquee-track" style="gap: 24px;">
-
-                    {{-- 6 Logo Asli --}}
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Badan-Wakaf-Indonesia-BWI-Logo-BWI.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/bawaslu.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/beacukai.jpg') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/bhs.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/bhs1.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/BI_Logo.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Halal-logo-MUI.jpg') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Kopi-Tubruk_Gadjah.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo-ATLAS_& BHS.jpg') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo-DPRD.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/LOGO-uinsa_PNG.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo-Unisma_Malang.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo_BAZNAS_RI-Hijau-01.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo_BKKBN_(2020).png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo_bpbd-jatim.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo_kominfo.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo_main-dark.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo_PLN.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo_Siantar_Top.svg.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo-BKKBN-Terbaru.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo-FiberCreme-01-2.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo-icon.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/LOGO-UNUSA-NEW.-Jpg.jpg') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo-web-rsi.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/savoria-new.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/sayang.jpg') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-
-                    {{-- Duplikat 6 Logo (clone set) --}}
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Badan-Wakaf-Indonesia-BWI-Logo-BWI.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/bawaslu.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/beacukai.jpg') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/bhs.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/bhs1.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/BI_Logo.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Halal-logo-MUI.jpg') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Kopi-Tubruk_Gadjah.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo-ATLAS_& BHS.jpg') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo-DPRD.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/LOGO-uinsa_PNG.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo-Unisma_Malang.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo_BAZNAS_RI-Hijau-01.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo_BKKBN_(2020).png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo_bpbd-jatim.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo_kominfo.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo_main-dark.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo_PLN.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo_Siantar_Top.svg.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo-BKKBN-Terbaru.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo-FiberCreme-01-2.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo-icon.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/LOGO-UNUSA-NEW.-Jpg.jpg') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo-web-rsi.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/savoria-new.png') }}" alt="Logo"
-                            class="w-full h-full object-contain" draggable="false">
-                    </div>
-
-
-                    <div
-                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/sayang.jpg') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ── READY TO COLLABORATE ───────────────────────────────────── -->
     <section class="py-20 px-6 media-section">
@@ -1365,123 +802,91 @@
             frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <!-- FOOTER -->
-    <!-- Footer Start -->
-    <footer class="relative bg-white text-black">
-        <div class="relative text-black px-4">
-            <div class="max-w-7xl mx-auto py-12 lg:py-16">
-                <!-- Flex container for two equal columns -->
-                <div class="flex flex-wrap -mx-4">
-                    <!-- Left Column: About text and social links (SAME WIDTH as right column) -->
-                    <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
-                        <a class="inline-block mb-4">
-                            <h1 class="text-3xl lg:text-4xl font-bold text-black">
-                                TV9 Nusantara
-                            </h1>
-                            <h1 class="text-xl lg:text-xl font-semibold text-black">
-                                PT. Dakwah
-                                Inti Media
-                            </h1>
+    <!-- ========= FOOTER ========= -->
+    <footer class="bg-tv9-dark text-white py-14 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-10">
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 rounded-full bg-tv9-gold flex items-center justify-center">
+                            <span class="text-tv9-green-dark font-black text-xs">TV9</span>
+                        </div>
+                        <span class="font-bold text-sm">TV9 Nusantara</span>
+                    </div>
+                    <p class="text-white/40 text-xs leading-relaxed">Santun Menyejukkan
+                    </p>
+                    <div class="flex gap-3 mt-4">
+                        <!-- Social Media Icons with Font Awesome -->
+                        <a target="_blank" href="https://x.com/TV9NUsantara"
+                            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
+                            <i class="fab fa-x-twitter text-xs"></i>
                         </a>
-                        <p class="text-black leading-relaxed mb-4">
-                            TV9 Nusantara merupakan stasiun televisi lokal di Kota
-                            Surabaya dan
-                            menjadi salah satu awal televisi swasta di Indonesia
-                            yang memiliki
-                            karakter
-                            pemirsa
-                            komunitas
-                            yang bernuansa Islam. TV9 dikelola oleh PT. Dakwah Inti
-                            Media,
-                            perusahaan yang
-                            dimiliki oleh
-                            KH. Moh. Hasani Mutawakkil `Alallah, S.H.,M.M., termasuk
-                            di dalamnya
-                            organisasi
-                            sosial
-                            keagamaan
-                            Nahdlatul 'Ulama (PWNU) Jawa Timur ini diluncurkan pada
-                            tanggal 31
-                            Januari 2010
-                            oleh
-                            Soekarwo
-                            sebagai bagian dari perayaan ulang tahun Nahdlatul
-                            'Ulama ke-84.
-                            Bersiaran di
-                            kanal
-                            42 UHF,
-                            TV9
-                            telah memperoleh Izin Penyelenggaraan Penyiaran prinsip
-                            tertanggal
-                            pada 7 Juli
-                            2009
-                            dan Izin
-                            Penyelenggaraan Penyiaran tetap tertanggal pada 23 Juli
-                            2012 dari
-                            Menteri
-                            Komunikasi
-                            dan
-                            Informatika Republik Indonesia untuk melakukan siaran
-                            sebagai
-                            lembaga penyiaran
-                            swasta lokal
-                            di
-                            Surabaya/Jawa Timur.
-                        </p>
-                        <div class="flex flex-wrap gap-3 mt-6">
-                            <a target="_blank" href="https://x.com/TV9NUsantara"
-                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300">
-                                <i class="fab fa-x-twitter"></i>
-                            </a>
-                            <a target="_blank" href="https://www.facebook.com/tv9nusantara"
-                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a target="_blank" href="https://www.instagram.com/tv9nusantara/"
-                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50  transition-all duration-300">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a target="_blank" href="https://www.youtube.com/@tv9nusantara"
-                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                            <a target="_blank" href="https://www.tiktok.com/@tv9nusantara"
-                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50  transition-all duration-300">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
-                        </div>
+                        <a target="_blank" href="https://www.facebook.com/tv9nusantara"
+                            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
+                            <i class="fab fa-facebook-f text-xs"></i>
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/tv9nusantara/"
+                            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
+                            <i class="fab fa-instagram text-xs"></i>
+                        </a>
+                        <a target="_blank" href="https://www.youtube.com/@tv9nusantara"
+                            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
+                            <i class="fab fa-youtube text-xs"></i>
+                        </a>
+                        <a target="_blank" href="https://www.tiktok.com/@tv9nusantara"
+                            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
+                            <i class="fab fa-tiktok text-xs"></i>
+                        </a>
                     </div>
-                    <!-- Right Column: Address (SAME WIDTH as left column) -->
-                    <div class="w-full lg:w-1/2 px-4">
-                        <h4 class="text-3xl lg:text-2xl font-semibold text-black mb-4">
-                            Alamat
-                        </h4>
-                        <div class="flex flex-col space-y-2">
-                            <p class="text-black/80 leading-relaxed">
-                                Jl. Raya Darmo No.96,<br>
-                                Darmo, Kec. Wonokromo,<br>
-                                Surabaya, Jawa Timur 60241
-                            </p>
-                            <h4 class="text-3xl lg:text-2xl font-semibold text-black mb-4 mt-4">
-                                Kontak</h4>
-                            <div class="flex items-center">
-                                <a target="_blank" href="https://www.youtube.com/@tv9nusantara"
-                                    class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300 mr-2">
-                                    <i class="fa-solid fa-phone-volume"></i>
-                                </a>
-                                <p>031-5620999</p>
-                            </div>
-                        </div>
-                    </div>
+                </div>
 
+                <div>
+                    <h5 class="font-semibold text-sm mb-4 text-tv9-gold">Navigasi</h5>
+                    <ul class="space-y-2 text-white/50 text-xs">
+                        <li><a href="{{ route('tentang') }}" class="hover:text-white transition-colors">Tentang Kami</a>
+                        </li>
+                        <li><a href="{{ route('layanan') }}" class="hover:text-white transition-colors">Layanan</a></li>
+                        <li><a href="{{ route('kontak') }}" class="hover:text-white transition-colors">Hubungi Kami</a>
+                        </li>
+                        <li><a href="{{ route('sitemap') }}" class="hover:text-white transition-colors">Sitemap</a>
+                        </li>
+                        <li><a href="" class="hover:text-white transition-colors">Pedoman Pers</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-sm mb-4 text-tv9-gold">Program</h5>
+                    <ul class="space-y-2 text-white/50 text-xs">
+                        <li><a href="{{ route('berita.index') }}" class="hover:text-white transition-colors">Jurnal
+                                9</a></li>
+                        <li><a href="{{ route('live') }}" class="hover:text-white transition-colors">Live TV</a></li>
+                        <li><a href="{{ route('jadwal') }}" class="hover:text-white transition-colors">Jadwal Acara</a>
+                        </li>
+                        <li><a href="{{ route('catalog.index') }}" class="hover:text-white transition-colors">Program
+                                Unggulan</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-semibold text-sm mb-4 text-tv9-gold">Kontak</h5>
+                    <ul class="space-y-2 text-white/50 text-xs">
+                        <li>Jl. Raya Darmo No. 96</li>
+                        <li>Surabaya, Jawa Timur</li>
+                        <li>admin@tv9.co.id</li>
+                        <li>+62 31 5677 9000</li>
+                    </ul>
                 </div>
             </div>
-        </div><!-- COPYRIGHT SECTION (converted to Tailwind) -->
-        <!-- Original: .copyright.container-fluid.bg-dark.text-white.border-top.border-secondary.px-0 -->
-        <div class="bg-white border-t border-gray-100 py-10">
-            <div class="max-w-7xl mx-auto px-4 text-center">
-                <p class="text-gray-400 text-base">
-                    &copy; {{ date('Y') }} TV9 NUSANTARA - All Rights Reserved
+
+            <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/30 text-xs">&copy; {{ date('Y') }} TV9 Nusantara. PT. Dakwah
+                    Inti Media. All rights
+                    reserved.
                 </p>
+                <div class="flex gap-4 text-white/30 text-xs">
+                    <!-- <a href="#" class="hover:text-white transition-colors">Kebijakan Privasi</a>
+                                                                                                                                                                                                                                                                            <a href="#" class="hover:text-white transition-colors">Syarat &amp; Ketentuan</a> -->
+                </div>
             </div>
         </div>
     </footer>
@@ -1490,9 +895,6 @@
     document.getElementById('currentYear').inner
     Text = new Date().getFullYear();
     </script>
-
-
-
     <script src="js/welcome.js"></script>
     <style>
     /* Sembunyikan durasi (timestamp) pada live streaming */

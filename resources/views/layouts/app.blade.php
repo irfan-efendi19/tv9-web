@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Dashboard Admin TV9 Nusantara</title>
     <!-- OG Image / Thumbnail -->
     <meta property="og:image" content="{{ asset('img/thumbnail.jpg') }}" />
     <meta itemprop="image" content="{{ asset('img/thumbnail.jpg') }}" />

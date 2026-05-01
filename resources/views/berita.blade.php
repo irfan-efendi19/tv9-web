@@ -13,7 +13,6 @@
 
     <title>Jurnal 9 | TV9 Nusantara</title>
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
-    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,11 +31,6 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #f8fafc;
-        }
-    
         .news-gradient {
             background: linear-gradient(135deg, #004d35 0%, #002819 100%);
         }
@@ -189,28 +183,107 @@
                         </div>
                     </article>
                 @empty
-            <div class="col-span-full py-20 text-center">
-                <p class="text-gray-500">Gagal mengambil data berita. Silakan coba beberapa saat lagi.</p>
+                    <div class="col-span-full py-20 text-center">
+                        <p class="text-gray-500">Gagal mengambil data berita. Silakan coba beberapa saat lagi.</p>
+                    </div>
+                @endforelse
             </div>
-            @endforelse
+            <div class="text-center max-w-3xl mx-auto mt-8 ">
+                <a href="https://jurnal9.tv/" target="_blank">
+                    <span class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
+                   transition-all duration-300 ease-in-out 
+                   hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
+                        LIHAT SEMUA BERITA
+                    </span>
+                </a>
+            </div>
         </div>
-        <div class="text-center max-w-3xl mx-auto mt-8 ">
-            <a href="https://jurnal9.tv/" target="_blank">
-                <span class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
-               transition-all duration-300 ease-in-out 
-               hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
-                    LIHAT SEMUA BERITA
-                </span>
-            </a>
-        </div>
-    </div>
-
-    <!-- Footer Section -->
-    <footer class="bg-white border-t border-gray-100 py-10">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-400 text-sm">
-                &copy; {{ date('Y') }} TV9 NUSANTARA - All Rights Reserved
-            </p>
+    
+        <!-- Footer Section -->
+        <!-- ========= FOOTER ========= -->
+        <footer class="bg-tv9-dark text-white py-14 px-6">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-4 gap-8 mb-10">
+                    <div class="md:col-span-1">
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="w-8 h-8 rounded-full bg-tv9-gold flex items-center justify-center">
+                                <span class="text-tv9-green-dark font-black text-xs">TV9</span>
+                            </div>
+                            <span class="font-bold text-sm">TV9 Nusantara</span>
+                        </div>
+                        <p class="text-white/40 text-xs leading-relaxed">Santun Menyejukkan
+                        </p>
+                        <div class="flex gap-3 mt-4">
+                            <!-- Social Media Icons with Font Awesome -->
+                            <a target="_blank" href="https://x.com/TV9NUsantara"
+                                class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
+                                <i class="fab fa-x-twitter text-xs"></i>
+                            </a>
+                            <a target="_blank" href="https://www.facebook.com/tv9nusantara"
+                                class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
+                                <i class="fab fa-facebook-f text-xs"></i>
+                            </a>
+                            <a target="_blank" href="https://www.instagram.com/tv9nusantara/"
+                                class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
+                                <i class="fab fa-instagram text-xs"></i>
+                            </a>
+                            <a target="_blank" href="https://www.youtube.com/@tv9nusantara"
+                                class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
+                                <i class="fab fa-youtube text-xs"></i>
+                            </a>
+                            <a target="_blank" href="https://www.tiktok.com/@tv9nusantara"
+                                class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
+                                <i class="fab fa-tiktok text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <h5 class="font-semibold text-sm mb-4 text-tv9-gold">Navigasi</h5>
+                        <ul class="space-y-2 text-white/50 text-xs">
+                            <li><a href="{{ route('tentang') }}" class="hover:text-white transition-colors">Tentang Kami</a>
+                            </li>
+                            <li><a href="{{ route('layanan') }}" class="hover:text-white transition-colors">Layanan</a></li>
+                            <li><a href="{{ route('kontak') }}" class="hover:text-white transition-colors">Hubungi Kami</a>
+                            </li>
+                            <li><a href="{{ route('sitemap') }}" class="hover:text-white transition-colors">Sitemap</a>
+                            </li>
+                            <li><a href="" class="hover:text-white transition-colors">Pedoman Pers</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-semibold text-sm mb-4 text-tv9-gold">Program</h5>
+                        <ul class="space-y-2 text-white/50 text-xs">
+                            <li><a href="{{ route('berita.index') }}" class="hover:text-white transition-colors">Jurnal
+                                    9</a></li>
+                            <li><a href="{{ route('live') }}" class="hover:text-white transition-colors">Live TV</a></li>
+                            <li><a href="{{ route('jadwal') }}" class="hover:text-white transition-colors">Jadwal Acara</a>
+                            </li>
+                            <li><a href="{{ route('catalog.index') }}" class="hover:text-white transition-colors">Program
+                                    Unggulan</a></li>
+                        </ul>
+                    </div>
+    
+                    <div>
+                        <h5 class="font-semibold text-sm mb-4 text-tv9-gold">Kontak</h5>
+                        <ul class="space-y-2 text-white/50 text-xs">
+                            <li>Jl. Raya Darmo No. 96</li>
+                            <li>Surabaya, Jawa Timur</li>
+                            <li>admin@tv9.co.id</li>
+                            <li>+62 31 5677 9000</li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-white/30 text-xs">&copy; {{ date('Y') }} TV9 Nusantara. PT. Dakwah Inti Media. All rights
+                        reserved.
+                    </p>
+                    <div class="flex gap-4 text-white/30 text-xs">
+                        <!-- <a href="#" class="hover:text-white transition-colors">Kebijakan Privasi</a>
+                                                                                                                                                                                                                                                                                <a href="#" class="hover:text-white transition-colors">Syarat &amp; Ketentuan</a> -->
+                    </div>
+                </div>
         </div>
     </footer>
 </body>

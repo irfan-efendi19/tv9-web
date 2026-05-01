@@ -13,7 +13,7 @@ use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\ProgramImportController;
 
 // Sitemap
-Route::get('/sitemap.xml', [SitemapController::class, 'index']);
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 
 
