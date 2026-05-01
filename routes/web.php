@@ -3,6 +3,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Program;
+use App\Models\Catalog;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\NewsController;
@@ -27,7 +28,9 @@ Route::get('/', function () {
                    ->orderBy('start_time')
                    ->get();
                    
-    return view('welcome', compact('schedules'));
+    $catalogs = Catalog::all();
+                   
+    return view('welcome', compact('schedules', 'catalogs'));
 })->name('beranda');
 
 // Halaman Live

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="id">
+                            <!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <!-- Required meta tags -->
@@ -535,114 +535,87 @@
     </div>
     <!-- FOOTER -->
     <!-- Footer Start -->
-    <footer class="relative bg-white text-black">
-        <div class="relative text-black px-4">
-            <div class="max-w-7xl mx-auto py-12 lg:py-16">
-                <!-- Flex container for two equal columns -->
-                <div class="flex flex-wrap -mx-4">
-                    <!-- Left Column: About text and social links (SAME WIDTH as right column) -->
-                    <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
-                        <a class="inline-block mb-4">
-                            <h1 class="text-3xl lg:text-4xl font-bold text-black">TV9 Nusantara
-                            </h1>
-                            <h1 class="text-xl lg:text-xl font-semibold text-black">PT. Dakwah
-                                Inti Media
-                            </h1>
+    <footer class="bg-tv9-dark text-white py-14 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-10">
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 rounded-full bg-tv9-gold-600-600-600-600-600 flex items-center justify-center">
+                            <span class="text-tv9-dark font-black text-xs">TV9</span>
+                        </div>
+                        <span class="font-bold text-sm">TV9 Nusantara</span>
+                    </div>
+                    <p class="text-white/40 text-xs leading-relaxed">Santun Menyejukkan
+                    </p>
+                    <div class="flex gap-3 mt-4">
+                        <!-- Social Media Icons with Font Awesome -->
+                        <a target="_blank" href="https://x.com/TV9NUsantara"
+                            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold-600-600-600-600-600/30 hover:text-white transition-all duration-300">
+                            <i class="fab fa-x-twitter text-xs"></i>
                         </a>
-                        <p class="text-black leading-relaxed mb-4">
-                            TV9 Nusantara merupakan stasiun televisi lokal di Kota Surabaya dan
-                            menjadi salah satu awal televisi swasta di Indonesia yang memiliki
-                            karakter
-                            pemirsa
-                            komunitas
-                            yang bernuansa Islam. TV9 dikelola oleh PT. Dakwah Inti Media,
-                            perusahaan yang
-                            dimiliki oleh
-                            KH. Moh. Hasani Mutawakkil `Alallah, S.H.,M.M., termasuk di dalamnya
-                            organisasi
-                            sosial
-                            keagamaan
-                            Nahdlatul 'Ulama (PWNU) Jawa Timur ini diluncurkan pada tanggal 31
-                            Januari 2010
-                            oleh
-                            Soekarwo
-                            sebagai bagian dari perayaan ulang tahun Nahdlatul 'Ulama ke-84.
-                            Bersiaran di
-                            kanal
-                            42 UHF,
-                            TV9
-                            telah memperoleh Izin Penyelenggaraan Penyiaran prinsip tertanggal
-                            pada 7 Juli
-                            2009
-                            dan Izin
-                            Penyelenggaraan Penyiaran tetap tertanggal pada 23 Juli 2012 dari
-                            Menteri
-                            Komunikasi
-                            dan
-                            Informatika Republik Indonesia untuk melakukan siaran sebagai
-                            lembaga penyiaran
-                            swasta lokal
-                            di
-                            Surabaya/Jawa Timur.
-                        </p>
-                        <div class="flex flex-wrap gap-3 mt-6">
-                            <a target="_blank" href="https://x.com/TV9NUsantara"
-                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300">
-                                <i class="fab fa-x-twitter"></i>
-                            </a>
-                            <a target="_blank" href="https://www.facebook.com/tv9nusantara"
-                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a target="_blank" href="https://www.instagram.com/tv9nusantara/"
-                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50  transition-all duration-300">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a target="_blank" href="https://www.youtube.com/@tv9nusantara"
-                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                            <a target="_blank" href="https://www.tiktok.com/@tv9nusantara"
-                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50  transition-all duration-300">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
-                        </div>
+                        <a target="_blank" href="https://www.facebook.com/tv9nusantara"
+                            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold-600-600-600-600-600/30 hover:text-white transition-all duration-300">
+                            <i class="fab fa-facebook-f text-xs"></i>
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/tv9nusantara/"
+                            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold-600-600-600-600-600/30 hover:text-white transition-all duration-300">
+                            <i class="fab fa-instagram text-xs"></i>
+                        </a>
+                        <a target="_blank" href="https://www.youtube.com/@tv9nusantara"
+                            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold-600-600-600-600-600/30 hover:text-white transition-all duration-300">
+                            <i class="fab fa-youtube text-xs"></i>
+                        </a>
+                        <a target="_blank" href="https://www.tiktok.com/@tv9nusantara"
+                            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold-600-600-600-600-600/30 hover:text-white transition-all duration-300">
+                            <i class="fab fa-tiktok text-xs"></i>
+                        </a>
                     </div>
-                    <!-- Right Column: Address (SAME WIDTH as left column) -->
-                    <div class="w-full lg:w-1/2 px-4">
-                        <h4 class="text-3xl lg:text-2xl font-semibold text-black mb-4">Alamat
-                        </h4>
-                        <div class="flex flex-col space-y-2">
-                            <p class="text-black/80 leading-relaxed">
-                                Jl. Raya Darmo No.96,<br>
-                                Darmo, Kec. Wonokromo,<br>
-                                Surabaya, Jawa Timur 60241
-                            </p>
-                            <h4 class="text-3xl lg:text-2xl font-semibold text-black mb-4 mt-4">
-                                Kontak</h4>
-                            <div class="flex items-center">
-                                <a target="_blank" href="https://www.youtube.com/@tv9nusantara"
-                                    class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300 mr-2">
-                                    <i class="fa-solid fa-phone-volume"></i>
-                                </a>
-                                <p>Kokokowd</p>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
-        </div>
+<div>
+    <h5 class="font-semibold text-sm mb-4 text-tv9-gold-600-600-600-600-600">Navigasi</h5>
+    <ul class="space-y-2 text-white/50 text-xs">
+        <li><a href="{{ route('tentang') }}" class="hover:text-white transition-colors">Tentang Kami</a>
+        </li>
+        <li><a href="{{ route('layanan') }}" class="hover:text-white transition-colors">Layanan</a></li>
+        <li><a href="{{ route('kontak') }}" class="hover:text-white transition-colors">Hubungi Kami</a>
+        </li>
+        <li><a href="{{ route('sitemap') }}" class="hover:text-white transition-colors">Sitemap</a>
+        </li>
+        <li><a href="" class="hover:text-white transition-colors">Pedoman Pers</a></li>
+    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold text-sm mb-4 text-tv9-gold-600-600-600-600-600">Program</h5>
+                    <ul class="space-y-2 text-white/50 text-xs">
+                        <li><a href="{{ route('berita.index') }}" class="hover:text-white transition-colors">Jurnal
+                                9</a></li>
+                        <li><a href="{{ route('live') }}" class="hover:text-white transition-colors">Live TV</a></li>
+                        <li><a href="{{ route('jadwal') }}" class="hover:text-white transition-colors">Jadwal Acara</a>
+                        </li>
+                        <li><a href="{{ route('catalog.index') }}" class="hover:text-white transition-colors">Program
+                                Unggulan</a></li>
+                    </ul>
+                </div>
 
+                <div>
+                    <h5 class="font-semibold text-sm mb-4 text-tv9-gold-600-600-600-600-600">Kontak</h5>
+                    <ul class="space-y-2 text-white/50 text-xs">
+                        <li>Jl. Raya Darmo No. 96</li>
+                        <li>Surabaya, Jawa Timur</li>
+                        <li>admin@tv9.co.id</li>
+                        <li>+62 31 5677 9000</li>
+                    </ul>
+                </div>
+                </div>
 
-
-        <!-- COPYRIGHT SECTION (converted to Tailwind) -->
-        <!-- Original: .copyright.container-fluid.bg-dark.text-white.border-top.border-secondary.px-0 -->
-        <div class="bg-white border-t border-gray-100 py-10">
-            <div class="max-w-7xl mx-auto px-4 text-center">
-                <p class="text-gray-400 text-base">
-                    &copy; {{ date('Y') }} TV9 NUSANTARA - All Rights Reserved
+            <div class="border-t border-tv9-gold-600/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/30 text-xs">&copy; {{ date('Y') }} TV9 Nusantara. PT. Dakwah Inti Media. All rights
+                    reserved.
                 </p>
+                <div class="flex gap-4 text-white/30 text-xs">
+                    <!-- <a href="#" class="hover:text-white transition-colors">Kebijakan Privasi</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="#" class="hover:text-white transition-colors">Syarat &amp; Ketentuan</a> -->
+                </div>
             </div>
         </div>
     </footer>

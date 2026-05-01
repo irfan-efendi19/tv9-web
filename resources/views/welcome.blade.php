@@ -70,7 +70,8 @@
                         <img src="{{ asset('img/logotv9.png') }}" alt="Logo TV9 Nusantara"
                             class="h-9 w-auto object-contain">
                     </div>
-                    <span class="text-white font-bold text-xl tracking-tight hidden sm:block">Nusantara</span>
+                    <span class="text-white font-bold text-xl tracking-tight hidden sm:block">TV9
+                        Nusantara</span>
                 </a>
             </div>
 
@@ -375,8 +376,8 @@
                         <a href="{{ route('jadwal') }}">
                             <span
                                 class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
-                                                                                                                                                                                                                               transition-all duration-300 ease-in-out 
-                                                                                                                                                                                                                               hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
+                                                                                                                                                                                                                                                                   transition-all duration-300 ease-in-out 
+                                                                                                                                                                                                                                                                   hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
                                 LIHAT SEMUA JADWAL
                             </span>
                         </a>
@@ -393,7 +394,74 @@
                         @endfor
                     </div>
                 @endif
+            </div>
         </div>
+    </section>
+
+    <!-- SECTION KATALOG PROGRAM -->
+    <section class="bg-white py-16 px-8">
+        <div class="max-w-5xl mx-auto" data-aos="fade-up">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-10">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 tracking-tight">
+                        Katalog Program
+                    </h2>
+                    <div class="w-12 h-[3px] bg-yellow-600 rounded mt-2"></div>
+                </div>
+                <a href="{{ route('catalog.index') }}"
+                    class="text-yellow-600 font-semibold hover:text-yellow-700 transition-colors">
+                    Lihat Semua <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+
+            <!-- Program Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                @forelse($catalogs->take(4) as $catalog)
+                    <div
+                        class="group relative bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+                        <!-- Image Wrapper -->
+                        <div class="aspect-[3/4] overflow-hidden relative">
+                            @if($catalog->image_url)
+                                <img src="{{ asset($catalog->image_url) }}" alt="{{ $catalog->title }}"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            @else
+                                <div class="w-full h-full bg-tv9-green-900 flex items-center justify-center p-6 text-center">
+                                    <span
+                                        class="text-white/30 text-sm font-semibold uppercase tracking-widest">{{ $catalog->title }}</span>
+                                </div>
+                            @endif
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+
+                            <!-- Category Badge -->
+                            @if($catalog->category)
+                                <span
+                                    class="absolute top-4 left-4 px-3 py-1 bg-yellow-500 text-white text-[10px] font-bold uppercase rounded-full shadow-lg">
+                                    {{ $catalog->category }}
+                                </span>
+                            @endif
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-5">
+                            <h3
+                                class="text-lg font-bold text-gray-900 mb-2 line-clamp-1 group-hover:text-yellow-600 transition-colors">
+                                {{ $catalog->title }}
+                            </h3>
+                            <p class="text-sm text-gray-500 line-clamp-2 leading-relaxed">
+                                {{ $catalog->description ?? 'Tidak ada deskripsi.' }}
+                            </p>
+                        </div>
+                    </div>
+                @empty
+                    <div
+                        class="col-span-full py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                        <p class="text-gray-500 font-medium">Belum ada katalog program tersedia.</p>
+                    </div>
+                @endforelse
+            </div>
         </div>
     </section>
 
@@ -678,6 +746,7 @@
             </div>
         </div>
     </section>
+    <div class="elfsight-app-5d453261-cc99-4c4f-b921-1ce334b79599" data-elfsight-app-lazy></div>
 
     <!-- Suara Komunitas Section -->
     <!-- <section class="w-full media-section py-16 px-8">
@@ -778,7 +847,7 @@
 
 
     <!-- ── READY TO COLLABORATE ───────────────────────────────────── -->
-    <section class="py-20 px-6 media-section">
+    <!-- <section class="py-20 px-6 media-section">
         <div class="max-w-2xl mx-auto text-center">
             <h2 class="font-display text-3xl lg:text-4xl font-bold text-white mb-4">
                 Siap Berkolaborasi? Let's Connect!
@@ -795,7 +864,7 @@
                 Kontak Kami
             </a>
         </div>
-    </section>
+    </section> -->
     <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
         <iframe style="border: 0; width: 100%; height: 400px"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.5730295770977!2d112.736189175!3d-7.289322192718097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb957c5b56f7%3A0x1ee6fa80f21a83d3!2sTV9%20Nusantara!5e0!3m2!1sid!2sid!4v1776587954324!5m2!1sid!2sid"
@@ -892,28 +961,29 @@
     </footer>
     <!-- Simple script to inject current year dynamically (like {{ date('Y') }} in PHP) -->
     <script>
-    document.getElementById('currentYear').inner
-    Text = new Date().getFullYear();
-    </script>
-    <script src="js/welcome.js"></script>
-    <style>
-    /* Sembunyikan durasi (timestamp) pada live streaming */
-    video::-webkit-media-controls-current-time-display,
-    video::-webkit-media-controls-time-remaining-display,
-    video::-webkit-media-controls-timeline {
-        display: none !important;
-    }
+                      document.getElementById('currentYear').inner
+                        Text = new Date().getFullYear();
+                        </script>
+                        <script src="https://elfsightcdn.com/platform.js" async></script>
+                        <script src="js/welcome.js"></script>
+                        <style>
+                        /* Sembunyikan durasi (timestamp) pada live streaming */
+                        video::-webkit-media-controls-current-time-display,
+                        video::-webkit-media-controls-time-remaining-display,
+                        video::-webkit-media-controls-timeline {
+                            display: none !important;
+                        }
 
-    /* Untuk browser lain (Firefox) */
-    video::-moz-range-progress {
-        display: none;
-    }
+                        /* Untuk browser lain (Firefox) */
+                        video::-moz-range-progress {
+                            display: none;
+                        }
 
-    /* Alternatif: jika ingin menyembunyikan seluruh kontrol durasi dan progress bar */
-    /* video::-webkit-media-controls-timeline {
+                        /* Alternatif: jika ingin menyembunyikan seluruh kontrol durasi dan progress bar */
+                        /* video::-webkit-media-controls-timeline {
         display: none;
     } */
-    </style>
-</body>
+                        </style>
+                    </body>
 
-</html>
+                    </html>

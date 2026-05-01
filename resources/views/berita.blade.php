@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     
     <link rel="canonical" href="{{ config('app.url') . '/berita' }}">
@@ -191,8 +191,8 @@
             <div class="text-center max-w-3xl mx-auto mt-8 ">
                 <a href="https://jurnal9.tv/" target="_blank">
                     <span class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
-                   transition-all duration-300 ease-in-out 
-                   hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
+                       transition-all duration-300 ease-in-out 
+                       hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
                         LIHAT SEMUA BERITA
                     </span>
                 </a>
@@ -281,7 +281,7 @@
                     </p>
                     <div class="flex gap-4 text-white/30 text-xs">
                         <!-- <a href="#" class="hover:text-white transition-colors">Kebijakan Privasi</a>
-                                                                                                                                                                                                                                                                                <a href="#" class="hover:text-white transition-colors">Syarat &amp; Ketentuan</a> -->
+                                                                                                                                                                                                                                                                                    <a href="#" class="hover:text-white transition-colors">Syarat &amp; Ketentuan</a> -->
                     </div>
                 </div>
         </div>
