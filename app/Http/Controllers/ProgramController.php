@@ -79,6 +79,26 @@ class ProgramController extends Controller
         return redirect()->route('dashboard')->with('success', 'Jadwal berhasil dihapus.');
     }
 
+    public function destroyAll()
+    {
+        $this->authorizeAdmin();
+        Program::truncate();
+        return redirect()->route('dashboard')->with('success', 'Semua jadwal berhasil dihapus.');
+    }
+
+    public function destroyByDay($day)
+    {
+        $this->authorizeAdmin();
+        Program::where('day_of_week', $day)->delete();
+        
+        $dayNames = [
+            1 => 'Senin', 2 => 'Selasa', 3 => 'Rabu', 4 => 'Kamis', 5 => 'Jumat', 6 => 'Sabtu', 7 => 'Minggu'
+        ];
+        $dayName = $dayNames[$day] ?? 'Hari tersebut';
+
+        return redirect()->route('dashboard')->with('success', "Semua jadwal hari $dayName berhasil dihapus.");
+    }
+
     private function authorizeAdmin()
     {
         if (!auth()->check() || auth()->user()->role !== 'admin') {

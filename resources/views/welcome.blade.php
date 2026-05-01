@@ -20,6 +20,7 @@
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
     <!-- Scripts & Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -78,8 +79,7 @@
 
                 <!-- LIVE Button — selalu tampil di navbar (desktop & mobile) -->
                 <a href="{{ route('live') }}"
-                    class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-bold text-white transition-all duration-200 hover:scale-105"
-                    style="background: linear-gradient(135deg, #dc2626, #b91c1c); box-shadow: 0 0 12px rgba(220,38,38,0.5);">
+                    class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-bold text-white transition-all duration-200 hover:scale-105 bg-gradient-to-br from-red-600 to-red-700 shadow-[0_0_12px_rgba(220,38,38,0.5)]">
                     <!-- Pulsing dot -->
                     <span class="relative flex h-2 w-2">
                         <span
@@ -133,7 +133,6 @@
                             class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Berita</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </nav>
@@ -297,104 +296,104 @@
                 <div id="scheduleSlider" class="relative">
                     <!-- Slides -->
                     @php
-$scheduleList = $schedules ?? [];
-$chunkedSchedules = collect($scheduleList)->chunk(3);
+                        $scheduleList = $schedules ?? [];
+                        $chunkedSchedules = collect($scheduleList)->chunk(3);
                     @endphp
 
                     @forelse($chunkedSchedules as $slideIndex => $scheduleChunk)
-                    <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
-                        data-slide="{{ $slideIndex }}">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                            @foreach($scheduleChunk as $program)
-                            @php
-        $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-        $isLive = $program->start_time <= $currentTime && $program->end_time >=
-            $currentTime;
-        $isDone = $program->end_time < $currentTime; @endphp <div
-                                    class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-[#006747] shadow-lg shadow-[#006747]/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
-                                    {{-- Badge SEDANG TAYANG di atas card --}}
-                                    @if($isLive)
-                                    <div class="absolute -top-px left-1/2 -translate-x-1/2">
-                                        <span
-                                            class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
-                                            <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                            Sedang Tayang
-                                        </span>
-                                    </div>
-                                    @endif
-
-                                    {{-- Jam --}}
-                                    <p
-                                        class="text-base font-semibold {{ $isLive ? 'text-[#006747]' : 'text-gray-400' }} mt-3">
-                                        {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
-                                        –
-                                        {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
-                                    </p>
-
-                                    {{-- Judul & Deskripsi --}}
-                                    <div class="flex-1">
-                                        <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
-                                            {{ $program->title }}
-                                        </h3>
-                                        <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
-                                            {{ $program->description ?? 'Deskripsi belum tersedia.' }}
-                                        </p>
-                                    </div>
-
-                                    {{-- Status Badge --}}
-                                    <div>
+                        <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
+                            data-slide="{{ $slideIndex }}">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                @foreach($scheduleChunk as $program)
+                                    @php
+                                        $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+                                        $isLive = $program->start_time <= $currentTime && $program->end_time >=
+                                            $currentTime;
+                                    $isDone = $program->end_time < $currentTime; @endphp <div
+                                        class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-tv9-primary shadow-lg shadow-tv9-primary/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
+                                        {{-- Badge SEDANG TAYANG di atas card --}}
                                         @if($isLive)
-                                        <span
-                                            class="inline-flex items-center gap-1.5 bg-[#006747] text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
-                                            <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                            Live
-                                        </span>
-                                        @elseif($isDone)
-                                        <span
-                                            class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                            Selesai
-                                        </span>
-                                        @else
-                                        <span
-                                            class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                            Akan Datang
-                                        </span>
+                                            <div class="absolute -top-px left-1/2 -translate-x-1/2">
+                                                <span
+                                                    class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
+                                                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                                    Sedang Tayang
+                                                </span>
+                                            </div>
                                         @endif
-                                    </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-                @empty
-                <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
-                    <p class="text-gray-500 font-medium">Belum ada jadwal tayang
-                        untuk hari ini.</p>
-                </div>
-                @endforelse
 
-                <div class="text-center max-w-3xl mx-auto mt-8 ">
-                    <a href="{{ route('jadwal') }}">
-                        <span
-                            class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
+                                        {{-- Jam --}}
+                                        <p
+                                            class="text-base font-semibold {{ $isLive ? 'text-tv9-primary' : 'text-gray-400' }} mt-3">
+                                            {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
+                                            –
+                                            {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
+                                        </p>
+
+                                        {{-- Judul & Deskripsi --}}
+                                        <div class="flex-1">
+                                            <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
+                                                {{ $program->title }}
+                                            </h3>
+                                            <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
+                                                {{ $program->description ?? 'Deskripsi belum tersedia.' }}
+                                            </p>
+                                        </div>
+
+                                        {{-- Status Badge --}}
+                                        <div>
+                                            @if($isLive)
+                                                <span
+                                                    class="inline-flex items-center gap-1.5 bg-tv9-primary text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
+                                                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                                    Live
+                                                </span>
+                                            @elseif($isDone)
+                                                <span
+                                                    class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                                    Selesai
+                                                </span>
+                                            @else
+                                                <span
+                                                    class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                                    Akan Datang
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @empty
+                        <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                            <p class="text-gray-500 font-medium">Belum ada jadwal tayang
+                                untuk hari ini.</p>
+                        </div>
+                    @endforelse
+
+                    <div class="text-center max-w-3xl mx-auto mt-8 ">
+                        <a href="{{ route('jadwal') }}">
+                            <span
+                                class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
                                                                                                                                                                                                                                transition-all duration-300 ease-in-out 
                                                                                                                                                                                                                                hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
-                            LIHAT SEMUA JADWAL
-                        </span>
-                    </a>
+                                LIHAT SEMUA JADWAL
+                            </span>
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Dots/Indicators Only -->
-            @if($chunkedSchedules->count() > 1)
-            <div class="flex gap-2 md:gap-3 justify-center mt-6">
-                @for($i = 0; $i < $chunkedSchedules->count(); $i++)
-                    <button
-                        class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
-                        data-dot="{{ $i }}"></button>
-                    @endfor
+                <!-- Dots/Indicators Only -->
+                @if($chunkedSchedules->count() > 1)
+                    <div class="flex gap-2 md:gap-3 justify-center mt-6">
+                        @for($i = 0; $i < $chunkedSchedules->count(); $i++)
+                            <button
+                                class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
+                                data-dot="{{ $i }}"></button>
+                        @endfor
+                    </div>
+                @endif
             </div>
-            @endif
-        </div>
         </div>
     </section>
 
@@ -413,31 +412,31 @@ $chunkedSchedules = collect($scheduleList)->chunk(3);
                 <div class="card bg-gray-100 rounded-2xl p-6 border border-gray-200">
                     <!-- Icon -->
                     <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5">
-                        <i class="fa-solid fa-satellite-dish text-brand-green text-xl"></i>
+                        <i class="fa-solid fa-satellite-dish text-tv9-green-900 text-xl"></i>
                     </div>
-                    <h3 class="text-brand-green font-semibold text-base mb-4">
+                    <h3 class="text-tv9-green-900 font-semibold text-base mb-4">
                         Satelit Telkom 4
                     </h3>
                     <table class="w-full text-base">
                         <tbody>
                             <tr>
                                 <td class="text-gray-500 py-1.5">Frekuensi</td>
-                                <td class="text-right font-semibold text-brand-green py-1.5">
+                                <td class="text-right font-semibold text-tv9-green-900 py-1.5">
                                     3900 MHz</td>
                             </tr>
                             <tr>
                                 <td class="text-gray-500 py-1.5">Symbol Rate</td>
-                                <td class="text-right font-semibold text-brand-green py-1.5">
+                                <td class="text-right font-semibold text-tv9-green-900 py-1.5">
                                     29900 Msps</td>
                             </tr>
                             <tr>
                                 <td class="text-gray-500 py-1.5">Polarisasi</td>
-                                <td class="text-right font-semibold text-brand-green py-1.5">
+                                <td class="text-right font-semibold text-tv9-green-900 py-1.5">
                                     Horizontal</td>
                             </tr>
                             <tr>
                                 <td class="text-gray-500 py-1.5">Modulasi</td>
-                                <td class="text-right font-semibold text-brand-green py-1.5">
+                                <td class="text-right font-semibold text-tv9-green-900 py-1.5">
                                     DVB-S2 / 8PSK</td>
                             </tr>
                         </tbody>
@@ -447,9 +446,9 @@ $chunkedSchedules = collect($scheduleList)->chunk(3);
                 <div class="card bg-gray-100 rounded-2xl p-6 border border-gray-200">
                     <!-- Icon -->
                     <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5">
-                        <i class="fa-solid fa-tv text-brand-green text-xl"></i>
+                        <i class="fa-solid fa-tv text-tv9-green-900 text-xl"></i>
                     </div>
-                    <h3 class="text-brand-green font-semibold text-base mb-3">TV
+                    <h3 class="text-tv9-green-900 font-semibold text-base mb-3">TV
                         Kabel</h3>
                     <p class="text-base text-gray-500 mb-5 leading-relaxed">
                         Temukan kami di daftar channel favorit pada provider TV
@@ -458,19 +457,19 @@ $chunkedSchedules = collect($scheduleList)->chunk(3);
                     </p>
                     <ul class="space-y-2.5">
                         <li class="flex items-center gap-2.5 text-base text-gray-600">
-                            <i class="fa-solid fa-circle-check text-brand-green text-base flex-shrink-0"></i>
+                            <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
                             IndiHome Channel 809
                         </li>
                         <li class="flex items-center gap-2.5 text-base text-gray-600">
-                            <i class="fa-solid fa-circle-check text-brand-green text-base flex-shrink-0"></i>
+                            <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
                             First Media Channel 314
                         </li>
                         <li class="flex items-center gap-2.5 text-base text-gray-600">
-                            <i class="fa-solid fa-circle-check text-brand-green text-base flex-shrink-0"></i>
+                            <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
                             MNC Vision Channel 102
                         </li>
                         <li class="flex items-center gap-2.5 text-base text-gray-600">
-                            <i class="fa-solid fa-circle-check text-brand-green text-base flex-shrink-0"></i>
+                            <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
                             TransVision Channel 55
                         </li>
                     </ul>
@@ -479,15 +478,15 @@ $chunkedSchedules = collect($scheduleList)->chunk(3);
                 <div class="card bg-gray-100 rounded-2xl p-6 border border-gray-200">
                     <!-- Icon -->
                     <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5">
-                        <i class="fa-solid fa-mobile-screen text-brand-green text-xl"></i>
+                        <i class="fa-solid fa-mobile-screen text-tv9-green-900 text-xl"></i>
                     </div>
-                    <h3 class="text-brand-green font-semibold text-base mb-1">
+                    <h3 class="text-tv9-green-900 font-semibold text-base mb-1">
                         Digital &amp; Apps
                     </h3>
                     <p class="text-base text-gray-500 mb-1">Akses siaran langsung 24
                         jam</p>
                     <a href="https://www.tv9.co.id/live" target="_blank"
-                        class="inline-flex items-center gap-1.5 text-base text-brand-green font-semibold mb-5 hover:underline">
+                        class="inline-flex items-center gap-1.5 text-base text-tv9-green-900 font-semibold mb-5 hover:underline">
                         www.tv9.co.id/live
                         <i class="fa-solid fa-arrow-up-right-from-square text-base"></i>
                     </a>
@@ -775,523 +774,234 @@ $chunkedSchedules = collect($scheduleList)->chunk(3);
                                                         </div>
                                                         </section> -->
     <!-- Section: Legalitas & Izin Penyiaran -->
-    <section class="py-20 px-6 bg-grey">
-        <div class="max-w-5xl mx-auto">
-            <div class="bg-brand-green-light rounded-2xl px-10 py-12 font-sans">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-
-                    <!-- Kolom Kiri -->
-                    <div>
-                        <h2 class="text-4xl font-bold text-brand-green-dark leading-tight mb-4">
-                            Legalitas &<br />Izin Penyiaran
-                        </h2>
-                        <p class="text-base text-[#4a5a4a] leading-relaxed mb-6">
-                            Sebagai lembaga penyiaran swasta yang bertanggung jawab,
-                            TV9
-                            Nusantara
-                            berkomitmen pada standar regulasi nasional. Kami
-                            beroperasi di bawah
-                            payung hukum yang sah dan pengawasan ketat dari otoritas
-                            komunikasi
-                            Indonesia.
-                        </p>
-
-                        <!-- IPP -->
-                        <div
-                            class="bg-brand-green-light rounded-xl border border-brand-border px-4 py-3 flex items-start gap-3 mb-3">
-                            <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path d="M8 1L10 5.5H15L11 8.5L12.5 13L8 10.5L3.5 13L5 8.5L1 5.5H6L8 1Z"
-                                        fill="#1a5c2e" />
-                                </svg>
-                            </div>
-                            <div>
-                                <p
-                                    class="text-[10.5px] font-semibold text-brand-green uppercase tracking-widest mb-0.5">
-                                    No. IPP (Izin Penyelenggaraan Penyiaran)
-                                </p>
-                                <p class="text-base font-medium text-brand-green-dark">
-                                    No. 1164/T.02.02/2022
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Akreditasi -->
-                        <div class="bg-white rounded-xl border border-brand-border px-4 py-3 flex items-start gap-3">
-                            <div
-                                class="w-8 h-8 rounded-lg bg-brand-green-light flex items-center justify-center shrink-0 gap-1">
-                                <img width="16" height="16" src="/img/kpi.png" alt="Logo KPI" class="object-contain">
-                            </div>
-                            <div>
-                                <p
-                                    class="text-[10.5px] font-semibold text-brand-green uppercase tracking-widest mb-0.5">
-                                    Akreditasi Konten & Siaran
-                                </p>
-                                <p class="text-base font-medium text-brand-green-dark">
-                                    Komisi Penyiaran Indonesia (KPI)
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Kolom Kanan -->
-                    <div class="flex flex-col gap-3">
-
-                        <!-- Kartu Otoritas -->
-                        <div class="grid grid-cols-2 gap-3">
-
-                            <!-- Kementerian Kominfo -->
-                            <div
-                                class="bg-white rounded-xl border border-brand-border border-t-4 border-t-brand-green px-4 py-5 flex flex-col items-center gap-2 text-center">
-                                <div class="w-14 h-14 flex items-center justify-center">
-                                    <img width="52" height="52" src="/img/kominfo.png" alt="Logo Kominfo"
-                                        class="object-contain">
-                                    </img>
-                                </div>
-                                <p
-                                    class="text-[10.5px] font-bold text-brand-green-dark uppercase tracking-widest leading-tight">
-                                    Kementerian<br />Kominfo
-                                </p>
-                                <p class="text-[10px] text-[#6a7a6a] uppercase tracking-widest">
-                                    Otoritas Perizinan
-                                </p>
-                            </div>
-
-                            <!-- KPI -->
-                            <div
-                                class="bg-white rounded-xl border border-brand-border border-t-4 border-t-brand-gold px-4 py-5 flex flex-col items-center gap-2 text-center">
-                                <div class="w-14 h-14 flex items-center justify-center">
-                                    <div class="w-14 h-14 rounded-lg flex items-center justify-center">
-                                        <img width="52" height="52" src="/img/kpi.png" alt="Logo KPI"
-                                            class="object-contain">
-                                        </img>
-                                    </div>
-                                </div>
-                                <p
-                                    class="text-[10.5px] font-bold text-brand-gold uppercase tracking-widest leading-tight">
-                                    Komisi Penyiaran<br />Indonesia
-                                </p>
-                                <p class="text-[10px] text-[#6a7a6a] uppercase tracking-widest">
-                                    Pengawasan Konten
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Standar Penyiaran Digital -->
-                        <div class="media-section rounded-xl px-6 py-5 flex items-center justify-between gap-4">
-                            <div>
-                                <h3 class="text-lg font-semibold text-white mb-1">
-                                    Standar Penyiaran Digital
-                                </h3>
-                                <p class="text-base text-brand-green-muted text-white">
-                                    Sertifikasi Kualitas Layanan
-                                </p>
-                            </div>
-                            <div class="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center shrink-0">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M12 2L14 8H20L15.5 11.5L17.5 17.5L12 14.5L6.5 17.5L8.5 11.5L4 8H10L12 2Z"
-                                        fill="white" opacity="0.9" />
-                                    <path d="M9 12L11 14L15 10" stroke="#1a5c2e" stroke-width="1.5"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>
 
     <section class="py-20 px-6 media-section">
         <div class="max-w-5xl mx-auto">
 
             <!-- Header -->
             <div class="text-center mb-14">
-                <p class="text-base font-semibold tracking-[0.25em] text-[#7a6a50] uppercase mb-3">
+                <p class="text-base font-semibold tracking-[0.25em] text-tv9-brown-500 uppercase mb-3">
                     Dedikasi & Kualitas</p>
                 <h2 class="text-4xl md:text-5xl font-bold text-white">Penghargaan &
                     Apresiasi</h2>
-                <div class="mt-5 mx-auto w-12 h-[3px] bg-[#6f9e5c] rounded-full">
+                <div class="mt-5 mx-auto w-12 h-[3px] bg-tv9-leaf-500 rounded-full">
                 </div>
-                </div>
-                
-                <!-- Slideshow Wrapper -->
-                <div class="relative overflow-hidden rounded-2xl shadow-2xl bg-white/5 backdrop-blur-sm">
-                    <div class="slides-track" id="track">
-                        <!-- SLIDE 1 (original 4 awards) -->
-                        <div class="slide">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-1">
-                                <!-- 1. The Best Islamic Based Television Program - Platinum Award 2018 -->
-                                <div
-                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
-                                    <div class="p-5">
-                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2018 ·
-                                            Yogyakarta</span>
-                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">The Best
-                                            Islamic Based Television Program</h3>
-                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Indonesian Platinum & Best
-                                            Corporate Award 2018 – Penghargaan tertinggi program berbasis Islam terbaik.</p>
-                                    </div>
+            </div>
+
+            <!-- Slideshow Wrapper -->
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl bg-white/5 backdrop-blur-sm">
+                <div class="slides-track" id="track">
+                    <!-- SLIDE 1 (original 4 awards) -->
+                    <div class="slide">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-1">
+                            <!-- 1. The Best Islamic Based Television Program - Platinum Award 2018 -->
+                            <div
+                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                <div class="p-5">
+                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2018 ·
+                                        Yogyakarta</span>
+                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">The
+                                        Best
+                                        Islamic Based Television Program</h3>
+                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Indonesian Platinum & Best
+                                        Corporate Award 2018 – Penghargaan tertinggi program berbasis Islam terbaik.
+                                    </p>
                                 </div>
-                
-                                <!-- 2. The Best Religious Television of The Year 2019 -->
-                                <div
-                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
-                                    <div class="p-5">
-                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2019 ·
-                                            Jakarta</span>
-                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">The Best
-                                            Religious Television of The Year</h3>
-                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Indonesian Creativity & Best
-                                            Leader Award 2019 – atas konsistensi siaran religi inspiratif.</p>
-                                    </div>
+                            </div>
+
+                            <!-- 2. The Best Religious Television of The Year 2019 -->
+                            <div
+                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                <div class="p-5">
+                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2019 ·
+                                        Jakarta</span>
+                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">The
+                                        Best
+                                        Religious Television of The Year</h3>
+                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Indonesian Creativity & Best
+                                        Leader Award 2019 – atas konsistensi siaran religi inspiratif.</p>
                                 </div>
-                
-                                <!-- 3. The Most Trusted Company in Information Moslem Media of The Year 2019 -->
-                                <div
-                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
-                                    <div class="p-5">
-                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2019 ·
-                                            Yogyakarta</span>
-                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">Most
-                                            Trusted Company in Information Moslem Media</h3>
-                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Indonesian Most Excellent Business
-                                            Award 2019 – Media informasi muslim terpercaya.</p>
-                                    </div>
+                            </div>
+
+                            <!-- 3. The Most Trusted Company in Information Moslem Media of The Year 2019 -->
+                            <div
+                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                <div class="p-5">
+                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2019 ·
+                                        Yogyakarta</span>
+                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">Most
+                                        Trusted Company in Information Moslem Media</h3>
+                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Indonesian Most Excellent
+                                        Business
+                                        Award 2019 – Media informasi muslim terpercaya.</p>
                                 </div>
-                
-                                <!-- 4. Televisi Terbaik dalam Mutu & Program Berkualitas 2019 -->
-                                <div
-                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
-                                    <div class="p-5">
-                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2019 ·
-                                            Bandung</span>
-                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">Televisi
-                                            Terbaik dalam Mutu & Program Berkualitas</h3>
-                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Anugerah Perusahaan Terdepan dan
-                                            Inovatif 2019 – kualitas siaran unggulan.</p>
-                                    </div>
+                            </div>
+
+                            <!-- 4. Televisi Terbaik dalam Mutu & Program Berkualitas 2019 -->
+                            <div
+                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                <div class="p-5">
+                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2019 ·
+                                        Bandung</span>
+                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
+                                        Televisi
+                                        Terbaik dalam Mutu & Program Berkualitas</h3>
+                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Anugerah Perusahaan Terdepan
+                                        dan
+                                        Inovatif 2019 – kualitas siaran unggulan.</p>
                                 </div>
                             </div>
                         </div>
-                
-                        <!-- SLIDE 2: Slide kelanjutan (penghargaan 5-8) sesuai data asli tanpa perubahan yang diminta -->
-                        <div class="slide">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-1">
-                                <!-- 5. The Best Performing Television Based on Islamic Program 2019 -->
-                                <div
-                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
-                                    <div class="p-5">
-                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2019 ·
-                                            Jakarta</span>
-                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">The Best
-                                            Performing Television (Islamic Program)</h3>
-                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Indonesian Achievement & Best
-                                            Performing Award 2019 – program islami terbaik.</p>
-                                    </div>
+                    </div>
+
+                    <!-- SLIDE 2: Slide kelanjutan (penghargaan 5-8) sesuai data asli tanpa perubahan yang diminta -->
+                    <div class="slide">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-1">
+                            <!-- 5. The Best Performing Television Based on Islamic Program 2019 -->
+                            <div
+                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                <div class="p-5">
+                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2019 ·
+                                        Jakarta</span>
+                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">The
+                                        Best
+                                        Performing Television (Islamic Program)</h3>
+                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Indonesian Achievement & Best
+                                        Performing Award 2019 – program islami terbaik.</p>
                                 </div>
-                
-                                <!-- 6. The Most Inspiring Leader of The Year 2019 -->
-                                <div
-                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
-                                    <div class="p-5">
-                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2019 ·
-                                            Jakarta</span>
-                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">The Most
-                                            Inspiring Leader of The Year</h3>
-                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Indonesian Platinum & Best
-                                            Corporate Award 2019 – apresiasi kepemimpinan inspiratif.</p>
-                                    </div>
+                            </div>
+
+                            <!-- 6. The Most Inspiring Leader of The Year 2019 -->
+                            <div
+                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                <div class="p-5">
+                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2019 ·
+                                        Jakarta</span>
+                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">The
+                                        Most
+                                        Inspiring Leader of The Year</h3>
+                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Indonesian Platinum & Best
+                                        Corporate Award 2019 – apresiasi kepemimpinan inspiratif.</p>
                                 </div>
-                
-                                <!-- 7. PROGRAM RELIGI TERBAIK - KISWAH episode KH Agoes Ali Masyhuri (KPID Jatim 2019) -->
-                                <div
-                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
-                                    <div class="p-5">
-                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2019 ·
-                                            Surabaya</span>
-                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">PROGRAM
-                                            RELIGI TERBAIK – KISWAH</h3>
-                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Anugerah Penyiaran KPID Jawa Timur
-                                            2019 – episode KH Agoes Ali Masyhuri. Program religi unggulan.</p>
-                                    </div>
+                            </div>
+
+                            <!-- 7. PROGRAM RELIGI TERBAIK - KISWAH episode KH Agoes Ali Masyhuri (KPID Jatim 2019) -->
+                            <div
+                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                <div class="p-5">
+                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2019 ·
+                                        Surabaya</span>
+                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
+                                        PROGRAM
+                                        RELIGI TERBAIK – KISWAH</h3>
+                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Anugerah Penyiaran KPID Jawa
+                                        Timur
+                                        2019 – episode KH Agoes Ali Masyhuri. Program religi unggulan.</p>
                                 </div>
-                
-                                <!-- 8. Islamic Media & Excellence Champion 2020 -->
-                                <div
-                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
-                                    <div class="p-5">
-                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2020 ·
-                                            Jakarta</span>
-                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">
-                                            Indonesian Moslem Media Excellence Award</h3>
-                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Kategori Konsistensi Dakwah
-                                            Digital & Program Siaran Keagamaan terbaik.</p>
-                                    </div>
+                            </div>
+
+                            <!-- 8. Islamic Media & Excellence Champion 2020 -->
+                            <div
+                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                <div class="p-5">
+                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2020 ·
+                                        Jakarta</span>
+                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
+                                        Indonesian Moslem Media Excellence Award</h3>
+                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Kategori Konsistensi Dakwah
+                                        Digital & Program Siaran Keagamaan terbaik.</p>
                                 </div>
                             </div>
                         </div>
-                
-                        <!-- SLIDE 3: tambahan dari data (Most Excellent Business, KPID riconfirm, Platinum Award ulang, Inovatif) TAPI dengan satu card yang dihilangkan sesuai permintaan:
+                    </div>
+
+                    <!-- SLIDE 3: tambahan dari data (Most Excellent Business, KPID riconfirm, Platinum Award ulang, Inovatif) TAPI dengan satu card yang dihilangkan sesuai permintaan:
                                                                                                      "hilangkan bagian (blok KPID JAWA TIMUR dengan emoji 📺🎙️ dan teks KPID JAWA TIMUR)"
                                                                                                      Di dalam slide asli terdapat dua card yang hampir mirip: 
                                                                                                      - nomor 10 (Anugerah Penyiaran KPID Jatim 2019 - KISWAH recognisi) yang berisi teks "KPID JAWA TIMUR" di placeholder.
-                                                                                                     Kita harus menghapus tepat satu card yang memiliki isi: <span class="text-xs font-bold text-[#54421f]">KPID JAWA TIMUR</span> dan emoji 📺🎙️.
+                                                                                                     Kita harus menghapus tepat satu card yang memiliki isi: <span class="text-xs font-bold text-tv9-brown-900">KPID JAWA TIMUR</span> dan emoji 📺🎙️.
                                                                                                      Namun setelah cek, slide ketiga asli memiliki:
-                                                                                                     [10] card dengan background from-[#edd7b0] to-[#e3c893] dan isi KPID JAWA TIMUR (teks) dan emoji televisi.
+                                                                                                     [10] card dengan background from-tv9-gold-300 to-tv9-gold-400 dan isi KPID JAWA TIMUR (teks) dan emoji televisi.
                                                                                                      sesuai permintaan "hilangkan bagian ... KPID JAWA TIMUR" -> kita hapus card tersebut dari slide 3.
                                                                                                      Sisa slide 3 hanya 3 card? Tapi grid tetap rapi karena flex / grid akan menyesuaikan. Namun sebaiknya tetap 4 card agar simetris?
                                                                                                      Tapi permintaan tegas: hapus bagian itu. Maka kita buang hanya elemen 'KPID JAWA TIMUR' card tersebut, sehingga slide 3 hanya terdiri dari 3 award card.
                                                                                                      Tapi agar tampilan tetap balance dan tidak merusak tata letak, kita bisa mempertahankan tiga card dengan gap, tetap menggunakan grid, akan muncul 3 card di baris pertama (pada lg:grid-cols-4, tiga card akan terlihat rapi dengan space kosong tapi tidak merusak).
                                                                                                      Alternatif: kita biarkan apa adanya sesuai yang dihilangkan. Saya akan menghilangkan satu card yang dimaksud, grid tetap 4 kolom, tiga card akan rapi.
                                                                                                 -->
-                        <div class="slide">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-1">
-                                <!-- 9. Most Excellent Business Award 2019 (kategori berbeda) -->
-                                <div
-                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
-                                    <div class="p-5">
-                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2019 ·
-                                            Yogyakarta</span>
-                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">The Most
-                                            Trusted Company in Information Moslem Media</h3>
-                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Reaffirmation: Indonesian Most
-                                            Excellent Business Award 2019 – kredibilitas tinggi sebagai media muslim.</p>
-                                    </div>
+                    <div class="slide">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-1">
+                            <!-- 9. Most Excellent Business Award 2019 (kategori berbeda) -->
+                            <div
+                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                <div class="p-5">
+                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2019 ·
+                                        Yogyakarta</span>
+                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">The
+                                        Most
+                                        Trusted Company in Information Moslem Media</h3>
+                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Reaffirmation: Indonesian Most
+                                        Excellent Business Award 2019 – kredibilitas tinggi sebagai media muslim.
+                                    </p>
                                 </div>
-                
-                                <!-- (Card yang diminta dihilangkan: sebelumnya ada Anugerah Penyiaran KPID Jatim 2019 - KISWAH recognisi spesifik dengan icon 📺🎙️ dan teks "KPID JAWA TIMUR". Card berikut dihilangkan) -->
-                
-                                <!-- 11. Indonesian Platinum & Best Corporate Award 2018 (The Best Islamic TV) (tetap dipertahankan) -->
-                                <div
-                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
-                                    <div class="p-5">
-                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2018 ·
-                                            Yogyakarta</span>
-                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">Best
-                                            Islamic Television Program</h3>
-                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Indonesian Platinum & Best
-                                            Corporate Award 2018 – apresiasi berkelanjutan program berbasis Islam.</p>
-                                    </div>
+                            </div>
+
+                            <!-- (Card yang diminta dihilangkan: sebelumnya ada Anugerah Penyiaran KPID Jatim 2019 - KISWAH recognisi spesifik dengan icon 📺🎙️ dan teks "KPID JAWA TIMUR". Card berikut dihilangkan) -->
+
+                            <!-- 11. Indonesian Platinum & Best Corporate Award 2018 (The Best Islamic TV) (tetap dipertahankan) -->
+                            <div
+                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                <div class="p-5">
+                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2018 ·
+                                        Yogyakarta</span>
+                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">Best
+                                        Islamic Television Program</h3>
+                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Indonesian Platinum & Best
+                                        Corporate Award 2018 – apresiasi berkelanjutan program berbasis Islam.</p>
                                 </div>
-                
-                                <!-- 12. Best Quality & Innovative Television (Bandung 2019) -->
-                                <div
-                                    class="award-card bg-white rounded-2xl overflow-hidden border border-[#e4ddd0] shadow-md hover:shadow-xl transition-all duration-300">
-                                    <div class="p-5">
-                                        <span class="text-xs font-bold tracking-wider text-[#b4925a] uppercase">2019 ·
-                                            Bandung</span>
-                                        <h3 class="text-base font-extrabold text-[#2d5a2d] mt-1 mb-2 leading-tight">Anugerah
-                                            Perusahaan Terdepan & Inovatif</h3>
-                                        <p class="text-sm text-[#5f5b4f] leading-relaxed">Televisi terbaik dalam mutu &
-                                            program berkualitas Tahun 2019.</p>
-                                    </div>
+                            </div>
+
+                            <!-- 12. Best Quality & Innovative Television (Bandung 2019) -->
+                            <div
+                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                <div class="p-5">
+                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-700 uppercase">2019 ·
+                                        Bandung</span>
+                                    <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
+                                        Anugerah
+                                        Perusahaan Terdepan & Inovatif</h3>
+                                    <p class="text-sm text-tv9-brown-800 leading-relaxed">Televisi terbaik dalam mutu &
+                                        program berkualitas Tahun 2019.</p>
                                 </div>
-                
-                                <!-- (Tambahan: menyisipkan card dummy? Tidak, karena yang diminta hanya menghilangkan satu bagian. Tapi agar tidak ada kekosongan, kita juga bisa menambahkan atau membiarkan grid terisi 3. Saya rasa lebih aman karena user meminta spesifik bagian itu dihapuskan. Namun saya akan memastikan slide tidak kosong berantakan.
+                            </div>
+
+                            <!-- (Tambahan: menyisipkan card dummy? Tidak, karena yang diminta hanya menghilangkan satu bagian. Tapi agar tidak ada kekosongan, kita juga bisa menambahkan atau membiarkan grid terisi 3. Saya rasa lebih aman karena user meminta spesifik bagian itu dihapuskan. Namun saya akan memastikan slide tidak kosong berantakan.
                                                                                                         Sebagai sentuhan integritas, kita tidak merusak design, namun mungkin akan muncul 3 card pada slide 3; tetap rapi karena card akan wrap.)
                                                                                                         Tapi untuk menjaga kemiripan konten dan merespon style dengan baik, saya hanya membuang card tersebut saja. 
                                                                                                         Kode dibawah ini hanya berisi 3 card (penomoran 9,11,12 sesuai urutan yg direvisi) -> jadi total 3 award di slide 3. 
                                                                                                         untuk peningkatan pengalaman, mungkin dapat ditambah card lain dari penghargaan reel? Tapi tidak perlu mengingkari permintaan "hilangkan bagian" spesifik.
                                                                                                         Namun agar tidak ada potensi kebingungan, saya juga akan mempertahankan jumlah slide tetap 3, dengan slide 1 (4 card), slide 2 (4 card), slide 3 (3 card). responsif tetap baik. -->
-                            </div>
                         </div>
                     </div>
                 </div>
-                </div>
-                
-                <!-- Navigation -->
-                <div class="flex items-center justify-center gap-4 mt-8">
-                    <button id="prev" onclick="move(-1)" disabled
-                        class="w-9 h-9 rounded-full border border-[#d1d5db] bg-white flex items-center justify-center text-[#4a7a4a] hover:bg-[#f0f7f0] disabled:opacity-30 disabled:cursor-not-allowed transition">
-                        &#8592;
-                    </button>
-                    <div id="dots" class="flex gap-2"></div>
-                    <button id="next" onclick="move(1)"
-                        class="w-9 h-9 rounded-full border border-[#d1d5db] bg-white flex items-center justify-center text-[#4a7a4a] hover:bg-[#f0f7f0] disabled:opacity-30 disabled:cursor-not-allowed transition">
-                        &#8594;
-                    </button>
-                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-center gap-4 mt-8">
+            <button id="prev" onclick="move(-1)" disabled
+                class="w-9 h-9 rounded-full border border-gray-300 bg-white flex items-center justify-center text-tv9-leaf-700 hover:bg-tv9-leaf-50 disabled:opacity-30 disabled:cursor-not-allowed transition">
+                &#8592;
+            </button>
+            <div id="dots" class="flex gap-2"></div>
+            <button id="next" onclick="move(1)"
+                class="w-9 h-9 rounded-full border border-gray-300 bg-white flex items-center justify-center text-tv9-leaf-700 hover:bg-tv9-leaf-50 disabled:opacity-30 disabled:cursor-not-allowed transition">
+                &#8594;
+            </button>
+        </div>
         </div>
     </section>
 
-    <section class="py-20 px-4 sm:px-6 max-w-6xl mx-auto">
 
-        <!-- Header -->
-        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-8 sm:mb-10">
-            <div class="mb-6 sm:mb-0">
-                <p class="text-xs font-semibold tracking-widest text-amber-700 uppercase mb-2">
-                    Eksplorasi Kreatif</p>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 title-underline">
-                    Portfolio &amp;
-                    Karya
-                    Unggulan</h2>
-            </div>
-            <div class="flex gap-2 mt-2 sm:mt-0">
-                <button class="nav-btn" id="prevBtn" aria-label="Previous">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6" />
-                    </svg>
-                </button>
-                <button class="nav-btn" id="nextBtn" aria-label="Next">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <!-- Cards Slider -->
-        <div class="relative overflow-hidden">
-            <div class="flex gap-3 sm:gap-6 no-scrollbar transition-transform duration-500 ease-in-out"
-                id="portfolioTrack">
-                <!-- Card 1 -->
-                <div class="card-wrap flex-none w-80 sm:w-72"
-                    onclick="openVideo('https://www.youtube.com/watch?v=dQw4w9WgXcQ')">
-                    <div class="thumb">
-                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Jejak Spiritual Pesisir"
-                            class="absolute inset-0 w-full h-full object-cover" />
-                        <div class="thumb-overlay">
-                            <div class="play-btn">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#1a3d2b">
-                                    <polygon points="5 3 19 12 5 21 5 3" />
-                                </svg>
-                            </div>
-                        </div>
-                        <span class="badge">Documentary</span>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">Jejak
-                            Spiritual Pesisir
-                        </h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Sebuah
-                            narasi mendalam
-                            tentang
-                            harmoni antara
-                            tradisi leluhur dan nilai-nilai keagamaan di sepanjang
-                            pesisir Utara
-                            Jawa.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="card-wrap flex-none w-80 sm:w-72"
-                    onclick="openVideo('https://www.youtube.com/watch?v=9bZkp7q19f0')">
-                    <div class="thumb">
-                        <img src="https://img.youtube.com/vi/9bZkp7q19f0/hqdefault.jpg" alt="Satu Abad Kebangkitan"
-                            class="absolute inset-0 w-full h-full object-cover" />
-                        <div class="thumb-overlay">
-                            <div class="play-btn">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#1a3d2b">
-                                    <polygon points="5 3 19 12 5 21 5 3" />
-                                </svg>
-                            </div>
-                        </div>
-                        <span class="badge">Special Coverage</span>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">Satu Abad
-                            Kebangkitan
-                        </h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Liputan
-                            eksklusif rangkaian
-                            peringatan satu
-                            abad organisasi massa terbesar, merangkum sejarah dan
-                            masa depan umat.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="card-wrap flex-none w-80 sm:w-72"
-                    onclick="openVideo('https://www.youtube.com/watch?v=kXYiU_JCYtU')">
-                    <div class="thumb">
-                        <img src="https://img.youtube.com/vi/kXYiU_JCYtU/hqdefault.jpg" alt="Festival Budaya Nusantara"
-                            class="absolute inset-0 w-full h-full object-cover" />
-                        <div class="thumb-overlay">
-                            <div class="play-btn">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#1a3d2b">
-                                    <polygon points="5 3 19 12 5 21 5 3" />
-                                </svg>
-                            </div>
-                        </div>
-                        <span class="badge">Event Highlights</span>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">Festival
-                            Budaya Nusantara
-                        </h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Rangkuman
-                            momen-momen magis
-                            dari festival
-                            budaya yang menyatukan berbagai etnis di Indonesia dalam
-                            satu panggung.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="card-wrap flex-none w-80 sm:w-72"
-                    onclick="openVideo('https://www.youtube.com/watch?v=JGwWNGJdvx8')">
-                    <div class="thumb">
-                        <img src="https://img.youtube.com/vi/JGwWNGJdvx8/hqdefault.jpg" alt="Arsitektur Warisan"
-                            class="absolute inset-0 w-full h-full object-cover" />
-                        <div class="thumb-overlay">
-                            <div class="play-btn">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#1a3d2b">
-                                    <polygon points="5 3 19 12 5 21 5 3" />
-                                </svg>
-                            </div>
-                        </div>
-                        <span class="badge">Short Film</span>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">
-                            Arsitektur Warisan</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Menelusuri
-                            keindahan
-                            arsitektur
-                            bersejarah
-                            Indonesia yang menjadi saksi bisu peradaban dan
-                            keagungan masa lalu.</p>
-                    </div>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="card-wrap flex-none w-80 sm:w-72"
-                    onclick="openVideo('https://www.youtube.com/watch?v=tgbNymZ7vqY')">
-                    <div class="thumb">
-                        <img src="https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg" alt="Suara Alam Borneo"
-                            class="absolute inset-0 w-full h-full object-cover" />
-                        <div class="thumb-overlay">
-                            <div class="play-btn">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="#1a3d2b">
-                                    <polygon points="5 3 19 12 5 21 5 3" />
-                                </svg>
-                            </div>
-                        </div>
-                        <span class="badge">Nature</span>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">Suara
-                            Alam Borneo</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Perjalanan
-                            mendalam ke
-                            jantung
-                            hutan
-                            Kalimantan, merekam keanekaragaman hayati yang semakin
-                            terancam
-                            modernisasi.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </section>
 
     <section class="py-16 bg-gray-50">
         <div class="text-center mb-12">
@@ -1765,11 +1475,7 @@ $chunkedSchedules = collect($scheduleList)->chunk(3);
 
                 </div>
             </div>
-        </div>
-
-
-
-        <!-- COPYRIGHT SECTION (converted to Tailwind) -->
+        </div><!-- COPYRIGHT SECTION (converted to Tailwind) -->
         <!-- Original: .copyright.container-fluid.bg-dark.text-white.border-top.border-secondary.px-0 -->
         <div class="bg-white border-t border-gray-100 py-10">
             <div class="max-w-7xl mx-auto px-4 text-center">

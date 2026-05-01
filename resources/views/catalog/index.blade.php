@@ -13,6 +13,7 @@
 
     <title>Program | TV9 Nusantara</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="canonical" href="{{ config('app.url') . '/catalog' }}">
@@ -237,9 +238,9 @@
 
                         <!-- Badge Trending / New -->
                         <!-- <div
-                                                                                                                                                                                                                                                                                                        class="absolute top-2 right-2 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full px-2 py-0.5 text-[9px] font-bold text-white shadow-lg">
-                                                                                                                                                                                                                                                                                                        {{ $loop->index < 3 ? 'TRENDING' : 'NEW' }}
-                                                                                                                                                                                                                                                                                                    </div> -->
+                                                                                                                                                                                                                                                                                                                                                                        class="absolute top-2 right-2 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full px-2 py-0.5 text-[9px] font-bold text-white shadow-lg">
+                                                                                                                                                                                                                                                                                                                                                                        {{ $loop->index < 3 ? 'TRENDING' : 'NEW' }}
+                                                                                                                                                                                                                                                                                                                                                                    </div> -->
                     </div>
                 </div>
             @empty

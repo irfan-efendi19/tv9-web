@@ -1,0 +1,10 @@
+    [x-cloak] { display: none !important; }
+    
+    /* Perbaikan untuk mobile */
+    @media (max-width: 768px) {
+        .mobile-menu-open {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+        }
+    }

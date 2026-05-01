@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
     <link rel="canonical" href="{{ config('app.url') . '/layanan' }}">
+    <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
     <!-- OG Image / Thumbnail -->
     <meta property="og:image" content="{{ asset('img/thumbnail.jpg') }}" />
     <meta itemprop="image" content="{{ asset('img/thumbnail.jpg') }}" />
@@ -312,7 +313,7 @@
         <!-- bottom wave -->
         <div class="absolute bottom-0 left-0 right-0">
             <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 60V30C240 0 480 60 720 40C960 20 1200 0 1440 30V60H0Z" fill="#59ad3f" />
+                <path d="M0 60V30C240 0 480 60 720 40C960 20 1200 0 1440 30V60H0Z" class="fill-tv9-leaf-500" />
             </svg>
         </div>
     </section>
@@ -338,7 +339,7 @@
                 <div class="bg-white rounded-2xl p-8 border border-gray-100 card-hover">
                     <div class="w-12 h-12 rounded-xl bg-brand-green/8 flex items-center justify-center mb-6"
                         style="background:rgba(26,74,58,0.08)">
-                        <i class="fa-solid fa-clapperboard text-brand-green text-xl" style="color:#1a4a3a"></i>
+                        <i class="fa-solid fa-clapperboard text-tv9-green-900 text-xl"></i>
                     </div>
                     <h3 class="font-display text-xl font-bold text-brand-darkgreen mb-2">TVC (Television Commercial)
                     </h3>
@@ -354,7 +355,7 @@
                 <div class="bg-white rounded-2xl p-8 border border-gray-100 card-hover">
                     <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6"
                         style="background:rgba(201,168,76,0.10)">
-                        <i class="fa-solid fa-handshake text-brand-gold text-xl" style="color:#c9a84c"></i>
+                        <i class="fa-solid fa-handshake text-tv9-gold-500 text-xl"></i>
                     </div>
                     <h3 class="font-display text-xl font-bold text-brand-darkgreen mb-2">Program Sponsorship</h3>
                     <p class="text-gray-500 text-sm leading-relaxed mb-6">
@@ -372,7 +373,7 @@
                 <div class="bg-white rounded-2xl p-6 border border-gray-100 card-hover">
                     <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
                         style="background:rgba(26,74,58,0.07)">
-                        <i class="fa-solid fa-align-left text-sm" style="color:#1a4a3a"></i>
+                        <i class="fa-solid fa-align-left text-sm"></i>
                     </div>
                     <h4 class="font-semibold text-brand-darkgreen mb-2">Running Text</h4>
                     <p class="text-gray-400 text-xs leading-relaxed">Promosi teks berjalan yang efisien untuk informasi
@@ -381,7 +382,7 @@
                 <div class="bg-white rounded-2xl p-6 border border-gray-100 card-hover">
                     <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
                         style="background:rgba(201,168,76,0.10)">
-                        <i class="fa-solid fa-clock text-sm" style="color:#c9a84c"></i>
+                        <i class="fa-solid fa-clock text-sm"></i>
                     </div>
                     <h4 class="font-semibold text-brand-darkgreen mb-2">Blocking Time</h4>
                     <p class="text-gray-400 text-xs leading-relaxed">Durasi eksklusif untuk acara khusus, talkshow, atau
@@ -390,7 +391,7 @@
                 <div class="bg-white rounded-2xl p-6 border border-gray-100 card-hover">
                     <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
                         style="background:rgba(26,74,58,0.07)">
-                        <i class="fa-solid fa-tv text-sm" style="color:#1a4a3a"></i>
+                        <i class="fa-solid fa-tv text-sm"></i>
                     </div>
                     <h4 class="font-semibold text-brand-darkgreen mb-2">Grafis On-Screen</h4>
                     <p class="text-gray-400 text-xs leading-relaxed">Penampilan logo dan visual menarik di layar saat
@@ -432,19 +433,19 @@
                         </div>
                         <ul class="space-y-2">
                             <li class="flex items-center gap-2 text-sm text-gray-600">
-                                <i class="fa-solid fa-check text-brand-gold text-xs" style="color:#c9a84c"></i>Seminars
+                                <i class="fa-solid fa-check text-tv9-gold-500 text-xs"></i>Seminars
                                 &amp; Workshops
                             </li>
                             <li class="flex items-center gap-2 text-sm text-gray-600">
-                                <i class="fa-solid fa-check text-brand-gold text-xs" style="color:#c9a84c"></i>Mall
+                                <i class="fa-solid fa-check text-tv9-gold-500 text-xs"></i>Mall
                                 Exhibitions
                             </li>
                             <li class="flex items-center gap-2 text-sm text-gray-600">
-                                <i class="fa-solid fa-check text-brand-gold text-xs" style="color:#c9a84c"></i>Product
+                                <i class="fa-solid fa-check text-tv9-gold-500 text-xs"></i>Product
                                 Launches
                             </li>
                             <li class="flex items-center gap-2 text-sm text-gray-600">
-                                <i class="fa-solid fa-check text-brand-gold text-xs" style="color:#c9a84c"></i>Gala
+                                <i class="fa-solid fa-check text-tv9-gold-500 text-xs"></i>Gala
                                 Dinners
                             </li>
                         </ul>
@@ -466,16 +467,16 @@
                         </div>
                         <ul class="space-y-2">
                             <li class="flex items-center gap-2 text-sm text-gray-600">
-                                <i class="fa-solid fa-check text-xs" style="color:#c9a84c"></i>Music Concerts
+                                <i class="fa-solid fa-check text-xs"></i>Music Concerts
                             </li>
                             <li class="flex items-center gap-2 text-sm text-gray-600">
-                                <i class="fa-solid fa-check text-xs" style="color:#c9a84c"></i>Community Festivals
+                                <i class="fa-solid fa-check text-xs"></i>Community Festivals
                             </li>
                             <li class="flex items-center gap-2 text-sm text-gray-600">
-                                <i class="fa-solid fa-check text-xs" style="color:#c9a84c"></i>Fun Walks &amp; Sports
+                                <i class="fa-solid fa-check text-xs"></i>Fun Walks &amp; Sports
                             </li>
                             <li class="flex items-center gap-2 text-sm text-gray-600">
-                                <i class="fa-solid fa-check text-xs" style="color:#c9a84c"></i>Open Exhibitions
+                                <i class="fa-solid fa-check text-xs"></i>Open Exhibitions
                             </li>
                         </ul>
                     </div>
@@ -540,7 +541,7 @@
     <!-- ═══════════════════════════════════════CTA SECTION═══════════════════════════════════════ -->
     <section class="cta-section py-24 px-6">
         <div class="max-w-3xl mx-auto text-center relative z-10">
-            <p class="section-label mb-4" style="color:#c9a84c">Mulai Kolaborasi</p>
+            <p class="section-label mb-4">Mulai Kolaborasi</p>
             <h2 class="font-display text-4xl md:text-5xl font-black text-white mb-5 leading-tight">
                 Siap Elevasi Brand Anda <br /> Bersama Kami?
             </h2>

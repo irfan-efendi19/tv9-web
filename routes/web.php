@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TentangController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Program;
 use App\Http\Controllers\ProgramController;
@@ -65,6 +66,9 @@ Route::middleware(['auth'])->group(function () {
     // CSV Import routes MUST be declared before the resource to avoid {program} wildcard conflict
     Route::post('/program/import', [ProgramImportController::class, 'store'])->name('program.import');
     Route::get('/program/template', [ProgramImportController::class, 'template'])->name('program.template');
+    
+    Route::delete('/program/destroy-all', [ProgramController::class, 'destroyAll'])->name('program.destroyAll');
+    Route::delete('/program/destroy-day/{day}', [ProgramController::class, 'destroyByDay'])->name('program.destroyByDay');
 
     Route::resource('program', ProgramController::class)->except(['index']);
 });
@@ -88,6 +92,10 @@ Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');
 
 // Halaman Kontak
 Route::get('/kontak', [KontakController::class, 'index'])->name('kontak');
+
+// Halaman Tentang Kami
+Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
+
 
 // Halaman TV9xLPMaarif
 Route::get('/tv9xlpmaarif', [TV9xLPMaarifController::class, 'index'])->name('tv9xlpmaarif');

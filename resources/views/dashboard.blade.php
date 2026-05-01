@@ -116,6 +116,13 @@
                     <div class="p-6 border-b border-slate-100 flex flex-wrap justify-between items-center gap-3 bg-slate-50/50">
                         <h3 class="font-bold text-lg text-slate-800">Manajemen Jadwal Tayang</h3>
                         <div class="flex flex-wrap items-center gap-2">
+                            <form action="{{ route('program.destroyAll') }}" method="POST" class="inline delete-confirm" data-title="Hapus Semua Jadwal?" data-text="Yakin ingin menghapus SEMUA jadwal siaran? PERINGATAN: Tindakan ini tidak dapat dibatalkan!">
+                                @csrf @method('DELETE')
+                                <button type="submit" class="inline-flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-bold rounded-lg transition-colors gap-1.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                                    Hapus Semua
+                                </button>
+                            </form>
                             <button @click="showImportModal = true" class="inline-flex items-center px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-bold rounded-lg transition-colors gap-1.5">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l4-4m0 0l4 4m-4-4v12"/></svg>
                                 Upload CSV
@@ -153,9 +160,18 @@
                                 @endphp
                                 @forelse($groupedPrograms as $dayNum => $dayPrograms)
                                 <tr class="bg-emerald-50/50">
-                                    <td colspan="5"
+                                    <td colspan="4"
                                         class="px-6 py-2 text-xs font-black text-emerald-800 uppercase tracking-widest border-y border-emerald-100">
                                         {{ $dayNames[$dayNum] }}
+                                    </td>
+                                    <td class="px-6 py-2 text-right border-y border-emerald-100">
+                                        <form action="{{ route('program.destroyByDay', $dayNum) }}" method="POST" class="inline delete-confirm" data-title="Hapus Jadwal Hari {{ $dayNames[$dayNum] }}?" data-text="Yakin ingin menghapus semua jadwal pada hari {{ $dayNames[$dayNum] }}?">
+                                            @csrf @method('DELETE')
+                                            <button type="submit" class="text-[10px] text-red-600 hover:text-red-800 font-bold uppercase transition-colors flex items-center justify-end gap-1 ml-auto">
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                                                Hapus Hari Ini
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @foreach($dayPrograms as $prog)
@@ -179,8 +195,7 @@
                                             <a href="{{ route('program.edit', $prog) }}"
                                                 class="p-2 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-all">Edit</a>
                                             <form action="{{ route('program.destroy', $prog) }}" method="POST"
-                                                class="inline"
-                                                onsubmit="return confirm('Yakin ingin menghapus jadwal ini?')">
+                                                class="inline delete-confirm" data-title="Hapus Jadwal?" data-text="Yakin ingin menghapus jadwal ini?">
                                                 @csrf @method('DELETE')
                                                 <button type="submit"
                                                     class="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all">Hapus</button>
@@ -249,8 +264,7 @@
                                             <a href="{{ route('catalog.edit', $item) }}"
                                                 class="p-2 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-all">Edit</a>
                                             <form action="{{ route('catalog.destroy', $item) }}" method="POST"
-                                                class="inline"
-                                                onsubmit="return confirm('Hapus program ini dari katalog?')">
+                                                class="inline delete-confirm" data-title="Hapus Program Katalog?" data-text="Hapus program ini dari katalog?">
                                                 @csrf @method('DELETE')
                                                 <button type="submit"
                                                     class="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all">Hapus</button>
@@ -272,4 +286,53 @@
 
         </div>
     </div>
+
+    <!-- SweetAlert2 Handlers -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Flash messages via SweetAlert
+            @if(session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: '{{ session('success') }}',
+                    timer: 3000,
+                    showConfirmButton: false
+                });
+            @endif
+
+            @if(session('error'))
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal!',
+                    text: '{{ session('error') }}',
+                });
+            @endif
+
+            // Delete Confirmations
+            const deleteForms = document.querySelectorAll('.delete-confirm');
+            deleteForms.forEach(form => {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const title = this.getAttribute('data-title') || 'Yakin ingin menghapus?';
+                    const text = this.getAttribute('data-text') || 'Tindakan ini tidak dapat dibatalkan!';
+
+                    Swal.fire({
+                        title: title,
+                        text: text,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#059669', // emerald-600
+                        cancelButtonColor: '#ef4444', // red-500
+                        confirmButtonText: 'Ya, Hapus!',
+                        cancelButtonText: 'Batal'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </x-app-layout>

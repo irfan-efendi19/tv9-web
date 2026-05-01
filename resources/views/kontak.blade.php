@@ -15,6 +15,7 @@
     <meta itemprop="image" content="{{ asset('img/thumbnail.jpg') }}" />
     <meta name="twitter:image" content="{{ asset('img/thumbnail.jpg') }}" />
     <title>Kontak | TV9 Nusantara</title>
+    <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
