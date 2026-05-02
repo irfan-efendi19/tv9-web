@@ -297,104 +297,104 @@
                 <div id="scheduleSlider" class="relative">
                     <!-- Slides -->
                     @php
-                        $scheduleList = $schedules ?? [];
-                        $chunkedSchedules = collect($scheduleList)->chunk(3);
+                    $scheduleList = $schedules ?? [];
+                    $chunkedSchedules = collect($scheduleList)->chunk(3);
                     @endphp
 
                     @forelse($chunkedSchedules as $slideIndex => $scheduleChunk)
-                        <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
-                            data-slide="{{ $slideIndex }}">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                @foreach($scheduleChunk as $program)
-                                    @php
-                                        $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-                                        $isLive = $program->start_time <= $currentTime && $program->end_time >=
-                                            $currentTime;
-                                    $isDone = $program->end_time < $currentTime; @endphp <div
-                                        class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-tv9-primary shadow-lg shadow-tv9-primary/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
-                                        {{-- Badge SEDANG TAYANG di atas card --}}
-                                        @if($isLive)
-                                            <div class="absolute -top-px left-1/2 -translate-x-1/2">
-                                                <span
-                                                    class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
-                                                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                                    Sedang Tayang
-                                                </span>
-                                            </div>
-                                        @endif
-
-                                        {{-- Jam --}}
-                                        <p
-                                            class="text-base font-semibold {{ $isLive ? 'text-tv9-primary' : 'text-gray-400' }} mt-3">
-                                            {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
-                                            –
-                                            {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
-                                        </p>
-
-                                        {{-- Judul & Deskripsi --}}
-                                        <div class="flex-1">
-                                            <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
-                                                {{ $program->title }}
-                                            </h3>
-                                            <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
-                                                {{ $program->description ?? 'Deskripsi belum tersedia.' }}
-                                            </p>
-                                        </div>
-
-                                        {{-- Status Badge --}}
-                                        <div>
-                                            @if($isLive)
-                                                <span
-                                                    class="inline-flex items-center gap-1.5 bg-tv9-primary text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
-                                                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                                    Live
-                                                </span>
-                                            @elseif($isDone)
-                                                <span
-                                                    class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                                    Selesai
-                                                </span>
-                                            @else
-                                                <span
-                                                    class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                                    Akan Datang
-                                                </span>
-                                            @endif
-                                        </div>
+                    <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
+                        data-slide="{{ $slideIndex }}">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            @foreach($scheduleChunk as $program)
+                            @php
+                            $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+                            $isLive = $program->start_time <= $currentTime && $program->end_time >=
+                                $currentTime;
+                                $isDone = $program->end_time < $currentTime; @endphp <div
+                                    class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-tv9-primary shadow-lg shadow-tv9-primary/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
+                                    {{-- Badge SEDANG TAYANG di atas card --}}
+                                    @if($isLive)
+                                    <div class="absolute -top-px left-1/2 -translate-x-1/2">
+                                        <span
+                                            class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
+                                            <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                            Sedang Tayang
+                                        </span>
                                     </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    @empty
-                        <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
-                            <p class="text-gray-500 font-medium">Belum ada jadwal tayang
-                                untuk hari ini.</p>
-                        </div>
-                    @endforelse
+                                    @endif
 
-                    <div class="text-center max-w-3xl mx-auto mt-8 ">
-                        <a href="{{ route('jadwal') }}">
-                            <span
-                                class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
-                                                                                                                                                                                                                                                                   transition-all duration-300 ease-in-out 
-                                                                                                                                                                                                                                                                   hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
-                                LIHAT SEMUA JADWAL
-                            </span>
-                        </a>
+                                    {{-- Jam --}}
+                                    <p
+                                        class="text-base font-semibold {{ $isLive ? 'text-tv9-primary' : 'text-gray-400' }} mt-3">
+                                        {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
+                                        –
+                                        {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
+                                    </p>
+
+                                    {{-- Judul & Deskripsi --}}
+                                    <div class="flex-1">
+                                        <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
+                                            {{ $program->title }}
+                                        </h3>
+                                        <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
+                                            {{ $program->description ?? 'Deskripsi belum tersedia.' }}
+                                        </p>
+                                    </div>
+
+                                    {{-- Status Badge --}}
+                                    <div>
+                                        @if($isLive)
+                                        <span
+                                            class="inline-flex items-center gap-1.5 bg-tv9-primary text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
+                                            <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                            Live
+                                        </span>
+                                        @elseif($isDone)
+                                        <span
+                                            class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                            Selesai
+                                        </span>
+                                        @else
+                                        <span
+                                            class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                            Akan Datang
+                                        </span>
+                                        @endif
+                                    </div>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
+                @empty
+                <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                    <p class="text-gray-500 font-medium">Belum ada jadwal tayang
+                        untuk hari ini.</p>
+                </div>
+                @endforelse
 
-                <!-- Dots/Indicators Only -->
-                @if($chunkedSchedules->count() > 1)
-                    <div class="flex gap-2 md:gap-3 justify-center mt-6">
-                        @for($i = 0; $i < $chunkedSchedules->count(); $i++)
-                            <button
-                                class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
-                                data-dot="{{ $i }}"></button>
-                        @endfor
-                    </div>
-                @endif
+                <div class="text-center max-w-3xl mx-auto mt-8 ">
+                    <a href="{{ route('jadwal') }}">
+                        <span
+                            class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
+                                                                                                                                                                                                                                                                   transition-all duration-300 ease-in-out 
+                                                                                                                                                                                                                                                                   hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
+                            LIHAT SEMUA JADWAL
+                        </span>
+                    </a>
+                </div>
             </div>
+
+            <!-- Dots/Indicators Only -->
+            @if($chunkedSchedules->count() > 1)
+            <div class="flex gap-2 md:gap-3 justify-center mt-6">
+                @for($i = 0; $i < $chunkedSchedules->count(); $i++)
+                    <button
+                        class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
+                        data-dot="{{ $i }}"></button>
+                    @endfor
+            </div>
+            @endif
+        </div>
         </div>
     </section>
 
@@ -418,48 +418,48 @@
             <!-- Program Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 @forelse($catalogs->take(4) as $catalog)
-                    <div
-                        class="group relative bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
-                        <!-- Image Wrapper -->
-                        <div class="aspect-[3/4] overflow-hidden relative">
-                            @if($catalog->image_url)
-                                <img src="{{ asset($catalog->image_url) }}" alt="{{ $catalog->title }}"
-                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            @else
-                                <div class="w-full h-full bg-tv9-green-900 flex items-center justify-center p-6 text-center">
-                                    <span
-                                        class="text-white/30 text-sm font-semibold uppercase tracking-widest">{{ $catalog->title }}</span>
-                                </div>
-                            @endif
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            </div>
-
-                            <!-- Category Badge -->
-                            @if($catalog->category)
-                                <span
-                                    class="absolute top-4 left-4 px-3 py-1 bg-yellow-500 text-white text-[10px] font-bold uppercase rounded-full shadow-lg">
-                                    {{ $catalog->category }}
-                                </span>
-                            @endif
+                <div
+                    class="group relative bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+                    <!-- Image Wrapper -->
+                    <div class="aspect-[3/4] overflow-hidden relative">
+                        @if($catalog->image_url)
+                        <img src="{{ asset($catalog->image_url) }}" alt="{{ $catalog->title }}"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        @else
+                        <div class="w-full h-full bg-tv9-green-900 flex items-center justify-center p-6 text-center">
+                            <span
+                                class="text-white/30 text-sm font-semibold uppercase tracking-widest">{{ $catalog->title }}</span>
+                        </div>
+                        @endif
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         </div>
 
-                        <!-- Content -->
-                        <div class="p-5">
-                            <h3
-                                class="text-lg font-bold text-gray-900 mb-2 line-clamp-1 group-hover:text-yellow-600 transition-colors">
-                                {{ $catalog->title }}
-                            </h3>
-                            <p class="text-sm text-gray-500 line-clamp-2 leading-relaxed">
-                                {{ $catalog->description ?? 'Tidak ada deskripsi.' }}
-                            </p>
-                        </div>
+                        <!-- Category Badge -->
+                        @if($catalog->category)
+                        <span
+                            class="absolute top-4 left-4 px-3 py-1 bg-yellow-500 text-white text-[10px] font-bold uppercase rounded-full shadow-lg">
+                            {{ $catalog->category }}
+                        </span>
+                        @endif
                     </div>
+
+                    <!-- Content -->
+                    <div class="p-5">
+                        <h3
+                            class="text-lg font-bold text-gray-900 mb-2 line-clamp-1 group-hover:text-yellow-600 transition-colors">
+                            {{ $catalog->title }}
+                        </h3>
+                        <p class="text-sm text-gray-500 line-clamp-2 leading-relaxed">
+                            {{ $catalog->description ?? 'Tidak ada deskripsi.' }}
+                        </p>
+                    </div>
+                </div>
                 @empty
-                    <div
-                        class="col-span-full py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
-                        <p class="text-gray-500 font-medium">Belum ada katalog program tersedia.</p>
-                    </div>
+                <div
+                    class="col-span-full py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                    <p class="text-gray-500 font-medium">Belum ada katalog program tersedia.</p>
+                </div>
                 @endforelse
             </div>
         </div>
@@ -526,19 +526,19 @@
                     <ul class="space-y-2.5">
                         <li class="flex items-center gap-2.5 text-base text-gray-600">
                             <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
-                            IndiHome Channel 809
+                            IndiHome
                         </li>
                         <li class="flex items-center gap-2.5 text-base text-gray-600">
                             <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
-                            First Media Channel 314
+                            First Media
                         </li>
                         <li class="flex items-center gap-2.5 text-base text-gray-600">
                             <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
-                            MNC Vision Channel 102
+                            MNC Vision
                         </li>
                         <li class="flex items-center gap-2.5 text-base text-gray-600">
                             <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
-                            TransVision Channel 55
+                            TransVision
                         </li>
                     </ul>
                 </div>
@@ -961,29 +961,29 @@
     </footer>
     <!-- Simple script to inject current year dynamically (like {{ date('Y') }} in PHP) -->
     <script>
-                      document.getElementById('currentYear').inner
-                        Text = new Date().getFullYear();
-                        </script>
-                        <script src="https://elfsightcdn.com/platform.js" async></script>
-                        <script src="js/welcome.js"></script>
-                        <style>
-                        /* Sembunyikan durasi (timestamp) pada live streaming */
-                        video::-webkit-media-controls-current-time-display,
-                        video::-webkit-media-controls-time-remaining-display,
-                        video::-webkit-media-controls-timeline {
-                            display: none !important;
-                        }
+    document.getElementById('currentYear').inner
+    Text = new Date().getFullYear();
+    </script>
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <script src="{{ asset('js/welcome.js') }}"></script>
+    <style>
+    /* Sembunyikan durasi (timestamp) pada live streaming */
+    video::-webkit-media-controls-current-time-display,
+    video::-webkit-media-controls-time-remaining-display,
+    video::-webkit-media-controls-timeline {
+        display: none !important;
+    }
 
-                        /* Untuk browser lain (Firefox) */
-                        video::-moz-range-progress {
-                            display: none;
-                        }
+    /* Untuk browser lain (Firefox) */
+    video::-moz-range-progress {
+        display: none;
+    }
 
-                        /* Alternatif: jika ingin menyembunyikan seluruh kontrol durasi dan progress bar */
-                        /* video::-webkit-media-controls-timeline {
+    /* Alternatif: jika ingin menyembunyikan seluruh kontrol durasi dan progress bar */
+    /* video::-webkit-media-controls-timeline {
         display: none;
     } */
-                        </style>
-                    </body>
+    </style>
+</body>
 
-                    </html>
+</html>

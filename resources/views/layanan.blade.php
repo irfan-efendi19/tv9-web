@@ -944,7 +944,7 @@
             </div>
         </div>
     </footer>
-    <script src="js/welcome.js"></script>
+    <script src="{{ asset('js/welcome.js') }}"></script>
 </body>
 
 </html>
