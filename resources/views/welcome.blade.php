@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+                    <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -59,84 +59,7 @@
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 px-4 sm:px-8"
-        style="background: rgba(0,40,25,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08);">
-        <div class="max-w-7xl mx-auto flex justify-between items-center h-16">
-            <!-- Logo Kiri -->
-            <div class="flex flex-row items-center gap-10">
-                <a href="{{ route('beranda') }}" class="flex items-center gap-3 no-underline">
-                    <div class="flex items-center justify-center">
-                        <img src="{{ asset('img/logotv9.png') }}" alt="Logo TV9 Nusantara"
-                            class="h-9 w-auto object-contain">
-                    </div>
-                    <span class="text-white font-bold text-xl tracking-tight hidden sm:block">TV9
-                        Nusantara</span>
-                </a>
-            </div>
-
-            <!-- Menu Kanan -->
-            <div class="flex items-center gap-3 md:gap-7" x-data="{ open: false }">
-
-                <!-- LIVE Button — selalu tampil di navbar (desktop & mobile) -->
-                <a href="{{ route('live') }}"
-                    class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-bold text-white transition-all duration-200 hover:scale-105 bg-gradient-to-br from-red-600 to-red-700 shadow-[0_0_12px_rgba(220,38,38,0.5)]">
-                    <!-- Pulsing dot -->
-                    <span class="relative flex h-2 w-2">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-                    </span>
-                    SIARAN LANGSUNG
-                </a>
-
-                <!-- Desktop Menu Links -->
-                <div class="hidden md:flex md:flex-row md:items-center md:gap-7">
-                    <a href="{{ route('beranda') }}"
-                        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Beranda</a>
-                    <a href="{{ route('jadwal') }}"
-                        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Jadwal</a>
-                    <a href="{{ route('layanan') }}"
-                        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Layanan</a>
-                    <a href="{{ route('catalog.index') }}"
-                        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Program</a>
-                    <a href="{{ route('berita.index') }}"
-                        class="text-base font-semibold text-white hover:text-yellow-400 transition-colors whitespace-nowrap">Berita</a>
-                </div>
-
-                <!-- Mobile Hamburger Button -->
-                <button @click="open = !open" class="md:hidden text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-
-                <!-- Mobile Dropdown (tanpa LIVE) -->
-                <div x-show="open" @click.away="open = false" x-cloak
-                    x-transition:enter="transition ease-out duration-200"
-                    x-transition:enter-start="opacity-0 -translate-y-2"
-                    x-transition:enter-end="opacity-100 translate-y-0"
-                    x-transition:leave="transition ease-in duration-150"
-                    x-transition:leave-start="opacity-100 translate-y-0"
-                    x-transition:leave-end="opacity-0 -translate-y-2"
-                    class="absolute top-full right-0 mt-2 w-48 bg-gray-900 rounded-lg shadow-xl md:hidden z-50">
-                    <div class="flex flex-col p-4 space-y-3">
-                        <a href="{{ route('beranda') }}"
-                            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Beranda</a>
-                        <a href="{{ route('jadwal') }}"
-                            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Jadwal</a>
-                        <a href="{{ route('layanan') }}"
-                            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Layanan</a>
-                        <a href="{{ route('catalog.index') }}"
-                            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Program</a>
-                        <a href="{{ route('berita.index') }}"
-                            class="text-base font-semibold text-white hover:text-yellow-400 transition-colors pl-3 py-1">Berita</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <x-navbar />
 
     <!-- HERO SECTION -->
     <section id="hero" class="relative overflow-hidden" style="min-height: 100vh;">
@@ -297,80 +220,79 @@
                 <div id="scheduleSlider" class="relative">
                     <!-- Slides -->
                     @php
-                    $scheduleList = $schedules ?? [];
-                    $chunkedSchedules = collect($scheduleList)->chunk(3);
+                        $scheduleList = $schedules ?? [];
+                        $chunkedSchedules = collect($scheduleList)->chunk(3);
                     @endphp
 
                     @forelse($chunkedSchedules as $slideIndex => $scheduleChunk)
-                    <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
-                        data-slide="{{ $slideIndex }}">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                            @foreach($scheduleChunk as $program)
-                            @php
-                            $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-                            $isLive = $program->start_time <= $currentTime && $program->end_time >=
-                                $currentTime;
-                                $isDone = $program->end_time < $currentTime; @endphp <div
-                                    class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-tv9-primary shadow-lg shadow-tv9-primary/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
-                                    {{-- Badge SEDANG TAYANG di atas card --}}
-                                    @if($isLive)
-                                    <div class="absolute -top-px left-1/2 -translate-x-1/2">
-                                        <span
-                                            class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
-                                            <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                            Sedang Tayang
-                                        </span>
-                                    </div>
-                                    @endif
-
-                                    {{-- Jam --}}
-                                    <p
-                                        class="text-base font-semibold {{ $isLive ? 'text-tv9-primary' : 'text-gray-400' }} mt-3">
-                                        {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
-                                        –
-                                        {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
-                                    </p>
-
-                                    {{-- Judul & Deskripsi --}}
-                                    <div class="flex-1">
-                                        <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
-                                            {{ $program->title }}
-                                        </h3>
-                                        <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
-                                            {{ $program->description ?? 'Deskripsi belum tersedia.' }}
-                                        </p>
-                                    </div>
-
-                                    {{-- Status Badge --}}
-                                    <div>
+                        <div class="schedule-slide transition-opacity duration-500 ease-in-out {{ $slideIndex === 0 ? 'opacity-100 block' : 'opacity-0 hidden' }}"
+                            data-slide="{{ $slideIndex }}">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                @foreach($scheduleChunk as $program)
+                                    @php
+                                        $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+                                        $isLive = $program->start_time <= $currentTime && $program->end_time >=
+                                            $currentTime;
+                                    $isDone = $program->end_time < $currentTime; @endphp <div
+                                        class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-tv9-primary shadow-lg shadow-tv9-primary/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
+                                        {{-- Badge SEDANG TAYANG di atas card --}}
                                         @if($isLive)
-                                        <span
-                                            class="inline-flex items-center gap-1.5 bg-tv9-primary text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
-                                            <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                                            Live
-                                        </span>
-                                        @elseif($isDone)
-                                        <span
-                                            class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                            Selesai
-                                        </span>
-                                        @else
-                                        <span
-                                            class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
-                                            Akan Datang
-                                        </span>
+                                            <div class="absolute -top-px left-1/2 -translate-x-1/2">
+                                                <span
+                                                    class="inline-flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-b-lg">
+                                                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                                    Sedang Tayang
+                                                </span>
+                                            </div>
                                         @endif
-                                    </div>
+
+                                        {{-- Jam --}}
+                                        <p class="text-base font-semibold {{ $isLive ? 'text-tv9-primary' : 'text-gray-400' }} mt-3">
+                                            {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
+                                            –
+                                            {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
+                                        </p>
+
+                                        {{-- Judul & Deskripsi --}}
+                                        <div class="flex-1">
+                                            <h3 class="text-base font-bold text-gray-900 mb-1 leading-snug">
+                                                {{ $program->title }}
+                                            </h3>
+                                            <p class="text-base text-gray-400 leading-relaxed line-clamp-2">
+                                                {{ $program->description ?? 'Deskripsi belum tersedia.' }}
+                                            </p>
+                                        </div>
+
+                                        {{-- Status Badge --}}
+                                        <div>
+                                            @if($isLive)
+                                                <span
+                                                    class="inline-flex items-center gap-1.5 bg-tv9-primary text-white text-[10px] font-bold uppercase tracking-wider rounded px-2.5 py-1">
+                                                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                                                    Live
+                                                </span>
+                                            @elseif($isDone)
+                                                <span
+                                                    class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                                    Selesai
+                                                </span>
+                                            @else
+                                                <span
+                                                    class="inline-block text-[10px] font-semibold uppercase tracking-wider border border-gray-300 text-gray-400 rounded px-2.5 py-1">
+                                                    Akan Datang
+                                                </span>
+                                            @endif
+                                        </div>
+                                        </div>
+                                @endforeach
+                                        </div>
+                                        </div>
+                    @empty
+                        <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                            <p class="text-gray-500 font-medium">Belum ada jadwal tayang
+                                untuk hari ini.</p>
                         </div>
-                        @endforeach
-                    </div>
-                </div>
-                @empty
-                <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
-                    <p class="text-gray-500 font-medium">Belum ada jadwal tayang
-                        untuk hari ini.</p>
-                </div>
-                @endforelse
+                    @endforelse
 
                 <div class="text-center max-w-3xl mx-auto mt-8 ">
                     <a href="{{ route('jadwal') }}">
@@ -386,13 +308,13 @@
 
             <!-- Dots/Indicators Only -->
             @if($chunkedSchedules->count() > 1)
-            <div class="flex gap-2 md:gap-3 justify-center mt-6">
-                @for($i = 0; $i < $chunkedSchedules->count(); $i++)
-                    <button
-                        class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
-                        data-dot="{{ $i }}"></button>
+                <div class="flex gap-2 md:gap-3 justify-center mt-6">
+                    @for($i = 0; $i < $chunkedSchedules->count(); $i++)
+                        <button
+                            class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
+                            data-dot="{{ $i }}"></button>
                     @endfor
-            </div>
+                </div>
             @endif
         </div>
         </div>
@@ -418,48 +340,48 @@
             <!-- Program Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 @forelse($catalogs->take(4) as $catalog)
-                <div
-                    class="group relative bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
-                    <!-- Image Wrapper -->
-                    <div class="aspect-[3/4] overflow-hidden relative">
-                        @if($catalog->image_url)
-                        <img src="{{ asset($catalog->image_url) }}" alt="{{ $catalog->title }}"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        @else
-                        <div class="w-full h-full bg-tv9-green-900 flex items-center justify-center p-6 text-center">
-                            <span
-                                class="text-white/30 text-sm font-semibold uppercase tracking-widest">{{ $catalog->title }}</span>
-                        </div>
-                        @endif
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div
+                        class="group relative bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+                        <!-- Image Wrapper -->
+                        <div class="aspect-[3/4] overflow-hidden relative">
+                            @if($catalog->image_url)
+                                <img src="{{ asset($catalog->image_url) }}" alt="{{ $catalog->title }}"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            @else
+                                <div class="w-full h-full bg-tv9-green-900 flex items-center justify-center p-6 text-center">
+                                    <span
+                                        class="text-white/30 text-sm font-semibold uppercase tracking-widest">{{ $catalog->title }}</span>
+                                </div>
+                            @endif
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+
+                            <!-- Category Badge -->
+                            @if($catalog->category)
+                                <span
+                                    class="absolute top-4 left-4 px-3 py-1 bg-yellow-500 text-white text-[10px] font-bold uppercase rounded-full shadow-lg">
+                                    {{ $catalog->category }}
+                                </span>
+                            @endif
                         </div>
 
-                        <!-- Category Badge -->
-                        @if($catalog->category)
-                        <span
-                            class="absolute top-4 left-4 px-3 py-1 bg-yellow-500 text-white text-[10px] font-bold uppercase rounded-full shadow-lg">
-                            {{ $catalog->category }}
-                        </span>
-                        @endif
+                        <!-- Content -->
+                        <div class="p-5">
+                            <h3
+                                class="text-lg font-bold text-gray-900 mb-2 line-clamp-1 group-hover:text-yellow-600 transition-colors">
+                                {{ $catalog->title }}
+                            </h3>
+                            <p class="text-sm text-gray-500 line-clamp-2 leading-relaxed">
+                                {{ $catalog->description ?? 'Tidak ada deskripsi.' }}
+                            </p>
+                        </div>
                     </div>
-
-                    <!-- Content -->
-                    <div class="p-5">
-                        <h3
-                            class="text-lg font-bold text-gray-900 mb-2 line-clamp-1 group-hover:text-yellow-600 transition-colors">
-                            {{ $catalog->title }}
-                        </h3>
-                        <p class="text-sm text-gray-500 line-clamp-2 leading-relaxed">
-                            {{ $catalog->description ?? 'Tidak ada deskripsi.' }}
-                        </p>
-                    </div>
-                </div>
                 @empty
-                <div
-                    class="col-span-full py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
-                    <p class="text-gray-500 font-medium">Belum ada katalog program tersedia.</p>
-                </div>
+                    <div
+                        class="col-span-full py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                        <p class="text-gray-500 font-medium">Belum ada katalog program tersedia.</p>
+                    </div>
                 @endforelse
             </div>
         </div>
@@ -847,7 +769,7 @@
 
 
     <!-- ── READY TO COLLABORATE ───────────────────────────────────── -->
-    <!-- <section class="py-20 px-6 media-section">
+    <section class="py-20 px-6 media-section">
         <div class="max-w-2xl mx-auto text-center">
             <h2 class="font-display text-3xl lg:text-4xl font-bold text-white mb-4">
                 Siap Berkolaborasi? Let's Connect!
@@ -864,105 +786,19 @@
                 Kontak Kami
             </a>
         </div>
-    </section> -->
+    </section>
     <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
         <iframe style="border: 0; width: 100%; height: 400px"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.5730295770977!2d112.736189175!3d-7.289322192718097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb957c5b56f7%3A0x1ee6fa80f21a83d3!2sTV9%20Nusantara!5e0!3m2!1sid!2sid!4v1776587954324!5m2!1sid!2sid"
             frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <!-- FOOTER -->
-    <!-- ========= FOOTER ========= -->
-    <footer class="bg-tv9-dark text-white py-14 px-6">
-        <div class="max-w-5xl mx-auto">
-            <div class="grid md:grid-cols-4 gap-8 mb-10">
-                <div class="md:col-span-1">
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-8 h-8 rounded-full bg-tv9-gold flex items-center justify-center">
-                            <span class="text-tv9-green-dark font-black text-xs">TV9</span>
-                        </div>
-                        <span class="font-bold text-sm">TV9 Nusantara</span>
-                    </div>
-                    <p class="text-white/40 text-xs leading-relaxed">Santun Menyejukkan
-                    </p>
-                    <div class="flex gap-3 mt-4">
-                        <!-- Social Media Icons with Font Awesome -->
-                        <a target="_blank" href="https://x.com/TV9NUsantara"
-                            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
-                            <i class="fab fa-x-twitter text-xs"></i>
-                        </a>
-                        <a target="_blank" href="https://www.facebook.com/tv9nusantara"
-                            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
-                            <i class="fab fa-facebook-f text-xs"></i>
-                        </a>
-                        <a target="_blank" href="https://www.instagram.com/tv9nusantara/"
-                            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
-                            <i class="fab fa-instagram text-xs"></i>
-                        </a>
-                        <a target="_blank" href="https://www.youtube.com/@tv9nusantara"
-                            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
-                            <i class="fab fa-youtube text-xs"></i>
-                        </a>
-                        <a target="_blank" href="https://www.tiktok.com/@tv9nusantara"
-                            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 text-white/70 hover:bg-tv9-gold/30 hover:text-white transition-all duration-300">
-                            <i class="fab fa-tiktok text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div>
-                    <h5 class="font-semibold text-sm mb-4 text-tv9-gold">Navigasi</h5>
-                    <ul class="space-y-2 text-white/50 text-xs">
-                        <li><a href="{{ route('tentang') }}" class="hover:text-white transition-colors">Tentang Kami</a>
-                        </li>
-                        <li><a href="{{ route('layanan') }}" class="hover:text-white transition-colors">Layanan</a></li>
-                        <li><a href="{{ route('kontak') }}" class="hover:text-white transition-colors">Hubungi Kami</a>
-                        </li>
-                        <li><a href="{{ route('sitemap') }}" class="hover:text-white transition-colors">Sitemap</a>
-                        </li>
-                        <li><a href="" class="hover:text-white transition-colors">Pedoman Pers</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="font-semibold text-sm mb-4 text-tv9-gold">Program</h5>
-                    <ul class="space-y-2 text-white/50 text-xs">
-                        <li><a href="{{ route('berita.index') }}" class="hover:text-white transition-colors">Jurnal
-                                9</a></li>
-                        <li><a href="{{ route('live') }}" class="hover:text-white transition-colors">Live TV</a></li>
-                        <li><a href="{{ route('jadwal') }}" class="hover:text-white transition-colors">Jadwal Acara</a>
-                        </li>
-                        <li><a href="{{ route('catalog.index') }}" class="hover:text-white transition-colors">Program
-                                Unggulan</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h5 class="font-semibold text-sm mb-4 text-tv9-gold">Kontak</h5>
-                    <ul class="space-y-2 text-white/50 text-xs">
-                        <li>Jl. Raya Darmo No. 96</li>
-                        <li>Surabaya, Jawa Timur</li>
-                        <li>admin@tv9.co.id</li>
-                        <li>+62 31 5677 9000</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-white/30 text-xs">&copy; {{ date('Y') }} TV9 Nusantara. PT. Dakwah
-                    Inti Media. All rights
-                    reserved.
-                </p>
-                <div class="flex gap-4 text-white/30 text-xs">
-                    <!-- <a href="#" class="hover:text-white transition-colors">Kebijakan Privasi</a>
-                                                                                                                                                                                                                                                                            <a href="#" class="hover:text-white transition-colors">Syarat &amp; Ketentuan</a> -->
-                </div>
-            </div>
-        </div>
-    </footer>
+    <x-footer />
     <!-- Simple script to inject current year dynamically (like {{ date('Y') }} in PHP) -->
     <script>
-    document.getElementById('currentYear').inner
-    Text = new Date().getFullYear();
+        if (document.getElementById('currentYear')) {
+            document.getElementById('currentYear').innerText = new Date().getFullYear();
+        }
     </script>
     <script src="https://elfsightcdn.com/platform.js" async></script>
     <script src="{{ asset('js/welcome.js') }}"></script>

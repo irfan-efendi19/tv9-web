@@ -208,6 +208,7 @@
 </head>
 
 <body class="bg-white">
+    <x-navbar />
 
     <!-- ========== HERO ========== -->
     <section class="hero-bg min-h-screen flex items-center relative">
@@ -497,116 +498,7 @@
 
     <!-- FOOTER -->
     <!-- Footer Start -->
-    <footer class="relative bg-white text-black">
-        <div class="relative text-black px-4">
-            <div class="max-w-7xl mx-auto py-12 lg:py-16">
-                <!-- Flex container for two equal columns -->
-                <div class="flex flex-wrap -mx-4">
-                    <!-- Left Column: About text and social links (SAME WIDTH as right column) -->
-                    <div class="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
-                        <a class="inline-block mb-4">
-                            <h1 class="text-3xl lg:text-4xl font-bold text-black">TV9 Nusantara
-                            </h1>
-                            <h1 class="text-xl lg:text-xl font-semibold text-black">PT. Dakwah
-                                Inti Media
-                            </h1>
-                        </a>
-                        <p class="text-black leading-relaxed mb-4">
-                            TV9 Nusantara merupakan stasiun televisi lokal di Kota Surabaya dan
-                            menjadi salah satu awal televisi swasta di Indonesia yang memiliki
-                            karakter
-                            pemirsa
-                            komunitas
-                            yang bernuansa Islam. TV9 dikelola oleh PT. Dakwah Inti Media,
-                            perusahaan yang
-                            dimiliki oleh
-                            KH. Moh. Hasani Mutawakkil `Alallah, S.H.,M.M., termasuk di dalamnya
-                            organisasi
-                            sosial
-                            keagamaan
-                            Nahdlatul 'Ulama (PWNU) Jawa Timur ini diluncurkan pada tanggal 31
-                            Januari 2010
-                            oleh
-                            Soekarwo
-                            sebagai bagian dari perayaan ulang tahun Nahdlatul 'Ulama ke-84.
-                            Bersiaran di
-                            kanal
-                            42 UHF,
-                            TV9
-                            telah memperoleh Izin Penyelenggaraan Penyiaran prinsip tertanggal
-                            pada 7 Juli
-                            2009
-                            dan Izin
-                            Penyelenggaraan Penyiaran tetap tertanggal pada 23 Juli 2012 dari
-                            Menteri
-                            Komunikasi
-                            dan
-                            Informatika Republik Indonesia untuk melakukan siaran sebagai
-                            lembaga penyiaran
-                            swasta lokal
-                            di
-                            Surabaya/Jawa Timur.
-                        </p>
-                        <div class="flex flex-wrap gap-3 mt-6">
-                            <a target="_blank" href="https://x.com/TV9NUsantara"
-                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300">
-                                <i class="fab fa-x-twitter"></i>
-                            </a>
-                            <a target="_blank" href="https://www.facebook.com/tv9nusantara"
-                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a target="_blank" href="https://www.instagram.com/tv9nusantara/"
-                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50  transition-all duration-300">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a target="_blank" href="https://www.youtube.com/@tv9nusantara"
-                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                            <a target="_blank" href="https://www.tiktok.com/@tv9nusantara"
-                                class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50  transition-all duration-300">
-                                <i class="fab fa-tiktok"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Right Column: Address (SAME WIDTH as left column) -->
-                    <div class="w-full lg:w-1/2 px-4">
-                        <h4 class="text-3xl lg:text-2xl font-semibold text-black mb-4">Alamat
-                        </h4>
-                        <div class="flex flex-col space-y-2">
-                            <p class="text-black/80 leading-relaxed">
-                                Jl. Raya Darmo No.96,<br>
-                                Darmo, Kec. Wonokromo,<br>
-                                Surabaya, Jawa Timur 60241
-                            </p>
-                            <h4 class="text-3xl lg:text-2xl font-semibold text-black mb-4 mt-4">
-                                Kontak</h4>
-                            <div class="flex items-center">
-                                <a target="_blank" href="https://www.youtube.com/@tv9nusantara"
-                                    class="flex items-center justify-center w-10 h-10 rounded-full border border-black text-black hover:bg-green-50 hover:bg-green-50 transition-all duration-300 mr-2">
-                                    <i class="fa-solid fa-phone-volume"></i>
-                                </a>
-                                <p>Kokokowd</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-        <!-- COPYRIGHT SECTION (converted to Tailwind) -->
-        <!-- Original: .copyright.container-fluid.bg-dark.text-white.border-top.border-secondary.px-0 -->
-        <div class="bg-white border-t border-gray-100 py-10">
-            <div class="max-w-7xl mx-auto px-4 text-center">
-                <p class="text-gray-400 text-base">
-                    &copy; {{ date('Y') }} TV9 NUSANTARA - All Rights Reserved
-                </p>
-            </div>
-        </div>
-    </footer>
+    <x-footer />
     <script>
         const SCRIPT_URL = 'GANTI_DENGAN_URL_APPS_SCRIPT_ANDA';
 
