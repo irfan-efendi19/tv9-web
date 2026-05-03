@@ -36,10 +36,7 @@ Route::get('/', function () {
 // Halaman Live
 Route::get('/live', function () {
     $today = date('N');
-    $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-    
     $schedules = Program::where('day_of_week', $today)
-                   ->where('end_time', '>=', $currentTime)
                    ->orderBy('start_time')
                    ->get();
 
@@ -98,7 +95,6 @@ Route::get('/kontak', [KontakController::class, 'index'])->name('kontak');
 
 // Halaman Tentang Kami
 Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
-
 
 // Halaman TV9xLPMaarif
 Route::get('/tv9xlpmaarif', [TV9xLPMaarifController::class, 'index'])->name('tv9xlpmaarif');

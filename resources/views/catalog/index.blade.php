@@ -14,6 +14,7 @@
     <title>Program | TV9 Nusantara</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="canonical" href="{{ config('app.url') . '/catalog' }}">
@@ -220,8 +221,10 @@
                 <div class="w-full md:w-2/5 relative overflow-hidden group">
                     <template x-if="selected.image_url">
                         <div class="relative h-full">
-                            <img :src="'/' + selected.image_url" :alt="selected.title"
+                            <img :src="selected.image_url.startsWith('http') ? selected.image_url : '/' + selected.image_url.replace(/^\//, '')"
+                                :alt="selected.title"
                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent">
                             </div>
                         </div>

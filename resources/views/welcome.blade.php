@@ -1,4 +1,4 @@
-                    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -38,9 +38,9 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="TV9 Nusantara | Santun Menyejukkan" />
     <meta property="og:description" content="TV9 Nusantara adalah televisi Islami modern yang berbasis di Surabaya, Jawa Timur. Dengan tagline 
-        Santun Menyejukkan, TV9 menyajikan tayangan bernuansa Ahlussunnah Wal Jamaah (Aswaja) yang mengedepankan
-        nilai-nilai keislaman, kebangsaan, dan kearifan lokal Nusantara. Tersedia via live streaming, digital platform,
-        dan siaran digital terestrial." />
+                                Santun Menyejukkan, TV9 menyajikan tayangan bernuansa Ahlussunnah Wal Jamaah (Aswaja) yang mengedepankan
+                                nilai-nilai keislaman, kebangsaan, dan kearifan lokal Nusantara. Tersedia via live streaming, digital platform,
+                                dan siaran digital terestrial." />
     <meta property="og:image" content="{{ asset('img/thumbnail.jpg') }}" />
     <meta property="og:url" content="{{ url('/') }}" />
     <meta property="og:site_name" content="TV9 Nusantara | Santun Menyejukkan" />
@@ -48,9 +48,9 @@
     <!-- Google Structured Data -->
     <meta itemprop="name" content="TV9 Nusantara | Santun Menyejukkan" />
     <meta itemprop="description" content="TV9 Nusantara adalah televisi Islami modern yang berbasis di Surabaya, Jawa Timur. Dengan tagline 
-        Santun Menyejukkan, TV9 menyajikan tayangan bernuansa Ahlussunnah Wal Jamaah (Aswaja) yang mengedepankan
-        nilai-nilai keislaman, kebangsaan, dan kearifan lokal Nusantara. Tersedia via live streaming, digital platform,
-        dan siaran digital terestrial." />
+                                Santun Menyejukkan, TV9 menyajikan tayangan bernuansa Ahlussunnah Wal Jamaah (Aswaja) yang mengedepankan
+                                nilai-nilai keislaman, kebangsaan, dan kearifan lokal Nusantara. Tersedia via live streaming, digital platform,
+                                dan siaran digital terestrial." />
     <meta itemprop="image" content="{{ asset('img/thumbnail.jpg') }}" />
 
     <!-- HLS.js CDN -->
@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="mobile-text-wrapper">
                                     <!-- <span class="mobile-badge"><i class="fas fa-star text-yellow-400 text-xs mr-1"></i>
-                                                                                                                BUILD LIKE THEM</span> -->
+                                                                                                                                        BUILD LIKE THEM</span> -->
                                     <h2 class="text-white font-bold">TV9 Nusantara
                                     </h2>
                                     <p class="text-white/85">Santun Menyejukkan
@@ -247,10 +247,11 @@
                                         @endif
 
                                         {{-- Jam --}}
-                                        <p class="text-base font-semibold {{ $isLive ? 'text-tv9-primary' : 'text-gray-400' }} mt-3">
+                                        <p
+                                            class="text-base font-semibold {{ $isLive ? 'text-tv9-primary' : 'text-gray-400' }} mt-3">
                                             {{ \Carbon\Carbon::parse($program->start_time)->format('H:i') }}
-                                            –
-                                            {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }}
+                                            WIB –
+                                            {{ \Carbon\Carbon::parse($program->end_time)->format('H:i') }} WIB
                                         </p>
 
                                         {{-- Judul & Deskripsi --}}
@@ -283,10 +284,10 @@
                                                 </span>
                                             @endif
                                         </div>
-                                        </div>
+                                    </div>
                                 @endforeach
-                                        </div>
-                                        </div>
+                            </div>
+                        </div>
                     @empty
                         <div class="py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
                             <p class="text-gray-500 font-medium">Belum ada jadwal tayang
@@ -294,95 +295,79 @@
                         </div>
                     @endforelse
 
-                <div class="text-center max-w-3xl mx-auto mt-8 ">
-                    <a href="{{ route('jadwal') }}">
-                        <span
-                            class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
-                                                                                                                                                                                                                                                                   transition-all duration-300 ease-in-out 
-                                                                                                                                                                                                                                                                   hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
-                            LIHAT SEMUA JADWAL
-                        </span>
-                    </a>
+                    <div class="text-center max-w-3xl mx-auto mt-8 ">
+                        <a href="{{ route('jadwal') }}">
+                            <span
+                                class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
+                                                                                                                                                                                                                                                                                                               transition-all duration-300 ease-in-out 
+                                                                                                                                                                                                                                                                                                               hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
+                                LIHAT SEMUA JADWAL
+                            </span>
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Dots/Indicators Only -->
-            @if($chunkedSchedules->count() > 1)
-                <div class="flex gap-2 md:gap-3 justify-center mt-6">
-                    @for($i = 0; $i < $chunkedSchedules->count(); $i++)
-                        <button
-                            class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
-                            data-dot="{{ $i }}"></button>
-                    @endfor
-                </div>
-            @endif
-        </div>
+                <!-- Dots/Indicators Only -->
+                @if($chunkedSchedules->count() > 1)
+                    <div class="flex gap-2 md:gap-3 justify-center mt-6">
+                        @for($i = 0; $i < $chunkedSchedules->count(); $i++)
+                            <button
+                                class="schedule-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full {{ $i === 0 ? 'bg-yellow-600' : 'bg-gray-300 hover:bg-gray-400' }} transition-all duration-300"
+                                data-dot="{{ $i }}"></button>
+                        @endfor
+                    </div>
+                @endif
+            </div>
         </div>
     </section>
 
     <!-- SECTION KATALOG PROGRAM -->
-    <section class="bg-white py-16 px-8">
+    <section class="nf-section py-16 px-8">
         <div class="max-w-5xl mx-auto" data-aos="fade-up">
             <!-- Header -->
-            <div class="flex items-center justify-between mb-10">
-                <div>
-                    <h2 class="text-2xl font-bold text-gray-900 tracking-tight">
-                        Katalog Program
-                    </h2>
-                    <div class="w-12 h-[3px] bg-yellow-600 rounded mt-2"></div>
-                </div>
+            <div class="flex items-center justify-between mb-5">
+                <h2 class="title-underline text-2xl font-semibold text-gray-900 tracking-tight">Katalog Program</h2>
                 <a href="{{ route('catalog.index') }}"
-                    class="text-yellow-600 font-semibold hover:text-yellow-700 transition-colors">
-                    Lihat Semua <i class="fas fa-arrow-right ml-1"></i>
+                    class="text-base font-semibold text-yellow-600 hover:text-yellow-700">
+                    Lihat Semua &rsaquo;
                 </a>
             </div>
 
-            <!-- Program Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                @forelse($catalogs->take(4) as $catalog)
-                    <div
-                        class="group relative bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
-                        <!-- Image Wrapper -->
-                        <div class="aspect-[3/4] overflow-hidden relative">
-                            @if($catalog->image_url)
-                                <img src="{{ asset($catalog->image_url) }}" alt="{{ $catalog->title }}"
-                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                            @else
-                                <div class="w-full h-full bg-tv9-green-900 flex items-center justify-center p-6 text-center">
-                                    <span
-                                        class="text-white/30 text-sm font-semibold uppercase tracking-widest">{{ $catalog->title }}</span>
-                                </div>
-                            @endif
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            <!-- Scroll Wrapper -->
+            <div class="catalog-scroll-wrapper">
+                <div class="catalog-grid">
+                    @forelse($catalogs->take(4) as $catalog)
+                        <div class="nf-card">
+                            <!-- Thumbnail -->
+                            <div class="nf-thumb-wrap">
+                                @if($catalog->image_url)
+                                    <img src="{{ asset($catalog->image_url) }}" alt="{{ $catalog->title }}"
+                                        class="nf-thumb-img">
+                                @else
+                                    <div class="nf-thumb-placeholder">
+                                        <span class="nf-thumb-label">{{ $catalog->title }}</span>
+                                    </div>
+                                @endif
+                                <div class="nf-gradient"></div>
                             </div>
 
-                            <!-- Category Badge -->
-                            @if($catalog->category)
-                                <span
-                                    class="absolute top-4 left-4 px-3 py-1 bg-yellow-500 text-white text-[10px] font-bold uppercase rounded-full shadow-lg">
-                                    {{ $catalog->category }}
-                                </span>
-                            @endif
+                            <!-- Hover Info Panel -->
+                            <div class="nf-info">
+                                @if($catalog->category)
+                                    <span class="nf-badge">{{ $catalog->category }}</span>
+                                @endif
+                                <p class="nf-card-title">{{ $catalog->title }}</p>
+                                <p class="nf-card-desc">
+                                    {{ Str::limit($catalog->description, 60, '...') ?? 'Tidak ada deskripsi.' }}
+                                </p>
+                            </div>
                         </div>
-
-                        <!-- Content -->
-                        <div class="p-5">
-                            <h3
-                                class="text-lg font-bold text-gray-900 mb-2 line-clamp-1 group-hover:text-yellow-600 transition-colors">
-                                {{ $catalog->title }}
-                            </h3>
-                            <p class="text-sm text-gray-500 line-clamp-2 leading-relaxed">
-                                {{ $catalog->description ?? 'Tidak ada deskripsi.' }}
-                            </p>
+                    @empty
+                        <div class="nf-empty">
+                            <p>Belum ada katalog program tersedia.</p>
                         </div>
-                    </div>
-                @empty
-                    <div
-                        class="col-span-full py-12 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
-                        <p class="text-gray-500 font-medium">Belum ada katalog program tersedia.</p>
-                    </div>
-                @endforelse
+                    @endforelse
+                </div>
             </div>
         </div>
     </section>
@@ -398,39 +383,46 @@
             </div>
             <!-- Cards Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-                <!-- Card 1: Satelit Telkom 4 -->
+                <!-- Card 1: TV Digital Kanal 44 UHF -->
                 <div class="card bg-gray-100 rounded-2xl p-6 border border-gray-200">
                     <!-- Icon -->
                     <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5">
-                        <i class="fa-solid fa-satellite-dish text-tv9-green-900 text-xl"></i>
+                        <i class="fa-solid fa-tv text-tv9-green-900 text-xl"></i>
                     </div>
                     <h3 class="text-tv9-green-900 font-semibold text-base mb-4">
-                        Satelit Telkom 4
+                        TV Digital Kanal 44 UHF
                     </h3>
                     <table class="w-full text-base">
                         <tbody>
                             <tr>
                                 <td class="text-gray-500 py-1.5">Frekuensi</td>
                                 <td class="text-right font-semibold text-tv9-green-900 py-1.5">
-                                    3900 MHz</td>
+                                    658 MHz
+                                </td>
                             </tr>
                             <tr>
-                                <td class="text-gray-500 py-1.5">Symbol Rate</td>
+                                <td class="text-gray-500 py-1.5">Kanal</td>
                                 <td class="text-right font-semibold text-tv9-green-900 py-1.5">
-                                    29900 Msps</td>
+                                    44 UHF
+                                </td>
                             </tr>
                             <tr>
-                                <td class="text-gray-500 py-1.5">Polarisasi</td>
+                                <td class="text-gray-500 py-1.5">Multipleksing</td>
                                 <td class="text-right font-semibold text-tv9-green-900 py-1.5">
-                                    Horizontal</td>
+                                    Trans TV Surabaya
+                                </td>
                             </tr>
                             <tr>
-                                <td class="text-gray-500 py-1.5">Modulasi</td>
+                                <td class="text-gray-500 py-1.5">Wilayah</td>
                                 <td class="text-right font-semibold text-tv9-green-900 py-1.5">
-                                    DVB-S2 / 8PSK</td>
+                                    Jawa Timur-1
+                                </td>
                             </tr>
                         </tbody>
                     </table>
+                    <div class="mt-4 text-xs text-gray-400 border-t pt-3">
+                        Mencakup: Surabaya, Mojokerto, Pasuruan, Bangkalan, Gresik, Jombang, Lamongan, Sidoarjo
+                    </div>
                 </div>
                 <!-- Card 2: TV Kabel -->
                 <div class="card bg-gray-100 rounded-2xl p-6 border border-gray-200">
@@ -672,98 +664,98 @@
 
     <!-- Suara Komunitas Section -->
     <!-- <section class="w-full media-section py-16 px-8">
-                                                        <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                                                        
-                                                            <div class="text-center mb-12">
-                                                                <h2 class="text-3xl font-bold text-white mb-3">Suara Komunitas</h2>
-                                                                <p class="text-white text-base">Apa kata mereka tentang dampak positif TV9
-                                                                    Nusantara bagi
-                                                                    masyarakat.</p>
-                                                            </div>
-                                                        
-                                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
-                                                        
-                                                                <div
-                                                                    class="testimonial-card bg-white rounded-2xl p-7 flex flex-col justify-between border border-gray-100 shadow-sm">
-                                                                    <div>
-                                                                        <i class="fa-solid fa-quote-right text-4xl text-gray-100 card-quote float-right ml-3 -mt-1"></i>
-                                                                        <p class="text-gray-600 text-base leading-relaxed italic mb-6 card-text">
-                                                                            "TV9 Nusantara menjadi rujukan keluarga kami untuk konten religi
-                                                                            yang
-                                                                            menyejukkan.
-                                                                            Program-programnya sangat relevan dengan nilai kebangsaan."
-                                                                        </p>
-                                                                    </div>
-                                                                    <div class="flex items-center gap-3">
-                                                                        <div
-                                                                            class="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center text-white text-base font-bold flex-shrink-0 card-avatar">
-                                                                            AK</div>
-                                                                        <div>
-                                                                            <p class="text-base font-bold text-gray-900 uppercase tracking-wide card-name">
-                                                                                Ahmad
-                                                                                Kurniawan
-                                                                            </p>
-                                                                            <p class="text-base text-gray-400 card-role">Tokoh Masyarakat, Jombang
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                        
-                                                                <div
-                                                                    class="testimonial-card bg-white rounded-2xl p-7 flex flex-col justify-between border border-gray-100 shadow-sm">
-                                                                    <div>
-                                                                        <i class="fa-solid fa-quote-right text-4xl text-gray-100 card-quote float-right ml-3 -mt-1"></i>
-                                                                        <p class="text-gray-600 text-base leading-relaxed italic font-medium mb-6 card-text">
-                                                                            "Sangat terbantu dengan aplikasi mobile TV9. Bisa menyimak kajian
-                                                                            kitab
-                                                                            dimanapun.
-                                                                            Kualitas
-                                                                            streamingnya jernih meski di daerah."
-                                                                        </p>
-                                                                    </div>
-                                                                    <div class="flex items-center gap-3">
-                                                                        <div
-                                                                            class="w-10 h-10 rounded-xl bg-gray-200 flex items-center justify-center text-gray-600 text-base font-bold flex-shrink-0 card-avatar">
-                                                                            SP</div>
-                                                                        <div>
-                                                                            <p class="text-base font-bold text-gray-900 uppercase tracking-wide card-name">
-                                                                                Siti
-                                                                                Rahmawati
-                                                                            </p>
-                                                                            <p class="text-base text-gray-400 card-role">Guru, Samarinda</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                        
-                                                                <div
-                                                                    class="testimonial-card bg-white rounded-2xl p-7 flex flex-col justify-between border border-gray-100 shadow-sm">
-                                                                    <div>
-                                                                        <i class="fa-solid fa-quote-right text-4xl text-gray-100 card-quote float-right ml-3 -mt-1"></i>
-                                                                        <p class="text-gray-600 text-base leading-relaxed italic mb-6 card-text">
-                                                                            "Sebagai pelaku UMKM, iklan di TV9 sangat efektif menjangkau pasar
-                                                                            yang loyal.
-                                                                            Tim
-                                                                            produksinya
-                                                                            sangat kreatif dan kooperatif."
-                                                                        </p>
-                                                                    </div>
-                                                                    <div class="flex items-center gap-3">
-                                                                        <div
-                                                                            class="w-10 h-10 rounded-xl bg-yellow-500 flex items-center justify-center text-white text-base font-bold flex-shrink-0 card-avatar">
-                                                                            BR</div>
-                                                                        <div>
-                                                                            <p class="text-base font-bold text-gray-900 uppercase tracking-wide card-name">
-                                                                                Budi
-                                                                                Santoso
-                                                                            </p>
-                                                                            <p class="text-base text-gray-400 card-role">Wirausaha, Gresik</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                        
-                                                            </div>
-                                                        </div>
-                                                        </section> -->
+                                                                                <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                                                                                
+                                                                                    <div class="text-center mb-12">
+                                                                                        <h2 class="text-3xl font-bold text-white mb-3">Suara Komunitas</h2>
+                                                                                        <p class="text-white text-base">Apa kata mereka tentang dampak positif TV9
+                                                                                            Nusantara bagi
+                                                                                            masyarakat.</p>
+                                                                                    </div>
+                                                                                
+                                                                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
+                                                                                
+                                                                                        <div
+                                                                                            class="testimonial-card bg-white rounded-2xl p-7 flex flex-col justify-between border border-gray-100 shadow-sm">
+                                                                                            <div>
+                                                                                                <i class="fa-solid fa-quote-right text-4xl text-gray-100 card-quote float-right ml-3 -mt-1"></i>
+                                                                                                <p class="text-gray-600 text-base leading-relaxed italic mb-6 card-text">
+                                                                                                    "TV9 Nusantara menjadi rujukan keluarga kami untuk konten religi
+                                                                                                    yang
+                                                                                                    menyejukkan.
+                                                                                                    Program-programnya sangat relevan dengan nilai kebangsaan."
+                                                                                                </p>
+                                                                                            </div>
+                                                                                            <div class="flex items-center gap-3">
+                                                                                                <div
+                                                                                                    class="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center text-white text-base font-bold flex-shrink-0 card-avatar">
+                                                                                                    AK</div>
+                                                                                                <div>
+                                                                                                    <p class="text-base font-bold text-gray-900 uppercase tracking-wide card-name">
+                                                                                                        Ahmad
+                                                                                                        Kurniawan
+                                                                                                    </p>
+                                                                                                    <p class="text-base text-gray-400 card-role">Tokoh Masyarakat, Jombang
+                                                                                                    </p>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                
+                                                                                        <div
+                                                                                            class="testimonial-card bg-white rounded-2xl p-7 flex flex-col justify-between border border-gray-100 shadow-sm">
+                                                                                            <div>
+                                                                                                <i class="fa-solid fa-quote-right text-4xl text-gray-100 card-quote float-right ml-3 -mt-1"></i>
+                                                                                                <p class="text-gray-600 text-base leading-relaxed italic font-medium mb-6 card-text">
+                                                                                                    "Sangat terbantu dengan aplikasi mobile TV9. Bisa menyimak kajian
+                                                                                                    kitab
+                                                                                                    dimanapun.
+                                                                                                    Kualitas
+                                                                                                    streamingnya jernih meski di daerah."
+                                                                                                </p>
+                                                                                            </div>
+                                                                                            <div class="flex items-center gap-3">
+                                                                                                <div
+                                                                                                    class="w-10 h-10 rounded-xl bg-gray-200 flex items-center justify-center text-gray-600 text-base font-bold flex-shrink-0 card-avatar">
+                                                                                                    SP</div>
+                                                                                                <div>
+                                                                                                    <p class="text-base font-bold text-gray-900 uppercase tracking-wide card-name">
+                                                                                                        Siti
+                                                                                                        Rahmawati
+                                                                                                    </p>
+                                                                                                    <p class="text-base text-gray-400 card-role">Guru, Samarinda</p>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                
+                                                                                        <div
+                                                                                            class="testimonial-card bg-white rounded-2xl p-7 flex flex-col justify-between border border-gray-100 shadow-sm">
+                                                                                            <div>
+                                                                                                <i class="fa-solid fa-quote-right text-4xl text-gray-100 card-quote float-right ml-3 -mt-1"></i>
+                                                                                                <p class="text-gray-600 text-base leading-relaxed italic mb-6 card-text">
+                                                                                                    "Sebagai pelaku UMKM, iklan di TV9 sangat efektif menjangkau pasar
+                                                                                                    yang loyal.
+                                                                                                    Tim
+                                                                                                    produksinya
+                                                                                                    sangat kreatif dan kooperatif."
+                                                                                                </p>
+                                                                                            </div>
+                                                                                            <div class="flex items-center gap-3">
+                                                                                                <div
+                                                                                                    class="w-10 h-10 rounded-xl bg-yellow-500 flex items-center justify-center text-white text-base font-bold flex-shrink-0 card-avatar">
+                                                                                                    BR</div>
+                                                                                                <div>
+                                                                                                    <p class="text-base font-bold text-gray-900 uppercase tracking-wide card-name">
+                                                                                                        Budi
+                                                                                                        Santoso
+                                                                                                    </p>
+                                                                                                    <p class="text-base text-gray-400 card-role">Wirausaha, Gresik</p>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                
+                                                                                    </div>
+                                                                                </div>
+                                                                                </section> -->
     <!-- Section: Legalitas & Izin Penyiaran -->
 
 

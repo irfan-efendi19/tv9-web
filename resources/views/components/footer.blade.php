@@ -73,7 +73,7 @@
         </div>
 
         <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-white/30 text-xs">&copy; {{ date('Y') }} TV9 Nusantara. PT. Dakwah
+            <p class="text-white/30 text-xs" translate="no">&copy; {{ date('Y') }} TV9 Nusantara. PT. Dakwah
                 Inti Media. All rights
                 reserved.
             </p>

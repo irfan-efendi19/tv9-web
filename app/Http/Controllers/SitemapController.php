@@ -18,6 +18,7 @@ class SitemapController extends Controller
             ['url' => route('layanan'), 'lastmod' => now()->startOfDay()->toAtomString(), 'priority' => '0.7'],
             ['url' => route('kontak'), 'lastmod' => now()->startOfDay()->toAtomString(), 'priority' => '0.7'],
             ['url' => route('tv9xlpmaarif'), 'lastmod' => now()->startOfDay()->toAtomString(), 'priority' => '0.7'],
+            ['url' => route('tentang'), 'lastmod' => now()->startOfDay()->toAtomString(), 'priority' => '0.7'],
         ];
 
         return response()->view('sitemap', [

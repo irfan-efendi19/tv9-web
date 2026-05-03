@@ -82,8 +82,11 @@ class CatalogController extends Controller
 
     private function processImage($base64String)
     {
-        $image_service_str = explode(',', $base64String);
-        $image = base64_decode($image_service_str[1]);
+        if (strpos($base64String, ',') !== false) {
+            $base64String = explode(',', $base64String)[1];
+        }
+        
+        $image = base64_decode($base64String);
         $imageName = 'poster_' . time() . '_' . Str::random(10) . '.png';
         $path = 'posters/' . $imageName;
 
@@ -91,6 +94,7 @@ class CatalogController extends Controller
 
         return 'storage/' . $path;
     }
+
 
     private function authorizeAdmin()
     {
