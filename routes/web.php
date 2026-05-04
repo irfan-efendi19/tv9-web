@@ -36,7 +36,10 @@ Route::get('/', function () {
 // Halaman Live
 Route::get('/live', function () {
     $today = date('N');
+    $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+    
     $schedules = Program::where('day_of_week', $today)
+                   ->where('end_time', '>=', $currentTime)
                    ->orderBy('start_time')
                    ->get();
 
