@@ -310,23 +310,6 @@
     .gallery-item:hover img {
         transform: scale(1.08);
     }
-
-    .gallery-overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(15, 45, 26, 0.5);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 1rem;
-        opacity: 0;
-        transition: all 0.4s ease;
-        backdrop-filter: blur(4px);
-    }
-
-    .gallery-item:hover .gallery-overlay {
-        opacity: 1;
-    }
     </style>
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
@@ -1034,183 +1017,153 @@
             <div class="gallery-container">
                 <!-- Mix of Landscape, Portrait, and Square -->
                 <div class="reveal gallery-item">
-                    <a href="https://picsum.photos/id/11/1200/800" data-lightbox="portfolio" data-title="Portfolio 1">
+                    <a href="https://picsum.photos/id/11/1200/800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/11/600/400" alt="P1">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Religi</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-1 gallery-item">
-                    <a href="https://picsum.photos/id/12/800/1200" data-lightbox="portfolio" data-title="Portfolio 2">
+                    <a href="https://picsum.photos/id/12/800/1200" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/12/400/600" alt="P2">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Budaya</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-2 gallery-item">
-                    <a href="https://picsum.photos/id/13/1000/1000" data-lightbox="portfolio" data-title="Portfolio 3">
+                    <a href="https://picsum.photos/id/13/1000/1000" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/13/500/500" alt="P3">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Liputan</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-3 gallery-item">
-                    <a href="https://picsum.photos/id/14/1200/900" data-lightbox="portfolio" data-title="Portfolio 4">
+                    <a href="https://picsum.photos/id/14/1200/900" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/14/600/450" alt="P4">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Studio</span></div>
                     </a>
                 </div>
                 <div class="reveal gallery-item">
-                    <a href="https://picsum.photos/id/15/800/1000" data-lightbox="portfolio" data-title="Portfolio 5">
+                    <a href="https://picsum.photos/id/15/800/1000" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/15/400/500" alt="P5">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Event</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-1 gallery-item">
-                    <a href="https://picsum.photos/id/16/1200/800" data-lightbox="portfolio" data-title="Portfolio 6">
+                    <a href="https://picsum.photos/id/16/1200/800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/16/600/400" alt="P6">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Dakwah</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-2 gallery-item">
-                    <a href="https://picsum.photos/id/17/900/1200" data-lightbox="portfolio" data-title="Portfolio 7">
+                    <a href="https://picsum.photos/id/17/900/1200" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/17/450/600" alt="P7">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">News</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-3 gallery-item">
-                    <a href="https://picsum.photos/id/18/1200/1200" data-lightbox="portfolio" data-title="Portfolio 8">
+                    <a href="https://picsum.photos/id/18/1200/1200" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/18/600/600" alt="P8">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Talkshow</span></div>
                     </a>
                 </div>
                 <div class="reveal gallery-item">
-                    <a href="https://picsum.photos/id/19/1200/800" data-lightbox="portfolio" data-title="Portfolio 9">
+                    <a href="https://picsum.photos/id/19/1200/800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/19/600/400" alt="P9">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Outdoor</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-1 gallery-item">
-                    <a href="https://picsum.photos/id/21/800/1200" data-lightbox="portfolio" data-title="Portfolio 10">
+                    <a href="https://picsum.photos/id/21/800/1200" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/21/400/600" alt="P10">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Digital</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-2 gallery-item">
-                    <a href="https://picsum.photos/id/22/1200/800" data-lightbox="portfolio" data-title="Portfolio 11">
+                    <a href="https://picsum.photos/id/22/1200/800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/22/600/400" alt="P11">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Behind</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-3 gallery-item">
-                    <a href="https://picsum.photos/id/23/1200/1600" data-lightbox="portfolio" data-title="Portfolio 12">
+                    <a href="https://picsum.photos/id/23/1200/1600" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/23/300/400" alt="P12">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Minaret</span></div>
                     </a>
                 </div>
                 <div class="reveal gallery-item">
-                    <a href="https://picsum.photos/id/24/1200/800" data-lightbox="portfolio" data-title="Portfolio 13">
+                    <a href="https://picsum.photos/id/24/1200/800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/24/600/400" alt="P13">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Award</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-1 gallery-item">
-                    <a href="https://picsum.photos/id/25/1200/1800" data-lightbox="portfolio" data-title="Portfolio 14">
+                    <a href="https://picsum.photos/id/25/1200/1800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/25/400/600" alt="P14">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Team</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-2 gallery-item">
-                    <a href="https://picsum.photos/id/26/1200/800" data-lightbox="portfolio" data-title="Portfolio 15">
+                    <a href="https://picsum.photos/id/26/1200/800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/26/600/400" alt="P15">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Workshop</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-3 gallery-item">
-                    <a href="https://picsum.photos/id/27/1200/1200" data-lightbox="portfolio" data-title="Portfolio 16">
+                    <a href="https://picsum.photos/id/27/1200/1200" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/27/600/600" alt="P16">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Meeting</span></div>
                     </a>
                 </div>
                 <div class="reveal gallery-item">
-                    <a href="https://picsum.photos/id/28/1200/800" data-lightbox="portfolio" data-title="Portfolio 17">
+                    <a href="https://picsum.photos/id/28/1200/800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/28/600/400" alt="P17">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Broadcast</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-1 gallery-item">
-                    <a href="https://picsum.photos/id/29/1000/1500" data-lightbox="portfolio" data-title="Portfolio 18">
+                    <a href="https://picsum.photos/id/29/1000/1500" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/29/400/600" alt="P18">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">On Air</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-2 gallery-item">
-                    <a href="https://picsum.photos/id/31/1200/800" data-lightbox="portfolio" data-title="Portfolio 19">
+                    <a href="https://picsum.photos/id/31/1200/800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/31/600/400" alt="P19">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Production</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-3 gallery-item">
-                    <a href="https://picsum.photos/id/32/1200/1800" data-lightbox="portfolio" data-title="Portfolio 20">
+                    <a href="https://picsum.photos/id/32/1200/1800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/32/400/600" alt="P20">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Archive</span></div>
                     </a>
                 </div>
                 <div class="reveal gallery-item">
-                    <a href="https://picsum.photos/id/33/1200/800" data-lightbox="portfolio" data-title="Portfolio 21">
+                    <a href="https://picsum.photos/id/33/1200/800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/33/600/400" alt="P21">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Library</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-1 gallery-item">
-                    <a href="https://picsum.photos/id/34/800/1200" data-lightbox="portfolio" data-title="Portfolio 22">
+                    <a href="https://picsum.photos/id/34/800/1200" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/34/400/600" alt="P22">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Camera</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-2 gallery-item">
-                    <a href="https://picsum.photos/id/35/1200/800" data-lightbox="portfolio" data-title="Portfolio 23">
+                    <a href="https://picsum.photos/id/35/1200/800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/35/600/400" alt="P23">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Editing</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-3 gallery-item">
-                    <a href="https://picsum.photos/id/36/1200/1600" data-lightbox="portfolio" data-title="Portfolio 24">
+                    <a href="https://picsum.photos/id/36/1200/1600" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/36/300/400" alt="P24">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Coloring</span></div>
                     </a>
                 </div>
                 <div class="reveal gallery-item">
-                    <a href="https://picsum.photos/id/37/1200/800" data-lightbox="portfolio" data-title="Portfolio 25">
+                    <a href="https://picsum.photos/id/37/1200/800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/37/600/400" alt="P25">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Audio</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-1 gallery-item">
-                    <a href="https://picsum.photos/id/38/1200/1800" data-lightbox="portfolio" data-title="Portfolio 26">
+                    <a href="https://picsum.photos/id/38/1200/1800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/38/400/600" alt="P26">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Lighting</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-2 gallery-item">
-                    <a href="https://picsum.photos/id/39/1200/800" data-lightbox="portfolio" data-title="Portfolio 27">
+                    <a href="https://picsum.photos/id/39/1200/800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/39/600/400" alt="P27">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Stage</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-3 gallery-item">
-                    <a href="https://picsum.photos/id/41/1200/1600" data-lightbox="portfolio" data-title="Portfolio 28">
+                    <a href="https://picsum.photos/id/41/1200/1600" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/41/300/400" alt="P28">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Talent</span></div>
                     </a>
                 </div>
                 <div class="reveal gallery-item">
-                    <a href="https://picsum.photos/id/42/1200/800" data-lightbox="portfolio" data-title="Portfolio 29">
+                    <a href="https://picsum.photos/id/42/1200/800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/42/600/400" alt="P29">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Host</span></div>
                     </a>
                 </div>
                 <div class="reveal reveal-delay-1 gallery-item">
-                    <a href="https://picsum.photos/id/43/1200/1800" data-lightbox="portfolio" data-title="Portfolio 30">
+                    <a href="https://picsum.photos/id/43/1200/1800" data-lightbox="portfolio">
                         <img src="https://picsum.photos/id/43/400/600" alt="P30">
-                        <div class="gallery-overlay"><span class="text-white text-[10px] font-bold">Guest</span></div>
                     </a>
                 </div>
             </div>
