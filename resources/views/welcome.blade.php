@@ -55,6 +55,14 @@
 
     <!-- HLS.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JETFEBFRYZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-JETFEBFRYZ');
+    </script>
 </head>
 
 <body>
@@ -220,8 +228,8 @@
                 <div id="scheduleSlider" class="relative">
                     <!-- Slides -->
                     @php
-                        $scheduleList = $schedules ?? [];
-                        $chunkedSchedules = collect($scheduleList)->chunk(3);
+$scheduleList = $schedules ?? [];
+$chunkedSchedules = collect($scheduleList)->chunk(3);
                     @endphp
 
                     @forelse($chunkedSchedules as $slideIndex => $scheduleChunk)
@@ -230,10 +238,10 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                                 @foreach($scheduleChunk as $program)
                                     @php
-                                        $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-                                        $isLive = $program->start_time <= $currentTime && $program->end_time >=
-                                            $currentTime;
-                                    $isDone = $program->end_time < $currentTime; @endphp <div
+        $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+        $isLive = $program->start_time <= $currentTime && $program->end_time >=
+            $currentTime;
+        $isDone = $program->end_time < $currentTime; @endphp <div
                                         class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-tv9-primary shadow-lg shadow-tv9-primary/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
                                         {{-- Badge SEDANG TAYANG di atas card --}}
                                         @if($isLive)
