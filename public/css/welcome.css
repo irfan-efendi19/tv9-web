@@ -229,13 +229,9 @@
         font-size: 0.65rem;
         margin-bottom: 0.5rem;
     }
-    
-    .btn-group {
-        justify-content: center;
-        margin-top: 0.25rem;
-    }
-    
-    .btn-primary {
+
+        .btn-primary {
+            color: #fff;
         background: #dc2626;
         padding: 0.5rem 1.25rem;
         border-radius: 9999px;
@@ -246,7 +242,13 @@
         gap: 0.5rem;
     }
     
+    .btn-group {
+        justify-content: center;
+        margin-top: 0.25rem;
+    }
+    
     .btn-outline {
+        color: #fff;
         background: rgba(255,255,255,0.1);
         backdrop-filter: blur(8px);
         padding: 0.5rem 1.25rem;

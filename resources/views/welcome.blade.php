@@ -66,6 +66,19 @@
 
         gtag('config', 'G-JETFEBFRYZ');
     </script>
+    <script>
+        function showComingSoonAlert() {
+            Swal.fire({
+                title: 'Akan Segera Rilis',
+                text: 'Aplikasi mobile TV9 Nusantara akan segera tersedia di Google Play dan App Store.',
+                icon: 'info',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#DC2626',
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            });
+        }
+    </script>
     </head>
     
     <body>
@@ -94,7 +107,7 @@
                                     </div>
                                     <div class="mobile-text-wrapper">
                                         <!-- <span class="mobile-badge"><i class="fas fa-star text-yellow-400 text-xs mr-1"></i>
-                                                                                                                                                BUILD LIKE THEM</span> -->
+                                                                                                                                                    BUILD LIKE THEM</span> -->
                                         <h2 class="text-white font-bold">TV9 Nusantara
                                         </h2>
                                         <p class="text-white/85">Santun Menyejukkan
@@ -310,8 +323,8 @@
                             <a href="{{ route('jadwal') }}">
                                 <span
                                     class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
-                                                                                                                                                                                                                                                                                                                       transition-all duration-300 ease-in-out 
-                                                                                                                                                                                                                                                                                                                       hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
+                                                                                                                                                                                                                                                                                                                           transition-all duration-300 ease-in-out 
+                                                                                                                                                                                                                                                                                                                           hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
                                     LIHAT SEMUA JADWAL
                                 </span>
                             </a>
@@ -418,11 +431,11 @@
                                     </td>
                                 </tr>
                                 <!-- <tr>
-                                        <td class="text-gray-500 py-1.5">Multipleksing</td>
-                                        <td class="text-right font-semibold text-tv9-green-900 py-1.5">
-                                            Trans TV Surabaya
-                                        </td>
-                                    </tr> -->
+                                            <td class="text-gray-500 py-1.5">Multipleksing</td>
+                                            <td class="text-right font-semibold text-tv9-green-900 py-1.5">
+                                                Trans TV Surabaya
+                                            </td>
+                                        </tr> -->
                                 <tr>
                                     <td class="text-gray-500 py-1.5">Wilayah</td>
                                     <td class="text-right font-semibold text-tv9-green-900 py-1.5">
@@ -487,25 +500,25 @@
                             Download Aplikasi
                             Kami</p>
                         <!-- Google Play -->
-                        <a href="#"
-                            class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 mb-2.5 w-full">
+                        <button onclick="showComingSoonAlert()"
+                            class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 mb-2.5 w-full hover:bg-gray-800 transition-colors">
                             <i class="fa-brands fa-google-play text-sky-400 text-xl flex-shrink-0"></i>
                             <div class="leading-tight">
                                 <p class="text-[10px] text-gray-400 font-normal">GET IT
                                     ON</p>
                                 <p class="text-base font-semibold">Google Play</p>
                             </div>
-                        </a>
+                        </button>
                         <!-- App Store -->
-                        <a href="#"
-                            class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 w-full">
+                        <button onclick="showComingSoonAlert()"
+                            class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 w-full hover:bg-gray-800 transition-colors">
                             <i class="fa-brands fa-apple text-white text-xl flex-shrink-0"></i>
                             <div class="leading-tight">
                                 <p class="text-[10px] text-gray-400 font-normal">
                                     DOWNLOAD ON THE</p>
                                 <p class="text-base font-semibold">App Store</p>
                             </div>
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -767,41 +780,41 @@
                                                                                             </div>
                                                                                         </div>
                                                                                         </section> -->
-        <!-- Section: Legalitas & Izin Penyiaran -->
-    
-    
-    
-        <!-- ── READY TO COLLABORATE ───────────────────────────────────── -->
-        <section class="py-20 px-6 media-section">
-            <div class="max-w-2xl mx-auto text-center">
-                <h2 class="font-display text-3xl lg:text-4xl font-bold text-white mb-4">
-                    Siap Berkolaborasi? Let's Connect!
-                </h2>
-                <p class="text-white text-sm leading-relaxed mb-8 max-w-lg mx-auto">
-                    Bergabunglah dengan kami dalam misi kami untuk menyiarkan kesantunan
-                    dan kesejukan.
-                    Baik Anda tertarik
-                    pada kemitraan, periklanan, atau berbagi cerita Anda, tim kami siap
-                    untuk terhubung.
-                </p>
-                <a href="{{route('kontak')}}" class="inline-block font-bold text-sm text-black px-8 py-3.5 rounded-md"
-                    style="background:white;letter-spacing:.04em;text-decoration:none;">
-                    Kontak Kami
-                </a>
-            </div>
-        </section>
-        <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
-            <iframe style="border: 0; width: 100%; height: 400px"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.5730295770977!2d112.736189175!3d-7.289322192718097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb957c5b56f7%3A0x1ee6fa80f21a83d3!2sTV9%20Nusantara!5e0!3m2!1sid!2sid!4v1776587954324!5m2!1sid!2sid"
-                frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- Section: Legalitas & Izin Penyiaran -->
+
+
+
+    <!-- ── READY TO COLLABORATE ───────────────────────────────────── -->
+    <section class="py-20 px-6 media-section">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="font-display text-3xl lg:text-4xl font-bold text-white mb-4">
+                Siap Berkolaborasi? Let's Connect!
+            </h2>
+            <p class="text-white text-sm leading-relaxed mb-8 max-w-lg mx-auto">
+                Bergabunglah dengan kami dalam misi kami untuk menyiarkan kesantunan
+                dan kesejukan.
+                Baik Anda tertarik
+                pada kemitraan, periklanan, atau berbagi cerita Anda, tim kami siap
+                untuk terhubung.
+            </p>
+            <a href="{{route('kontak')}}" class="inline-block font-bold text-sm text-black px-8 py-3.5 rounded-md"
+                style="background:white;letter-spacing:.04em;text-decoration:none;">
+                Kontak Kami
+            </a>
         </div>
-        <!-- FOOTER -->
-        <x-footer />
-        <!-- Simple script to inject current year dynamically (like {{ date('Y') }} in PHP) -->
-        <script>
-            if (document.getElementById('currentYear')) {
-                document.getElementById('currentYear').innerText = new Date().getFullYear();
-            }
+    </section>
+    <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
+        <iframe style="border: 0; width: 100%; height: 400px"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.5730295770977!2d112.736189175!3d-7.289322192718097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb957c5b56f7%3A0x1ee6fa80f21a83d3!2sTV9%20Nusantara!5e0!3m2!1sid!2sid!4v1776587954324!5m2!1sid!2sid"
+            frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <!-- FOOTER -->
+    <x-footer />
+    <!-- Simple script to inject current year dynamically (like {{ date('Y') }} in PHP) -->
+    <script>
+    if (document.getElementById('currentYear')) {
+        document.getElementById('currentYear').innerText = new Date().getFullYear();
+    }
     </script>
     <script src="https://elfsightcdn.com/platform.js" async></script>
     <script src="{{ asset('js/welcome.js') }}"></script>
