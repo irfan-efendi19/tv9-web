@@ -38,11 +38,11 @@
     <!-- Lightbox2 CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
     <style>
-        .hero-bg {
-            background: linear-gradient(160deg, #0f2d1a 0%, #1a4d2e 50%, #2d6a4f 100%);
-            position: relative;
-            overflow: hidden;
-        }
+    .hero-bg {
+        background: linear-gradient(160deg, #0f2d1a 0%, #1a4d2e 50%, #2d6a4f 100%);
+        position: relative;
+        overflow: hidden;
+    }
 
     .hero-bg::before {
         content: '';
@@ -313,7 +313,7 @@
     </style>
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
-    </head>
+</head>
 
 <body class="bg-white text-gray-800">
     <x-navbar />
@@ -377,17 +377,17 @@
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] bg-tv9-dark float-anim">
                     <div class="absolute inset-0 flex items-center justify-center">
                         <!-- Camera + Crescent decorative SVG -->
-                        <img src="{{ asset('img/dekade.jpg') }}" alt="TV9 Nusantara" class="w-full h-full object-cover">
+                        <img src="{{ asset('img/origin.jpeg') }}" alt="TV9 Nusantara" class="w-full h-full object-cover">
                     </div>
-                    </div>
-                    <!-- Decorative accent -->
-                    <div class="absolute -bottom-4 -left-4 w-24 h-24 rounded-full border-4 border-tv9-gold-600/20 -z-10">
-                    </div>
-                    <div class="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-tv9-gold-600/10 -z-10">
-                    </div>
-                    </div>
-                    </div>
-                    </section>
+                </div>
+                <!-- Decorative accent -->
+                <div class="absolute -bottom-4 -left-4 w-24 h-24 rounded-full border-4 border-tv9-gold-600/20 -z-10">
+                </div>
+                <div class="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-tv9-gold-600/10 -z-10">
+                </div>
+                </div>
+                </div>
+                </section>
 
     <!-- ========= VISI & MISI ========= -->
     <section class="py-16 px-6 pattern-bg">
@@ -399,15 +399,15 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-tv9-dark mb-3">Visi Kami</h3>
-                        <div class="gold-divider w-12 mb-4"></div>
-                        <p class="text-gray-600 leading-relaxed">
-                            Menjadi Perusahaan Media Televisi & Digital Yang Kokoh, Adaptif
-                            & Terpercaya
-                        </p>
-                        </div>
+                    </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-tv9-dark mb-3">Visi Kami</h3>
+                    <div class="gold-divider w-12 mb-4"></div>
+                    <p class="text-gray-600 leading-relaxed">
+                        Menjadi Perusahaan Media Televisi & Digital Yang Kokoh, Adaptif
+                        & Terpercaya
+                    </p>
+                    </div>
 
             <!-- Misi -->
             <div class="reveal reveal-delay-2 card-hover bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
@@ -446,8 +446,8 @@
                     </li>
                 </ul>
             </div>
-            </div>
-            </section>
+        </div>
+        </section>
 
     <!-- ========= PERJALANAN / TIMELINE ========= -->
     <section class="py-20 px-6 bg-white">
@@ -456,15 +456,17 @@
                 <h2 class="text-4xl md:text-5xl font-bold text-tv9-dark">Perjalanan
                     Kami</h2>
                 <div class="gold-divider w-24 mx-auto mt-4"></div>
-                <p class="text-tv9-gray mt-5 max-w-xl mx-auto text-sm">Dari PASTV di Pasuruan hingga transformasi digital, TV9 Nusantara
-                    terus berkontribusi untuk siaran bernuansa Ahlussunnah wal Jamaah dan jangkauan luas.</p>
+                <p class="text-tv9-gray mt-5 max-w-xl mx-auto text-sm">TV9 Nusantara
+                    terus berkontribusi untuk siaran bernuansa Ahlussunnah wal Jamaah dan jangkauan
+                    luas.</p>
             </div>
 
             <div class="relative">
                 <!-- Center line -->
                 <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-tv9-gold-600 via-tv9-gold-600/30 to-transparent -translate-x-1/2"
-                    style="background: linear-gradient(to bottom, #b8860b, rgba(184,134,11,0.3), transparent);"></div>
-                
+                    style="background: linear-gradient(to bottom, #b8860b, rgba(184,134,11,0.3), transparent);">
+                </div>
+
                 <!-- data berdasarkan gambar: 
                                                                                                                                                                                                                                                                                                                                                                                                                                      2005-2008: PT DIM berdiri sebagai PASTV di Pasuruan, siaran 2006-2008
                                                                                                                                                                                                                                                                                                                                                                                                                                      2009: PWNU Jatim pegang saham, hijrah ke Surabaya, PASTV berubah jadi TV9
@@ -475,14 +477,18 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                      1 Februari 2018: Divisi News terverifikasi Dewan Pers
                                                                                                                                                                                                                                                                                                                                                                                                                                      19 Oktober 2022: Migrasi ke TV Digital Terestrial
                                                                                                                                                                                                                                                                                                                                                                                                                                 -->
-                
+
                 <!-- 2005-2008: PASTV -->
-                <div class="relative flex items-center mb-16 reveal" data-delay="0">
+                <div class="relative flex items-center reveal" data-delay="0">
                     <div class="w-1/2 pr-10 text-right">
                         <span class="text-tv9-gold-600 text-4xl font-black font-display block">2005-2008</span>
-                        <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">Cikal Bakal PASTV</h4>
-                        <p class="text-gray-500 text-sm leading-relaxed">PT. Dakwah Inti Media (PT DIM) berdiri sebagai Perusahaan
-                            Televisi Swasta Lokal di Pasuruan dengan nama PASTV, dan bersiaran pada 2006-2008. Fondasi awal siaran
+                        <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">Cikal Bakal</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">PT. Dakwah Inti Media (PT
+                            DIM) berdiri sebagai
+                            Perusahaan
+                            Televisi Swasta Lokal di Pasuruan dengan nama PASTV, dan bersiaran pada
+                            2006-2008. Fondasi
+                            awal siaran
                             dakwah visual di Jawa Timur.</p>
                     </div>
                     <div
@@ -492,105 +498,146 @@
                 </div>
 
                 <!-- 2009: PWNU saham & hijrah ke Surabaya, PASTV berubah TV9 -->
-                <div class="relative flex items-center mb-16 reveal reveal-delay-2" data-delay="1">
+                <div class="relative flex items-center reveal reveal-delay-2" data-delay="1">
                     <div class="w-1/2 pr-10"></div>
                     <div
                         class="absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-tv9-gold-600 border-4 border-tv9-gold-600 shadow-md z-10 timeline-dot-custom">
                     </div>
                     <div class="w-1/2 pl-10">
                         <span class="text-tv9-gold-600 text-4xl font-black font-display block">2009</span>
-                        <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">Transformasi Menjadi TV9</h4>
-                        <p class="text-gray-500 text-sm leading-relaxed">PWNU Jawa Timur memiliki saham di PT DIM, hijrah ke Surabaya
-                            (sesama zona layanan siaran Jatim I), PASTV berubah nama menjadi TV9. Identitas baru dengan semangat
+                        <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">Transformasi Menjadi
+                            TV9</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">PWNU Jawa Timur memiliki
+                            saham di PT DIM,
+                            hijrah ke Surabaya
+                            (sesama zona layanan siaran Jatim I), PASTV berubah nama menjadi TV9.
+                            Identitas baru dengan
+                            semangat
                             kebangsaan dan keagamaan.</p>
                     </div>
                 </div>
-                
+
                 <!-- 31 Januari 2010: TV9 Nusantara resmi berdiri -->
-                <div class="relative flex items-center mb-16 reveal" data-delay="2">
+                <div class="relative flex items-center reveal" data-delay="2">
                     <div class="w-1/2 pr-10 text-right">
-                        <span class="text-tv9-gold-600 text-4xl font-black font-display block">31 Jan 2010</span>
-                        <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">TV9 Nusantara Resmi Berdiri</h4>
-                        <p class="text-gray-500 text-sm leading-relaxed">Dilaunching oleh Gubernur Jawa Timur, Soekarwo dan Ketua PWNU Jawa
-                            Timur, KH. Hasan Mutawakkil Alallah. Momentum bersejarah sebagai televisi komunitas & religi yang mengusung nilai
+                        <span class="text-tv9-gold-600 text-4xl font-black font-display block">31
+                            Jan 2010</span>
+                        <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">TV9 Nusantara Resmi
+                            Berdiri</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">Dilaunching oleh Gubernur
+                            Jawa Timur, Soekarwo
+                            dan Ketua PWNU Jawa
+                            Timur, KH. Hasan Mutawakkil Alallah. Momentum bersejarah sebagai
+                            televisi komunitas & religi
+                            yang mengusung nilai
                             Ahlussunnah wal Jamaah.</p>
                     </div>
                     <div
                         class="absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-tv9-gold-600 border-4 border-tv9-gold-600 shadow-md z-10 timeline-dot-custom">
                     </div>
                     <div class="w-1/2 pl-10"></div>
+                </div>
+                <!-- 23 Juli 2012: Mendapatkan Izin Penyelenggaraan Penyiaran -->
+                <div class="relative flex items-center reveal reveal-delay-2" data-delay="3">
+                    <div class="w-1/2 pr-10"></div>
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-tv9-gold-600 border-4 border-tv9-gold-600 shadow-md z-10 timeline-dot-custom">
                     </div>
-                    <!-- 23 Juli 2012: Mendapatkan Izin Penyelenggaraan Penyiaran -->
-                    <div class="relative flex items-center mb-16 reveal reveal-delay-2" data-delay="3">
-                        <div class="w-1/2 pr-10"></div>
+                    <div class="w-1/2 pl-10">
+                        <span class="text-tv9-gold-600 text-4xl font-black font-display block">23
+                            Juli 2012</span>
+                        <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">Izin Penyiaran (IPP)
+                            dari Kominfo</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">Mendapatkan Izin
+                            Penyelenggaraan Penyiaran
+                            (IPP) dari Menteri
+                            Komunikasi dan Informatika RI No.432/KEP/M.KOMINFO/07/2012 bersama 10 TV
+                            swasta lokal lain
+                            di Surabaya.
+                            Landasan legal penuh untuk bersiaran.</p>
+                        </div>
+                        </div>
+                        <!-- 2013: Kepemilikan dua perusahaan -->
+                <div class="relative flex items-center reveal" data-delay="4">
+                    <div class="w-1/2 pr-10 text-right">
+                        <span class="text-tv9-gold-600 text-4xl font-black font-display block">2013</span>
+                        <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">Dua Pilar Kepemilikan
+                        </h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">TV9, PT DIM dimiliki dua
+                            perusahaan pemegang
+                            saham: PT
+                            Nusantara Utama Sembilan (NUS, milik PWNU Jawa Timur), dan PT Siantar
+                            Citra Televisi (SCT).
+                            Struktur
+                            profesional memperkuat eksistensi.</p>
+                        </div>
                         <div
                             class="absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-tv9-gold-600 border-4 border-tv9-gold-600 shadow-md z-10 timeline-dot-custom">
                         </div>
-                        <div class="w-1/2 pl-10">
-                            <span class="text-tv9-gold-600 text-4xl font-black font-display block">23 Juli 2012</span>
-                            <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">Izin Penyiaran (IPP) dari Kominfo</h4>
-                            <p class="text-gray-500 text-sm leading-relaxed">Mendapatkan Izin Penyelenggaraan Penyiaran (IPP) dari Menteri
-                                Komunikasi dan Informatika RI No.432/KEP/M.KOMINFO/07/2012 bersama 10 TV swasta lokal lain di Surabaya.
-                                Landasan legal penuh untuk bersiaran.</p>
+                        <div class="w-1/2 pl-10"></div>
+                        </div>
+                        <!-- 21 Juni 2014: Siaran Nasional Satelit & Streaming -->
+                <div class="relative flex items-center reveal reveal-delay-2" data-delay="5">
+                    <div class="w-1/2 pr-10"></div>
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-tv9-gold-600 border-4 border-tv9-gold-600 shadow-md z-10 timeline-dot-custom">
+                    </div>
+                    <div class="w-1/2 pl-10">
+                        <span class="text-tv9-gold-600 text-4xl font-black font-display block">21
+                            Juni 2014</span>
+                        <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">Ekspansi Satelit &
+                            Nasional</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">Dilaunching sebagai TV9
+                            Nusantara menandai
+                            platform siaran
+                            nasional
+                            melalui Satelit Telkom-1, berpindah ke Satelit Palapa D (2018) dan
+                            Satelit Telkom 4 (2020).
+                            Akses
+                            nationwide/global juga tersedia melalui TV streaming di berbagai
+                            aplikasi OTT.</p>
                             </div>
-                            </div>
-                            <!-- 2013: Kepemilikan dua perusahaan -->
-                            <div class="relative flex items-center mb-16 reveal" data-delay="4">
-                                <div class="w-1/2 pr-10 text-right">
-                                    <span class="text-tv9-gold-600 text-4xl font-black font-display block">2013</span>
-                                    <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">Dua Pilar Kepemilikan</h4>
-                                    <p class="text-gray-500 text-sm leading-relaxed">TV9, PT DIM dimiliki dua perusahaan pemegang saham: PT
-                                        Nusantara Utama Sembilan (NUS, milik PWNU Jawa Timur), dan PT Siantar Citra Televisi (SCT). Struktur
-                                        profesional memperkuat eksistensi.</p>
-                                </div>
-                                <div
-                                    class="absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-tv9-gold-600 border-4 border-tv9-gold-600 shadow-md z-10 timeline-dot-custom">
-                                </div>
-                                <div class="w-1/2 pl-10"></div>
-                            </div>
-                            <!-- 21 Juni 2014: Siaran Nasional Satelit & Streaming -->
-                            <div class="relative flex items-center mb-16 reveal reveal-delay-2" data-delay="5">
-                                <div class="w-1/2 pr-10"></div>
-                                <div
-                                    class="absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-tv9-gold-600 border-4 border-tv9-gold-600 shadow-md z-10 timeline-dot-custom">
-                                </div>
-                                <div class="w-1/2 pl-10">
-                                    <span class="text-tv9-gold-600 text-4xl font-black font-display block">21 Juni 2014</span>
-                                    <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">Ekspansi Satelit & Nasional</h4>
-                                    <p class="text-gray-500 text-sm leading-relaxed">Dilaunching sebagai TV9 Nusantara menandai platform siaran
-                                        nasional
-                                        melalui Satelit Telkom-1, berpindah ke Satelit Palapa D (2018) dan Satelit Telkom 4 (2020). Akses
-                                        nationwide/global juga tersedia melalui TV streaming di berbagai aplikasi OTT.</p>
-                                </div>
                             </div>
                             <!-- 1 Februari 2018: Verifikasi Dewan Pers -->
-                            <div class="relative flex items-center mb-16 reveal" data-delay="6">
-                                <div class="w-1/2 pr-10 text-right">
-                                    <span class="text-tv9-gold-600 text-4xl font-black font-display block">1 Feb 2018</span>
-                                    <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">Media Berita Terverifikasi</h4>
-                                    <p class="text-gray-500 text-sm leading-relaxed">Divisi News terverifikasi sebagai MEDIA BERITA oleh DEWAN PERS
-                                        No.198/DP-Terverifikasi/K/II/2018. Pengakuan resmi kredibilitas jurnalistik dan komitmen pada informasi
-                                        berkualitas.</p>
-                                </div>
-                                <div
-                                    class="absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-tv9-gold-600 border-4 border-tv9-gold-600 shadow-md z-10 timeline-dot-custom">
-                                </div>
-                                <div class="w-1/2 pl-10"></div>
-                            </div>
-                            <!-- 19 Oktober 2022: Migrasi ke TV Digital Terestrial -->
-                            <div class="relative flex items-center mb-16 reveal reveal-delay-4" data-delay="7">
-                                <div class="w-1/2 pr-10"></div>
-                                <div
-                                    class="absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-tv9-gold-600 border-4 border-tv9-gold-600 shadow-md z-10 timeline-dot-custom">
-                                </div>
-                                <div class="w-1/2 pl-10">
-                                    <span class="text-tv9-gold-600 text-4xl font-black font-display block">19 Okt 2022</span>
-                                    <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">Migrasi ke TV Digital Terestrial</h4>
-                                    <p class="text-gray-500 text-sm leading-relaxed">Bermigrasi dari Siaran TV Analog ke Siaran TV Digital
-                                        Terestrial
-                                        melalui IPP Nomor 1164/T.02.02/2022 dari Menteri Komunikasi dan Informatika RI. Memasuki era siaran jernih
-                                        dan
-                                        efisien.</p>
+                <div class="relative flex items-center reveal" data-delay="6">
+                    <div class="w-1/2 pr-10 text-right">
+                        <span class="text-tv9-gold-600 text-4xl font-black font-display block">1 Feb
+                            2018</span>
+                        <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">Media Berita
+                            Terverifikasi</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">Divisi News terverifikasi
+                            sebagai MEDIA BERITA
+                            oleh DEWAN PERS
+                            No.198/DP-Terverifikasi/K/II/2018. Pengakuan resmi kredibilitas
+                            jurnalistik dan komitmen
+                            pada informasi
+                            berkualitas.</p>
+                        </div>
+                        <div
+                            class="absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-tv9-gold-600 border-4 border-tv9-gold-600 shadow-md z-10 timeline-dot-custom">
+                        </div>
+                        <div class="w-1/2 pl-10"></div>
+                        </div>
+                        <!-- 19 Oktober 2022: Migrasi ke TV Digital Terestrial -->
+                <div class="relative flex items-center reveal reveal-delay-4" data-delay="7">
+                    <div class="w-1/2 pr-10"></div>
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-tv9-gold-600 border-4 border-tv9-gold-600 shadow-md z-10 timeline-dot-custom">
+                    </div>
+                    <div class="w-1/2 pl-10">
+                        <span class="text-tv9-gold-600 text-4xl font-black font-display block">19
+                            Okt 2022</span>
+                        <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">Migrasi ke TV Digital
+                            Terestrial</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">Bermigrasi dari Siaran TV
+                            Analog ke Siaran TV
+                            Digital
+                            Terestrial
+                            melalui IPP Nomor 1164/T.02.02/2022 dari Menteri Komunikasi dan
+                            Informatika RI. Memasuki era
+                            siaran jernih
+                            dan
+                            efisien.</p>
                     </div>
                 </div>
 
@@ -598,10 +645,15 @@
                 <div class="relative flex items-center reveal" data-delay="8">
                     <div class="w-1/2 pr-10 text-right">
                         <span class="text-tv9-gold-600 text-4xl font-black font-display block">2024</span>
-                        <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">Transformasi Digital & Inovasi</h4>
-                        <p class="text-gray-500 text-sm leading-relaxed">Meluncurkan platform digital interaktif serta pengalaman
+                        <h4 class="text-lg font-bold text-tv9-dark mt-1 mb-2">Transformasi Digital &
+                            Inovasi</h4>
+                        <p class="text-gray-500 text-sm leading-relaxed">Meluncurkan platform
+                            digital interaktif serta
+                            pengalaman
                             on-demand,
-                            mengintegrasikan siaran TV dengan ekositus digital. Menghadirkan konten bernuansa Aswaja ke generasi
+                            mengintegrasikan siaran TV dengan ekositus digital. Menghadirkan konten
+                            bernuansa Aswaja ke
+                            generasi
                             milenial dan
                             gen Z.</p>
                     </div>
@@ -610,251 +662,265 @@
                     </div>
                     <div class="w-1/2 pl-10"></div>
                 </div>
-                </div>
+            </div>
             </div>
             </section>
-        <section class="py-20 px-6 bg-tv9-dark relative overflow-hidden">
-<!-- Decorative circles (sama persis dengan file asli) -->
-<div
-    class="absolute top-0 right-0 w-96 h-96 rounded-full border border-tv9-gold-600/5 translate-x-1/2 -translate-y-1/2 pointer-events-none">
-</div>
-<div
-    class="absolute bottom-0 left-0 w-64 h-64 rounded-full border border-tv9-gold-600/5 -translate-x-1/2 translate-y-1/2 pointer-events-none">
-</div>
+            <section class="py-20 px-6 bg-tv9-dark relative overflow-hidden">
+                <!-- Decorative circles (sama persis dengan file asli) -->
+                <div
+                    class="absolute top-0 right-0 w-96 h-96 rounded-full border border-tv9-gold-600/5 translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-64 h-64 rounded-full border border-tv9-gold-600/5 -translate-x-1/2 translate-y-1/2 pointer-events-none">
+                </div>
 
-<div class="max-w-5xl mx-auto relative z-10">
-<!-- Header -->
-<div class="text-center mb-14 animate-fade-up">
-    <span class="section-label block mb-3">Prinsip Kami</span>
-        <h2 class="text-4xl md:text-5xl font-bold text-white">Nilai–Nilai Inti</h2>
-        <p class="text-white/50 mt-3 max-w-md mx-auto text-sm leading-relaxed">
-            Prinsip yang membimbing setiap langkah kami dalam berkarya dan melayani pemirsa.
-        </p>
-        <div class="gold-divider w-24 mx-auto mt-4"></div>
-        </div>
-        <!-- Legacy strip -->
-        <div
-            class="animate-fade-up-2 bg-tv9-gold-600/10 border border-tv9-gold-600/20 rounded-2xl px-7 py-5 text-center text-sm text-white/60 leading-relaxed mb-8 backdrop-blur-sm">
-            Selama <strong class="text-tv9-gold-400 font-bold">16 tahun (2010–2026)</strong>, TV9 menjaga keautentikan dan
-            kepercayaan publik.
-            Dengan nilai yang sama, TV9 terus berinovasi,
-            <strong class="text-tv9-gold-400 font-bold">stay relevant</strong> di era baru.
-        </div>
-        <!-- Cards grid -->
-        <div class="grid md:grid-cols-2 gap-6 animate-fade-up-3">
-        
-            <!-- Otentik -->
-            <div class="reveal card-hover bg-white/5 backdrop-blur-sm border border-tv9-gold-600/10 rounded-2xl p-7 text-center">
-                <div class="w-14 h-14 mx-auto rounded-2xl bg-tv9-gold-600/10 flex items-center justify-center mb-4">
-            <svg class="w-7 h-7 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-            </svg>
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Header -->
+            <div class="text-center mb-14 animate-fade-up">
+                <span class="section-label block mb-3">Prinsip Kami</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white">Nilai–Nilai Inti</h2>
+                <p class="text-white/50 mt-3 max-w-md mx-auto text-sm leading-relaxed">
+                    Prinsip yang membimbing setiap langkah kami dalam berkarya dan melayani pemirsa.
+                </p>
+                <div class="gold-divider w-24 mx-auto mt-4"></div>
             </div>
-        <h4 class="text-white font-bold text-lg mb-2">
-            Otentik
-            <span class="text-white/40 text-sm font-normal">(Authentic)</span>
-        </h4>
-        <p class="text-white/50 text-sm leading-relaxed">
-            Merujuk pada sumber yang jelas <em>(sanad)</em>, yaitu tradisi keilmuan para ulama dan kearifan lokal Nusantara.
-        </p>
-        </div>
-        <!-- Relevan -->
-        <div
-            class="reveal reveal-delay-2 card-hover bg-white/5 backdrop-blur-sm border border-tv9-gold-600/10 rounded-2xl p-7 text-center">
-            <div class="w-14 h-14 mx-auto rounded-2xl bg-tv9-gold-600/10 flex items-center justify-center mb-4">
-            <svg class="w-7 h-7 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" viewBox="0 0 24 24">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-            </svg>
-            </div>
-        <h4 class="text-white font-bold text-lg mb-2">
-            Relevan
-            <span class="text-white/40 text-sm font-normal">(Relevant)</span>
-        </h4>
-        <p class="text-white/50 text-sm leading-relaxed">
-            Kebijaksanaan <em>(wisdom)</em> bersifat abadi. Meskipun zaman berubah menjadi digital, nilai-nilai hikmah tetap
-            dibutuhkan oleh masyarakat.
-        </p>
-        </div>
-        </div>
-<!-- Closing tagline -->
-<p class="animate-fade-up-4 mt-10 text-center text-sm text-white/50 leading-relaxed max-w-xl mx-auto px-2">
-    TV9 bukan hanya sebagai saluran televisi, melainkan
-    <strong class="text-tv9-gold-400 font-semibold">'sumber hikmah'</strong>
-    di mana penonton bisa menemukan kebenaran yang menyejukkan dan tuntunan hidup yang bijak.
-</p>
+            <!-- Legacy strip -->
+            <div
+                class="animate-fade-up-2 bg-tv9-gold-600/10 border border-tv9-gold-600/20 rounded-2xl px-7 py-5 text-center text-sm text-white/60 leading-relaxed mb-8 backdrop-blur-sm">
+                Selama <strong class="text-tv9-gold-400 font-bold">16 tahun (2010–2026)</strong>,
+                TV9 menjaga
+                keautentikan dan
+                kepercayaan publik.
+                Dengan nilai yang sama, TV9 terus berinovasi,
+                <strong class="text-tv9-gold-400 font-bold">stay relevant</strong> di era baru.
+                </div>
+                <!-- Cards grid -->
+                <div class="grid md:grid-cols-2 gap-6 animate-fade-up-3">
+                
+                    <!-- Otentik -->
+                <div class="reveal card-hover bg-white/5 backdrop-blur-sm border border-tv9-gold-600/10 rounded-2xl p-7 text-center">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-tv9-gold-600/10 flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        </div>
+                        <h4 class="text-white font-bold text-lg mb-2">
+                            Otentik
+                            <span class="text-white/40 text-sm font-normal">(Authentic)</span>
+                        </h4>
+                        <p class="text-white/50 text-sm leading-relaxed">
+                        Merujuk pada sumber yang jelas <em>(sanad)</em>, yaitu tradisi keilmuan para
+                        ulama dan kearifan
+                        lokal Nusantara.
+                        </p>
+                        </div>
+                        <!-- Relevan -->
+                        <div
+                            class="reveal reveal-delay-2 card-hover bg-white/5 backdrop-blur-sm border border-tv9-gold-600/10 rounded-2xl p-7 text-center">
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-tv9-gold-600/10 flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" viewBox="0 0 24 24">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                        </svg>
+                        </div>
+                        <h4 class="text-white font-bold text-lg mb-2">
+                            Relevan
+                            <span class="text-white/40 text-sm font-normal">(Relevant)</span>
+                        </h4>
+                        <p class="text-white/50 text-sm leading-relaxed">
+                        Kebijaksanaan <em>(wisdom)</em> bersifat abadi. Meskipun zaman berubah
+                        menjadi digital,
+                        nilai-nilai hikmah tetap
+                        dibutuhkan oleh masyarakat.
+                        </p>
+                        </div>
+                        </div>
+                        <!-- Closing tagline -->
+                        <p class="animate-fade-up-4 mt-10 text-center text-sm text-white/50 leading-relaxed max-w-xl mx-auto px-2">
+                            TV9 bukan hanya sebagai saluran televisi, melainkan
+                            <strong class="text-tv9-gold-400 font-semibold">'sumber hikmah'</strong>
+                di mana penonton bisa menemukan kebenaran yang menyejukkan dan tuntunan hidup yang
+                bijak.
+                </p>
 
-</div>
-</section>
+        </div>
+        </section>
 
     <!-- ========= DEWAN DIREKSI ========= -->
-<section class="py-20 px-6 bg-white">
-    <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-14 reveal">
-            <span class="section-label block mb-3">Kepemimpinan</span>
-            <h2 class="text-4xl md:text-5xl font-bold text-tv9-dark">Dewan
-                Direksi &amp;
-                Manajemen</h2>
-            <div class="gold-divider w-24 mx-auto mt-4"></div>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <!-- Komisaris Utama -->
-            <div class="reveal group">
-                <div class="relative rounded-2xl overflow-hidden mb-4 bg-gray-100 aspect-[3/4]">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Kiaimutawakkil.jpg" alt="KH. Mutawakkil Alallah"
-                        class="object-cover w-full h-full" />
-                    <div class="team-overlay absolute inset-0 bg-tv9-gold-600/20 flex items-end p-4">
-                        <div class="w-full h-0.5 bg-tv9-gold-600"></div>
-                    </div>
-                </div>
-                <h4 class="font-bold text-tv9-dark text-sm">KH. Mutawakkil Alallah</h4>
-                <p class="text-tv9-gold-600 text-xs font-medium mt-0.5">Presiden Komisaris (Prescom)</p>
-            </div>
-            
-            <!-- Komisaris - Misbahul Munir -->
-            <div class="reveal group">
-                <div class="relative rounded-2xl overflow-hidden mb-4 bg-gray-100 aspect-[3/4]">
-                    <img src="https://jurnal9.tv/wp-content/uploads/2022/10/konferwil-HPN-Jatim.jpg" alt="Misbahul Munir"
-                        class="object-cover w-full h-full" />
-                    <div class="team-overlay absolute inset-0 bg-tv9-gold-600/20 flex items-end p-4">
-                        <div class="w-full h-0.5 bg-tv9-gold-600"></div>
-                    </div>
-                </div>
-                <h4 class="font-bold text-tv9-dark text-sm">Misbahul Munir</h4>
-                <p class="text-tv9-gold-600 text-xs font-medium mt-0.5">Komisaris (NUS)</p>
-            </div>
-            
-            <!-- Komisaris - Muhammad Maksum -->
-            <div class="reveal group">
-                <div class="relative rounded-2xl overflow-hidden mb-4 bg-gray-100 aspect-[3/4]">
-                    <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Muhammad Maksum"
-                        class="object-cover w-full h-full" />
-                    <div class="team-overlay absolute inset-0 bg-tv9-gold-600/20 flex items-end p-4">
-                        <div class="w-full h-0.5 bg-tv9-gold-600"></div>
-                    </div>
-                </div>
-                <h4 class="font-bold text-tv9-dark text-sm">Muhammad Maksum</h4>
-                <p class="text-tv9-gold-600 text-xs font-medium mt-0.5">Komisaris (SCT)</p>
-            </div>
-            
-            <!-- CFO -->
-            <div class="reveal group">
-                <div class="relative rounded-2xl overflow-hidden mb-4 bg-gray-100 aspect-[3/4]">
-                    <img src="https://media.licdn.com/dms/image/v2/C5603AQFzfpezSosFkw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1599654838299?e=1779926400&v=beta&t=Z3HXSZQBR2iwVGZ_ZktK4ew_Hg9dC7EOZLcP5m21MAw"
-                        alt="I Gde Cahyadi" class="object-cover w-full h-full" />
-                    <div class="team-overlay absolute inset-0 bg-tv9-gold-600/20 flex items-end p-4">
-                        <div class="w-full h-0.5 bg-tv9-gold-600"></div>
-                    </div>
-                </div>
-                <h4 class="font-bold text-tv9-dark text-sm">I Gde Cahyadi</h4>
-                <p class="text-tv9-gold-600 text-xs font-medium mt-0.5">Chief Financial Officer</p>
-            </div>
-            
-            <!-- Imam Hambali - Marketing -->
-            <div class="reveal group">
-                <div class="relative rounded-2xl overflow-hidden mb-4 bg-gray-100 aspect-[3/4]">
-                    <img src="https://randomuser.me/api/portraits/men/23.jpg" alt="Imam Hambali" class="object-cover w-full h-full" />
-                    <div class="team-overlay absolute inset-0 bg-tv9-gold-600/20 flex items-end p-4">
-                        <div class="w-full h-0.5 bg-tv9-gold-600"></div>
-                    </div>
-                </div>
-                <h4 class="font-bold text-tv9-dark text-sm">Imam Hambali</h4>
-                <p class="text-tv9-gold-600 text-xs font-medium mt-0.5">Marketing, Sales & Promotion</p>
-                </div>
-                
-                <!-- Qiswanto - Sales -->
-                <div class="reveal group">
-                    <div class="relative rounded-2xl overflow-hidden mb-4 bg-gray-100 aspect-[3/4]">
-                        <img src="https://randomuser.me/api/portraits/men/78.jpg" alt="Qiswanto" class="object-cover w-full h-full" />
-                    <div class="team-overlay absolute inset-0 bg-tv9-gold-600/20 flex items-end p-4">
-                        <div class="w-full h-0.5 bg-tv9-gold-600"></div>
-                    </div>
-                    </div>
-                <h4 class="font-bold text-tv9-dark text-sm">Qiswanto</h4>
-                <p class="text-tv9-gold-600 text-xs font-medium mt-0.5">Sales & Promotion</p>
+    <section class="py-20 px-6 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-14 reveal">
+                <span class="section-label block mb-3">Kepemimpinan</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-tv9-dark">Dewan Direksi &amp;
+                    Manajemen</h2>
+                <div class="gold-divider w-24 mx-auto mt-4"></div>
                 </div>
 
-            <!-- GM - Tonny Cahyono -->
-            <div class="reveal group">
-                <div class="relative rounded-2xl overflow-hidden mb-4 bg-gray-100 aspect-[3/4]">
-                    <img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Tonny Cahyono" class="object-cover w-full h-full" />
-                    <div class="team-overlay absolute inset-0 bg-tv9-gold-600/20 flex items-end p-4">
-                        <div class="w-full h-0.5 bg-tv9-gold-600"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+                <!-- Komisaris Utama -->
+                <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 11c0 3.517-1.009 6.799-2.753 9.571m5.506 0C20.991 17.799 22 14.517 22 11c0-3.517-1.009-6.799-2.753-9.571M12 11c0-3.517 1.009-6.799 2.753-9.571m-5.506 0C3.009 4.201 2 7.483 2 11c0 3.517 1.009 6.799 2.753 9.571" />
+                        </svg>
                     </div>
-                </div>
-                <h4 class="font-bold text-tv9-dark text-sm">Tonny Cahyono</h4>
-                <p class="text-tv9-gold-600 text-xs font-medium mt-0.5">General Manager</p>
-                </div>
-                
-                <!-- Ilman Taruna - News -->
-                <div class="reveal group">
-                    <div class="relative rounded-2xl overflow-hidden mb-4 bg-gray-100 aspect-[3/4]">
-                        <img src="https://randomuser.me/api/portraits/men/89.jpg" alt="Ilman Taruna"
-                            class="object-cover w-full h-full" />
-                    <div class="team-overlay absolute inset-0 bg-tv9-gold-600/20 flex items-end p-4">
-                        <div class="w-full h-0.5 bg-tv9-gold-600"></div>
+                    <h4 class="font-bold text-tv9-dark text-base mb-1">KH. Mutawakkil Alallah</h4>
+                    <p class="text-tv9-gold-600 text-sm font-medium">Presiden Komisaris (Prescom)
+                    </p>
                     </div>
+                    
+                    <!-- Komisaris - Misbahul Munir -->
+                <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
                     </div>
-                <h4 class="font-bold text-tv9-dark text-sm">Ilman Taruna</h4>
-                <p class="text-tv9-gold-600 text-xs font-medium mt-0.5">News & New Media</p>
+                    <h4 class="font-bold text-tv9-dark text-base mb-1">Misbahul Munir</h4>
+                    <p class="text-tv9-gold-600 text-sm font-medium">Komisaris (NUS)</p>
+                    </div>
+                    
+                    <!-- Komisaris - Muhammad Maksum -->
+                <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-tv9-dark text-base mb-1">Muhammad Maksum</h4>
+                    <p class="text-tv9-gold-600 text-sm font-medium">Komisaris (SCT)</p>
+                    </div>
+
+                <!-- CEO - Hakim Jayli -->
+                <div class="reveal card-hover bg-tv9-dark rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 rounded-full bg-tv9-gold-600/20 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-white text-base mb-1">Hakim Jayli</h4>
+                    <p class="text-tv9-gold-600 text-sm font-medium">Chief Executive Officer (CEO)
+                    </p>
+                    </div>
+
+                <!-- Secretary -->
+                <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-tv9-dark text-base mb-1">Sururi Arumbani</h4>
+                    <p class="text-tv9-gold-600 text-sm font-medium">Secretary / HCD / Legal /
+                        Office</p>
                 </div>
 
-            <!-- Farid Wahyu - News -->
-            <div class="reveal group">
-                <div class="relative rounded-2xl overflow-hidden mb-4 bg-gray-100 aspect-[3/4]">
-                    <img src="https://randomuser.me/api/portraits/men/34.jpg" alt="Farid Wahyu" class="object-cover w-full h-full" />
-                    <div class="team-overlay absolute inset-0 bg-tv9-gold-600/20 flex items-end p-4">
-                        <div class="w-full h-0.5 bg-tv9-gold-600"></div>
+                <!-- CFO -->
+                <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
                     </div>
-                </div>
-                <h4 class="font-bold text-tv9-dark text-sm">Farid Wahyu</h4>
-                <p class="text-tv9-gold-600 text-xs font-medium mt-0.5">News & New Media</p>
-                </div>
-                
-                <!-- Sururi Arumbani - Secretary -->
-                <div class="reveal group">
-                    <div class="relative rounded-2xl overflow-hidden mb-4 bg-gray-100 aspect-[3/4]">
-                        <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Sururi Arumbani"
-                            class="object-cover w-full h-full" />
-                    <div class="team-overlay absolute inset-0 bg-tv9-gold-600/20 flex items-end p-4">
-                        <div class="w-full h-0.5 bg-tv9-gold-600"></div>
-                    </div>
-                    </div>
-                <h4 class="font-bold text-tv9-dark text-sm">Sururi Arumbani</h4>
-                <p class="text-tv9-gold-600 text-xs font-medium mt-0.5">Secretary / HCD/Legal/Office</p>
+                    <h4 class="font-bold text-tv9-dark text-base mb-1">I Gde Cahyadi</h4>
+                    <p class="text-tv9-gold-600 text-sm font-medium">Chief Financial Officer (CFO)
+                    </p>
                 </div>
 
-            <!-- Zaimah Permatasaari - Production -->
-            <div class="reveal group">
-                <div class="relative rounded-2xl overflow-hidden mb-4 bg-gray-100 aspect-[3/4]">
-                    <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Zaimah Permatasaari"
-                        class="object-cover w-full h-full" />
-                    <div class="team-overlay absolute inset-0 bg-tv9-gold-600/20 flex items-end p-4">
-                        <div class="w-full h-0.5 bg-tv9-gold-600"></div>
+                <!-- GM - Ilman Taruna -->
+                <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
                     </div>
+                    <h4 class="font-bold text-tv9-dark text-base mb-1">Ilman Taruna</h4>
+                    <p class="text-tv9-gold-600 text-sm font-medium">General Manager (GM)</p>
                 </div>
-                <h4 class="font-bold text-tv9-dark text-sm">Zaimah Permatasaari</h4>
-                <p class="text-tv9-gold-600 text-xs font-medium mt-0.5">Production</p>
-                </div>
-                
-                <!-- Technics (Placeholder) -->
-                <div class="reveal group">
-                    <div class="relative rounded-2xl overflow-hidden mb-4 bg-gray-100 aspect-[3/4]">
-                        <img src="https://randomuser.me/api/portraits/men/99.jpg" alt="Kepala Teknik"
-                            class="object-cover w-full h-full" />
-                    <div class="team-overlay absolute inset-0 bg-tv9-gold-600/20 flex items-end p-4">
-                        <div class="w-full h-0.5 bg-tv9-gold-600"></div>
+                <!-- F & A -->
+                <!-- <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                                                    <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
+                                                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                                        </svg>
+                                                    </div>
+    <h4 class="font-bold text-tv9-dark text-base mb-1">Finance &amp; Accounting</h4>
+    <p class="text-tv9-gold-600 text-sm font-medium">F &amp; A</p>
+    </div> -->
+
+                <!-- Imam Hambali - Marketing -->
+                <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
                     </div>
+                    <h4 class="font-bold text-tv9-dark text-base mb-1">Imam Hambali</h4>
+                    <p class="text-tv9-gold-600 text-sm font-medium">Marketing, Sales &amp;
+                        Promotion</p>
+                </div>
+
+                <!-- Qiswanto - Programming -->
+                <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
                     </div>
-                <h4 class="font-bold text-tv9-dark text-sm">Kepala Teknik</h4>
-                <p class="text-tv9-gold-600 text-xs font-medium mt-0.5">Technics</p>
+                    <h4 class="font-bold text-tv9-dark text-base mb-1">Qiswanto</h4>
+                    <p class="text-tv9-gold-600 text-sm font-medium">Programming</p>
                 </div>
+
+                <!-- Tonny Cahyono - News & New Media -->
+                <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v11a2 2 0 01-2 2zM9 5v7m4-7v7" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-tv9-dark text-base mb-1">Tonny Cahyono</h4>
+                    <p class="text-tv9-gold-600 text-sm font-medium">News &amp; New Media</p>
                 </div>
+
+                <!-- Farid Wahyu - Production -->
+                <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-tv9-dark text-base mb-1">Farid Wahyu</h4>
+                    <p class="text-tv9-gold-600 text-sm font-medium">Production</p>
                 </div>
-                </section>
+
+                <!-- Zaimah Permatasaari - Technics -->
+                <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-tv9-dark text-base mb-1">Zaimah Permatasaari</h4>
+                    <p class="text-tv9-gold-600 text-sm font-medium">Technics</p>
+                </div>
+            </div>
+            </div>
+            </section>
 
     <section class="py-20 px-6 bg-tv9-dark">
         <div class="max-w-5xl mx-auto">
@@ -906,9 +972,9 @@
                                 <p class="text-base font-medium text-tv9-green-900-dark">
                                     Komisi Penyiaran Indonesia (KPI)
                                 </p>
-                                </div>
-                                </div>
-                                </div>
+                            </div>
+                            </div>
+                            </div>
 
                     <!-- Kolom Kanan -->
                     <div class="flex flex-col gap-3">
@@ -922,14 +988,14 @@
                                 <div class="w-14 h-14 flex items-center justify-center">
                                     <img width="52" height="52" src="/img/kominfo.png" alt="Logo Kominfo" class="object-contain">
                                     </img>
-                                    </div>
+                                </div>
                                 <p class="text-[10.5px] font-bold text-tv9-green-900-dark uppercase tracking-widest leading-tight">
                                     Kementerian<br />Kominfo
                                 </p>
                                 <p class="text-[10px] text-tv9-sage-700 uppercase tracking-widest">
                                     Otoritas Perizinan
                                 </p>
-                                </div>
+                            </div>
 
                             <!-- KPI -->
                             <div
@@ -938,16 +1004,16 @@
                                     <div class="w-14 h-14 rounded-lg flex items-center justify-center">
                                         <img width="52" height="52" src="/img/kpi.png" alt="Logo KPI" class="object-contain">
                                         </img>
-                                        </div>
-                                        </div>
+                                    </div>
+                                    </div>
                                 <p class="text-[10.5px] font-bold text-tv9-gold-600-600-600-600-600-500 uppercase tracking-widest leading-tight">
                                     Komisi Penyiaran<br />Indonesia
                                 </p>
                                 <p class="text-[10px] text-tv9-sage-700 uppercase tracking-widest">
                                     Pengawasan Konten
                                 </p>
-                                </div>
-                                </div>
+                            </div>
+                            </div>
 
                         <!-- Standar Penyiaran Digital -->
                         <div class="media-section rounded-xl px-6 py-5 flex items-center justify-between gap-4">
@@ -971,178 +1037,6 @@
                                     </div>
                                     </div>
                                     </section>
-
-
-    <section class="py-20 px-4 sm:px-6 max-w-6xl mx-auto">
-
-        <!-- Header -->
-        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-8 sm:mb-10">
-            <div class="mb-6 sm:mb-0">
-                <p class="text-xs font-semibold tracking-widest text-amber-700 uppercase mb-2">
-                    Eksplorasi Kreatif</p>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 title-underline">
-                    Portfolio &amp;
-                    Karya
-                    Unggulan</h2>
-            </div>
-            <div class="flex gap-2 mt-2 sm:mt-0">
-                <button class="nav-btn" id="prevBtn" aria-label="Previous">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="stroke-gray-800" stroke-width="2.2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6" />
-                    </svg>
-                    </button>
-                    <button class="nav-btn" id="nextBtn" aria-label="Next">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="stroke-gray-800" stroke-width="2.2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                    </button>
-                    </div>
-                    </div>
-
-        <!-- Cards Slider -->
-        <div class="relative overflow-hidden">
-            <div class="flex gap-3 sm:gap-6 no-scrollbar transition-transform duration-500 ease-in-out" id="portfolioTrack">
-                <!-- Card 1 -->
-                <div class="card-wrap flex-none w-80 sm:w-72" onclick="openVideo('https://www.youtube.com/watch?v=dQw4w9WgXcQ')">
-                    <div class="thumb">
-                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Jejak Spiritual Pesisir"
-                            class="absolute inset-0 w-full h-full object-cover" />
-                        <div class="thumb-overlay">
-                            <div class="play-btn">
-                                <svg width="18" height="18" viewBox="0 0 24 24" class="fill-tv9-green-900">
-                                    <polygon points="5 3 19 12 5 21 5 3" />
-                                </svg>
-                            </div>
-                        </div>
-                        <span class="badge">Documentary</span>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">Jejak
-                            Spiritual Pesisir
-                        </h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Sebuah
-                            narasi mendalam
-                            tentang
-                            harmoni antara
-                            tradisi leluhur dan nilai-nilai keagamaan di sepanjang
-                            pesisir Utara
-                            Jawa.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="card-wrap flex-none w-80 sm:w-72" onclick="openVideo('https://www.youtube.com/watch?v=9bZkp7q19f0')">
-                    <div class="thumb">
-                        <img src="https://img.youtube.com/vi/9bZkp7q19f0/hqdefault.jpg" alt="Satu Abad Kebangkitan"
-                            class="absolute inset-0 w-full h-full object-cover" />
-                        <div class="thumb-overlay">
-                            <div class="play-btn">
-                                <svg width="18" height="18" viewBox="0 0 24 24" class="fill-tv9-green-900">
-                                    <polygon points="5 3 19 12 5 21 5 3" />
-                                </svg>
-                            </div>
-                        </div>
-                        <span class="badge">Special Coverage</span>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">Satu Abad
-                            Kebangkitan
-                        </h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Liputan
-                            eksklusif rangkaian
-                            peringatan satu
-                            abad organisasi massa terbesar, merangkum sejarah dan
-                            masa depan umat.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="card-wrap flex-none w-80 sm:w-72" onclick="openVideo('https://www.youtube.com/watch?v=kXYiU_JCYtU')">
-                    <div class="thumb">
-                        <img src="https://img.youtube.com/vi/kXYiU_JCYtU/hqdefault.jpg" alt="Festival Budaya Nusantara"
-                            class="absolute inset-0 w-full h-full object-cover" />
-                        <div class="thumb-overlay">
-                            <div class="play-btn">
-                                <svg width="18" height="18" viewBox="0 0 24 24" class="fill-tv9-green-900">
-                                    <polygon points="5 3 19 12 5 21 5 3" />
-                                </svg>
-                            </div>
-                        </div>
-                        <span class="badge">Event Highlights</span>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">Festival
-                            Budaya Nusantara
-                        </h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Rangkuman
-                            momen-momen magis
-                            dari festival
-                            budaya yang menyatukan berbagai etnis di Indonesia dalam
-                            satu panggung.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="card-wrap flex-none w-80 sm:w-72" onclick="openVideo('https://www.youtube.com/watch?v=JGwWNGJdvx8')">
-                    <div class="thumb">
-                        <img src="https://img.youtube.com/vi/JGwWNGJdvx8/hqdefault.jpg" alt="Arsitektur Warisan"
-                            class="absolute inset-0 w-full h-full object-cover" />
-                        <div class="thumb-overlay">
-                            <div class="play-btn">
-                                <svg width="18" height="18" viewBox="0 0 24 24" class="fill-tv9-green-900">
-                                    <polygon points="5 3 19 12 5 21 5 3" />
-                                </svg>
-                            </div>
-                        </div>
-                        <span class="badge">Short Film</span>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">
-                            Arsitektur Warisan</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Menelusuri
-                            keindahan
-                            arsitektur
-                            bersejarah
-                            Indonesia yang menjadi saksi bisu peradaban dan
-                            keagungan masa lalu.</p>
-                    </div>
-                </div>
-                <!-- Card 5 -->
-                <div class="card-wrap flex-none w-80 sm:w-72" onclick="openVideo('https://www.youtube.com/watch?v=tgbNymZ7vqY')">
-                    <div class="thumb">
-                        <img src="https://img.youtube.com/vi/tgbNymZ7vqY/hqdefault.jpg" alt="Suara Alam Borneo"
-                            class="absolute inset-0 w-full h-full object-cover" />
-                        <div class="thumb-overlay">
-                            <div class="play-btn">
-                                <svg width="18" height="18" viewBox="0 0 24 24" class="fill-tv9-green-900">
-                                    <polygon points="5 3 19 12 5 21 5 3" />
-                                </svg>
-                            </div>
-                        </div>
-                        <span class="badge">Nature</span>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-base font-bold text-gray-900 mb-1">Suara
-                            Alam Borneo</h3>
-                        <p class="text-sm text-gray-500 leading-relaxed">Perjalanan
-                            mendalam ke
-                            jantung
-                            hutan
-                            Kalimantan, merekam keanekaragaman hayati yang semakin
-                            terancam
-                            modernisasi.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            </div>
-            </section>
-
     <!-- ========= GALLERY PORTOFOLIO ========= -->
     <!-- ========= GALLERY PORTOFOLIO (FULL WIDTH & SEAMLESS) ========= -->
     <!-- ========= GALLERY PORTOFOLIO (MASONRY & RANDOM RATIO) ========= -->
@@ -1311,45 +1205,46 @@
         </div>
     </section>
 
-            
-            <section class="bg-white max-w-4xl w-full px-10 py-14 mx-auto">
-            
-                <!-- Header -->
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-extrabold text-[#1a5c38] tracking-tight mb-3">
-                        Profil Penonton TV9 Nusantara</h2>
-                    <p class="text-gray-500 text-sm leading-relaxed max-w-xl mx-auto">
-                        Di antara TV di Indonesia, TV9 Nusantara memiliki <em>audience
-                            share</em> tinggi dengan basis pemirsa
-                        loyal yang terus meningkat dari waktu ke waktu menurut data Nielsen.
-                    </p>
+    <section class="bg-white max-w-4xl w-full px-10 py-14 mx-auto">
+    
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-[#1a5c38] tracking-tight mb-3">
+                Profil Penonton TV9 Nusantara</h2>
+            <p class="text-gray-500 text-sm leading-relaxed max-w-xl mx-auto">
+                Di antara TV di Indonesia, TV9 Nusantara memiliki <em>audience
+                    share</em> tinggi dengan basis pemirsa
+                loyal yang terus meningkat dari waktu ke waktu menurut data Nielsen.
+            </p>
+        </div>
+    
+        <!-- Content Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    
+            <!-- Left: Donut Chart (Chart.js) + Dominasi -->
+            <div class="flex flex-col items-center gap-6">
+                <!-- Donut Chart dengan Chart.js -->
+                <div class="donut-container" id="donutContainer">
+                    <canvas id="audienceDonutChart" width="180" height="180"></canvas>
+                    <div class="donut-center-text">
+                        <span id="donutPercentText">0,0%</span>
+                        <span class="label-small">Audience Share</span>
+                    </div>
                 </div>
-            
-                <!-- Content Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-            
-                    <!-- Left: Donut Chart (Chart.js) + Dominasi -->
-                    <div class="flex flex-col items-center gap-6">
-                        <!-- Donut Chart dengan Chart.js -->
-                        <div class="donut-container" id="donutContainer">
-                            <canvas id="audienceDonutChart" width="180" height="180"></canvas>
-                            <div class="donut-center-text">
-                                <span id="donutPercentText">0,0%</span>
-                                <span class="label-small">Audience Share</span>
-                            </div>
-                        </div>
-            
-                        <!-- Dominasi Box -->
-                        <div
-                            class="bg-[#f0f7f3] rounded-2xl px-8 py-5 text-center w-full transition-all duration-300 hover:shadow-md">
-                            <p class="text-base font-bold text-[#1a5c38] mb-2">
-                                <i class="fa-solid fa-tv mr-2 text-[#1a5c38]"></i>Dominasi
-                                TV Lokal
-                            </p>
-                            <p class="text-gray-500 text-sm leading-relaxed">
-                        TV9 Nusantara memegang pangsa pasar yang signifikan dibandingkan stasiun televisi lokal
+    
+                <!-- Dominasi Box -->
+                <div
+                    class="bg-[#f0f7f3] rounded-2xl px-8 py-5 text-center w-full transition-all duration-300 hover:shadow-md">
+                    <p class="text-base font-bold text-[#1a5c38] mb-2">
+                        <i class="fa-solid fa-tv mr-2 text-[#1a5c38]"></i>Dominasi
+                        TV Lokal
+                    </p>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        TV9 Nusantara memegang pangsa pasar yang signifikan dibandingkan stasiun
+                        televisi lokal
                         lainnya, terutama di wilayah
-                        Gerbangkertosusila (Gresik, Bangkalan, Mojokerto, Surabaya, Sidoarjo, dan Lamongan).
+                        Gerbangkertosusila (Gresik, Bangkalan, Mojokerto, Surabaya, Sidoarjo, dan
+                        Lamongan).
                         </p>
                         </div>
                         </div>
@@ -1405,7 +1300,7 @@
                             </div>
 
             </div>
-            </div>
+        </div>
 
         <!-- Source -->
         <p class="text-center text-xs text-gray-400 italic mt-10">
@@ -1417,7 +1312,7 @@
 
     <section class="py-20 px-6 media-section">
         <div class="max-w-5xl mx-auto">
-    
+
             <!-- Header -->
             <div class="text-center mb-14">
                 <p class="text-base font-semibold tracking-[0.25em] text-tv9-brown-500 uppercase mb-3">
@@ -1451,12 +1346,12 @@
                                         program
                                         berbasis Islam terbaik.
                                     </p>
-                                    </div>
-                                    </div>
-                                    <!-- 2. The Best Religious Television of The Year 2019 -->
-                                    <div
-                                        class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                        <div class="p-5">
+                                </div>
+                                </div>
+                                <!-- 2. The Best Religious Television of The Year 2019 -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
                                     <spanclass="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
                                         ·
                                         Jakarta</span>
@@ -1469,13 +1364,13 @@
                                             Creativity & Best
                                             Leader Award 2019 – atas konsistensi
                                             siaran religi inspiratif.</p>
-                                        </div>
-                                        </div>
-                                    
-                                        <!-- 3. The Most Trusted Company in Information Moslem Media of The Year 2019 -->
-                                        <div
-                                            class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                            <div class="p-5">
+                                </div>
+                                </div>
+                                
+                                <!-- 3. The Most Trusted Company in Information Moslem Media of The Year 2019 -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
                                     <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
                                         ·
                                         Yogyakarta</span>
@@ -1489,12 +1384,12 @@
                                         Business
                                         Award 2019 – Media informasi muslim
                                         terpercaya.</p>
-                                    </div>
-                                    </div>
-                                    <!-- 4. Televisi Terbaik dalam Mutu & Program Berkualitas 2019 -->
-                                    <div
-                                        class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                        <div class="p-5">
+                                </div>
+                                </div>
+                                <!-- 4. Televisi Terbaik dalam Mutu & Program Berkualitas 2019 -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
                                     <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
                                         · Bandung</span>
                                     <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
@@ -1507,18 +1402,18 @@
                                         dan
                                         Inovatif 2019 – kualitas siaran unggulan.
                                     </p>
-                                    </div>
-                                    </div>
-                                    </div>
-                                    </div>
-                                    
-                                    <!-- SLIDE 2: Slide kelanjutan (penghargaan 5-8) sesuai data asli tanpa perubahan yang diminta -->
-                                    <div class="slide">
-                                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-1">
-                                            <!-- 5. The Best Performing Television Based on Islamic Program 2019 -->
-                                            <div
-                                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                                <div class="p-5">
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                
+                                <!-- SLIDE 2: Slide kelanjutan (penghargaan 5-8) sesuai data asli tanpa perubahan yang diminta -->
+                                <div class="slide">
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-1">
+                                        <!-- 5. The Best Performing Television Based on Islamic Program 2019 -->
+                                        <div
+                                            class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                            <div class="p-5">
                                     <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
                                         ·
                                         Jakarta</span>
@@ -1531,13 +1426,13 @@
                                         Achievement & Best
                                         Performing Award 2019 – program islami
                                         terbaik.</p>
-                                    </div>
-                                    </div>
-                                    
-                                    <!-- 6. The Most Inspiring Leader of The Year 2019 -->
-                                    <div
-                                        class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                        <div class="p-5">
+                                </div>
+                                </div>
+                                
+                                <!-- 6. The Most Inspiring Leader of The Year 2019 -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
                                     <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
                                         ·
                                         Jakarta</span>
@@ -1552,13 +1447,13 @@
                                         kepemimpinan
                                         inspiratif.
                                     </p>
-                                    </div>
-                                    </div>
-                                    
-                                    <!-- 7. PROGRAM RELIGI TERBAIK - KISWAH episode KH Agoes Ali Masyhuri (KPID Jatim 2019) -->
-                                    <div
-                                        class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                        <div class="p-5">
+                                </div>
+                                </div>
+                                
+                                <!-- 7. PROGRAM RELIGI TERBAIK - KISWAH episode KH Agoes Ali Masyhuri (KPID Jatim 2019) -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
                                     <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
                                         ·
                                         Surabaya</span>
@@ -1572,13 +1467,13 @@
                                         2019 – episode KH Agoes Ali Masyhuri.
                                         Program religi
                                         unggulan.</p>
-                                    </div>
-                                    </div>
-                                    
-                                    <!-- 8. Islamic Media & Excellence Champion 2020 -->
-                                    <div
-                                        class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                        <div class="p-5">
+                                </div>
+                                </div>
+                                
+                                <!-- 8. Islamic Media & Excellence Champion 2020 -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
                                     <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2020
                                         ·
                                         Jakarta</span>
@@ -1590,12 +1485,12 @@
                                         Konsistensi Dakwah
                                         Digital & Program Siaran Keagamaan terbaik.
                                     </p>
-                                    </div>
-                                    </div>
-                                    </div>
-                                    </div>
-                                    
-                                    <!-- SLIDE 3: tambahan dari data (Most Excellent Business, KPID riconfirm, Platinum Award ulang, Inovatif) TAPI dengan satu card yang dihilangkan sesuai permintaan:
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                
+                                <!-- SLIDE 3: tambahan dari data (Most Excellent Business, KPID riconfirm, Platinum Award ulang, Inovatif) TAPI dengan satu card yang dihilangkan sesuai permintaan:
                                                                                                                                                                              "hilangkan bagian (blok KPID JAWA TIMUR dengan emoji 📺🎙️ dan teks KPID JAWA TIMUR)"
                                                                                                                                                                              Di dalam slide asli terdapat dua card yang hampir mirip: 
                                                                                                                                                                              - nomor 10 (Anugerah Penyiaran KPID Jatim 2019 - KISWAH recognisi) yang berisi teks "KPID JAWA TIMUR" di placeholder.
@@ -1629,15 +1524,15 @@
                                         sebagai
                                         media muslim.
                                     </p>
-                                    </div>
-                                    </div>
-                                    
-                                    <!-- (Card yang diminta dihilangkan: sebelumnya ada Anugerah Penyiaran KPID Jatim 2019 - KISWAH recognisi spesifik dengan icon 📺🎙️ dan teks "KPID JAWA TIMUR". Card berikut dihilangkan) -->
-                                    
-                                    <!-- 11. Indonesian Platinum & Best Corporate Award 2018 (The Best Islamic TV) (tetap dipertahankan) -->
-                                    <div
-                                        class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                        <div class="p-5">
+                                </div>
+                                </div>
+                                
+                                <!-- (Card yang diminta dihilangkan: sebelumnya ada Anugerah Penyiaran KPID Jatim 2019 - KISWAH recognisi spesifik dengan icon 📺🎙️ dan teks "KPID JAWA TIMUR". Card berikut dihilangkan) -->
+                                
+                                <!-- 11. Indonesian Platinum & Best Corporate Award 2018 (The Best Islamic TV) (tetap dipertahankan) -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
                                     <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2018
                                         ·
                                         Yogyakarta</span>
@@ -1650,13 +1545,13 @@
                                         Corporate Award 2018 – apresiasi
                                         berkelanjutan program
                                         berbasis Islam.</p>
-                                    </div>
-                                    </div>
-                                    
-                                    <!-- 12. Best Quality & Innovative Television (Bandung 2019) -->
-                                    <div
-                                        class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                        <div class="p-5">
+                                </div>
+                                </div>
+                                
+                                <!-- 12. Best Quality & Innovative Television (Bandung 2019) -->
+                                <div
+                                    class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                    <div class="p-5">
                                     <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
                                         ·
                                         Bandung</span>
@@ -1667,35 +1562,35 @@
                                         Televisi
                                         terbaik dalam mutu &
                                         program berkualitas Tahun 2019.</p>
-                                    </div>
-                                    </div>
-                                    
-                                    <!-- (Tambahan: menyisipkan card dummy? Tidak, karena yang diminta hanya menghilangkan satu bagian. Tapi agar tidak ada kekosongan, kita juga bisa menambahkan atau membiarkan grid terisi 3. Saya rasa lebih aman karena user meminta spesifik bagian itu dihapuskan. Namun saya akan memastikan slide tidak kosong berantakan.
+                                </div>
+                                </div>
+                                
+                                <!-- (Tambahan: menyisipkan card dummy? Tidak, karena yang diminta hanya menghilangkan satu bagian. Tapi agar tidak ada kekosongan, kita juga bisa menambahkan atau membiarkan grid terisi 3. Saya rasa lebih aman karena user meminta spesifik bagian itu dihapuskan. Namun saya akan memastikan slide tidak kosong berantakan.
                                                                                                                                                                                 Sebagai sentuhan integritas, kita tidak merusak design, namun mungkin akan muncul 3 card pada slide 3; tetap rapi karena card akan wrap.)
                                                                                                                                                                                 Tapi untuk menjaga kemiripan konten dan merespon style dengan baik, saya hanya membuang card tersebut saja. 
                                                                                                                                                                                 Kode dibawah ini hanya berisi 3 card (penomoran 9,11,12 sesuai urutan yg direvisi) -> jadi total 3 award di slide 3. 
                                                                                                                                                                                 untuk peningkatan pengalaman, mungkin dapat ditambah card lain dari penghargaan reel? Tapi tidak perlu mengingkari permintaan "hilangkan bagian" spesifik.
                                                                                                                                                                                 Namun agar tidak ada potensi kebingungan, saya juga akan mempertahankan jumlah slide tetap 3, dengan slide 1 (4 card), slide 2 (4 card), slide 3 (3 card). responsif tetap baik. -->
                         </div>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                        
-                        <!-- Navigation -->
-                        <div class="flex items-center justify-center gap-4 mt-8">
-                            <button id="prev" onclick="move(-1)" disabled
-                                class="w-9 h-9 rounded-full border border-gray-300 bg-white flex items-center justify-center text-tv9-leaf-700 hover:bg-tv9-leaf-50 disabled:opacity-30 disabled:cursor-not-allowed transition">
-                                &#8592;
-                            </button>
-                            <div id="dots" class="flex gap-2"></div>
-                            <button id="next" onclick="move(1)"
-                                class="w-9 h-9 rounded-full border border-gray-300 bg-white flex items-center justify-center text-tv9-leaf-700 hover:bg-tv9-leaf-50 disabled:opacity-30 disabled:cursor-not-allowed transition">
-                                &#8594;
-                            </button>
-                        </div>
-                        </div>
-                        </section>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    
+                    <!-- Navigation -->
+                    <div class="flex items-center justify-center gap-4 mt-8">
+                        <button id="prev" onclick="move(-1)" disabled
+                            class="w-9 h-9 rounded-full border border-gray-300 bg-white flex items-center justify-center text-tv9-leaf-700 hover:bg-tv9-leaf-50 disabled:opacity-30 disabled:cursor-not-allowed transition">
+                            &#8592;
+                        </button>
+                        <div id="dots" class="flex gap-2"></div>
+                        <button id="next" onclick="move(1)"
+                            class="w-9 h-9 rounded-full border border-gray-300 bg-white flex items-center justify-center text-tv9-leaf-700 hover:bg-tv9-leaf-50 disabled:opacity-30 disabled:cursor-not-allowed transition">
+                            &#8594;
+                        </button>
+                    </div>
+                    </div>
+                    </section>
 
     <section class="py-16 bg-gray-50">
         <div class="text-center mb-12">
@@ -1705,7 +1600,7 @@
         <div class="w-full max-w-[1400px] mx-auto">
             <div class="marquee-wrapper w-full overflow-hidden relative" id="marquee-wrapper">
                 <div class="marquee-track flex items-center" id="marquee-track" style="gap: 24px;">
-    
+
                     {{-- 6 Logo Asli --}}
                     <div
                         class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
@@ -1725,7 +1620,8 @@
                             draggable="false">
                     </div>
                     <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/bhs.png') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
+                        <img src="{{ asset('img/partner/bhs.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
                     </div>
                     <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
                         <img src="{{ asset('img/partner/bhs1.png') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
@@ -1758,7 +1654,8 @@
                             draggable="false">
                     </div>
                     <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo.png') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
+                        <img src="{{ asset('img/partner/logo.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
                     </div>
                     <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
                         <img src="{{ asset('img/partner/Logo_BAZNAS_RI-Hijau-01.png') }}" alt="Logo" class="w-full h-full object-contain"
@@ -1813,9 +1710,10 @@
                             draggable="false">
                     </div>
                     <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/sayang.jpg') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
+                        <img src="{{ asset('img/partner/sayang.jpg') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
                     </div>
-{{-- Duplikat 6 Logo (clone set) --}}
+                    {{-- Duplikat 6 Logo (clone set) --}}
                     <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
                         <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
                     </div>
@@ -1831,7 +1729,8 @@
                             draggable="false">
                     </div>
                     <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/bhs.png') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
+                        <img src="{{ asset('img/partner/bhs.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
                     </div>
                     <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
                         <img src="{{ asset('img/partner/bhs1.png') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
@@ -1864,7 +1763,8 @@
                             draggable="false">
                     </div>
                     <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo.png') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
+                        <img src="{{ asset('img/partner/logo.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
                     </div>
                     <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
                         <img src="{{ asset('img/partner/Logo_BAZNAS_RI-Hijau-01.png') }}" alt="Logo" class="w-full h-full object-contain"
@@ -1919,12 +1819,13 @@
                             draggable="false">
                     </div>
                     <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/sayang.jpg') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
+                        <img src="{{ asset('img/partner/sayang.jpg') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
                     </div>
                 </div>
-                </div>
-                </div>
-                </section>
+            </div>
+            </div>
+            </section>
 
     <!-- ========= CTA ========= -->
     <section class="py-20 px-6 pattern-bg">
@@ -1951,14 +1852,15 @@
     <x-footer />
     <!-- Simple script to inject current year dynamically (like {{ date('Y') }} in PHP) -->
     <script>
-        document.getElementById('currentYear').innerText = new Date().getFullYear();
-        Text = new Date().getFullYear();
+    document.getElementById('currentYear').innerText = new Date().getFullYear();
+    Text = new Date().getFullYear();
     </script>
     <script src="https://elfsightcdn.com/platform.js" async></script>
     <script src="{{ asset('js/welcome.js') }}"></script>
     <script src="{{ asset('js/stats.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js">
+    </script>
     <script>
         // Scroll reveal
         const reveals = document.querySelectorAll('.reveal');
@@ -1980,6 +1882,6 @@
             'albumLabel': "Foto %1 dari %2"
         })
     </script>
-    </body>
+</body>
 
 </html>

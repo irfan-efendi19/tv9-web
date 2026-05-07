@@ -291,7 +291,7 @@
 
         <div class="flex flex-col lg:flex-row lg:items-end lg:gap-16">
             <h1 class="font-display text-5xl lg:text-6xl font-black leading-tight fade-up delay-1 text-pine">
-                Tetap Terhubung dengan Kami, <br />Bersama Lebih Dekat.
+                Kami Membantu Usaha Anda <br />Tumbuh dan Berkah.
             </h1>
             <div class="mt-6 lg:mt-0 pl-5 max-w-xs fade-up delay-2" style="border-left:4px solid var(--gold)">
                 <p class="text-gray-600 text-sm leading-relaxed italic">
@@ -337,6 +337,9 @@
                         <i class="fa-regular fa-folder-open absolute text-gray-300 text-sm pointer-events-none"
                             style="left:.875rem;top:50%;transform:translateY(-50%)"></i>
                         <select id="f-keperluan" class="field">
+                            <option>Order On Air</option>
+                            <option>Order Off Air</option>
+                            <option>Media Social</option>
                             <option>Lainnya</option>
                         </select>
                         <i class="fa-solid fa-chevron-down absolute text-gray-300 pointer-events-none"
@@ -391,7 +394,7 @@
                             <div>
                                 <p class="uppercase mb-1"
                                     style="font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,.5)">Email</p>
-                                <a href="mailto:admin@tv9.co.id" class="contact-link">admin@tv9.co.id</a>
+                                <a href="mailto:marketing@tv9.co.id" class="contact-link">marketing@tv9.co.id</a>
                             </div>
                         </div>
 
@@ -402,7 +405,7 @@
                             <div>
                                 <p class="uppercase mb-1"
                                     style="font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,.5)">WhatsApp</p>
-                                <a href="https://wa.me/6282232480057" class="contact-link">+62 822 3248 0057</a>
+                                <a href="https://wa.me/628113060299" class="contact-link">+62 811 3060 299</a>
                             </div>
                         </div>
 
@@ -458,7 +461,8 @@
 
     <x-footer />
     <script>
-    const SCRIPT_URL = 'GANTI_DENGAN_URL_APPS_SCRIPT_ANDA';
+    const SCRIPT_URL =
+        'https://script.google.com/macros/s/AKfycbyjhrZ5itXBOGKeNyHXcspFz6yYHfgjDn6531lQXoyVW_gQ6uXoSZ1JGhM7jm1HKUop/exec';
 
     async function kirimPesan() {
         const nama = document.getElementById('f-nama').value.trim();
@@ -466,8 +470,27 @@
         const keperluan = document.getElementById('f-keperluan').value;
         const pesan = document.getElementById('f-pesan').value.trim();
 
+        // Validasi dengan SweetAlert
         if (!nama || !email || !pesan) {
-            alert('Mohon isi semua field yang wajib diisi.');
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Mohon isi semua field yang wajib diisi!',
+                confirmButtonColor: '#d33',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+
+        // Validasi email format
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Email Tidak Valid',
+                text: 'Silakan masukkan alamat email yang benar!',
+                confirmButtonColor: '#d33'
+            });
             return;
         }
 
@@ -476,30 +499,53 @@
         btn.innerHTML = 'Mengirim... <i class="fa-solid fa-spinner fa-spin"></i>';
 
         try {
+            // Konversi ke URLSearchParams untuk Apps Script
+            const formData = new URLSearchParams();
+            formData.append('nama', nama);
+            formData.append('email', email);
+            formData.append('keperluan', keperluan);
+            formData.append('pesan', pesan);
+
             await fetch(SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors', // wajib untuk Apps Script
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    nama,
-                    email,
-                    keperluan,
-                    pesan
-                })
+                mode: 'no-cors',
+                body: formData
             });
 
-            // no-cors tidak return response body, anggap sukses jika tidak error
+            // Reset form
             document.getElementById('f-nama').value = '';
             document.getElementById('f-email').value = '';
             document.getElementById('f-pesan').value = '';
-            document.getElementById('msg-sukses').style.display = 'block';
-            setTimeout(() => document.getElementById('msg-sukses').style.display = 'none', 5000);
+
+            // SweetAlert Sukses
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Pesan Anda telah terkirim. Kami akan segera merespon!',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+                timer: 3000,
+                timerProgressBar: true,
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            });
 
         } catch (err) {
-            document.getElementById('msg-gagal').style.display = 'block';
-            setTimeout(() => document.getElementById('msg-gagal').style.display = 'none', 5000);
+            console.error('Error:', err);
+
+            // SweetAlert Gagal
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal Terkirim!',
+                text: 'Terjadi kesalahan. Silakan coba lagi beberapa saat.',
+                confirmButtonColor: '#d33',
+                confirmButtonText: 'Coba Lagi',
+                footer: '<a href="#">Hubungi admin jika masalah berlanjut</a>'
+            });
         }
 
         btn.disabled = false;

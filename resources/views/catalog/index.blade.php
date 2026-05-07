@@ -79,8 +79,7 @@
 
             <h1
                 class="text-5xl md:text-7xl font-black tracking-tight mb-6 bg-gradient-to-r from-white via-emerald-200 to-emerald-400 bg-clip-text drop-shadow-2xl">
-                Katalog <span
-                    class="text-emerald-400 bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text z-15">Program</span>
+                Program <span class="text-emerald-400 bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text z-15">Unggulan</span>
             </h1>
             <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium backdrop-blur-sm">
                 Eksplorasi tayangan inspiratif dan mendidik dari <span class="text-emerald-300 font-semibold">TV9
@@ -167,9 +166,9 @@
 
                         <!-- Badge Trending / New -->
                         <!-- <div
-                                                                                                                                                                                                                                                                                                                                                                        class="absolute top-2 right-2 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full px-2 py-0.5 text-[9px] font-bold text-white shadow-lg">
-                                                                                                                                                                                                                                                                                                                                                                        {{ $loop->index < 3 ? 'TRENDING' : 'NEW' }}
-                                                                                                                                                                                                                                                                                                                                                                    </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                        class="absolute top-2 right-2 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full px-2 py-0.5 text-[9px] font-bold text-white shadow-lg">
+                                                                                                                                                                                                                                                                                                                                                                                                                        {{ $loop->index < 3 ? 'TRENDING' : 'NEW' }}
+                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
                     </div>
                 </div>
             @empty
@@ -240,7 +239,7 @@
                         </div>
                     </template>
                     <!-- Play Button Overlay -->
-                    <div
+                    <!-- <div
                         class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/50">
                         <div
                             class="w-16 h-16 rounded-full bg-emerald-500 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
@@ -248,7 +247,7 @@
                                 <path d="M8 5v14l11-7z" />
                             </svg>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Content in Modal - Modern Layout -->
@@ -352,7 +351,7 @@
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     </style>
-<x-footer />
+    <x-footer />
 </body>
 
 </html>

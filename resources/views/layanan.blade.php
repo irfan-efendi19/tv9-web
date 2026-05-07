@@ -241,6 +241,134 @@
         </div>
     </section>
 
+    <!-- SECTION AKSES MULTIPLATFORM -->
+    <section class="bg-gray-50 flex items-center justify-center p-8">
+        <div class="w-full max-w-5xl" data-aos="fade-up" data-aos-delay="100">
+            <!-- Heading -->
+            <div class="mb-8">
+                <h2 class="title-underline text-2xl font-semibold text-gray-900 tracking-tight">
+                    Akses Multiplatform
+                </h2>
+            </div>
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <!-- Card 1: TV Digital Kanal 44 UHF -->
+                <div class="card bg-gray-100 rounded-2xl p-6 border border-gray-200">
+                    <!-- Icon -->
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-tv text-tv9-green-900 text-xl"></i>
+                    </div>
+                    <h3 class="text-tv9-green-900 font-semibold text-base mb-4">
+                        TV Digital Kanal 44 UHF
+                    </h3>
+                    <table class="w-full text-base">
+                        <tbody>
+                            <tr>
+                                <td class="text-gray-500 py-1.5">Frekuensi</td>
+                                <td class="text-right font-semibold text-tv9-green-900 py-1.5">
+                                    658 MHz
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-gray-500 py-1.5">Kanal</td>
+                                <td class="text-right font-semibold text-tv9-green-900 py-1.5">
+                                    44 UHF
+                                </td>
+                            </tr>
+                            <!-- <tr>
+                                    <td class="text-gray-500 py-1.5">Multipleksing</td>
+                                    <td class="text-right font-semibold text-tv9-green-900 py-1.5">
+                                        Trans TV Surabaya
+                                    </td>
+                                </tr> -->
+                            <tr>
+                                <td class="text-gray-500 py-1.5">Wilayah</td>
+                                <td class="text-right font-semibold text-tv9-green-900 py-1.5">
+                                    Jawa Timur-1
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="mt-4 text-xs text-gray-400 border-t pt-3">
+                        Mencakup: Surabaya, Mojokerto, Pasuruan, Bangkalan, Gresik, Jombang, Lamongan, Sidoarjo
+                    </div>
+                </div>
+                <!-- Card 2: TV Kabel -->
+                <div class="card bg-gray-100 rounded-2xl p-6 border border-gray-200">
+                    <!-- Icon -->
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-tv text-tv9-green-900 text-xl"></i>
+                    </div>
+                    <h3 class="text-tv9-green-900 font-semibold text-base mb-3">TV
+                        Kabel</h3>
+                    <p class="text-base text-gray-500 mb-5 leading-relaxed">
+                        Temukan kami di daftar channel favorit pada provider TV
+                        berbayar pilihan
+                        Anda.
+                    </p>
+                    <ul class="space-y-2.5">
+                        <li class="flex items-center gap-2.5 text-base text-gray-600">
+                            <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
+                            IndiHome
+                        </li>
+                        <li class="flex items-center gap-2.5 text-base text-gray-600">
+                            <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
+                            First Media
+                        </li>
+                        <li class="flex items-center gap-2.5 text-base text-gray-600">
+                            <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
+                            MNC Vision
+                        </li>
+                        <li class="flex items-center gap-2.5 text-base text-gray-600">
+                            <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
+                            TransVision
+                        </li>
+                    </ul>
+                </div>
+                <!-- Card 3: Digital & Apps -->
+                <div class="card bg-gray-100 rounded-2xl p-6 border border-gray-200">
+                    <!-- Icon -->
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-mobile-screen text-tv9-green-900 text-xl"></i>
+                    </div>
+                    <h3 class="text-tv9-green-900 font-semibold text-base mb-1">
+                        Digital &amp; Apps
+                    </h3>
+                    <p class="text-base text-gray-500 mb-1">Akses siaran langsung 24
+                        jam</p>
+                    <a href="https://www.tv9.co.id/live" target="_blank"
+                        class="inline-flex items-center gap-1.5 text-base text-tv9-green-900 font-semibold mb-5 hover:underline">
+                        www.tv9.co.id/live
+                        <i class="fa-solid fa-arrow-up-right-from-square text-base"></i>
+                    </a>
+                    <p class="text-base text-gray-400 mb-3 uppercase tracking-wide font-medium">
+                        Download Aplikasi
+                        Kami</p>
+                    <!-- Google Play -->
+                    <a href="#"
+                        class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 mb-2.5 w-full">
+                        <i class="fa-brands fa-google-play text-sky-400 text-xl flex-shrink-0"></i>
+                        <div class="leading-tight">
+                            <p class="text-[10px] text-gray-400 font-normal">GET IT
+                                ON</p>
+                            <p class="text-base font-semibold">Google Play</p>
+                        </div>
+                    </a>
+                    <!-- App Store -->
+                    <a href="#"
+                        class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 w-full">
+                        <i class="fa-brands fa-apple text-white text-xl flex-shrink-0"></i>
+                        <div class="leading-tight">
+                            <p class="text-[10px] text-gray-400 font-normal">
+                                DOWNLOAD ON THE</p>
+                            <p class="text-base font-semibold">App Store</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ═══════════════════════════════════════ON-AIR ADVERTISING═══════════════════════════════════════ -->
     <section class="py-24 bg-brand-offwhite" id="on-air">
         <div class="max-w-6xl mx-auto px-6">
