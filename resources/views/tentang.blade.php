@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -53,14 +53,18 @@
     <!-- Lightbox2 CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
     <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+        html {
+            overflow-x: hidden;
+        }
 
-    body {
-        overflow-x: hidden;
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        * {
+            max-width: 100%;
     }
 
 
