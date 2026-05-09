@@ -4,7 +4,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="TV9 Nusantara adalah televisi Islami modern yang berbasis di Surabaya, Jawa Timur. Dengan tagline
         Santun Menyejukkan, TV9 menyajikan tayangan bernuansa Ahlussunnah Wal Jamaah (Aswaja) yang mengedepankan
         nilai-nilai keislaman, kebangsaan, dan kearifan lokal Nusantara. Tersedia via live streaming, digital platform,
@@ -23,13 +23,13 @@
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
     <!-- Scripts & Styles -->
     @php
-        $isProduction = app()->environment('production');
-        $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_path('build/manifest.json');
+$isProduction = app()->environment('production');
+$manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_path('build/manifest.json');
     @endphp
     
     @if ($isProduction && file_exists($manifestPath))
         @php
-            $manifest = json_decode(file_get_contents($manifestPath), true);
+    $manifest = json_decode(file_get_contents($manifestPath), true);
         @endphp
         <link rel="stylesheet" href="{{ config('app.url') }}/build/{{ $manifest['resources/css/app.css']['file'] }}">
         <script type="module" src="{{ config('app.url') }}/build/{{ $manifest['resources/js/app.js']['file'] }}"></script>
@@ -205,8 +205,8 @@
                     <div id="scheduleSlider" class="relative">
                         <!-- Slides -->
                         @php
-                            $scheduleList = $schedules ?? [];
-                            $chunkedSchedules = collect($scheduleList)->chunk(3);
+$scheduleList = $schedules ?? [];
+$chunkedSchedules = collect($scheduleList)->chunk(3);
                         @endphp
     
                         @forelse($chunkedSchedules as $slideIndex => $scheduleChunk)
@@ -215,10 +215,10 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                                     @foreach($scheduleChunk as $program)
                                         @php
-                                            $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-                                            $isLive = $program->start_time <= $currentTime && $program->end_time >=
-                                                $currentTime;
-                                        $isDone = $program->end_time < $currentTime; @endphp <div
+        $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+        $isLive = $program->start_time <= $currentTime && $program->end_time >=
+            $currentTime;
+        $isDone = $program->end_time < $currentTime; @endphp <div
                                             class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-tv9-primary shadow-lg shadow-tv9-primary/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
                                             {{-- Badge SEDANG TAYANG di atas card --}}
                                             @if($isLive)

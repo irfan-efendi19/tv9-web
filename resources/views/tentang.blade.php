@@ -4,7 +4,6 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description"
         content="TV9 Nusantara adalah stasiun televisi Islam di Indonesia yang menghadirkan program santun, edukatif, dan penuh nilai keagamaan serta budaya Nusantara.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -35,7 +34,7 @@
         $isProduction = app()->environment('production');
         $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_path('build/manifest.json');
     @endphp
-
+    
     @if ($isProduction && file_exists($manifestPath))
         @php
             $manifest = json_decode(file_get_contents($manifestPath), true);
@@ -56,13 +55,13 @@
         html {
             overflow-x: hidden;
         }
-
+    
         body {
             overflow-x: hidden;
             width: 100%;
             max-width: 100%;
         }
-
+    
         * {
             max-width: 100%;
     }

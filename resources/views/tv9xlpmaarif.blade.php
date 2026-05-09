@@ -4,7 +4,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="TV9 Nusantara adalah televisi Islami modern yang berbasis di Surabaya, Jawa Timur. Dengan tagline
         Santun Menyejukkan, TV9 menyajikan tayangan bernuansa Ahlussunnah Wal Jamaah (Aswaja) yang mengedepankan
         nilai-nilai keislaman, kebangsaan, dan kearifan lokal Nusantara. Tersedia via live streaming, digital platform,
@@ -22,13 +22,13 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
     @php
-        $isProduction = app()->environment('production');
-        $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_path('build/manifest.json');
+$isProduction = app()->environment('production');
+$manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_path('build/manifest.json');
     @endphp
     
     @if ($isProduction && file_exists($manifestPath))
         @php
-            $manifest = json_decode(file_get_contents($manifestPath), true);
+    $manifest = json_decode(file_get_contents($manifestPath), true);
         @endphp
         <link rel="stylesheet" href="{{ config('app.url') }}/build/{{ $manifest['resources/css/app.css']['file'] }}">
         <script type="module" src="{{ config('app.url') }}/build/{{ $manifest['resources/js/app.js']['file'] }}"></script>

@@ -4,7 +4,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description"
         content="Saksikan live streaming TV9 Nusantara secara gratis. Nikmati pengalaman siaran Islami modern yang meningkatkan warisan spiritual dan intelektual Nusantara. Santun, menyejukkan, dan tayang 24 jam." />
     <meta name="author" content="TV9 Nusantara">
@@ -14,13 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
         rel="stylesheet">
     @php
-        $isProduction = app()->environment('production');
-        $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_path('build/manifest.json');
+$isProduction = app()->environment('production');
+$manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_path('build/manifest.json');
     @endphp
     
     @if ($isProduction && file_exists($manifestPath))
         @php
-            $manifest = json_decode(file_get_contents($manifestPath), true);
+    $manifest = json_decode(file_get_contents($manifestPath), true);
         @endphp
         <link rel="stylesheet" href="{{ config('app.url') }}/build/{{ $manifest['resources/css/app.css']['file'] }}">
         <script type="module" src="{{ config('app.url') }}/build/{{ $manifest['resources/js/app.js']['file'] }}"></script>
@@ -218,20 +218,20 @@
                 <div class="bg-white border border-slate-200 rounded-[2rem] overflow-hidden shadow-xl shadow-slate-100/50">
                     @forelse($schedules ?? [] as $prog)
                         @php
-                            $catColors = [
-                                'Religi' => 'bg-green-50 border-green-200 text-green-700',
-                                'Berita' => 'bg-blue-50 border-blue-200 text-blue-700',
-                                'Hiburan' => 'bg-orange-50 border-orange-200 text-orange-700',
-                                'Drama' => 'bg-purple-50 border-purple-200 text-purple-700',
-                                'Film' => 'bg-rose-50 border-rose-200 text-rose-700',
-                                'Edukasi' => 'bg-teal-50 border-teal-200 text-teal-700',
-                                'Talk Show' => 'bg-yellow-50 border-yellow-200 text-yellow-700',
-                                'Anak' => 'bg-sky-50 border-sky-200 text-sky-700',
-                                'Olahraga' => 'bg-lime-50 border-lime-200 text-lime-700',
-                            ];
-                            $badgeClass = $catColors[$prog->category] ?? 'bg-slate-50 border-slate-200 text-slate-500';
-                            $currentTime = now()->format('H:i:s');
-                            $isLive = ($currentTime >= $prog->start_time && $currentTime <= $prog->end_time);
+    $catColors = [
+        'Religi' => 'bg-green-50 border-green-200 text-green-700',
+        'Berita' => 'bg-blue-50 border-blue-200 text-blue-700',
+        'Hiburan' => 'bg-orange-50 border-orange-200 text-orange-700',
+        'Drama' => 'bg-purple-50 border-purple-200 text-purple-700',
+        'Film' => 'bg-rose-50 border-rose-200 text-rose-700',
+        'Edukasi' => 'bg-teal-50 border-teal-200 text-teal-700',
+        'Talk Show' => 'bg-yellow-50 border-yellow-200 text-yellow-700',
+        'Anak' => 'bg-sky-50 border-sky-200 text-sky-700',
+        'Olahraga' => 'bg-lime-50 border-lime-200 text-lime-700',
+    ];
+    $badgeClass = $catColors[$prog->category] ?? 'bg-slate-50 border-slate-200 text-slate-500';
+    $currentTime = now()->format('H:i:s');
+    $isLive = ($currentTime >= $prog->start_time && $currentTime <= $prog->end_time);
                         @endphp
 
                         <div

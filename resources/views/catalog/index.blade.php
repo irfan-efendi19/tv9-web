@@ -4,7 +4,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description"
         content="Jelajahi seluruh program unggulan TV9 Nusantara: Kiswah, Hujjah Aswaja, Jurnal9, dan berbagai tayangan Islami modern lainnya. Meningkatkan warisan spiritual & intelektual Nusantara.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
