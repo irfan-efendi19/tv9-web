@@ -276,11 +276,11 @@
                                 </td>
                             </tr>
                             <!-- <tr>
-                                    <td class="text-gray-500 py-1.5">Multipleksing</td>
-                                    <td class="text-right font-semibold text-tv9-green-900 py-1.5">
-                                        Trans TV Surabaya
-                                    </td>
-                                </tr> -->
+                                                                                <td class="text-gray-500 py-1.5">Multipleksing</td>
+                                                                                <td class="text-right font-semibold text-tv9-green-900 py-1.5">
+                                                                                    Trans TV Surabaya
+                                                                                </td>
+                                                                                </tr> -->
                             <tr>
                                 <td class="text-gray-500 py-1.5">Wilayah</td>
                                 <td class="text-right font-semibold text-tv9-green-900 py-1.5">
@@ -345,25 +345,25 @@
                         Download Aplikasi
                         Kami</p>
                     <!-- Google Play -->
-                    <a href="#"
-                        class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 mb-2.5 w-full">
+                    <button onclick="showComingSoonAlert()"
+                        class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 mb-2.5 w-full hover:bg-gray-800 transition-colors">
                         <i class="fa-brands fa-google-play text-sky-400 text-xl flex-shrink-0"></i>
                         <div class="leading-tight">
                             <p class="text-[10px] text-gray-400 font-normal">GET IT
                                 ON</p>
                             <p class="text-base font-semibold">Google Play</p>
                         </div>
-                    </a>
+                    </button>
                     <!-- App Store -->
-                    <a href="#"
-                        class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 w-full">
+                    <button onclick="showComingSoonAlert()"
+                        class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 w-full hover:bg-gray-800 transition-colors">
                         <i class="fa-brands fa-apple text-white text-xl flex-shrink-0"></i>
                         <div class="leading-tight">
                             <p class="text-[10px] text-gray-400 font-normal">
                                 DOWNLOAD ON THE</p>
                             <p class="text-base font-semibold">App Store</p>
                         </div>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -434,7 +434,7 @@
                     </div>
                     <h4 class="font-semibold text-brand-darkgreen mb-2">Grafis On-Screen</h4>
                 </div>
-                </div>
+            </div>
     </section>
 
     <!-- ═══════════════════════════════════════OFF-AIR ACTIVATION═══════════════════════════════════════ -->
@@ -898,6 +898,19 @@
     <x-footer />
     <script src="{{ asset('js/welcome.js') }}"></script>
     <script src="https://elfsightcdn.com/platform.js" async></script>
+    <script>
+    function showComingSoonAlert() {
+        Swal.fire({
+            title: 'Akan Segera Rilis',
+            text: 'Aplikasi mobile TV9 Nusantara akan segera tersedia di Google Play dan App Store.',
+            icon: 'info',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#DC2626',
+            allowOutsideClick: false,
+            allowEscapeKey: false
+        });
+    }
+    </script>
 </body>
 
 </html>

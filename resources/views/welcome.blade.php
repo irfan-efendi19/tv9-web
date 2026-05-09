@@ -107,95 +107,43 @@
                                     </div>
                                     <div class="mobile-text-wrapper">
                                         <!-- <span class="mobile-badge"><i class="fas fa-star text-yellow-400 text-xs mr-1"></i>
-                                                                                                                                                                    BUILD LIKE THEM</span> -->
-                                        <h2 class="text-white font-bold">TV9 Nusantara
+                                                                                                                                                                                        BUILD LIKE THEM</span> -->
+                                        <h2 class="text-xl text-white font-bold">TV9 Nusantara
                                         </h2>
-                                        <p class="text-white/85">Santun Menyejukkan
+                                        <p class="text-base text-white/85">Santun Menyejukkan
                                         </p>
-                                        <div
-                                            class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-4 justify-center btn-group">
-                                            <button class="btn-primary"><i class="fas fa-play text-sm"></i>
-                                                Tonton</button>
-                                            <button class="btn-outline">Selengkapnya <i
-                                                    class="fas fa-arrow-right text-xs"></i></button>
-                                        </div>
+                                        <!-- <div
+                                                        class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-4 justify-center btn-group">
+                                                        <button class="btn-primary"><i class="fas fa-play text-sm"></i>
+                                                            Tonton</button>
+                                                        <button class="btn-outline">Selengkapnya <i
+                                                                class="fas fa-arrow-right text-xs"></i></button>
+                                                    </div> -->
                                     </div>
                                 </div>
                                 <div class="hidden md:flex md:w-full md:items-center md:justify-between">
                                     <div class="w-full lg:w-7/12 text-white">
-                                        <span
-                                            class="inline-block bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm mb-3"><i
-                                                class="fas fa-star text-yellow-400 mr-1"></i>
-                                            BUILD LIKE THEM</span>
+                                        <!-- <span
+                                                    class="inline-block bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm mb-3"><i
+                                                        class="fas fa-star text-yellow-400 mr-1"></i>
+                                                    BUILD LIKE THEM</span> -->
                                         <h2 class="text-5xl lg:text-7xl font-bold mb-4">
                                             TV9 Nusantara</h2>
                                         <p class="text-xl opacity-90 mb-8">Santun
                                             Menyejukkan</p>
-                                        <div class="flex gap-4">
-                                            <button
-                                                class="px-8 py-3 bg-red-600 hover:bg-red-700 rounded-full font-semibold flex items-center gap-2"><i
-                                                    class="fas fa-play"></i>
-                                                Tonton</button>
-                                            <button
-                                                class="px-8 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full border border-white/30 flex items-center gap-2">Selengkapnya
-                                                <i class="fas fa-arrow-right"></i></button>
-                                        </div>
+                                        <!-- <div class="flex gap-4">
+                                                            <button
+                                                                class="px-8 py-3 bg-red-600 hover:bg-red-700 rounded-full font-semibold flex items-center gap-2"><i
+                                                                    class="fas fa-play"></i>
+                                                                Tonton</button>
+                                                            <button
+                                                                class="px-8 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full border border-white/30 flex items-center gap-2">Selengkapnya
+                                                                <i class="fas fa-arrow-right"></i></button>
+                                                        </div> -->
                                     </div>
                                     <div class="lg:w-5/12 desktop-feature-col">
                                         <img src="{{ asset('img/feature/1.png') }}" alt="Broadcasting"
                                             class="h-full mx-auto object-contain drop-shadow-2xl" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <!-- SLIDE 2 -->
-                    <div class="hero-slide-item absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0"
-                        data-slide="1">
-                        <div class="w-full h-full">
-                            <div class="container mx-auto px-0 md:px-4 h-full md:flex md:items-center md:justify-between">
-                                <div class="mobile-slide-inner md:hidden">
-                                    <div class="mobile-poster-wrapper">
-                                        <img src="{{ asset('img/feature/1.png') }}" class="mobile-poster-image"
-                                            alt="Inspiration" />
-                                    </div>
-                                    <div class="mobile-text-wrapper">
-                                        <span class="mobile-badge"><i
-                                                class="fas fa-lightbulb text-yellow-400 text-xs mr-1"></i>
-                                            INSPIRATION</span>
-                                        <h2 class="text-white font-bold">Inspirasi
-                                            Nusantara</h2>
-                                        <p class="text-white/85">Menyajikan Konten
-                                            Berkualitas untuk Generasi Masa Depan</p>
-                                        <div class="flex justify-center btn-group">
-                                            <button class="btn-primary"><i class="fas fa-play"></i>
-                                                Tonton</button><button class="btn-outline">Selengkapnya
-                                                <i class="fas fa-arrow-right"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="hidden md:flex md:w-full md:items-center md:justify-between">
-                                    <div class="w-full lg:w-7/12 text-white"><span
-                                            class="inline-block bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm mb-3"><i
-                                                class="fas fa-lightbulb text-yellow-400 mr-1"></i>
-                                            INSPIRATION</span>
-                                        <h2 class="text-5xl lg:text-7xl font-bold mb-4">
-                                            Inspirasi Nusantara</h2>
-                                        <p class="text-xl opacity-90 mb-8">Menyajikan
-                                            Konten Berkualitas untuk Generasi Masa
-                                            Depan</p>
-                                        <div class="flex gap-4"><button
-                                                class="px-8 py-3 bg-red-600 hover:bg-red-700 rounded-full font-semibold flex items-center gap-2"><i
-                                                    class="fas fa-play"></i>
-                                                Tonton</button><button
-                                                class="px-8 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full border border-white/30 flex items-center gap-2">Selengkapnya
-                                                <i class="fas fa-arrow-right"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="lg:w-5/12 desktop-feature-col"><img
-                                            src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png"
-                                            class="w-80 h-80 mx-auto object-contain drop-shadow-2xl" />
                                     </div>
                                 </div>
                             </div>
@@ -212,7 +160,6 @@
     
                 <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2 md:gap-3">
                     <button class="hero-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50" data-dot="0"></button>
-                    <button class="hero-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50" data-dot="1"></button>
                 </div>
     
                 <div class="swipe-hint"><i class="fas fa-chevron-left"></i><span>Geser</span><i
@@ -323,8 +270,8 @@
                             <a href="{{ route('jadwal') }}">
                                 <span
                                     class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
-                                                                                                                                                                                                                                                                                                                                           transition-all duration-300 ease-in-out 
-                                                                                                                                                                                                                                                                                                                                           hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
+                                                                                                                                                                                                                                                                                                                                                               transition-all duration-300 ease-in-out 
+                                                                                                                                                                                                                                                                                                                                                               hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
                                     LIHAT SEMUA JADWAL
                                 </span>
                             </a>
@@ -431,11 +378,11 @@
                                     </td>
                                 </tr>
                                 <!-- <tr>
-                                                            <td class="text-gray-500 py-1.5">Multipleksing</td>
-                                                            <td class="text-right font-semibold text-tv9-green-900 py-1.5">
-                                                                Trans TV Surabaya
-                                                            </td>
-                                                        </tr> -->
+                                                                                <td class="text-gray-500 py-1.5">Multipleksing</td>
+                                                                                <td class="text-right font-semibold text-tv9-green-900 py-1.5">
+                                                                                    Trans TV Surabaya
+                                                                                </td>
+                                                                            </tr> -->
                                 <tr>
                                     <td class="text-gray-500 py-1.5">Wilayah</td>
                                     <td class="text-right font-semibold text-tv9-green-900 py-1.5">
