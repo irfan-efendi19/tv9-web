@@ -394,10 +394,6 @@
                     </div>
                     <h3 class="font-display text-xl font-bold text-brand-darkgreen mb-2">TVC (Television Commercial)
                     </h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
-                        Full duration cinematic video ads yang menggugah emosi dan memperkuat identitas brand Anda di
-                        layar utama.
-                    </p>
                     <a href="#" class="arrow-link">
                         <!-- Pelajari Lebih Lanjut <i class="fa-solid fa-arrow-right text-xs"></i> -->
                     </a>
@@ -409,10 +405,6 @@
                         <i class="fa-solid fa-handshake text-tv9-gold-500 text-xl"></i>
                     </div>
                     <h3 class="font-display text-xl font-bold text-brand-darkgreen mb-2">Program Sponsorship</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-6">
-                        Integrasi organik brand Anda ke dalam konten yang relevan, menciptakan asosiasi positif dengan
-                        program favorit pemirsa.
-                    </p>
                     <a href="#" class="arrow-link">
                         <!-- Pelajari Lebih Lanjut <i class="fa-solid fa-arrow-right text-xs"></i> -->
                     </a>
@@ -427,8 +419,6 @@
                         <i class="fa-solid fa-align-left text-sm"></i>
                     </div>
                     <h4 class="font-semibold text-brand-darkgreen mb-2">Running Text</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed">Promosi teks berjalan yang efisien untuk informasi
-                        cepat dan promo berkala.</p>
                 </div>
                 <div class="bg-white rounded-2xl p-6 border border-gray-100 card-hover">
                     <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
@@ -436,8 +426,6 @@
                         <i class="fa-solid fa-clock text-sm"></i>
                     </div>
                     <h4 class="font-semibold text-brand-darkgreen mb-2">Blocking Time</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed">Durasi eksklusif untuk acara khusus, talkshow, atau
-                        peluncuran produk secara live.</p>
                 </div>
                 <div class="bg-white rounded-2xl p-6 border border-gray-100 card-hover">
                     <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
@@ -445,11 +433,8 @@
                         <i class="fa-solid fa-tv text-sm"></i>
                     </div>
                     <h4 class="font-semibold text-brand-darkgreen mb-2">Grafis On-Screen</h4>
-                    <p class="text-gray-400 text-xs leading-relaxed">Penampilan logo dan visual menarik di layar saat
-                        program berlangsung.</p>
                 </div>
-            </div>
-        </div>
+                </div>
     </section>
 
     <!-- ═══════════════════════════════════════OFF-AIR ACTIVATION═══════════════════════════════════════ -->
@@ -482,7 +467,7 @@
                             </div>
                             <h3 class="font-display text-xl font-bold text-brand-darkgreen">Indoor Events</h3>
                         </div>
-                        <ul class="space-y-2">
+                        <!-- <ul class="space-y-2">
                             <li class="flex items-center gap-2 text-sm text-gray-600">
                                 <i class="fa-solid fa-check text-tv9-gold-500 text-xs"></i>Seminars
                                 &amp; Workshops
@@ -499,7 +484,7 @@
                                 <i class="fa-solid fa-check text-tv9-gold-500 text-xs"></i>Gala
                                 Dinners
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
 
@@ -516,7 +501,7 @@
                             </div>
                             <h3 class="font-display text-xl font-bold text-brand-darkgreen">Outdoor Events</h3>
                         </div>
-                        <ul class="space-y-2">
+                        <!-- <ul class="space-y-2">
                             <li class="flex items-center gap-2 text-sm text-gray-600">
                                 <i class="fa-solid fa-check text-xs"></i>Music Concerts
                             </li>
@@ -529,7 +514,7 @@
                             <li class="flex items-center gap-2 text-sm text-gray-600">
                                 <i class="fa-solid fa-check text-xs"></i>Open Exhibitions
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div>
             </div>
@@ -908,8 +893,11 @@
         </div>
     </section>
 
+    <div class="elfsight-app-5d453261-cc99-4c4f-b921-1ce334b79599" data-elfsight-app-lazy></div>
+
     <x-footer />
     <script src="{{ asset('js/welcome.js') }}"></script>
+    <script src="https://elfsightcdn.com/platform.js" async></script>
 </body>
 
 </html>

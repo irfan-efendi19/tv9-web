@@ -107,7 +107,7 @@
                                     </div>
                                     <div class="mobile-text-wrapper">
                                         <!-- <span class="mobile-badge"><i class="fas fa-star text-yellow-400 text-xs mr-1"></i>
-                                                                                                                                                    BUILD LIKE THEM</span> -->
+                                                                                                                                                                    BUILD LIKE THEM</span> -->
                                         <h2 class="text-white font-bold">TV9 Nusantara
                                         </h2>
                                         <p class="text-white/85">Santun Menyejukkan
@@ -323,8 +323,8 @@
                             <a href="{{ route('jadwal') }}">
                                 <span
                                     class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
-                                                                                                                                                                                                                                                                                                                           transition-all duration-300 ease-in-out 
-                                                                                                                                                                                                                                                                                                                           hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
+                                                                                                                                                                                                                                                                                                                                           transition-all duration-300 ease-in-out 
+                                                                                                                                                                                                                                                                                                                                           hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
                                     LIHAT SEMUA JADWAL
                                 </span>
                             </a>
@@ -431,11 +431,11 @@
                                     </td>
                                 </tr>
                                 <!-- <tr>
-                                            <td class="text-gray-500 py-1.5">Multipleksing</td>
-                                            <td class="text-right font-semibold text-tv9-green-900 py-1.5">
-                                                Trans TV Surabaya
-                                            </td>
-                                        </tr> -->
+                                                            <td class="text-gray-500 py-1.5">Multipleksing</td>
+                                                            <td class="text-right font-semibold text-tv9-green-900 py-1.5">
+                                                                Trans TV Surabaya
+                                                            </td>
+                                                        </tr> -->
                                 <tr>
                                     <td class="text-gray-500 py-1.5">Wilayah</td>
                                     <td class="text-right font-semibold text-tv9-green-900 py-1.5">
@@ -593,14 +593,11 @@
                                 <div>
                                     <h4 class="text-white font-semibold text-base mb-1">
                                         Produksi
-                                        Konten Kreatif</h4>
+                                        Live Event</h4>
                                     <p class="text-base text-green-100/60 leading-relaxed">
-                                        Jasa
-                                        produksi in-house untuk video
-                                        company profile, talkshow bermerek, hingga iklan
-                                        layanan
-                                        masyarakat bernuansa
-                                        edukatif.</p>
+                                        Penyelenggaraan acara secara langsung dan on-air, mulai dari seminar, konser musik
+                                        religi, hingga tabligh akbar dengan dukungan teknis yang
+                                        profesional.</p>
                                 </div>
                             </div>
                         </div>
