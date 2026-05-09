@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -35,13 +35,14 @@
         $isProduction = app()->environment('production');
         $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_path('build/manifest.json');
     @endphp
-    
+
     @if ($isProduction && file_exists($manifestPath))
         @php
             $manifest = json_decode(file_get_contents($manifestPath), true);
         @endphp
         <link rel="stylesheet" href="{{ config('app.url') }}/build/{{ $manifest['resources/css/app.css']['file'] }}">
-        <script type="module" src="{{ config('app.url') }}/build/{{ $manifest['resources/js/app.js']['file'] }}"></script>
+        <script type="module" src="{{ config('app.url') }}/build/{{ $manifest['resources/js/app.js']['file'] }}">
+        </script>
     @else
         @viteReactRefresh
         @vite(['resources/js/app.js', 'resources/css/app.css'])
@@ -52,6 +53,17 @@
     <!-- Lightbox2 CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
     <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+
     .hero-bg {
         background: linear-gradient(160deg, #0f2d1a 0%, #1a4d2e 50%, #2d6a4f 100%);
         position: relative;
@@ -391,7 +403,8 @@
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] bg-tv9-dark float-anim">
                     <div class="absolute inset-0 flex items-center justify-center">
                         <!-- Camera + Crescent decorative SVG -->
-                        <img src="{{ asset('img/origin.jpeg') }}" alt="TV9 Nusantara" class="w-full h-full object-cover">
+                        <img src="{{ asset('img/origin.jpeg') }}" alt="TV9 Nusantara"
+                            class="w-full h-full object-cover">
                     </div>
                 </div>
                 <!-- Decorative accent -->
@@ -401,7 +414,7 @@
                 </div>
             </div>
         </div>
-        </section>
+    </section>
 
     <!-- ========= VISI & MISI ========= -->
     <section class="py-16 px-6 pattern-bg">
@@ -410,7 +423,8 @@
             <div class="reveal card-hover bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
                 <div class="value-icon w-12 h-12 rounded-xl flex items-center justify-center mb-5">
                     <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="white" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
@@ -712,10 +726,11 @@
             <div class="grid md:grid-cols-2 gap-6 animate-fade-up-3">
 
                 <!-- Otentik -->
-                <div class="reveal card-hover bg-white/5 backdrop-blur-sm border border-tv9-gold-600/10 rounded-2xl p-7 text-center">
+                <div
+                    class="reveal card-hover bg-white/5 backdrop-blur-sm border border-tv9-gold-600/10 rounded-2xl p-7 text-center">
                     <div class="w-14 h-14 mx-auto rounded-2xl bg-tv9-gold-600/10 flex items-center justify-center mb-4">
-                        <svg class="w-7 h-7 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" viewBox="0 0 24 24">
+                        <svg class="w-7 h-7 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <circle cx="12" cy="12" r="10" />
                             <polyline points="12 6 12 12 16 14" />
                         </svg>
@@ -734,8 +749,8 @@
                 <div
                     class="reveal reveal-delay-2 card-hover bg-white/5 backdrop-blur-sm border border-tv9-gold-600/10 rounded-2xl p-7 text-center">
                     <div class="w-14 h-14 mx-auto rounded-2xl bg-tv9-gold-600/10 flex items-center justify-center mb-4">
-                        <svg class="w-7 h-7 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" viewBox="0 0 24 24">
+                        <svg class="w-7 h-7 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                         </svg>
                     </div>
@@ -750,11 +765,11 @@
                         dibutuhkan oleh masyarakat.
                     </p>
                 </div>
-                </div>
-                <!-- Closing tagline -->
-                <p class="animate-fade-up-4 mt-10 text-center text-sm text-white/50 leading-relaxed max-w-xl mx-auto px-2">
-                    TV9 bukan hanya sebagai saluran televisi, melainkan
-                    <strong class="text-tv9-gold-400 font-semibold">'sumber hikmah'</strong>
+            </div>
+            <!-- Closing tagline -->
+            <p class="animate-fade-up-4 mt-10 text-center text-sm text-white/50 leading-relaxed max-w-xl mx-auto px-2">
+                TV9 bukan hanya sebagai saluran televisi, melainkan
+                <strong class="text-tv9-gold-400 font-semibold">'sumber hikmah'</strong>
                 di mana penonton bisa menemukan kebenaran yang menyejukkan dan tuntunan hidup yang
                 bijak.
             </p>
@@ -777,7 +792,8 @@
                 <!-- Komisaris Utama -->
                 <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M12 11c0 3.517-1.009 6.799-2.753 9.571m5.506 0C20.991 17.799 22 14.517 22 11c0-3.517-1.009-6.799-2.753-9.571M12 11c0-3.517 1.009-6.799 2.753-9.571m-5.506 0C3.009 4.201 2 7.483 2 11c0 3.517 1.009 6.799 2.753 9.571" />
                         </svg>
@@ -790,7 +806,8 @@
                 <!-- Komisaris - Misbahul Munir -->
                 <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
@@ -801,8 +818,10 @@
                 <!-- Komisaris - Muhammad Maksum -->
                 <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
                     <h4 class="font-bold text-tv9-dark text-base mb-1">Muhammad Maksum</h4>
@@ -812,7 +831,8 @@
                 <!-- CEO - Hakim Jayli -->
                 <div class="reveal card-hover bg-tv9-dark rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div class="w-12 h-12 rounded-full bg-tv9-gold-600/20 flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
@@ -825,7 +845,8 @@
                 <!-- Secretary -->
                 <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
@@ -838,7 +859,8 @@
                 <!-- CFO -->
                 <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
@@ -851,7 +873,8 @@
                 <!-- GM - Ilman Taruna -->
                 <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                         </svg>
@@ -874,7 +897,8 @@
                 <!-- Imam Hambali - Marketing -->
                 <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                         </svg>
@@ -887,7 +911,8 @@
                 <!-- Qiswanto - Programming -->
                 <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
@@ -899,7 +924,8 @@
                 <!-- Tonny Cahyono - News & New Media -->
                 <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v11a2 2 0 01-2 2zM9 5v7m4-7v7" />
                         </svg>
@@ -911,7 +937,8 @@
                 <!-- Farid Wahyu - Production -->
                 <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                         </svg>
@@ -923,7 +950,8 @@
                 <!-- Zaimah Permatasaari - Technics -->
                 <div class="reveal card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                     <div class="w-12 h-12 rounded-full bg-tv9-gold-600/10 flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6 text-tv9-gold-600" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -958,29 +986,33 @@
                         </p>
 
                         <!-- IPP -->
-                        <div class="bg-brand-green-light rounded-xl border border-brand-border px-4 py-3 flex items-start gap-3 mb-3">
+                        <div
+                            class="bg-brand-green-light rounded-xl border border-brand-border px-4 py-3 flex items-start gap-3 mb-3">
                             <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0">
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path d="M8 1L10 5.5H15L11 8.5L12.5 13L8 10.5L3.5 13L5 8.5L1 5.5H6L8 1Z" class="fill-tv9-green-800" />
-                                    </svg>
-                                    </div>
-                                    <div>
-                                        <p class="text-[10.5px] font-semibold text-white uppercase tracking-widest mb-0.5">
-                                            No. IPP (Izin Penyelenggaraan Penyiaran)
-                                        </p>
-                                        <p class="text-base font-medium text-white">
-                                            No. 1164/T.02.02/2022
-                                        </p>
-                                    </div>
-                                    </div>
+                                    <path d="M8 1L10 5.5H15L11 8.5L12.5 13L8 10.5L3.5 13L5 8.5L1 5.5H6L8 1Z"
+                                        class="fill-tv9-green-800" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-[10.5px] font-semibold text-white uppercase tracking-widest mb-0.5">
+                                    No. IPP (Izin Penyelenggaraan Penyiaran)
+                                </p>
+                                <p class="text-base font-medium text-white">
+                                    No. 1164/T.02.02/2022
+                                </p>
+                            </div>
+                        </div>
 
                         <!-- Akreditasi -->
                         <div class="bg-white rounded-xl border border-brand-border px-4 py-3 flex items-start gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-brand-green-light flex items-center justify-center shrink-0 gap-1">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-brand-green-light flex items-center justify-center shrink-0 gap-1">
                                 <img width="16" height="16" src="/img/kpi.png" alt="Logo KPI" class="object-contain">
                             </div>
                             <div>
-                                <p class="text-[10.5px] font-semibold text-tv9-green-900 uppercase tracking-widest mb-0.5">
+                                <p
+                                    class="text-[10.5px] font-semibold text-tv9-green-900 uppercase tracking-widest mb-0.5">
                                     Akreditasi Konten & Siaran
                                 </p>
                                 <p class="text-base font-medium text-tv9-green-900-dark">
@@ -1000,10 +1032,12 @@
                             <div
                                 class="bg-white rounded-xl border border-brand-border border-t-4 border-t-brand-green px-4 py-5 flex flex-col items-center gap-2 text-center">
                                 <div class="w-14 h-14 flex items-center justify-center">
-                                    <img width="52" height="52" src="/img/kominfo.png" alt="Logo Kominfo" class="object-contain">
+                                    <img width="52" height="52" src="/img/kominfo.png" alt="Logo Kominfo"
+                                        class="object-contain">
                                     </img>
                                 </div>
-                                <p class="text-[10.5px] font-bold text-tv9-green-900-dark uppercase tracking-widest leading-tight">
+                                <p
+                                    class="text-[10.5px] font-bold text-tv9-green-900-dark uppercase tracking-widest leading-tight">
                                     Kementerian<br />Komdigi
                                 </p>
                                 <p class="text-[10px] text-tv9-sage-700 uppercase tracking-widest">
@@ -1016,11 +1050,13 @@
                                 class="bg-white rounded-xl border border-brand-border border-t-4 border-t-brand-gold px-4 py-5 flex flex-col items-center gap-2 text-center">
                                 <div class="w-14 h-14 flex items-center justify-center">
                                     <div class="w-14 h-14 rounded-lg flex items-center justify-center">
-                                        <img width="52" height="52" src="/img/kpi.png" alt="Logo KPI" class="object-contain">
+                                        <img width="52" height="52" src="/img/kpi.png" alt="Logo KPI"
+                                            class="object-contain">
                                         </img>
                                     </div>
                                 </div>
-                                <p class="text-[10.5px] font-bold text-tv9-gold-600-600-600-600-600-500 uppercase tracking-widest leading-tight">
+                                <p
+                                    class="text-[10.5px] font-bold text-tv9-gold-600-600-600-600-600-500 uppercase tracking-widest leading-tight">
                                     Komisi Penyiaran<br />Indonesia
                                 </p>
                                 <p class="text-[10px] text-tv9-sage-700 uppercase tracking-widest">
@@ -1041,16 +1077,17 @@
                             </div>
                             <div class="w-11 h-11 bg-white/10 rounded-xl flex items-center justify-center shrink-0">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M12 2L14 8H20L15.5 11.5L17.5 17.5L12 14.5L6.5 17.5L8.5 11.5L4 8H10L12 2Z" fill="white" opacity="0.9" />
-                                    <path d="M9 12L11 14L15 10" class="stroke-tv9-green-800" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    </svg>
-                                    </div>
-                                    </div>
-                                    </div>
-                                    </div>
-                                    </div>
-                                    </section>
+                                    <path d="M12 2L14 8H20L15.5 11.5L17.5 17.5L12 14.5L6.5 17.5L8.5 11.5L4 8H10L12 2Z"
+                                        fill="white" opacity="0.9" />
+                                    <path d="M9 12L11 14L15 10" class="stroke-tv9-green-800" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
     <!-- ========= GALLERY PORTOFOLIO ========= -->
     <!-- ========= GALLERY PORTOFOLIO (FULL WIDTH & SEAMLESS) ========= -->
     <!-- ========= GALLERY PORTOFOLIO (MASONRY & RANDOM RATIO) ========= -->
@@ -1261,57 +1298,57 @@
                         Lamongan).
                     </p>
                 </div>
+            </div>
+
+            <!-- Right: Segment Cards -->
+            <div class="flex flex-col gap-4">
+
+                <!-- Segmen Upper -->
+                <div class="card-segment bg-white border border-gray-100 rounded-xl px-5 py-4 shadow-sm">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-9 h-9 rounded-lg bg-[#e8f4ee] flex items-center justify-center">
+                            <i class="fa-solid fa-arrow-trend-up text-[#1a5c38] text-sm"></i>
+                        </div>
+                        <span class="font-bold text-gray-800 text-sm">Segmen
+                            Upper</span>
+                    </div>
+                    <p class="text-gray-500 text-xs leading-relaxed pl-12">
+                        Performa sangat kuat di segmen kelas atas dengan pertumbuhan
+                        loyalitas pemirsa yang stabil
+                        setiap minggunya.
+                    </p>
                 </div>
-                
-                <!-- Right: Segment Cards -->
-                <div class="flex flex-col gap-4">
-                
-                    <!-- Segmen Upper -->
-                    <div class="card-segment bg-white border border-gray-100 rounded-xl px-5 py-4 shadow-sm">
-                        <div class="flex items-center gap-3 mb-2">
-                            <div class="w-9 h-9 rounded-lg bg-[#e8f4ee] flex items-center justify-center">
-                                <i class="fa-solid fa-arrow-trend-up text-[#1a5c38] text-sm"></i>
-                            </div>
-                            <span class="font-bold text-gray-800 text-sm">Segmen
-                                Upper</span>
+
+                <!-- Segmen Upper-Middle -->
+                <div class="card-segment bg-white border border-gray-100 rounded-xl px-5 py-4 shadow-sm">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-9 h-9 rounded-lg bg-[#e8f4ee] flex items-center justify-center">
+                            <i class="fa-solid fa-chart-bar text-[#1a5c38] text-sm"></i>
                         </div>
-                        <p class="text-gray-500 text-xs leading-relaxed pl-12">
-                            Performa sangat kuat di segmen kelas atas dengan pertumbuhan
-                            loyalitas pemirsa yang stabil
-                            setiap minggunya.
-                        </p>
+                        <span class="font-bold text-gray-800 text-sm">Segmen
+                            Upper-Middle</span>
                     </div>
-                
-                    <!-- Segmen Upper-Middle -->
-                    <div class="card-segment bg-white border border-gray-100 rounded-xl px-5 py-4 shadow-sm">
-                        <div class="flex items-center gap-3 mb-2">
-                            <div class="w-9 h-9 rounded-lg bg-[#e8f4ee] flex items-center justify-center">
-                                <i class="fa-solid fa-chart-bar text-[#1a5c38] text-sm"></i>
-                            </div>
-                            <span class="font-bold text-gray-800 text-sm">Segmen
-                                Upper-Middle</span>
+                    <p class="text-gray-500 text-xs leading-relaxed pl-12">
+                        Menjadi pilihan utama bagi keluarga menengah ke atas yang
+                        mencari tontonan edukatif dan religius
+                        yang santun.
+                    </p>
+                </div>
+                <!-- Semua Usia 5+ -->
+                <div class="card-segment bg-white border border-gray-100 rounded-xl px-5 py-4 shadow-sm">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-9 h-9 rounded-lg bg-[#e8f4ee] flex items-center justify-center">
+                            <i class="fa-solid fa-people-group text-[#1a5c38] text-sm"></i>
                         </div>
-                        <p class="text-gray-500 text-xs leading-relaxed pl-12">
-                            Menjadi pilihan utama bagi keluarga menengah ke atas yang
-                            mencari tontonan edukatif dan religius
-                            yang santun.
-                        </p>
+                        <span class="font-bold text-gray-800 text-sm">Semua Usia
+                            5+</span>
                     </div>
-                    <!-- Semua Usia 5+ -->
-                    <div class="card-segment bg-white border border-gray-100 rounded-xl px-5 py-4 shadow-sm">
-                        <div class="flex items-center gap-3 mb-2">
-                            <div class="w-9 h-9 rounded-lg bg-[#e8f4ee] flex items-center justify-center">
-                                <i class="fa-solid fa-people-group text-[#1a5c38] text-sm"></i>
-                            </div>
-                            <span class="font-bold text-gray-800 text-sm">Semua Usia
-                                5+</span>
-                        </div>
-                        <p class="text-gray-500 text-xs leading-relaxed pl-12">
-                            Jangkauan luas yang mencakup seluruh kelompok umur,
-                            memperkuat posisi sebagai televisi keluarga
-                            Nusantara.
-                        </p>
-                    </div>
+                    <p class="text-gray-500 text-xs leading-relaxed pl-12">
+                        Jangkauan luas yang mencakup seluruh kelompok umur,
+                        memperkuat posisi sebagai televisi keluarga
+                        Nusantara.
+                    </p>
+                </div>
 
             </div>
         </div>
@@ -1346,7 +1383,8 @@
                             <div
                                 class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
                                 <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2018
+                                    <span
+                                        class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2018
                                         ·
                                         Yogyakarta</span>
                                     <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
@@ -1366,7 +1404,8 @@
                             <div
                                 class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
                                 <div class="p-5">
-                                    <spanclass="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
+                                    <spanclass="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700
+                                        uppercase">2019
                                         ·
                                         Jakarta</span>
                                         <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
@@ -1385,7 +1424,8 @@
                             <div
                                 class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
                                 <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
+                                    <span
+                                        class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
                                         ·
                                         Yogyakarta</span>
                                     <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
@@ -1404,7 +1444,8 @@
                             <div
                                 class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
                                 <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
+                                    <span
+                                        class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
                                         · Bandung</span>
                                     <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
                                         Televisi
@@ -1419,16 +1460,17 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
-                        
-                        <!-- SLIDE 2: Slide kelanjutan (penghargaan 5-8) sesuai data asli tanpa perubahan yang diminta -->
-                        <div class="slide">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-1">
-                                <!-- 5. The Best Performing Television Based on Islamic Program 2019 -->
-                                <div
-                                    class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
-                                    <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
+                    </div>
+
+                    <!-- SLIDE 2: Slide kelanjutan (penghargaan 5-8) sesuai data asli tanpa perubahan yang diminta -->
+                    <div class="slide">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 p-1">
+                            <!-- 5. The Best Performing Television Based on Islamic Program 2019 -->
+                            <div
+                                class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
+                                <div class="p-5">
+                                    <span
+                                        class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
                                         ·
                                         Jakarta</span>
                                     <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
@@ -1447,7 +1489,8 @@
                             <div
                                 class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
                                 <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
+                                    <span
+                                        class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
                                         ·
                                         Jakarta</span>
                                     <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
@@ -1468,7 +1511,8 @@
                             <div
                                 class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
                                 <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
+                                    <span
+                                        class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
                                         ·
                                         Surabaya</span>
                                     <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
@@ -1488,7 +1532,8 @@
                             <div
                                 class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
                                 <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2020
+                                    <span
+                                        class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2020
                                         ·
                                         Jakarta</span>
                                     <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
@@ -1502,9 +1547,9 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
-                        
-                        <!-- SLIDE 3: tambahan dari data (Most Excellent Business, KPID riconfirm, Platinum Award ulang, Inovatif) TAPI dengan satu card yang dihilangkan sesuai permintaan:
+                    </div>
+
+                    <!-- SLIDE 3: tambahan dari data (Most Excellent Business, KPID riconfirm, Platinum Award ulang, Inovatif) TAPI dengan satu card yang dihilangkan sesuai permintaan:
                                                                                                                                                                              "hilangkan bagian (blok KPID JAWA TIMUR dengan emoji 📺🎙️ dan teks KPID JAWA TIMUR)"
                                                                                                                                                                              Di dalam slide asli terdapat dua card yang hampir mirip: 
                                                                                                                                                                              - nomor 10 (Anugerah Penyiaran KPID Jatim 2019 - KISWAH recognisi) yang berisi teks "KPID JAWA TIMUR" di placeholder.
@@ -1523,7 +1568,8 @@
                             <div
                                 class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
                                 <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
+                                    <span
+                                        class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
                                         ·
                                         Yogyakarta</span>
                                     <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
@@ -1547,7 +1593,8 @@
                             <div
                                 class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
                                 <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2018
+                                    <span
+                                        class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2018
                                         ·
                                         Yogyakarta</span>
                                     <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
@@ -1566,7 +1613,8 @@
                             <div
                                 class="award-card bg-white rounded-2xl overflow-hidden border border-tv9-beige shadow-md hover:shadow-xl transition-all duration-300">
                                 <div class="p-5">
-                                    <span class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
+                                    <span
+                                        class="text-xs font-bold tracking-wider text-tv9-gold-600-600-600-600-600-700 uppercase">2019
                                         ·
                                         Bandung</span>
                                     <h3 class="text-base font-extrabold text-tv9-leaf-900 mt-1 mb-2 leading-tight">
@@ -1589,22 +1637,22 @@
                     </div>
                 </div>
             </div>
-            </div>
-            
-            <!-- Navigation -->
-            <div class="flex items-center justify-center gap-4 mt-8">
-                <button id="prev" onclick="move(-1)" disabled
-                    class="w-9 h-9 rounded-full border border-gray-300 bg-white flex items-center justify-center text-tv9-leaf-700 hover:bg-tv9-leaf-50 disabled:opacity-30 disabled:cursor-not-allowed transition">
-                    &#8592;
-                </button>
-                <div id="dots" class="flex gap-2"></div>
-                <button id="next" onclick="move(1)"
-                    class="w-9 h-9 rounded-full border border-gray-300 bg-white flex items-center justify-center text-tv9-leaf-700 hover:bg-tv9-leaf-50 disabled:opacity-30 disabled:cursor-not-allowed transition">
-                    &#8594;
-                </button>
-            </div>
-            </div>
-            </section>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-center gap-4 mt-8">
+            <button id="prev" onclick="move(-1)" disabled
+                class="w-9 h-9 rounded-full border border-gray-300 bg-white flex items-center justify-center text-tv9-leaf-700 hover:bg-tv9-leaf-50 disabled:opacity-30 disabled:cursor-not-allowed transition">
+                &#8592;
+            </button>
+            <div id="dots" class="flex gap-2"></div>
+            <button id="next" onclick="move(1)"
+                class="w-9 h-9 rounded-full border border-gray-300 bg-white flex items-center justify-center text-tv9-leaf-700 hover:bg-tv9-leaf-50 disabled:opacity-30 disabled:cursor-not-allowed transition">
+                &#8594;
+            </button>
+        </div>
+        </div>
+    </section>
 
     <section class="py-16 bg-gray-50">
         <div class="text-center mb-12">
@@ -1618,221 +1666,284 @@
                     {{-- 6 Logo Asli --}}
                     <div
                         class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
-                        </div>
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
+                    </div>
 
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
                         <img src="{{ asset('img/partner/Badan-Wakaf-Indonesia-BWI-Logo-BWI.png') }}" alt="Logo"
                             class="w-full h-full object-contain" draggable="false">
                     </div>
 
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/bawaslu.png') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/bawaslu.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/beacukai.jpg') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/beacukai.jpg') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
                         <img src="{{ asset('img/partner/bhs.png') }}" alt="Logo" class="w-full h-full object-contain"
                             draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/bhs1.png') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/BI_Logo.png') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Halal-logo-MUI.jpg') }}" alt="Logo" class="w-full h-full object-contain"
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/bhs1.png') }}" alt="Logo" class="w-full h-full object-contain"
                             draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Kopi-Tubruk_Gadjah.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/BI_Logo.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo-ATLAS_& BHS.jpg') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Halal-logo-MUI.jpg') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo-DPRD.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Kopi-Tubruk_Gadjah.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/LOGO-uinsa_PNG.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo-ATLAS_& BHS.jpg') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo-Unisma_Malang.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo-DPRD.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/LOGO-uinsa_PNG.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo-Unisma_Malang.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
                         <img src="{{ asset('img/partner/logo.png') }}" alt="Logo" class="w-full h-full object-contain"
                             draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo_BAZNAS_RI-Hijau-01.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo_BAZNAS_RI-Hijau-01.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo_BKKBN_(2020).png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo_BKKBN_(2020).png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo_bpbd-jatim.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo_bpbd-jatim.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo_kominfo.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo_kominfo.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo_main-dark.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo_main-dark.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo_PLN.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo_PLN.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo_Siantar_Top.svg.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo_Siantar_Top.svg.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo-BKKBN-Terbaru.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo-BKKBN-Terbaru.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo-FiberCreme-01-2.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo-FiberCreme-01-2.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo-icon.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo-icon.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/LOGO-UNUSA-NEW.-Jpg.jpg') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/LOGO-UNUSA-NEW.-Jpg.jpg') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo-web-rsi.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo-web-rsi.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/savoria-new.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/savoria-new.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
                         <img src="{{ asset('img/partner/sayang.jpg') }}" alt="Logo" class="w-full h-full object-contain"
                             draggable="false">
                     </div>
                     {{-- Duplikat 6 Logo (clone set) --}}
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/kpu.png') }}" alt="Logo" class="w-full h-full object-contain"
+                            draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
                         <img src="{{ asset('img/partner/Badan-Wakaf-Indonesia-BWI-Logo-BWI.png') }}" alt="Logo"
                             class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/bawaslu.png') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/bawaslu.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/beacukai.jpg') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/beacukai.jpg') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
                         <img src="{{ asset('img/partner/bhs.png') }}" alt="Logo" class="w-full h-full object-contain"
                             draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/bhs1.png') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/BI_Logo.png') }}" alt="Logo" class="w-full h-full object-contain" draggable="false">
-                    </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Halal-logo-MUI.jpg') }}" alt="Logo" class="w-full h-full object-contain"
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/bhs1.png') }}" alt="Logo" class="w-full h-full object-contain"
                             draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Kopi-Tubruk_Gadjah.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/BI_Logo.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo-ATLAS_& BHS.jpg') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Halal-logo-MUI.jpg') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo-DPRD.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Kopi-Tubruk_Gadjah.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/LOGO-uinsa_PNG.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo-ATLAS_& BHS.jpg') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo-Unisma_Malang.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo-DPRD.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/LOGO-uinsa_PNG.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo-Unisma_Malang.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
+                    </div>
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
                         <img src="{{ asset('img/partner/logo.png') }}" alt="Logo" class="w-full h-full object-contain"
                             draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo_BAZNAS_RI-Hijau-01.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo_BAZNAS_RI-Hijau-01.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo_BKKBN_(2020).png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo_BKKBN_(2020).png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo_bpbd-jatim.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo_bpbd-jatim.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo_kominfo.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo_kominfo.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo_main-dark.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo_main-dark.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo_PLN.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo_PLN.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo_Siantar_Top.svg.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo_Siantar_Top.svg.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo-BKKBN-Terbaru.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo-BKKBN-Terbaru.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/Logo-FiberCreme-01-2.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/Logo-FiberCreme-01-2.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo-icon.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo-icon.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/LOGO-UNUSA-NEW.-Jpg.jpg') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/LOGO-UNUSA-NEW.-Jpg.jpg') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/logo-web-rsi.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/logo-web-rsi.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
-                        <img src="{{ asset('img/partner/savoria-new.png') }}" alt="Logo" class="w-full h-full object-contain"
-                            draggable="false">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                        <img src="{{ asset('img/partner/savoria-new.png') }}" alt="Logo"
+                            class="w-full h-full object-contain" draggable="false">
                     </div>
-                    <div class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
+                    <div
+                        class="flex-shrink-0 w-[80px] h-[80px] md:w-[100px] md:h-[100px] rounded-xl flex items-center justify-center p-3">
                         <img src="{{ asset('img/partner/sayang.jpg') }}" alt="Logo" class="w-full h-full object-contain"
                             draggable="false">
                     </div>
