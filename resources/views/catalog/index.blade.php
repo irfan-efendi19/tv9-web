@@ -9,8 +9,6 @@
         content="Jelajahi seluruh program unggulan TV9 Nusantara: Kiswah, Hujjah Aswaja, Jurnal9, dan berbagai tayangan Islami modern lainnya. Meningkatkan warisan spiritual & intelektual Nusantara.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="TV9 Nusantara">
-
-
     <title>Program | TV9 Nusantara</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
@@ -166,9 +164,9 @@
 
                         <!-- Badge Trending / New -->
                         <!-- <div
-                                                                                                                                                                                                                                                                                                                                                                                                                        class="absolute top-2 right-2 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full px-2 py-0.5 text-[9px] font-bold text-white shadow-lg">
-                                                                                                                                                                                                                                                                                                                                                                                                                        {{ $loop->index < 3 ? 'TRENDING' : 'NEW' }}
-                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                        class="absolute top-2 right-2 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full px-2 py-0.5 text-[9px] font-bold text-white shadow-lg">
+                                                                                                                                                                                                                                                                                                                                                                                                                                        {{ $loop->index < 3 ? 'TRENDING' : 'NEW' }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                    </div> -->
                     </div>
                 </div>
             @empty
