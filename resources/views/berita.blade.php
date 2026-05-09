@@ -28,7 +28,21 @@
     <meta name="twitter:image" content="{{ asset('img/thumbnail.jpg') }}" />
     
     <!-- Scripts & Styles -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @php
+        $isProduction = app()->environment('production');
+        $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_path('build/manifest.json');
+    @endphp
+    
+    @if ($isProduction && file_exists($manifestPath))
+        @php
+            $manifest = json_decode(file_get_contents($manifestPath), true);
+        @endphp
+        <link rel="stylesheet" href="{{ config('app.url') }}/build/{{ $manifest['resources/css/app.css']['file'] }}">
+        <script type="module" src="{{ config('app.url') }}/build/{{ $manifest['resources/js/app.js']['file'] }}"></script>
+    @else
+        @viteReactRefresh
+        @vite(['resources/js/app.js', 'resources/css/app.css'])
+    @endif
     
     <style>
         .news-gradient {
@@ -65,11 +79,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @forelse($news as $post)
                     @php
-                        // Extract Featured Image from _embedded
-                        $imageUrl = $post['_embedded']['wp:featuredmedia'][0]['source_url'] ??
-                            'https://api.dicebear.com/7.x/initials/svg?seed=Jurnal9';
-                        $excerpt = strip_tags($post['excerpt']['rendered']);
-                        $excerpt = strlen($excerpt) > 120 ? substr($excerpt, 0, 120) . '...' : $excerpt;
+    // Extract Featured Image from _embedded
+    $imageUrl = $post['_embedded']['wp:featuredmedia'][0]['source_url'] ??
+        'https://api.dicebear.com/7.x/initials/svg?seed=Jurnal9';
+    $excerpt = strip_tags($post['excerpt']['rendered']);
+    $excerpt = strlen($excerpt) > 120 ? substr($excerpt, 0, 120) . '...' : $excerpt;
                     @endphp
                     <article
                         class="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 group flex flex-col mx-2 my-2">

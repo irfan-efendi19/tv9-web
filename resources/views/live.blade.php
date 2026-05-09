@@ -13,7 +13,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
         rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @php
+        $isProduction = app()->environment('production');
+        $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_path('build/manifest.json');
+    @endphp
+    
+    @if ($isProduction && file_exists($manifestPath))
+        @php
+            $manifest = json_decode(file_get_contents($manifestPath), true);
+        @endphp
+        <link rel="stylesheet" href="{{ config('app.url') }}/build/{{ $manifest['resources/css/app.css']['file'] }}">
+        <script type="module" src="{{ config('app.url') }}/build/{{ $manifest['resources/js/app.js']['file'] }}"></script>
+    @else
+        @viteReactRefresh
+        @vite(['resources/js/app.js', 'resources/css/app.css'])
+    @endif
     <link rel="canonical" href="{{ config('app.url') . '/live' }}">
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <!-- OG Image / Thumbnail -->
@@ -27,113 +41,113 @@
     <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <style>
-    body {
-        background: #0a0a0a;
-    }
-
-    .hero-gradient {
-        background: linear-gradient(135deg, #006747 0%, #004d35 100%);
-    }
-
-    /* Sembunyikan durasi dan progress bar untuk live stream */
-    .video-js .vjs-current-time,
-    .video-js .vjs-time-divider,
-    .video-js .vjs-duration,
-    .video-js .vjs-remaining-time,
-    .video-js .vjs-live-control,
-    .video-js .vjs-progress-control {
-        display: none !important;
-    }
-
-    /* Style untuk LIVE indicator */
-    .video-js .vjs-live-display {
-        display: flex !important;
-        background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-        padding: 4px 12px;
-        border-radius: 6px;
-        font-size: 12px;
-        font-weight: bold;
-        letter-spacing: 1px;
-        margin-left: 10px;
-        text-transform: uppercase;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Atur ulang posisi kontrol bar */
-    .video-js .vjs-control-bar {
-        display: flex;
-        align-items: center;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
-    }
-
-    .video-js .vjs-play-control {
-        order: 1;
-    }
-
-    .video-js .vjs-volume-panel {
-        order: 2;
-    }
-
-    .video-js .vjs-live-display {
-        order: 3;
-    }
-
-    .video-js .vjs-picture-in-picture-control {
-        order: 4;
-    }
-
-    .video-js .vjs-fullscreen-control {
-        order: 5;
-        margin-left: auto;
-    }
-
-    /* Custom styling untuk tombol play besar */
-    .video-js .vjs-big-play-button {
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-        border: 2px solid white;
-        width: 70px;
-        height: 70px;
-        line-height: 70px;
-        margin-left: -35px;
-        margin-top: -35px;
-        backdrop-filter: blur(4px);
-    }
-
-    .video-js:hover .vjs-big-play-button {
-        background: rgba(255, 255, 255, 0.3);
-        transform: scale(1.05);
-        transition: all 0.3s ease;
-    }
-
-    /* Sembunyikan kontrol native browser */
-    video::-webkit-media-controls-timeline,
-    video::-webkit-media-controls-current-time-display,
-    video::-webkit-media-controls-time-remaining-display {
-        display: none !important;
-    }
-
-    /* Animasi untuk badge LIVE kustom */
-    @keyframes pulse-ring {
-        0% {
-            transform: scale(0.95);
-            box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+        body {
+            background: #0a0a0a;
         }
-
-        70% {
-            transform: scale(1);
-            box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+    
+        .hero-gradient {
+            background: linear-gradient(135deg, #006747 0%, #004d35 100%);
         }
-
-        100% {
-            transform: scale(0.95);
-            box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+    
+        /* Sembunyikan durasi dan progress bar untuk live stream */
+        .video-js .vjs-current-time,
+        .video-js .vjs-time-divider,
+        .video-js .vjs-duration,
+        .video-js .vjs-remaining-time,
+        .video-js .vjs-live-control,
+        .video-js .vjs-progress-control {
+            display: none !important;
         }
-    }
-
-    .pulse-ring {
-        animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
+    
+        /* Style untuk LIVE indicator */
+        .video-js .vjs-live-display {
+            display: flex !important;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-left: 10px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    
+        /* Atur ulang posisi kontrol bar */
+        .video-js .vjs-control-bar {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+        }
+    
+        .video-js .vjs-play-control {
+            order: 1;
+        }
+    
+        .video-js .vjs-volume-panel {
+            order: 2;
+        }
+    
+        .video-js .vjs-live-display {
+            order: 3;
+        }
+    
+        .video-js .vjs-picture-in-picture-control {
+            order: 4;
+        }
+    
+        .video-js .vjs-fullscreen-control {
+            order: 5;
+            margin-left: auto;
+        }
+    
+        /* Custom styling untuk tombol play besar */
+        .video-js .vjs-big-play-button {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            border: 2px solid white;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            margin-left: -35px;
+            margin-top: -35px;
+            backdrop-filter: blur(4px);
+        }
+    
+        .video-js:hover .vjs-big-play-button {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+    
+        /* Sembunyikan kontrol native browser */
+        video::-webkit-media-controls-timeline,
+        video::-webkit-media-controls-current-time-display,
+        video::-webkit-media-controls-time-remaining-display {
+            display: none !important;
+        }
+    
+        /* Animasi untuk badge LIVE kustom */
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+            }
+    
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+            }
+    
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+            }
+        }
+    
+        .pulse-ring {
+            animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
     </style>
     </head>
     
@@ -160,15 +174,15 @@
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-black aspect-video group">
                     <!-- Badge LIVE elegan -->
                     <!-- <div
-                                                                                                            class="absolute top-4 left-4 z-10 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold px-4 py-1.5 rounded-lg text-xs tracking-wider shadow-lg backdrop-blur-sm bg-opacity-90 flex items-center gap-2 border border-red-400/30">
-                                                                                                            <div class="relative">
-                                                                                                                <span
-                                                                                                                    class="absolute inline-flex h-2.5 w-2.5 rounded-full bg-red-400 opacity-75 animate-ping"></span>
-                                                                                                                <span class="relative inline-flex h-2 w-2 rounded-full bg-red-500"></span>
-                                                                                                            </div>
-                                                                                                            <span class="uppercase text-[11px] font-semibold">LIVE</span>
-                                                                                                            <span class="hidden sm:inline-block text-[10px] font-normal text-red-200">Streaming</span>
-                                                                            </div> -->
+                                                                                                                class="absolute top-4 left-4 z-10 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold px-4 py-1.5 rounded-lg text-xs tracking-wider shadow-lg backdrop-blur-sm bg-opacity-90 flex items-center gap-2 border border-red-400/30">
+                                                                                                                <div class="relative">
+                                                                                                                    <span
+                                                                                                                        class="absolute inline-flex h-2.5 w-2.5 rounded-full bg-red-400 opacity-75 animate-ping"></span>
+                                                                                                                    <span class="relative inline-flex h-2 w-2 rounded-full bg-red-500"></span>
+                                                                                                                </div>
+                                                                                                                <span class="uppercase text-[11px] font-semibold">LIVE</span>
+                                                                                                                <span class="hidden sm:inline-block text-[10px] font-normal text-red-200">Streaming</span>
+                                                                                </div> -->
     
                     <!-- Efek glassmorphism overlay saat hover -->
                     <div
@@ -295,40 +309,40 @@
                 unmuteOverlay.id = 'unmute-overlay';
                 unmuteOverlay.innerHTML =
                     `
-                                                                                                <div class="flex flex-col items-center gap-2">
-                                                                                                    <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl px-6 py-4 flex items-center gap-3 shadow-2xl cursor-pointer hover:scale-105 transition-all duration-200">
-                                                                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                                                                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-                                                                                                        </svg>
-                                                                                                        <span class="text-white font-bold text-sm tracking-wide">Klik untuk Aktifkan Suara</span>
+                                                                                                    <div class="flex flex-col items-center gap-2">
+                                                                                                        <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-2xl px-6 py-4 flex items-center gap-3 shadow-2xl cursor-pointer hover:scale-105 transition-all duration-200">
+                                                                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                                                                                                            </svg>
+                                                                                                            <span class="text-white font-bold text-sm tracking-wide">Klik untuk Aktifkan Suara</span>
+                                                                                                        </div>
                                                                                                     </div>
-                                                                                                </div>
-                                                                                                                                                                                                    `;
+                                                                                                                                                                                                        `;
                 unmuteOverlay.style.cssText =
                     `
-                                                                                                                                                                                                        position: absolute;
-                                                                                                                                                                                                        bottom: 60px;
-                                                                                                                                                                                                        left: 50%;
-                                                                                                                                                                                                        transform: translateX(-50%);
-                                                                                                                                                                                                        z-index: 20;
-                                                                                                                                                                                                        cursor: pointer;
-                                                                                                                                                                                                        animation: fadeInUp 0.5s ease forwards;
-                                                                                                                                                                                                    `;
+                                                                                                                                                                                                            position: absolute;
+                                                                                                                                                                                                            bottom: 60px;
+                                                                                                                                                                                                            left: 50%;
+                                                                                                                                                                                                            transform: translateX(-50%);
+                                                                                                                                                                                                            z-index: 20;
+                                                                                                                                                                                                            cursor: pointer;
+                                                                                                                                                                                                            animation: fadeInUp 0.5s ease forwards;
+                                                                                                                                                                                                        `;
 
                 // Tambahkan animasi CSS
                 const style = document.createElement('style');
                 style.textContent =
                     `
-                                                                                                                                                                                                        @keyframes fadeInUp {
-                                                                                                                                                                                                            from { opacity: 0; transform: translateX(-50%) translateY(10px); }
-                                                                                                                                                                                                            to   { opacity: 1; transform: translateX(-50%) translateY(0); }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                        @keyframes fadeOut {
-                                                                                                                                                                                                            from { opacity: 1; }
-                                                                                                                                                                                                            to   { opacity: 0; pointer-events: none; }
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                    `;
+                                                                                                                                                                                                            @keyframes fadeInUp {
+                                                                                                                                                                                                                from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+                                                                                                                                                                                                                to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+                                                                                                                                                                                                            }
+                                                                                                                                                                                                            @keyframes fadeOut {
+                                                                                                                                                                                                                from { opacity: 1; }
+                                                                                                                                                                                                                to   { opacity: 0; pointer-events: none; }
+                                                                                                                                                                                                            }
+                                                                                                                                                                                                        `;
                 document.head.appendChild(style);
 
                 function showUnmuteOverlay() {

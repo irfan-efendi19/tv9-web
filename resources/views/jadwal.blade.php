@@ -21,7 +21,21 @@
     <meta property="og:image" content="{{ asset('img/thumbnail.jpg') }}" />
     <meta itemprop="image" content="{{ asset('img/thumbnail.jpg') }}" />
     <meta name="twitter:image" content="{{ asset('img/thumbnail.jpg') }}" />
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @php
+        $isProduction = app()->environment('production');
+        $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_path('build/manifest.json');
+    @endphp
+    
+    @if ($isProduction && file_exists($manifestPath))
+        @php
+            $manifest = json_decode(file_get_contents($manifestPath), true);
+        @endphp
+        <link rel="stylesheet" href="{{ config('app.url') }}/build/{{ $manifest['resources/css/app.css']['file'] }}">
+        <script type="module" src="{{ config('app.url') }}/build/{{ $manifest['resources/js/app.js']['file'] }}"></script>
+    @else
+        @viteReactRefresh
+        @vite(['resources/js/app.js', 'resources/css/app.css'])
+    @endif
     <style>
         body {
             color: #1e293b;
@@ -87,17 +101,17 @@ $defaultDay = $programs->has($currentDay) ? $currentDay : ($programs->keys()->fi
                             <div class="space-y-6">
                                 @forelse($programs as $dayNum => $dayPrograms)
                                     @php
-                                        $catColors = [
-                                            'Religi' => 'bg-green-50 border-green-200 text-green-700',
-                                            'Berita' => 'bg-blue-50 border-blue-200 text-blue-700',
-                                            'Hiburan' => 'bg-orange-50 border-orange-200 text-orange-700',
-                                            'Drama' => 'bg-purple-50 border-purple-200 text-purple-700',
-                                            'Film' => 'bg-rose-50 border-rose-200 text-rose-700',
-                                            'Edukasi' => 'bg-teal-50 border-teal-200 text-teal-700',
-                                            'Talk Show' => 'bg-yellow-50 border-yellow-200 text-yellow-700',
-                                            'Anak' => 'bg-sky-50 border-sky-200 text-sky-700',
-                                            'Olahraga' => 'bg-lime-50 border-lime-200 text-lime-700',
-                                        ];
+    $catColors = [
+        'Religi' => 'bg-green-50 border-green-200 text-green-700',
+        'Berita' => 'bg-blue-50 border-blue-200 text-blue-700',
+        'Hiburan' => 'bg-orange-50 border-orange-200 text-orange-700',
+        'Drama' => 'bg-purple-50 border-purple-200 text-purple-700',
+        'Film' => 'bg-rose-50 border-rose-200 text-rose-700',
+        'Edukasi' => 'bg-teal-50 border-teal-200 text-teal-700',
+        'Talk Show' => 'bg-yellow-50 border-yellow-200 text-yellow-700',
+        'Anak' => 'bg-sky-50 border-sky-200 text-sky-700',
+        'Olahraga' => 'bg-lime-50 border-lime-200 text-lime-700',
+    ];
                                     @endphp
 
                                     <div x-show="activeDay === {{ $dayNum }}" x-transition:enter="transition ease-out duration-300"
@@ -125,8 +139,8 @@ $defaultDay = $programs->has($currentDay) ? $currentDay : ($programs->keys()->fi
                                         <div class="bg-white border border-slate-200 rounded-[2rem] overflow-hidden shadow-xl shadow-slate-100/50">
                                             @foreach($dayPrograms as $prog)
                                                 @php
-                                                    $badgeClass = $catColors[$prog->category] ?? 'bg-slate-50 border-slate-200 text-slate-500';
-                                                    $isLive = ($dayNum == $currentDay) && ($currentTime >= $prog->start_time && $currentTime <= $prog->end_time);
+        $badgeClass = $catColors[$prog->category] ?? 'bg-slate-50 border-slate-200 text-slate-500';
+        $isLive = ($dayNum == $currentDay) && ($currentTime >= $prog->start_time && $currentTime <= $prog->end_time);
                                                 @endphp
 
                                                 <div
