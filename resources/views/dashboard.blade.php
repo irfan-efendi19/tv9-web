@@ -313,6 +313,16 @@
                     showConfirmButton: false
                 });
             @endif
+            
+            @if(session('success_catalog'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Katalog Diperbarui!',
+                    text: '{{ session('success_catalog') }}',
+                    timer: 3000,
+                    showConfirmButton: false
+                });
+            @endif
 
             @if(session('error'))
                 Swal.fire({

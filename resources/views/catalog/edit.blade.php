@@ -123,6 +123,17 @@
                 $('#loader').removeClass('hidden');
                 $('#btn-text').text('Memproses...');
 
+                // Show SweetAlert Loading
+                Swal.fire({
+                    title: 'Memperbarui Katalog',
+                    text: 'Sedang mengunggah dan menyimpan data...',
+                    allowOutsideClick: false,
+                    showConfirmButton: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+
                 $uploadCrop.croppie('result', {
                     type: 'base64',
                     size: { width: 600, height: 900 },

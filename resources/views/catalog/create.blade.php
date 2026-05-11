@@ -128,6 +128,17 @@
                 $('#loader').removeClass('hidden');
                 $('#btn-text').text('Memproses...');
 
+                // Show SweetAlert Loading
+                Swal.fire({
+                    title: 'Memproses Katalog',
+                    text: 'Sedang mengunggah dan menyimpan data...',
+                    allowOutsideClick: false,
+                    showConfirmButton: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+
             $uploadCrop.croppie('result', {
                 type: 'base64',
                 size: {
