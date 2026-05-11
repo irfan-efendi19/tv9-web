@@ -103,7 +103,7 @@ Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
 Route::get('/tv9xlpmaarif', [TV9xLPMaarifController::class, 'index'])->name('tv9xlpmaarif');
 
 // Fallback Storage Route (Fix for production missing symlink)
-Route::get('/storage/{path}', function ($path) {
+Route::get('/program-poster/{path}', function ($path) {
     if (!\Illuminate\Support\Facades\Storage::disk('public')->exists($path)) {
         abort(404);
     }
