@@ -326,7 +326,8 @@ $chunkedSchedules = collect($scheduleList)->chunk(3);
                                 <!-- Thumbnail -->
                                 <div class="nf-thumb-wrap">
                                     @if($catalog->image_url)
-                                        <img src="{{ asset($catalog->image_url) }}" alt="{{ $catalog->title }}"
+                                        <img src="{{ str_starts_with($catalog->image_url, 'http') ? $catalog->image_url : '/' . ltrim($catalog->image_url, '/') }}" 
+                                            alt="{{ $catalog->title }}"
                                             class="nf-thumb-img">
                                     @else
                                         <div class="nf-thumb-placeholder">

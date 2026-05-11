@@ -44,7 +44,7 @@
                                 <!-- Placeholder / Current Image -->
                                 <div id="upload-placeholder" class="aspect-[2/3] w-full bg-slate-50 rounded-xl border-2 border-dashed border-slate-200 overflow-hidden relative group">
                                     @if($catalog->image_url)
-                                        <img src="{{ asset($catalog->image_url) }}" class="w-full h-full object-cover">
+                                        <img src="{{ str_starts_with($catalog->image_url, 'http') ? $catalog->image_url : '/' . ltrim($catalog->image_url, '/') }}" class="w-full h-full object-cover">
                                         <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                             <span class="text-white text-xs font-bold">Pilih file baru untuk mengganti</span>
                                         </div>

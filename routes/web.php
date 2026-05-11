@@ -101,3 +101,11 @@ Route::get('/tentang', [TentangController::class, 'index'])->name('tentang');
 
 // Halaman TV9xLPMaarif
 Route::get('/tv9xlpmaarif', [TV9xLPMaarifController::class, 'index'])->name('tv9xlpmaarif');
+
+// Fallback Storage Route (Fix for production missing symlink)
+Route::get('/storage/{path}', function ($path) {
+    if (!\Illuminate\Support\Facades\Storage::disk('public')->exists($path)) {
+        abort(404);
+    }
+    return \Illuminate\Support\Facades\Storage::disk('public')->response($path);
+})->where('path', '.*');

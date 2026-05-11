@@ -140,7 +140,8 @@ $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_pa
                     class="card-catalog group relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-white/10 cursor-pointer transition-all duration-500 hover:scale-105 hover:shadow-emerald-500/20 hover:border-emerald-500/50">
                     <div class="aspect-[2/3] relative">
                         @if($item->image_url)
-                            <img src="{{ asset($item->image_url) }}" alt="{{ $item->title }}"
+                            <img src="{{ str_starts_with($item->image_url, 'http') ? $item->image_url : '/' . ltrim($item->image_url, '/') }}" 
+                                alt="{{ $item->title }}"
                                 class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:opacity-30">
                         @else
                             <div

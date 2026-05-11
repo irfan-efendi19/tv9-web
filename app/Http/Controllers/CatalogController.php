@@ -57,8 +57,9 @@ class CatalogController extends Controller
 
         if ($request->filled('image_data')) {
             // Delete old image if exists
-            if ($catalog->image_url && Storage::disk('public')->exists(str_replace('storage/', '', $catalog->image_url))) {
-                Storage::disk('public')->delete(str_replace('storage/', '', $catalog->image_url));
+            $oldPath = str_replace('storage/', '', $catalog->image_url);
+            if ($catalog->image_url && Storage::disk('public')->exists($oldPath)) {
+                Storage::disk('public')->delete($oldPath);
             }
             $validated['image_url'] = $this->processImage($request->image_data);
         }
@@ -72,8 +73,9 @@ class CatalogController extends Controller
         $this->authorizeAdmin();
         
         // Delete image file
-        if ($catalog->image_url && Storage::disk('public')->exists(str_replace('storage/', '', $catalog->image_url))) {
-            Storage::disk('public')->delete(str_replace('storage/', '', $catalog->image_url));
+        $oldPath = str_replace('storage/', '', $catalog->image_url);
+        if ($catalog->image_url && Storage::disk('public')->exists($oldPath)) {
+            Storage::disk('public')->delete($oldPath);
         }
 
         $catalog->delete();
