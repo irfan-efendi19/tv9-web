@@ -1,12 +1,16 @@
 /* ========================================GLOBAL STYLES & RESET======================================== */
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+        }
+    
         body {
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
         }
 
         /* ========================================HERO SECTION ORIGINAL STYLES======================================== */
@@ -171,17 +175,23 @@
        /* ========================================
    MOBILE STYLES - Posisi di BAWAH (bottom)
    ======================================== */
+/* ========================================
+   MOBILE STYLES - Posisi di BAWAH
+======================================== */
 @media (max-width: 767px) {
-    #prevSlide, #nextSlide {
+
+    #prevSlide,
+    #nextSlide {
         display: none !important;
     }
 
     .mobile-slide-inner {
+        display: flex;
         flex-direction: column;
+        justify-content: flex-end; /* konten ke bawah */
         align-items: center;
-        justify-content: flex-end;  /* CHANGED: dari center ke flex-end */
         height: 100%;
-        padding: 1rem 1rem 2rem 2rem;
+        padding: 1rem 1rem 2rem;
     }
 
     .mobile-poster-wrapper {
@@ -193,19 +203,23 @@
     }
 
     .mobile-poster-image {
-        margin-top: 10%;
         max-width: 100%;
         width: 100%;
-        height: 100%;
+        height: auto;
         object-fit: contain;
         filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+
+        /* HAPUS margin-top besar */
+        margin-top: 0;
     }
 
     .mobile-text-wrapper {
-        margin-bottom: 200px; /* Tambahkan margin bawah untuk memberi ruang antara konten dan tombol */
         width: 100%;
         text-align: center;
         padding: 0 0.5rem;
+
+        /* HAPUS margin-bottom besar */
+        margin-bottom: 20%;
     }
 
     .mobile-text-wrapper h2 {
@@ -213,13 +227,13 @@
         font-weight: 800;
         margin-bottom: 1rem;
     }
-    
+
     .mobile-text-wrapper p {
         font-size: 1.25rem;
         opacity: 0.85;
         margin-bottom: 1rem;
     }
-    
+
     .mobile-badge {
         display: inline-block;
         background: rgba(255,255,255,0.15);
@@ -230,8 +244,8 @@
         margin-bottom: 0.5rem;
     }
 
-        .btn-primary {
-            color: #fff;
+    .btn-primary {
+        color: #fff;
         background: #dc2626;
         padding: 0.5rem 1.25rem;
         border-radius: 9999px;
@@ -241,12 +255,12 @@
         align-items: center;
         gap: 0.5rem;
     }
-    
+
     .btn-group {
         justify-content: center;
         margin-top: 0.25rem;
     }
-    
+
     .btn-outline {
         color: #fff;
         background: rgba(255,255,255,0.1);

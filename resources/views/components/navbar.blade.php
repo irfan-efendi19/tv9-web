@@ -17,7 +17,7 @@
         <div class="flex items-center gap-3 md:gap-7" x-data="{ open: false }">
 
             <!-- LIVE Button — selalu tampil di navbar (desktop & mobile) -->
-            <a href="{{ route('live') }}"
+            <a href="{{ route('live') }}" translate="no"
                 class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-bold text-white transition-all duration-200 hover:scale-105 bg-gradient-to-br from-red-600 to-red-700 shadow-[0_0_12px_rgba(220,38,38,0.5)]">
                 <!-- Pulsing dot -->
                 <span class="relative flex h-2 w-2">
@@ -25,7 +25,7 @@
                         class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
                 </span>
-                SIARAN LANGSUNG
+                LIVE
             </a>
 
             <!-- Desktop Menu Links -->
