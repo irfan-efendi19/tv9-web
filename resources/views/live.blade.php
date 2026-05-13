@@ -270,11 +270,11 @@ $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_pa
                                     @endif
                                 </div>
                                 <p
-                                    class="text-lg lg:text-2xl font-bold {{ $isLive ? 'text-emerald-900' : 'text-slate-800' }} truncate tracking-tight">
+                                    class="text-lg lg:text-2xl font-bold {{ $isLive ? 'text-emerald-900' : 'text-slate-800' }} lg:truncate tracking-tight">
                                     {{ $prog->title }}
                                 </p>
                                 @if($prog->description)
-                                    <p class="text-sm lg:text-base text-slate-600 mt-1.5 line-clamp-2">
+                                    <p class="text-sm lg:text-base text-slate-600 mt-1.5 lg:line-clamp-2">
                                         {{ $prog->description }}
                                     </p>
                                 @endif

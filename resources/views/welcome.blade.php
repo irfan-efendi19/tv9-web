@@ -26,16 +26,16 @@
 $isProduction = app()->environment('production');
 $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_path('build/manifest.json');
     @endphp
-    
+
     @if ($isProduction && file_exists($manifestPath))
-        @php
+    @php
     $manifest = json_decode(file_get_contents($manifestPath), true);
-        @endphp
-        <link rel="stylesheet" href="{{ config('app.url') }}/build/{{ $manifest['resources/css/app.css']['file'] }}">
-        <script type="module" src="{{ config('app.url') }}/build/{{ $manifest['resources/js/app.js']['file'] }}"></script>
+    @endphp
+    <link rel="stylesheet" href="{{ config('app.url') }}/build/{{ $manifest['resources/css/app.css']['file'] }}">
+    <script type="module" src="{{ config('app.url') }}/build/{{ $manifest['resources/js/app.js']['file'] }}"></script>
     @else
-        @viteReactRefresh
-        @vite(['resources/js/app.js', 'resources/css/app.css'])
+    @viteReactRefresh
+    @vite(['resources/js/app.js', 'resources/css/app.css'])
     @endif
 
     <!-- SEO -->
@@ -71,7 +71,7 @@ $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_pa
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JETFEBFRYZ"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
         function gtag() {
             dataLayer.push(arguments);
@@ -121,39 +121,40 @@ $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_pa
                                     </div>
                                     <div class="mobile-text-wrapper">
                                         <!-- <span class="mobile-badge"><i class="fas fa-star text-yellow-400 text-xs mr-1"></i>
-                                                                                                                                                                                        BUILD LIKE THEM</span> -->
-                                        <h2 class="text-xl text-white font-bold">TV9 Nusantara
+                                                                                                                                                                                                        BUILD LIKE THEM</span> -->
+                                        <h2 class="text-xl text-white font-bold">Kopi Darmo
                                         </h2>
-                                        <p class="text-base text-white/85">Santun Menyejukkan
+                                        <p class="text-base text-white/85">Program bincang-bincang santai dan edukatif yang
+                                            membahas kemandirian finansial bebas riba, teknologi, dan gaya hidup Islami
                                         </p>
                                         <!-- <div
-                                                        class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-4 justify-center btn-group">
-                                                        <button class="btn-primary"><i class="fas fa-play text-sm"></i>
-                                                            Tonton</button>
-                                                        <button class="btn-outline">Selengkapnya <i
-                                                                class="fas fa-arrow-right text-xs"></i></button>
-                                                    </div> -->
+                                                                                                                                                                                    class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-4 justify-center btn-group">
+                                                                                                                                                                                    <button class="btn-primary"><i class="fas fa-play text-sm"></i>
+                                                                                                                                                                                        Tonton</button>
+                                                                                                                                                                                    <button class="btn-outline">Selengkapnya <i
+                                                                                                                                                                                            class="fas fa-arrow-right text-xs"></i></button>
+                                                                                                                                                                                </div> -->
                                     </div>
                                 </div>
                                 <div class="hidden md:flex md:w-full md:items-center md:justify-between">
                                     <div class="w-full lg:w-7/12 text-white">
                                         <!-- <span
-                                                    class="inline-block bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm mb-3"><i
-                                                        class="fas fa-star text-yellow-400 mr-1"></i>
-                                                    BUILD LIKE THEM</span> -->
+                                                                                                                                                                                class="inline-block bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm mb-3"><i
+                                                                                                                                                                                    class="fas fa-star text-yellow-400 mr-1"></i>
+                                                                                                                                                                                BUILD LIKE THEM</span> -->
                                         <h2 class="text-5xl lg:text-7xl font-bold mb-4">
-                                            TV9 Nusantara</h2>
-                                        <p class="text-xl opacity-90 mb-8">Santun
-                                            Menyejukkan</p>
+                                            Kopi Darmo</h2>
+                                        <p class="text-xl opacity-90 mb-8">Program bincang-bincang santai dan edukatif yang
+                                            membahas kemandirian finansial bebas riba, teknologi, dan gaya hidup Islami</p>
                                         <!-- <div class="flex gap-4">
-                                                            <button
-                                                                class="px-8 py-3 bg-red-600 hover:bg-red-700 rounded-full font-semibold flex items-center gap-2"><i
-                                                                    class="fas fa-play"></i>
-                                                                Tonton</button>
-                                                            <button
-                                                                class="px-8 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full border border-white/30 flex items-center gap-2">Selengkapnya
-                                                                <i class="fas fa-arrow-right"></i></button>
-                                                        </div> -->
+                                                                                                                                                                                        <button
+                                                                                                                                                                                            class="px-8 py-3 bg-red-600 hover:bg-red-700 rounded-full font-semibold flex items-center gap-2"><i
+                                                                                                                                                                                                class="fas fa-play"></i>
+                                                                                                                                                                                            Tonton</button>
+                                                                                                                                                                                        <button
+                                                                                                                                                                                            class="px-8 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full border border-white/30 flex items-center gap-2">Selengkapnya
+                                                                                                                                                                                            <i class="fas fa-arrow-right"></i></button>
+                                                                                                                                                                                    </div> -->
                                     </div>
                                     <div class="lg:w-5/12 desktop-feature-col">
                                         <img src="{{ asset('img/feature/1.png') }}" alt="Broadcasting"
@@ -163,6 +164,65 @@ $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_pa
                             </div>
                         </div>
                     </div>
+    
+                    <!-- SLIDE 2 -->
+                    <div class="hero-slide-item absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out opacity-0 z-10"
+                        data-slide="1">
+                        <div class="w-full h-full">
+                            <div class="container mx-auto px-0 md:px-4 h-full md:flex md:items-center md:justify-between">
+                                <div class="mobile-slide-inner md:hidden">
+                                    <div class="mobile-poster-wrapper">
+                                        <img src="{{ asset('img/feature/3.png') }}" alt="Poster"
+                                            class="mobile-poster-image" />
+                                    </div>
+                                    <div class="mobile-text-wrapper">
+                                        <!-- <span class="mobile-badge"><i class="fas fa-star text-yellow-400 text-xs mr-1"></i>
+                                                                                                                                                                                                                                                                                BUILD LIKE THEM</span> -->
+                                        <h2 class="text-xl text-white font-bold">Jurnal 9
+                                        </h2>
+                                        <p class="text-base text-white/85">Program Berita Televisi Yang Menampilkan
+                                            Peristiwa Dengan Penyajian Yang Santun Menggunakan Prinsip Jurnalisme
+                                            Kemaslahatan
+                                        </p>
+                                        <!-- <div
+                                                                                                                                                                                    class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mt-4 justify-center btn-group">
+                                                                                                                                                                                    <button class="btn-primary"><i class="fas fa-play text-sm"></i>
+                                                                                                                                                                                        Tonton</button>
+                                                                                                                                                                                    <button class="btn-outline">Selengkapnya <i
+                                                                                                                                                                                            class="fas fa-arrow-right text-xs"></i></button>
+                                                                                                                                                                                </div> -->
+                                    </div>
+                                </div>
+                                <div class="hidden md:flex md:w-full md:items-center md:justify-between">
+                                    <div class="w-full lg:w-7/12 text-white">
+                                        <!-- <span
+                                                                                                                                                                                class="inline-block bg-white/20 backdrop-blur px-3 py-1 rounded-full text-sm mb-3"><i
+                                                                                                                                                                                    class="fas fa-star text-yellow-400 mr-1"></i>
+                                                                                                                                                                                BUILD LIKE THEM</span> -->
+                                        <h2 class="text-5xl lg:text-7xl font-bold mb-4">
+                                            Jurnal 9</h2>
+                                        <p class="text-xl opacity-90 mb-8">Program Berita Televisi Yang Menampilkan
+                                            Peristiwa Dengan Penyajian Yang Santun Menggunakan Prinsip Jurnalisme
+                                            Kemaslahatan</p>
+                                        <!-- <div class="flex gap-4">
+                                                                                                                                                                                        <button
+                                                                                                                                                                                            class="px-8 py-3 bg-red-600 hover:bg-red-700 rounded-full font-semibold flex items-center gap-2"><i
+                                                                                                                                                                                                class="fas fa-play"></i>
+                                                                                                                                                                                            Tonton</button>
+                                                                                                                                                                                        <button
+                                                                                                                                                                                            class="px-8 py-3 bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-full border border-white/30 flex items-center gap-2">Selengkapnya
+                                                                                                                                                                                            <i class="fas fa-arrow-right"></i></button>
+                                                                                                                                                                                    </div> -->
+                                    </div>
+                                    <div class="lg:w-5/12 desktop-feature-col">
+                                        <img src="{{ asset('img/feature/3.png') }}" alt="Broadcasting"
+                                            class="h-full mx-auto object-contain drop-shadow-2xl" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
                 </div>
     
                 <button id="prevSlide"
@@ -174,6 +234,7 @@ $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_pa
     
                 <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2 md:gap-3">
                     <button class="hero-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50" data-dot="0"></button>
+                    <button class="hero-dot-indicator w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50" data-dot="1"></button>
                 </div>
     
                 <div class="swipe-hint"><i class="fas fa-chevron-left"></i><span>Geser</span><i
@@ -205,8 +266,8 @@ $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_pa
                     <div id="scheduleSlider" class="relative">
                         <!-- Slides -->
                         @php
-$scheduleList = $schedules ?? [];
-$chunkedSchedules = collect($scheduleList)->chunk(3);
+                            $scheduleList = $schedules ?? [];
+                            $chunkedSchedules = collect($scheduleList)->chunk(3);
                         @endphp
     
                         @forelse($chunkedSchedules as $slideIndex => $scheduleChunk)
@@ -215,10 +276,10 @@ $chunkedSchedules = collect($scheduleList)->chunk(3);
                                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                                     @foreach($scheduleChunk as $program)
                                         @php
-        $currentTime = \Carbon\Carbon::now()->format('H:i:s');
-        $isLive = $program->start_time <= $currentTime && $program->end_time >=
-            $currentTime;
-        $isDone = $program->end_time < $currentTime; @endphp <div
+                                            $currentTime = \Carbon\Carbon::now()->format('H:i:s');
+                                            $isLive = $program->start_time <= $currentTime && $program->end_time >=
+                                                $currentTime;
+                                        $isDone = $program->end_time < $currentTime; @endphp <div
                                             class="relative bg-white rounded-2xl p-5 border {{ $isLive ? 'border-2 border-tv9-primary shadow-lg shadow-tv9-primary/10' : 'border-gray-200 hover:shadow-md' }} transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col gap-3 {{ $isDone ? 'opacity-60' : '' }}">
                                             {{-- Badge SEDANG TAYANG di atas card --}}
                                             @if($isLive)
@@ -284,8 +345,8 @@ $chunkedSchedules = collect($scheduleList)->chunk(3);
                             <a href="{{ route('jadwal') }}">
                                 <span
                                     class="inline-block py-1 px-3 rounded-full bg-yellow-500/20 text-yellow-500 font-semibold text-sm mb-4 border border-yellow-500/30 uppercase tracking-widest 
-                                                                                                                                                                                                                                                                                                                                                               transition-all duration-300 ease-in-out 
-                                                                                                                                                                                                                                                                                                                                                               hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           transition-all duration-300 ease-in-out 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           hover:bg-emerald-500/20 hover:text-emerald-500 hover:border-emerald-500/30 hover:scale-105">
                                     LIHAT SEMUA JADWAL
                                 </span>
                             </a>
@@ -329,9 +390,8 @@ $chunkedSchedules = collect($scheduleList)->chunk(3);
                                         @php
                                             $posterPath = str_replace('storage/', 'program-poster/', ltrim($catalog->image_url, '/'));
                                         @endphp
-                                        <img src="{{ str_starts_with($catalog->image_url, 'http') ? $catalog->image_url : '/' . $posterPath }}" 
-                                            alt="{{ $catalog->title }}"
-                                            class="nf-thumb-img">
+                                        <img src="{{ str_starts_with($catalog->image_url, 'http') ? $catalog->image_url : '/' . $posterPath }}"
+                                            alt="{{ $catalog->title }}" class="nf-thumb-img">
                                     @else
                                         <div class="nf-thumb-placeholder">
                                             <span class="nf-thumb-label">{{ $catalog->title }}</span>
@@ -401,255 +461,255 @@ $chunkedSchedules = collect($scheduleList)->chunk(3);
                                                                                     Trans TV Surabaya
                                                                                 </td>
                                                                             </tr> -->
-                                <tr>
-                                    <td class="text-gray-500 py-1.5">Wilayah</td>
-                                    <td class="text-right font-semibold text-tv9-green-900 py-1.5">
-                                        Jawa Timur-1
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="mt-4 text-xs text-gray-400 border-t pt-3">
-                            Mencakup: Surabaya, Mojokerto, Pasuruan, Bangkalan, Gresik, Jombang, Lamongan, Sidoarjo
-                        </div>
-                    </div>
-                    <!-- Card 2: TV Kabel -->
-                    <div class="card bg-gray-100 rounded-2xl p-6 border border-gray-200">
-                        <!-- Icon -->
-                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5">
-                            <i class="fa-solid fa-tv text-tv9-green-900 text-xl"></i>
-                        </div>
-                        <h3 class="text-tv9-green-900 font-semibold text-base mb-3">TV
-                            Kabel</h3>
-                        <p class="text-base text-gray-500 mb-5 leading-relaxed">
-                            Temukan kami di daftar channel favorit pada provider TV
-                            berbayar pilihan
-                            Anda.
-                        </p>
-                        <ul class="space-y-2.5">
-                            <li class="flex items-center gap-2.5 text-base text-gray-600">
-                                <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
-                                IndiHome
-                            </li>
-                            <li class="flex items-center gap-2.5 text-base text-gray-600">
-                                <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
-                                First Media
-                            </li>
-                            <li class="flex items-center gap-2.5 text-base text-gray-600">
-                                <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
-                                MNC Vision
-                            </li>
-                            <li class="flex items-center gap-2.5 text-base text-gray-600">
-                                <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
-                                TransVision
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Card 3: Digital & Apps -->
-                    <div class="card bg-gray-100 rounded-2xl p-6 border border-gray-200">
-                        <!-- Icon -->
-                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5">
-                            <i class="fa-solid fa-mobile-screen text-tv9-green-900 text-xl"></i>
-                        </div>
-                        <h3 class="text-tv9-green-900 font-semibold text-base mb-1">
-                            Digital &amp; Apps
-                        </h3>
-                        <p class="text-base text-gray-500 mb-1">Akses siaran langsung 24
-                            jam</p>
-                        <a href="https://www.tv9.co.id/live" target="_blank"
-                            class="inline-flex items-center gap-1.5 text-base text-tv9-green-900 font-semibold mb-5 hover:underline">
-                            www.tv9.co.id/live
-                            <i class="fa-solid fa-arrow-up-right-from-square text-base"></i>
-                        </a>
-                        <p class="text-base text-gray-400 mb-3 uppercase tracking-wide font-medium">
-                            Download Aplikasi
-                            Kami</p>
-                        <!-- Google Play -->
-                        <button onclick="showComingSoonAlert()"
-                            class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 mb-2.5 w-full hover:bg-gray-800 transition-colors">
-                            <i class="fa-brands fa-google-play text-sky-400 text-xl flex-shrink-0"></i>
-                            <div class="leading-tight">
-                                <p class="text-[10px] text-gray-400 font-normal">GET IT
-                                    ON</p>
-                                <p class="text-base font-semibold">Google Play</p>
-                            </div>
-                        </button>
-                        <!-- App Store -->
-                        <button onclick="showComingSoonAlert()"
-                            class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 w-full hover:bg-gray-800 transition-colors">
-                            <i class="fa-brands fa-apple text-white text-xl flex-shrink-0"></i>
-                            <div class="leading-tight">
-                                <p class="text-[10px] text-gray-400 font-normal">
-                                    DOWNLOAD ON THE</p>
-                                <p class="text-base font-semibold">App Store</p>
-                            </div>
-                        </button>
+                            <tr>
+                                <td class="text-gray-500 py-1.5">Wilayah</td>
+                                <td class="text-right font-semibold text-tv9-green-900 py-1.5">
+                                    Jawa Timur-1
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="mt-4 text-xs text-gray-400 border-t pt-3">
+                        Mencakup: Surabaya, Mojokerto, Pasuruan, Bangkalan, Gresik, Jombang, Lamongan, Sidoarjo
                     </div>
                 </div>
-            </div>
-        </section>
-    
-        <!-- SECTION MARKETING & MEDIA SOLUTIONS -->
-        <section class="media-section w-full py-16 px-8">
-            <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <!-- Konten Kiri -->
-                    <div>
-                        <!-- Lencana -->
-                        <span
-                            class="inline-block text-[10px] font-semibold tracking-widest uppercase text-yellow-300 border border-yellow-500/40 bg-yellow-500/10 rounded px-3 py-1 mb-5">
-                            Solusi Media TV9 Nusantara
-                        </span>
-    
-                        <!-- Judul -->
-                        <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight mb-4">
-                            Kembangkan Bisnis Anda bersama<br>TV9 Nusantara
-                        </h2>
-    
-                        <!-- Deskripsi -->
-                        <p class="text-base text-green-100/70 leading-relaxed mb-8 max-w-sm">
-                            Raih audiens yang loyal dan berdaya beli tinggi melalui
-                            solusi
-                            periklanan & pemasaran
-                            yang selaras dengan nilai-nilai Islam dan kearifan lokal
-                            Indonesia.
-                        </p>
-                        <!-- Fitur -->
-                        <div class="space-y-5 mb-10">
-                            <!-- Siaran TV -->
-                            <div class="flex gap-4 items-start">
-                                <div class="feature-icon-wrap">
-                                    <i class="fa-solid fa-tv text-yellow-400 text-base"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-semibold text-base mb-1">
-                                        Iklan &
-                                        Sponsorship Siaran</h4>
-                                    <p class="text-base text-green-100/60 leading-relaxed">
-                                        Penempatan
-                                        iklan TV dan sponsor
-                                        program unggulan seperti kajian Islami, kuliner
-                                        Nusantara,
-                                        dan berita daerah.</p>
-                                </div>
-                            </div>
-                            <!-- Digital Marketing -->
-                            <div class="flex gap-4 items-start">
-                                <div class="feature-icon-wrap">
-                                    <i class="fa-solid fa-chart-line text-yellow-400 text-base"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-semibold text-base mb-1">
-                                        Pemasaran
-                                        Digital & Sosial Media</h4>
-                                    <p class="text-base text-green-100/60 leading-relaxed">
-                                        Kampanye
-                                        digital terintegrasi di
-                                        platform digital TV9 Nusantara, YouTube,
-                                        Instagram, dan
-                                        TikTok.</p>
-                                </div>
-                            </div>
-                            <!-- Produksi Konten -->
-                            <div class="flex gap-4 items-start">
-                                <div class="feature-icon-wrap">
-                                    <i class="fa-solid fa-film text-yellow-400 text-base"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-semibold text-base mb-1">
-                                        Produksi
-                                        Live Event</h4>
-                                    <p class="text-base text-green-100/60 leading-relaxed">
-                                        Penyelenggaraan acara secara langsung dan on-air, mulai dari seminar, konser musik
-                                        religi, hingga tabligh akbar dengan dukungan teknis yang
-                                        profesional.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Tombol CTA -->
-                        <a href="{{ route('layanan') }}"
-                            class="contact-btn inline-flex items-center gap-2.5 bg-yellow-600 text-white text-base font-semibold rounded-xl px-6 py-3">
-                            <i class="fa-solid fa-headset text-base"></i>
-                            Hubungi Tim Marketing TV9
-                        </a>
+                <!-- Card 2: TV Kabel -->
+                <div class="card bg-gray-100 rounded-2xl p-6 border border-gray-200">
+                    <!-- Icon -->
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-tv text-tv9-green-900 text-xl"></i>
                     </div>
-                    <!-- Kanan: Gambar + Statistik -->
-                    <div class="relative">
-                        <div class="image-card w-full aspect-[4/3] bg-gray-800 overflow-hidden rounded-lg">
-                            <!-- Ganti dengan gambar studio TV9 Nusantara atau kegiatan syuting -->
-                            <img src="{{ asset('img/profile1.jpg') }}" alt="Studio TV9 Nusantara"
-                                class="w-full h-full object-cover grayscale opacity-80" />
-                            <!-- Lencana Statistik -->
-                            <div class="stat-badge absolute bottom-4 left-4 bg-black/60 backdrop-blur-md rounded-lg p-3">
-                                <p class="text-3xl font-bold text-white leading-none mb-1">
-                                    85%</p>
-                                <p class="text-[10px] text-yellow-200/80 uppercase tracking-widest font-medium">
-                                    Tingkat Kepercayaan Pemirsa</p>
-                            </div>
-                        </div>
+                    <h3 class="text-tv9-green-900 font-semibold text-base mb-3">TV
+                        Kabel</h3>
+                    <p class="text-base text-gray-500 mb-5 leading-relaxed">
+                        Temukan kami di daftar channel favorit pada provider TV
+                        berbayar pilihan
+                        Anda.
+                    </p>
+                    <ul class="space-y-2.5">
+                        <li class="flex items-center gap-2.5 text-base text-gray-600">
+                            <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
+                            IndiHome
+                        </li>
+                        <li class="flex items-center gap-2.5 text-base text-gray-600">
+                            <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
+                            First Media
+                        </li>
+                        <li class="flex items-center gap-2.5 text-base text-gray-600">
+                            <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
+                            MNC Vision
+                        </li>
+                        <li class="flex items-center gap-2.5 text-base text-gray-600">
+                            <i class="fa-solid fa-circle-check text-tv9-green-900 text-base flex-shrink-0"></i>
+                            TransVision
+                        </li>
+                    </ul>
+                </div>
+                <!-- Card 3: Digital & Apps -->
+                <div class="card bg-gray-100 rounded-2xl p-6 border border-gray-200">
+                    <!-- Icon -->
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-mobile-screen text-tv9-green-900 text-xl"></i>
                     </div>
+                    <h3 class="text-tv9-green-900 font-semibold text-base mb-1">
+                        Digital &amp; Apps
+                    </h3>
+                    <p class="text-base text-gray-500 mb-1">Akses siaran langsung 24
+                        jam</p>
+                    <a href="https://www.tv9.co.id/live" target="_blank"
+                        class="inline-flex items-center gap-1.5 text-base text-tv9-green-900 font-semibold mb-5 hover:underline">
+                        www.tv9.co.id/live
+                        <i class="fa-solid fa-arrow-up-right-from-square text-base"></i>
+                    </a>
+                    <p class="text-base text-gray-400 mb-3 uppercase tracking-wide font-medium">
+                        Download Aplikasi
+                        Kami</p>
+                    <!-- Google Play -->
+                    <button onclick="showComingSoonAlert()"
+                        class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 mb-2.5 w-full hover:bg-gray-800 transition-colors">
+                        <i class="fa-brands fa-google-play text-sky-400 text-xl flex-shrink-0"></i>
+                        <div class="leading-tight">
+                            <p class="text-[10px] text-gray-400 font-normal">GET IT
+                                ON</p>
+                            <p class="text-base font-semibold">Google Play</p>
+                        </div>
+                    </button>
+                    <!-- App Store -->
+                    <button onclick="showComingSoonAlert()"
+                        class="store-btn flex items-center gap-3 bg-gray-900 text-white rounded-xl px-4 py-2.5 w-full hover:bg-gray-800 transition-colors">
+                        <i class="fa-brands fa-apple text-white text-xl flex-shrink-0"></i>
+                        <div class="leading-tight">
+                            <p class="text-[10px] text-gray-400 font-normal">
+                                DOWNLOAD ON THE</p>
+                            <p class="text-base font-semibold">App Store</p>
+                        </div>
+                    </button>
                 </div>
             </div>
-        </section>
-    
-        <section class="w-full bg-white py-14 px-8">
-            <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-    
-                <!-- Header -->
-                <div class="flex items-center justify-between mb-8">
-                    <div>
-                        <h2 class="text-2xl font-bold text-gray-900 tracking-tight">
-                            Jurnal 9: Berita
-                            Terkini
-                        </h2>
-                        <div class="w-12 h-[3px] bg-yellow-600 rounded mt-2"></div>
+        </div>
+    </section>
+
+    <!-- SECTION MARKETING & MEDIA SOLUTIONS -->
+    <section class="media-section w-full py-16 px-8">
+        <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Konten Kiri -->
+                <div>
+                    <!-- Lencana -->
+                    <span
+                        class="inline-block text-[10px] font-semibold tracking-widest uppercase text-yellow-300 border border-yellow-500/40 bg-yellow-500/10 rounded px-3 py-1 mb-5">
+                        Solusi Media TV9 Nusantara
+                    </span>
+
+                    <!-- Judul -->
+                    <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight mb-4">
+                        Kembangkan Bisnis Anda bersama<br>TV9 Nusantara
+                    </h2>
+
+                    <!-- Deskripsi -->
+                    <p class="text-base text-green-100/70 leading-relaxed mb-8 max-w-sm">
+                        Raih audiens yang loyal dan berdaya beli tinggi melalui
+                        solusi
+                        periklanan & pemasaran
+                        yang selaras dengan nilai-nilai Islam dan kearifan lokal
+                        Indonesia.
+                    </p>
+                    <!-- Fitur -->
+                    <div class="space-y-5 mb-10">
+                        <!-- Siaran TV -->
+                        <div class="flex gap-4 items-start">
+                            <div class="feature-icon-wrap">
+                                <i class="fa-solid fa-tv text-yellow-400 text-base"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-base mb-1">
+                                    Iklan &
+                                    Sponsorship Siaran</h4>
+                                <p class="text-base text-green-100/60 leading-relaxed">
+                                    Penempatan
+                                    iklan TV dan sponsor
+                                    program unggulan seperti kajian Islami, kuliner
+                                    Nusantara,
+                                    dan berita daerah.</p>
+                            </div>
+                        </div>
+                        <!-- Digital Marketing -->
+                        <div class="flex gap-4 items-start">
+                            <div class="feature-icon-wrap">
+                                <i class="fa-solid fa-chart-line text-yellow-400 text-base"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-base mb-1">
+                                    Pemasaran
+                                    Digital & Sosial Media</h4>
+                                <p class="text-base text-green-100/60 leading-relaxed">
+                                    Kampanye
+                                    digital terintegrasi di
+                                    platform digital TV9 Nusantara, YouTube,
+                                    Instagram, dan
+                                    TikTok.</p>
+                            </div>
+                        </div>
+                        <!-- Produksi Konten -->
+                        <div class="flex gap-4 items-start">
+                            <div class="feature-icon-wrap">
+                                <i class="fa-solid fa-film text-yellow-400 text-base"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-base mb-1">
+                                    Produksi
+                                    Live Event</h4>
+                                <p class="text-base text-green-100/60 leading-relaxed">
+                                    Penyelenggaraan acara secara langsung dan on-air, mulai dari seminar, konser musik
+                                    religi, hingga tabligh akbar dengan dukungan teknis yang
+                                    profesional.</p>
+                            </div>
+                        </div>
                     </div>
-                    <a href="https://jurnal9.tv" target="_blank"
-                        class="text-base font-semibold text-yellow-600 hover:text-yellow-700 flex items-center gap-1 transition-colors">
-                        Selengkapnya <i class="fa-solid fa-arrow-right text-base"></i>
+                    <!-- Tombol CTA -->
+                    <a href="{{ route('layanan') }}"
+                        class="contact-btn inline-flex items-center gap-2.5 bg-yellow-600 text-white text-base font-semibold rounded-xl px-6 py-3">
+                        <i class="fa-solid fa-headset text-base"></i>
+                        Hubungi Tim Marketing TV9
                     </a>
                 </div>
-                <!-- Loading State -->
-                <div id="news-loading" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="animate-pulse">
-                        <div class="bg-gray-100 rounded-2xl h-48 mb-4"></div>
-                        <div class="h-3 bg-gray-100 rounded w-1/4 mb-3"></div>
-                        <div class="h-4 bg-gray-100 rounded w-full mb-2"></div>
-                        <div class="h-4 bg-gray-100 rounded w-3/4 mb-4"></div>
-                        <div class="h-3 bg-gray-100 rounded w-full mb-1"></div>
-                        <div class="h-3 bg-gray-100 rounded w-5/6"></div>
+                <!-- Kanan: Gambar + Statistik -->
+                <div class="relative">
+                    <div class="image-card w-full aspect-[4/3] bg-gray-800 overflow-hidden rounded-lg">
+                        <!-- Ganti dengan gambar studio TV9 Nusantara atau kegiatan syuting -->
+                        <img src="{{ asset('img/profile1.jpg') }}" alt="Studio TV9 Nusantara"
+                            class="w-full h-full object-cover grayscale opacity-80" />
+                        <!-- Lencana Statistik -->
+                        <div class="stat-badge absolute bottom-4 left-4 bg-black/60 backdrop-blur-md rounded-lg p-3">
+                            <p class="text-3xl font-bold text-white leading-none mb-1">
+                                85%</p>
+                            <p class="text-[10px] text-yellow-200/80 uppercase tracking-widest font-medium">
+                                Tingkat Kepercayaan Pemirsa</p>
+                        </div>
                     </div>
-                    <div class="animate-pulse">
-                        <div class="bg-gray-100 rounded-2xl h-48 mb-4"></div>
-                        <div class="h-3 bg-gray-100 rounded w-1/4 mb-3"></div>
-                        <div class="h-4 bg-gray-100 rounded w-full mb-2"></div>
-                        <div class="h-4 bg-gray-100 rounded w-3/4 mb-4"></div>
-                        <div class="h-3 bg-gray-100 rounded w-full mb-1"></div>
-                        <div class="h-3 bg-gray-100 rounded w-5/6"></div>
-                    </div>
-                    <div class="animate-pulse">
-                        <div class="bg-gray-100 rounded-2xl h-48 mb-4"></div>
-                        <div class="h-3 bg-gray-100 rounded w-1/4 mb-3"></div>
-                        <div class="h-4 bg-gray-100 rounded w-full mb-2"></div>
-                        <div class="h-4 bg-gray-100 rounded w-3/4 mb-4"></div>
-                        <div class="h-3 bg-gray-100 rounded w-full mb-1"></div>
-                        <div class="h-3 bg-gray-100 rounded w-5/6"></div>
-                    </div>
-                </div>
-                <!-- News Grid -->
-                <div id="news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 hidden"></div>
-    
-                <!-- Error State -->
-                <div id="news-error" class="hidden text-center py-12 text-gray-400">
-                    <i class="fa-solid fa-circle-exclamation text-3xl mb-3 block"></i>
-                    <p class="text-base">Gagal memuat berita. Silakan coba lagi.</p>
                 </div>
             </div>
-        </section>
-        <div class="elfsight-app-5d453261-cc99-4c4f-b921-1ce334b79599" data-elfsight-app-lazy></div>
-    
-        <!-- Suara Komunitas Section -->
-        <!-- <section class="w-full media-section py-16 px-8">
+        </div>
+    </section>
+
+    <section class="w-full bg-white py-14 px-8">
+        <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 tracking-tight">
+                        Jurnal 9: Berita
+                        Terkini
+                    </h2>
+                    <div class="w-12 h-[3px] bg-yellow-600 rounded mt-2"></div>
+                </div>
+                <a href="https://jurnal9.tv" target="_blank"
+                    class="text-base font-semibold text-yellow-600 hover:text-yellow-700 flex items-center gap-1 transition-colors">
+                    Selengkapnya <i class="fa-solid fa-arrow-right text-base"></i>
+                </a>
+            </div>
+            <!-- Loading State -->
+            <div id="news-loading" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="animate-pulse">
+                    <div class="bg-gray-100 rounded-2xl h-48 mb-4"></div>
+                    <div class="h-3 bg-gray-100 rounded w-1/4 mb-3"></div>
+                    <div class="h-4 bg-gray-100 rounded w-full mb-2"></div>
+                    <div class="h-4 bg-gray-100 rounded w-3/4 mb-4"></div>
+                    <div class="h-3 bg-gray-100 rounded w-full mb-1"></div>
+                    <div class="h-3 bg-gray-100 rounded w-5/6"></div>
+                </div>
+                <div class="animate-pulse">
+                    <div class="bg-gray-100 rounded-2xl h-48 mb-4"></div>
+                    <div class="h-3 bg-gray-100 rounded w-1/4 mb-3"></div>
+                    <div class="h-4 bg-gray-100 rounded w-full mb-2"></div>
+                    <div class="h-4 bg-gray-100 rounded w-3/4 mb-4"></div>
+                    <div class="h-3 bg-gray-100 rounded w-full mb-1"></div>
+                    <div class="h-3 bg-gray-100 rounded w-5/6"></div>
+                </div>
+                <div class="animate-pulse">
+                    <div class="bg-gray-100 rounded-2xl h-48 mb-4"></div>
+                    <div class="h-3 bg-gray-100 rounded w-1/4 mb-3"></div>
+                    <div class="h-4 bg-gray-100 rounded w-full mb-2"></div>
+                    <div class="h-4 bg-gray-100 rounded w-3/4 mb-4"></div>
+                    <div class="h-3 bg-gray-100 rounded w-full mb-1"></div>
+                    <div class="h-3 bg-gray-100 rounded w-5/6"></div>
+                </div>
+            </div>
+            <!-- News Grid -->
+            <div id="news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 hidden"></div>
+
+            <!-- Error State -->
+            <div id="news-error" class="hidden text-center py-12 text-gray-400">
+                <i class="fa-solid fa-circle-exclamation text-3xl mb-3 block"></i>
+                <p class="text-base">Gagal memuat berita. Silakan coba lagi.</p>
+            </div>
+        </div>
+    </section>
+    <div class="elfsight-app-5d453261-cc99-4c4f-b921-1ce334b79599" data-elfsight-app-lazy></div>
+
+    <!-- Suara Komunitas Section -->
+    <!-- <section class="w-full media-section py-16 px-8">
                                                                                         <div class="max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="100">
                                                                                         
                                                                                             <div class="text-center mb-12">
