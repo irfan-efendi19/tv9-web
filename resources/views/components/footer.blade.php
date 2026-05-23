@@ -3,9 +3,6 @@
         <div class="grid md:grid-cols-4 gap-8 mb-10">
             <div class="md:col-span-1">
                 <div class="flex items-center gap-2 mb-4">
-                    <!-- <div class="w-8 h-8 rounded-full bg-tv9-gold flex items-center justify-center">
-                        <span class="text-tv9-green-dark font-black text-xs">TV9</span>
-                    </div> -->
                     <span class="font-bold text-sm">TV9 Nusantara</span>
                 </div>
                 <p class="text-white/40 text-xs leading-relaxed">Santun Menyejukkan
