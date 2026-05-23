@@ -1846,7 +1846,6 @@
             </div>
         </div>
     </section>
-    <div class="elfsight-app-5d453261-cc99-4c4f-b921-1ce334b79599" data-elfsight-app-lazy></div>
 
     <x-footer />
     <!-- Simple script to inject current year dynamically (like {{ date('Y') }} in PHP) -->
@@ -1854,7 +1853,6 @@
     document.getElementById('currentYear').innerText = new Date().getFullYear();
     Text = new Date().getFullYear();
     </script>
-    <script src="https://elfsightcdn.com/platform.js" async></script>
     <script src="{{ asset('js/welcome.js') }}"></script>
     <script src="{{ asset('js/stats.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -706,7 +706,6 @@ $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_pa
             </div>
         </div>
     </section>
-    <div class="elfsight-app-5d453261-cc99-4c4f-b921-1ce334b79599" data-elfsight-app-lazy></div>
 
     <!-- Suara Komunitas Section -->
     <!-- <section class="w-full media-section py-16 px-8">
@@ -838,7 +837,6 @@ $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_pa
         document.getElementById('currentYear').innerText = new Date().getFullYear();
     }
     </script>
-    <script src="https://elfsightcdn.com/platform.js" async></script>
     <script src="{{ asset('js/welcome.js') }}"></script>
     <style>
     /* Sembunyikan durasi (timestamp) pada live streaming */

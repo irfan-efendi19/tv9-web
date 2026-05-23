@@ -907,11 +907,9 @@ $manifestPath = $isProduction ? '../public_html/build/manifest.json' : public_pa
         </div>
     </section>
 
-    <div class="elfsight-app-5d453261-cc99-4c4f-b921-1ce334b79599" data-elfsight-app-lazy></div>
 
     <x-footer />
     <script src="{{ asset('js/welcome.js') }}"></script>
-    <script src="https://elfsightcdn.com/platform.js" async></script>
     <script>
     function showComingSoonAlert() {
         Swal.fire({
