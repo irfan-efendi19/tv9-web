@@ -45,6 +45,9 @@
                     </li>
                     <li><a href="{{ route('sitemap') }}" class="hover:text-white transition-colors">Sitemap</a>
                     </li>
+                    <li><a href="https://stats.uptimerobot.com/x4trSwe6NX" target="_blank" class="hover:text-white transition-colors">Status
+                            Server</a>
+                    </li>
                     </li>
                 </ul>
             </div>
