@@ -178,7 +178,7 @@
                                                     <span
                                                         class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-[10px] lg:text-xs font-bold bg-red-500 text-white shadow-lg shadow-red-200 uppercase tracking-widest animate-pulse">
                                                         <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
-                                                        Sedang Berlangsung
+                                                        Sedang Tayang
                                                     </span>
                                                 @endif
                                             </div>
